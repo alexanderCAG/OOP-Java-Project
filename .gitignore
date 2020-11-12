@@ -1,4 +1,5 @@
 nbproject
 *.xml
 *.mf
+build/*
 
