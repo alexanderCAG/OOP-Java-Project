@@ -44,6 +44,7 @@ public class Login extends javax.swing.JFrame {
         jTextField1 = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
+        jPanel3 = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
 
@@ -83,7 +84,7 @@ public class Login extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 126, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 409, Short.MAX_VALUE)
                 .addComponent(jLabel4)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -103,40 +104,44 @@ public class Login extends javax.swing.JFrame {
         jPanel2.setLayout(null);
 
         jPasswordField1.setBackground(new java.awt.Color(108, 122, 137));
+        jPasswordField1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jPasswordField1.setForeground(new java.awt.Color(255, 255, 255));
         jPanel2.add(jPasswordField1);
-        jPasswordField1.setBounds(450, 100, 322, 55);
+        jPasswordField1.setBounds(630, 210, 370, 70);
 
         jButton1.setText("CONNEXION");
         jPanel2.add(jButton1);
-        jButton1.setBounds(520, 190, 178, 48);
+        jButton1.setBounds(730, 320, 178, 48);
 
-        jLabel3.setIcon(new javax.swing.ImageIcon("C:\\Users\\alexa\\OneDrive\\Bureau\\ECE\\ING 3\\Java\\Projet\\Image\\icons8-lock-32 (1).png")); // NOI18N
+        jLabel3.setIcon(new javax.swing.ImageIcon("C:\\Users\\alexa\\OneDrive\\Bureau\\ECE\\ING 3\\Java\\Projet\\Image\\user.png")); // NOI18N
         jPanel2.add(jLabel3);
-        jLabel3.setBounds(300, 110, 30, 30);
+        jLabel3.setBounds(460, 130, 24, 20);
 
         jLabel2.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\alexa\\OneDrive\\Bureau\\ECE\\ING 3\\Java\\Projet\\Image\\icons8-male-user-24 (1).png")); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\alexa\\OneDrive\\Bureau\\ECE\\ING 3\\Java\\Projet\\Image\\lock.png")); // NOI18N
         jPanel2.add(jLabel2);
-        jLabel2.setBounds(300, 50, 24, 24);
+        jLabel2.setBounds(460, 230, 30, 32);
 
         jTextField1.setBackground(new java.awt.Color(108, 122, 137));
+        jTextField1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jTextField1.setForeground(new java.awt.Color(255, 255, 255));
         jPanel2.add(jTextField1);
-        jTextField1.setBounds(450, 40, 322, 52);
+        jTextField1.setBounds(630, 110, 370, 70);
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel7.setText("Password :");
         jPanel2.add(jLabel7);
-        jLabel7.setBounds(340, 110, 99, 30);
+        jLabel7.setBounds(500, 230, 99, 30);
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel8.setText(" Username :");
         jPanel2.add(jLabel8);
-        jLabel8.setBounds(330, 50, 110, 30);
+        jLabel8.setBounds(490, 120, 110, 40);
+
+        jPanel3.setBackground(new java.awt.Color(102, 153, 255));
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(0, 0, 255));
+        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("click here to create a new account");
         jLabel9.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLabel9.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -144,12 +149,29 @@ public class Login extends javax.swing.JFrame {
                 jLabel9MouseClicked(evt);
             }
         });
-        jPanel2.add(jLabel9);
-        jLabel9.setBounds(460, 270, 320, 32);
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        jPanel2.add(jPanel3);
+        jPanel3.setBounds(660, 420, 330, 40);
 
         jLabel10.setIcon(new javax.swing.ImageIcon("C:\\Users\\alexa\\OneDrive\\Bureau\\ECE\\ING 3\\Java\\Projet\\Image\\employeur.jpg")); // NOI18N
         jPanel2.add(jLabel10);
-        jLabel10.setBounds(0, 0, 820, 370);
+        jLabel10.setBounds(0, 0, 1100, 540);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -163,7 +185,7 @@ public class Login extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 538, Short.MAX_VALUE))
         );
 
         pack();
@@ -239,6 +261,7 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
