@@ -169,7 +169,7 @@ public class Login extends javax.swing.JFrame {
         jPanel2.add(jPanel3);
         jPanel3.setBounds(660, 420, 330, 40);
 
-        jLabel10.setIcon(new javax.swing.ImageIcon("C:\\Users\\alexa\\OneDrive\\Bureau\\ECE\\ING 3\\Java\\Projet\\Image\\employeur.jpg")); // NOI18N
+        jLabel10.setIcon(new javax.swing.ImageIcon("C:\\Users\\alexa\\OneDrive\\Bureau\\ECE\\ING 3\\Java\\Projet\\Image\\login.jpg")); // NOI18N
         jPanel2.add(jLabel10);
         jLabel10.setBounds(0, 0, 1100, 540);
 
