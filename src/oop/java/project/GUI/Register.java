@@ -213,7 +213,7 @@ public class Register extends javax.swing.JFrame {
             }
         });
         jPanel2.add(jButton1);
-        jButton1.setBounds(813, 513, 224, 82);
+        jButton1.setBounds(810, 490, 224, 82);
 
         jPanel4.setBackground(new java.awt.Color(204, 102, 0));
 
