@@ -5,6 +5,8 @@
  */
 package oop.java.project;
 
+import oop.java.project.GUI.Login;
+
 /**
  *
  * @author alexa
@@ -16,6 +18,9 @@ public class OOPJavaProject {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        
+        new Login();
+        
     }
     
 }
