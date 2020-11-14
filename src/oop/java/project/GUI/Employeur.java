@@ -22,6 +22,10 @@ public class Employeur extends javax.swing.JFrame {
         this.setLocationRelativeTo(null); // center of the screen 
         jPanel4.setBackground(new Color(204,102,0,120));
         jTextArea2.setBackground(new Color(204,102,0,120));
+        jComboBox1.setBackground(new Color(150,102,0,120));
+        jComboBox2.setBackground(new Color(150,102,0,120));
+        jButton3.setBackground(new Color(150,102,0,120));
+        jButton4.setBackground(new Color(150,102,0,120));
     }
 
     /**
@@ -108,10 +112,12 @@ public class Employeur extends javax.swing.JFrame {
         jPanel1.add(jPanel2);
         jPanel2.setBounds(0, 0, 1100, 180);
 
+        jComboBox1.setBackground(new java.awt.Color(150, 102, 0));
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jPanel1.add(jComboBox1);
         jComboBox1.setBounds(400, 210, 247, 70);
 
+        jComboBox2.setBackground(new java.awt.Color(150, 102, 0));
         jComboBox2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jPanel1.add(jComboBox2);
         jComboBox2.setBounds(60, 210, 247, 70);
@@ -123,6 +129,7 @@ public class Employeur extends javax.swing.JFrame {
         jLabel7.setText("Candidats");
 
         jTextArea2.setColumns(20);
+        jTextArea2.setFont(new java.awt.Font("Monospaced", 0, 14)); // NOI18N
         jTextArea2.setRows(5);
         jTextArea2.setText("fezf\nfez\nfez\n\n\n\nfez\nez\n\n\nfze\n\nfezf\n\n\n\n\n\n\n\n\n\n\nfeézfz\"f\nezfze\nf\nzef\ne\nfzefzfe\n");
         jScrollPane2.setViewportView(jTextArea2);
@@ -154,6 +161,7 @@ public class Employeur extends javax.swing.JFrame {
         jPanel1.add(jPanel4);
         jPanel4.setBounds(720, 210, 340, 410);
 
+        jButton3.setBackground(new java.awt.Color(150, 102, 0));
         jButton3.setText("VALIDER");
         jButton3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -163,6 +171,7 @@ public class Employeur extends javax.swing.JFrame {
         jPanel1.add(jButton3);
         jButton3.setBounds(430, 340, 190, 50);
 
+        jButton4.setBackground(new java.awt.Color(150, 102, 0));
         jButton4.setText("VALIDER");
         jButton4.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {

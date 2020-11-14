@@ -23,7 +23,7 @@ public class Recruteur extends javax.swing.JFrame {
         jLabel7.setBackground(new Color(0,0,0,0));
         jTextField1.setBackground(new Color(0,102,51,120));
         jTextField2.setBackground(new Color(0,102,51,120));
-        jTextField3.setBackground(new Color(0,102,51,120));
+        jComboBox1.setBackground(new Color(0,102,70,120));
      
 //        if(jTextField1 != null)
 //            jLabel7.setText(null);
@@ -52,10 +52,12 @@ public class Recruteur extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
+        jLabel9 = new javax.swing.JLabel();
         jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
+        jComboBox1 = new javax.swing.JComboBox();
+        jLabel10 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -124,29 +126,40 @@ public class Recruteur extends javax.swing.JFrame {
         jPanel2.add(jPanel3);
         jPanel3.setBounds(0, 0, 1100, 197);
 
-        jLabel7.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel7.setText("             Ajouter un emplois");
-        jPanel2.add(jLabel7);
-        jLabel7.setBounds(100, 220, 270, 70);
-
         jTextField1.setBackground(new java.awt.Color(0, 102, 51));
         jTextField1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jTextField1.setForeground(new java.awt.Color(255, 255, 255));
         jPanel2.add(jTextField1);
         jTextField1.setBounds(120, 220, 260, 70);
 
+        jLabel9.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(0, 102, 51));
+        jLabel9.setText("             Ajouter un emplois");
+        jPanel2.add(jLabel9);
+        jLabel9.setBounds(60, 170, 270, 70);
+
         jTextField2.setBackground(new java.awt.Color(0, 102, 51));
         jTextField2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jTextField2.setForeground(new java.awt.Color(255, 255, 255));
         jPanel2.add(jTextField2);
-        jTextField2.setBounds(690, 210, 260, 70);
+        jTextField2.setBounds(690, 220, 260, 70);
 
-        jTextField3.setBackground(new java.awt.Color(0, 102, 51));
-        jTextField3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jTextField3.setForeground(new java.awt.Color(255, 255, 255));
-        jPanel2.add(jTextField3);
-        jTextField3.setBounds(120, 430, 260, 70);
+        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(0, 102, 51));
+        jLabel7.setText("             Liste d'emplois");
+        jPanel2.add(jLabel7);
+        jLabel7.setBounds(60, 380, 270, 70);
+
+        jComboBox1.setBackground(new java.awt.Color(0, 102, 51));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jPanel2.add(jComboBox1);
+        jComboBox1.setBounds(120, 430, 260, 70);
+
+        jLabel10.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(0, 102, 51));
+        jLabel10.setText("             Analyse d'emplois");
+        jPanel2.add(jLabel10);
+        jLabel10.setBounds(630, 170, 270, 70);
 
         jLabel3.setIcon(new javax.swing.ImageIcon("C:\\Users\\alexa\\OneDrive\\Documents\\GitHub\\OOP-Java-Project\\Image\\recruteur.jpg")); // NOI18N
         jPanel2.add(jLabel3);
@@ -213,7 +226,9 @@ public class Recruteur extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox jComboBox1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -221,12 +236,12 @@ public class Recruteur extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
     // End of variables declaration//GEN-END:variables
 }

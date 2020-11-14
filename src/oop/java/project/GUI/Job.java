@@ -119,6 +119,9 @@ public class Job extends javax.swing.JFrame {
         jComboBox3.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jPanel3.add(jComboBox3);
         jComboBox3.setBounds(410, 210, 247, 70);
+
+        jDateChooser1.setBackground(new java.awt.Color(204, 153, 0));
+        jDateChooser1.setForeground(new java.awt.Color(0, 255, 204));
         jPanel3.add(jDateChooser1);
         jDateChooser1.setBounds(770, 210, 255, 70);
 

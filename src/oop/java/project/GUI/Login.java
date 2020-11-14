@@ -5,7 +5,6 @@
  */
 package oop.java.project.GUI;
 
-import java.awt.Frame;
 import java.awt.Toolkit;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -256,6 +255,32 @@ public class Login extends javax.swing.JFrame {
             job.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             this.dispose();
         }
+        else if(user.contains("employeur") && password.contains("root"))
+        {
+            UserName.setText(null);
+            jPasswordField1.setText(null);
+            
+            
+            Employeur empl = new Employeur();
+            empl.setVisible(true);
+            empl.pack();
+            empl.setLocationRelativeTo(null);
+            empl.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            this.dispose();
+        }
+        else if(user.contains("recruteur") && password.contains("root"))
+        {
+            UserName.setText(null);
+            jPasswordField1.setText(null);
+            
+            
+            Recruteur recru = new Recruteur();
+            recru.setVisible(true);
+            recru.pack();
+            recru.setLocationRelativeTo(null);
+            recru.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            this.dispose();
+        }
         else
         {
             JOptionPane.showMessageDialog(null, "Mot de passe INCORECT", "Login Error", JOptionPane.ERROR_MESSAGE);
@@ -263,26 +288,8 @@ public class Login extends javax.swing.JFrame {
             jPasswordField1.setText(null);
         }
         
-        
-//        if(user.contains("employeur") && password.contains("root"))
-//        {
-//            UserName.setText(null);
-//            jPasswordField1.setText(null);
-//            
-//            
-//            Employeur empl = new Employeur();
-//            empl.setVisible(true);
-//            empl.pack();
-//            empl.setLocationRelativeTo(null);
-//            empl.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-//            this.dispose();
-//        }
-//        else
-//        {
-//            JOptionPane.showMessageDialog(null, "Mot de passe INCORECT", "Login Error", JOptionPane.ERROR_MESSAGE);
-//            UserName.setText(null);
-//            jPasswordField1.setText(null);
-//        }
+  
+       
         
     }//GEN-LAST:event_jButton2ActionPerformed
 
