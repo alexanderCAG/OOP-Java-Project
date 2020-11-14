@@ -70,6 +70,7 @@ public class Job extends javax.swing.JFrame {
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 48)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setText("Alexander");
         jPanel1.add(jLabel4);
         jLabel4.setBounds(360, 30, 330, 90);
 
