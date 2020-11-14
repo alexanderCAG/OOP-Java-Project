@@ -112,11 +112,11 @@ public class Job extends javax.swing.JFrame {
         jPanel3.add(jPanel1);
         jPanel1.setBounds(0, 0, 1100, 169);
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Secrétaire", "Informaticien", "Medecin" }));
         jPanel3.add(jComboBox1);
         jComboBox1.setBounds(60, 210, 247, 70);
 
-        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Etudiant", "BAC +3", "BAC +5" }));
         jPanel3.add(jComboBox3);
         jComboBox3.setBounds(410, 210, 247, 70);
 

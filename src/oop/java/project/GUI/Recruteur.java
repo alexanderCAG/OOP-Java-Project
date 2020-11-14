@@ -27,14 +27,21 @@ public class Recruteur extends javax.swing.JFrame {
         jComboBox1.setBackground(new Color(0,102,70,120));
      
         jTextField1.addKeyListener(new KeyAdapter(){
-            
             @Override
             public void keyReleased(KeyEvent hidden)
             {
                 jLabel9.setText("");
             }
         });
-
+        
+        jTextField2.addKeyListener(new KeyAdapter(){
+            @Override
+            public void keyReleased(KeyEvent hidden)
+            {
+                jLabel10.setText("");
+            }
+        });
+        
     }
 
     /**
@@ -140,7 +147,7 @@ public class Recruteur extends javax.swing.JFrame {
         jLabel9.setForeground(new java.awt.Color(0, 102, 51));
         jLabel9.setText("             Ajouter un emplois");
         jPanel2.add(jLabel9);
-        jLabel9.setBounds(60, 170, 270, 70);
+        jLabel9.setBounds(100, 220, 270, 70);
 
         jTextField2.setBackground(new java.awt.Color(0, 102, 51));
         jTextField2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -163,7 +170,7 @@ public class Recruteur extends javax.swing.JFrame {
         jLabel10.setForeground(new java.awt.Color(0, 102, 51));
         jLabel10.setText("             Analyse d'emplois");
         jPanel2.add(jLabel10);
-        jLabel10.setBounds(630, 170, 270, 70);
+        jLabel10.setBounds(680, 220, 270, 70);
 
         jLabel3.setIcon(new javax.swing.ImageIcon("C:\\Users\\alexa\\OneDrive\\Documents\\GitHub\\OOP-Java-Project\\Image\\recruteur.jpg")); // NOI18N
         jPanel2.add(jLabel3);
