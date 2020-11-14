@@ -6,6 +6,7 @@
 package oop.java.project.GUI;
 
 import java.awt.*;
+import java.awt.event.*;
 import javax.swing.*;
 
 
@@ -22,6 +23,15 @@ public class Job extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null); // center of the screen
         jTextField1.setBackground(new Color(0,102,153,120));
+        
+        jLabel10.addKeyListener(new KeyAdapter(){
+            @Override
+            public void keyReleased(KeyEvent hidden)
+            {
+                jLabel9.setText("");
+            }
+        });
+        
     }
 
     /**
@@ -48,7 +58,9 @@ public class Job extends javax.swing.JFrame {
         jComboBox3 = new javax.swing.JComboBox();
         jDateChooser1 = new com.toedter.calendar.JDateChooser();
         jButton2 = new javax.swing.JButton();
+        jLabel9 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
+        jLabel10 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -120,8 +132,7 @@ public class Job extends javax.swing.JFrame {
         jPanel3.add(jComboBox3);
         jComboBox3.setBounds(410, 210, 247, 70);
 
-        jDateChooser1.setBackground(new java.awt.Color(204, 153, 0));
-        jDateChooser1.setForeground(new java.awt.Color(0, 255, 204));
+        jDateChooser1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel3.add(jDateChooser1);
         jDateChooser1.setBounds(770, 210, 255, 70);
 
@@ -134,10 +145,19 @@ public class Job extends javax.swing.JFrame {
         jPanel3.add(jButton2);
         jButton2.setBounds(418, 368, 231, 77);
 
+        jLabel9.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel9.setText("SALAIRE");
+        jPanel3.add(jLabel9);
+        jLabel9.setBounds(490, 490, 90, 100);
+
         jTextField1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jTextField1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jPanel3.add(jTextField1);
         jTextField1.setBounds(350, 510, 374, 66);
+
+        jLabel10.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel3.add(jLabel10);
+        jLabel10.setBounds(820, 440, 200, 80);
 
         jLabel7.setIcon(new javax.swing.ImageIcon("C:\\Users\\alexa\\OneDrive\\Documents\\GitHub\\OOP-Java-Project\\Image\\job.jpg")); // NOI18N
         jPanel3.add(jLabel7);
@@ -161,7 +181,8 @@ public class Job extends javax.swing.JFrame {
         // TODO add your handling code here:
         
         String selectdate = ((JTextField)jDateChooser1.getDateEditor().getUiComponent()).getText();
-        jTextField1.setText(selectdate);
+        //jTextField1.setText(selectdate);
+        jLabel10.setText(selectdate);
         
     }//GEN-LAST:event_jButton2MouseClicked
 
@@ -219,6 +240,7 @@ public class Job extends javax.swing.JFrame {
     private javax.swing.JComboBox jComboBox3;
     private com.toedter.calendar.JDateChooser jDateChooser1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -226,6 +248,7 @@ public class Job extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;

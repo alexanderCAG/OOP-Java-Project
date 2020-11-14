@@ -69,6 +69,8 @@ public class Recruteur extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox();
         jLabel10 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -172,6 +174,16 @@ public class Recruteur extends javax.swing.JFrame {
         jPanel2.add(jLabel10);
         jLabel10.setBounds(680, 220, 270, 70);
 
+        jButton1.setBackground(new java.awt.Color(0, 102, 51));
+        jButton1.setText("ANALYSER");
+        jPanel2.add(jButton1);
+        jButton1.setBounds(730, 310, 190, 60);
+
+        jButton2.setBackground(new java.awt.Color(0, 102, 51));
+        jButton2.setText("SUPPRIMER");
+        jPanel2.add(jButton2);
+        jButton2.setBounds(150, 530, 190, 60);
+
         jLabel3.setIcon(new javax.swing.ImageIcon("C:\\Users\\alexa\\OneDrive\\Documents\\GitHub\\OOP-Java-Project\\Image\\recruteur.jpg")); // NOI18N
         jPanel2.add(jLabel3);
         jLabel3.setBounds(0, 146, 1100, 510);
@@ -237,6 +249,8 @@ public class Recruteur extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JComboBox jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
