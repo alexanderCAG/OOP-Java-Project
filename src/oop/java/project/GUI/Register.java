@@ -5,8 +5,8 @@
  */
 package oop.java.project.GUI;
 
-import java.awt.Color;
-import javax.swing.JFrame;
+import java.awt.*;
+import javax.swing.*;
 
 /**
  *

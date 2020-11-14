@@ -5,9 +5,9 @@
  */
 package oop.java.project.GUI;
 
-import java.awt.Toolkit;
-import javax.swing.JFrame;
-import javax.swing.JOptionPane;
+import java.awt.*;
+import javax.swing.*;
+
 
 /**
  *

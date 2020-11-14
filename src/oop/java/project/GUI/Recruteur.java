@@ -5,8 +5,9 @@
  */
 package oop.java.project.GUI;
 
-import java.awt.Color;
-import javax.swing.JFrame;
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
 
 /**
  *
@@ -25,12 +26,15 @@ public class Recruteur extends javax.swing.JFrame {
         jTextField2.setBackground(new Color(0,102,51,120));
         jComboBox1.setBackground(new Color(0,102,70,120));
      
-//        if(jTextField1 != null)
-//            jLabel7.setText(null);
-//        
-//        String text = jTextField1.getText();
-//        if(text.contains(" "))
-//            jLabel7.setText(null);
+        jTextField1.addKeyListener(new KeyAdapter(){
+            
+            @Override
+            public void keyReleased(KeyEvent hidden)
+            {
+                jLabel9.setText("");
+            }
+        });
+
     }
 
     /**
