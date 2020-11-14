@@ -5,6 +5,7 @@
  */
 package oop.java.project.GUI;
 
+import java.awt.Color;
 import javax.swing.JFrame;
 import javax.swing.JTextField;
 
@@ -19,7 +20,8 @@ public class Job extends javax.swing.JFrame {
      */
     public Job() {
         initComponents();
-        this.setLocationRelativeTo(null); // center of the screen        
+        this.setLocationRelativeTo(null); // center of the screen
+        jTextField1.setBackground(new Color(0,102,153,120));
     }
 
     /**
@@ -37,6 +39,7 @@ public class Job extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
+        jSeparator1 = new javax.swing.JSeparator();
         jLabel6 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
@@ -74,7 +77,7 @@ public class Job extends javax.swing.JFrame {
         jPanel1.add(jLabel4);
         jLabel4.setBounds(360, 30, 330, 90);
 
-        jLabel5.setIcon(new javax.swing.ImageIcon("C:\\Users\\alexa\\OneDrive\\Bureau\\ECE\\ING 3\\Java\\Projet\\Image\\deconnection.png")); // NOI18N
+        jLabel5.setIcon(new javax.swing.ImageIcon("C:\\Users\\alexa\\OneDrive\\Documents\\GitHub\\OOP-Java-Project\\Image\\deconnection.png")); // NOI18N
         jLabel5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLabel5.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -83,6 +86,8 @@ public class Job extends javax.swing.JFrame {
         });
         jPanel1.add(jLabel5);
         jLabel5.setBounds(1020, 40, 60, 60);
+        jPanel1.add(jSeparator1);
+        jSeparator1.setBounds(870, 82, 140, 20);
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
@@ -90,7 +95,7 @@ public class Job extends javax.swing.JFrame {
         jPanel1.add(jLabel6);
         jLabel6.setBounds(870, 50, 140, 40);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\alexa\\OneDrive\\Bureau\\ECE\\ING 3\\Java\\Projet\\Image\\cercle2.png")); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\alexa\\OneDrive\\Documents\\GitHub\\OOP-Java-Project\\Image\\cercle2.png")); // NOI18N
         jPanel1.add(jLabel1);
         jLabel1.setBounds(60, 0, 250, 150);
 
@@ -125,10 +130,13 @@ public class Job extends javax.swing.JFrame {
         });
         jPanel3.add(jButton2);
         jButton2.setBounds(418, 368, 231, 77);
-        jPanel3.add(jTextField1);
-        jTextField1.setBounds(352, 510, 374, 66);
 
-        jLabel7.setIcon(new javax.swing.ImageIcon("C:\\Users\\alexa\\OneDrive\\Bureau\\ECE\\ING 3\\Java\\Projet\\Image\\job.jpg")); // NOI18N
+        jTextField1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jTextField1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jPanel3.add(jTextField1);
+        jTextField1.setBounds(350, 510, 374, 66);
+
+        jLabel7.setIcon(new javax.swing.ImageIcon("C:\\Users\\alexa\\OneDrive\\Documents\\GitHub\\OOP-Java-Project\\Image\\job.jpg")); // NOI18N
         jPanel3.add(jLabel7);
         jLabel7.setBounds(0, 150, 1100, 500);
 
@@ -218,6 +226,7 @@ public class Job extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 }

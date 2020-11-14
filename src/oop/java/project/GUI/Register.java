@@ -5,6 +5,7 @@
  */
 package oop.java.project.GUI;
 
+import java.awt.Color;
 import javax.swing.JFrame;
 
 /**
@@ -19,6 +20,8 @@ public class Register extends javax.swing.JFrame {
     public Register() {
         initComponents();
         this.setLocationRelativeTo(null); // center of the screen
+        jPanel3.setBackground(new Color(204,102,0,120));
+        jPanel4.setBackground(new Color(204,102,0,120));
     }
 
     /**
@@ -73,7 +76,7 @@ public class Register extends javax.swing.JFrame {
             }
         });
 
-        jLabel12.setIcon(new javax.swing.ImageIcon("C:\\Users\\alexa\\OneDrive\\Bureau\\ECE\\ING 3\\Java\\Projet\\Image\\home.png")); // NOI18N
+        jLabel12.setIcon(new javax.swing.ImageIcon("C:\\Users\\alexa\\OneDrive\\Documents\\GitHub\\OOP-Java-Project\\Image\\home.png")); // NOI18N
         jLabel12.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLabel12.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -81,7 +84,7 @@ public class Register extends javax.swing.JFrame {
             }
         });
 
-        jLabel13.setIcon(new javax.swing.ImageIcon("C:\\Users\\alexa\\OneDrive\\Bureau\\ECE\\ING 3\\Java\\Projet\\Image\\alimentation.png")); // NOI18N
+        jLabel13.setIcon(new javax.swing.ImageIcon("C:\\Users\\alexa\\OneDrive\\Documents\\GitHub\\OOP-Java-Project\\Image\\alimentation.png")); // NOI18N
         jLabel13.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLabel13.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -144,11 +147,11 @@ public class Register extends javax.swing.JFrame {
 
         jTextField12.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
 
-        jLabel3.setIcon(new javax.swing.ImageIcon("C:\\Users\\alexa\\OneDrive\\Bureau\\ECE\\ING 3\\Java\\Projet\\Image\\telephone.png")); // NOI18N
+        jLabel3.setIcon(new javax.swing.ImageIcon("C:\\Users\\alexa\\OneDrive\\Documents\\GitHub\\OOP-Java-Project\\Image\\telephone.png")); // NOI18N
 
-        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\alexa\\OneDrive\\Bureau\\ECE\\ING 3\\Java\\Projet\\Image\\user.png")); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\alexa\\OneDrive\\Documents\\GitHub\\OOP-Java-Project\\Image\\user.png")); // NOI18N
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\alexa\\OneDrive\\Bureau\\ECE\\ING 3\\Java\\Projet\\Image\\user.png")); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\alexa\\OneDrive\\Documents\\GitHub\\OOP-Java-Project\\Image\\user.png")); // NOI18N
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -218,11 +221,11 @@ public class Register extends javax.swing.JFrame {
 
         jTextField7.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
 
-        jLabel10.setIcon(new javax.swing.ImageIcon("C:\\Users\\alexa\\OneDrive\\Bureau\\ECE\\ING 3\\Java\\Projet\\Image\\lock.png")); // NOI18N
+        jLabel10.setIcon(new javax.swing.ImageIcon("C:\\Users\\alexa\\OneDrive\\Documents\\GitHub\\OOP-Java-Project\\Image\\lock.png")); // NOI18N
 
-        jLabel5.setIcon(new javax.swing.ImageIcon("C:\\Users\\alexa\\OneDrive\\Bureau\\ECE\\ING 3\\Java\\Projet\\Image\\lock.png")); // NOI18N
+        jLabel5.setIcon(new javax.swing.ImageIcon("C:\\Users\\alexa\\OneDrive\\Documents\\GitHub\\OOP-Java-Project\\Image\\lock.png")); // NOI18N
 
-        jLabel4.setIcon(new javax.swing.ImageIcon("C:\\Users\\alexa\\OneDrive\\Bureau\\ECE\\ING 3\\Java\\Projet\\Image\\mail.png")); // NOI18N
+        jLabel4.setIcon(new javax.swing.ImageIcon("C:\\Users\\alexa\\OneDrive\\Documents\\GitHub\\OOP-Java-Project\\Image\\mail.png")); // NOI18N
 
         jPasswordField1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
 
@@ -277,7 +280,7 @@ public class Register extends javax.swing.JFrame {
         jPanel2.add(jPanel4);
         jPanel4.setBounds(699, 68, 460, 380);
 
-        jLabel11.setIcon(new javax.swing.ImageIcon("C:\\Users\\alexa\\OneDrive\\Bureau\\ECE\\ING 3\\Java\\Projet\\Image\\inscription.jpg")); // NOI18N
+        jLabel11.setIcon(new javax.swing.ImageIcon("C:\\Users\\alexa\\OneDrive\\Documents\\GitHub\\OOP-Java-Project\\Image\\inscription.jpg")); // NOI18N
         jPanel2.add(jLabel11);
         jLabel11.setBounds(0, 0, 1200, 680);
 

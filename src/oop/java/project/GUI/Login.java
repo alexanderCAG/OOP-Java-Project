@@ -68,7 +68,7 @@ public class Login extends javax.swing.JFrame {
             }
         });
 
-        jLabel6.setIcon(new javax.swing.ImageIcon("C:\\Users\\alexa\\OneDrive\\Bureau\\ECE\\ING 3\\Java\\Projet\\Image\\alimentation.png")); // NOI18N
+        jLabel6.setIcon(new javax.swing.ImageIcon("C:\\Users\\alexa\\OneDrive\\Documents\\GitHub\\OOP-Java-Project\\Image\\alimentation.png")); // NOI18N
         jLabel6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLabel6.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -123,12 +123,12 @@ public class Login extends javax.swing.JFrame {
         jPanel2.add(jButton1);
         jButton1.setBounds(620, 320, 178, 48);
 
-        jLabel3.setIcon(new javax.swing.ImageIcon("C:\\Users\\alexa\\OneDrive\\Bureau\\ECE\\ING 3\\Java\\Projet\\Image\\user.png")); // NOI18N
+        jLabel3.setIcon(new javax.swing.ImageIcon("C:\\Users\\alexa\\OneDrive\\Documents\\GitHub\\OOP-Java-Project\\Image\\user.png")); // NOI18N
         jPanel2.add(jLabel3);
         jLabel3.setBounds(460, 130, 24, 20);
 
         jLabel2.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\alexa\\OneDrive\\Bureau\\ECE\\ING 3\\Java\\Projet\\Image\\lock.png")); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\alexa\\OneDrive\\Documents\\GitHub\\OOP-Java-Project\\Image\\lock.png")); // NOI18N
         jPanel2.add(jLabel2);
         jLabel2.setBounds(460, 230, 30, 32);
 
@@ -188,7 +188,7 @@ public class Login extends javax.swing.JFrame {
         jPanel2.add(jPanel3);
         jPanel3.setBounds(646, 420, 330, 40);
 
-        jLabel10.setIcon(new javax.swing.ImageIcon("C:\\Users\\alexa\\OneDrive\\Bureau\\ECE\\ING 3\\Java\\Projet\\Image\\login.jpg")); // NOI18N
+        jLabel10.setIcon(new javax.swing.ImageIcon("C:\\Users\\alexa\\OneDrive\\Documents\\GitHub\\OOP-Java-Project\\Image\\login.jpg")); // NOI18N
         jPanel2.add(jLabel10);
         jLabel10.setBounds(0, 0, 1100, 540);
 
@@ -243,7 +243,7 @@ public class Login extends javax.swing.JFrame {
         String user = UserName.getText();
         String password = jPasswordField1.getText();
         
-        if(user.contains("root") && password.contains("root"))
+        if(user.contains("job") && password.contains("root"))
         {
             UserName.setText(null);
             jPasswordField1.setText(null);
@@ -262,6 +262,28 @@ public class Login extends javax.swing.JFrame {
             UserName.setText(null);
             jPasswordField1.setText(null);
         }
+        
+        
+//        if(user.contains("employeur") && password.contains("root"))
+//        {
+//            UserName.setText(null);
+//            jPasswordField1.setText(null);
+//            
+//            
+//            Employeur empl = new Employeur();
+//            empl.setVisible(true);
+//            empl.pack();
+//            empl.setLocationRelativeTo(null);
+//            empl.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//            this.dispose();
+//        }
+//        else
+//        {
+//            JOptionPane.showMessageDialog(null, "Mot de passe INCORECT", "Login Error", JOptionPane.ERROR_MESSAGE);
+//            UserName.setText(null);
+//            jPasswordField1.setText(null);
+//        }
+        
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
