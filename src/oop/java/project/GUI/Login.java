@@ -8,6 +8,7 @@ package oop.java.project.GUI;
 import java.awt.Frame;
 import java.awt.Toolkit;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -44,6 +45,7 @@ public class Login extends javax.swing.JFrame {
         jTextField1 = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
@@ -112,9 +114,15 @@ public class Login extends javax.swing.JFrame {
         jPanel2.add(jPasswordField1);
         jPasswordField1.setBounds(630, 210, 370, 70);
 
-        jButton1.setText("CONNEXION");
+        jButton1.setText("RESET");
+        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton1MouseClicked(evt);
+            }
+        });
         jPanel2.add(jButton1);
-        jButton1.setBounds(730, 320, 178, 48);
+        jButton1.setBounds(620, 320, 178, 48);
 
         jLabel3.setIcon(new javax.swing.ImageIcon("C:\\Users\\alexa\\OneDrive\\Bureau\\ECE\\ING 3\\Java\\Projet\\Image\\user.png")); // NOI18N
         jPanel2.add(jLabel3);
@@ -140,6 +148,15 @@ public class Login extends javax.swing.JFrame {
         jLabel8.setText(" Username :");
         jPanel2.add(jLabel8);
         jLabel8.setBounds(490, 120, 110, 40);
+
+        jButton2.setText("CONNEXION");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jButton2);
+        jButton2.setBounds(830, 320, 178, 48);
 
         jPanel3.setBackground(new java.awt.Color(102, 153, 255));
 
@@ -216,6 +233,38 @@ public class Login extends javax.swing.JFrame {
         System.exit(0);
     }//GEN-LAST:event_jLabel6MouseClicked
 
+    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+        // TODO add your handling code here:
+        jTextField1.setText(null);
+        jPasswordField1.setText(null);
+    }//GEN-LAST:event_jButton1MouseClicked
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        String user = jTextField1.getText();
+        String password = jPasswordField1.getText();
+        
+        if(user.contains("root") && password.contains("root"))
+        {
+            jTextField1.setText(null);
+            jPasswordField1.setText(null);
+            
+            
+            Job job = new Job();
+            job.setVisible(true);
+            job.pack();
+            job.setLocationRelativeTo(null);
+            job.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            this.dispose();
+        }
+        else
+        {
+            JOptionPane.showMessageDialog(null, "Mot de passe INCORECT", "Login Error", JOptionPane.ERROR_MESSAGE);
+            jTextField1.setText(null);
+            jPasswordField1.setText(null);
+        }
+    }//GEN-LAST:event_jButton2ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -245,6 +294,7 @@ public class Login extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
                 new Login().setVisible(true);
             }
@@ -253,6 +303,7 @@ public class Login extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
