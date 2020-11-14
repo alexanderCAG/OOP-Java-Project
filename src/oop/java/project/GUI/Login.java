@@ -42,7 +42,7 @@ public class Login extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        UserName = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
@@ -51,7 +51,6 @@ public class Login extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setUndecorated(true);
 
         jPanel1.setBackground(new java.awt.Color(0, 0, 0));
 
@@ -133,11 +132,11 @@ public class Login extends javax.swing.JFrame {
         jPanel2.add(jLabel2);
         jLabel2.setBounds(460, 230, 30, 32);
 
-        jTextField1.setBackground(new java.awt.Color(108, 122, 137));
-        jTextField1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jTextField1.setForeground(new java.awt.Color(255, 255, 255));
-        jPanel2.add(jTextField1);
-        jTextField1.setBounds(630, 110, 370, 70);
+        UserName.setBackground(new java.awt.Color(108, 122, 137));
+        UserName.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        UserName.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel2.add(UserName);
+        UserName.setBounds(630, 110, 370, 70);
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel7.setText("Password :");
@@ -235,18 +234,18 @@ public class Login extends javax.swing.JFrame {
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
         // TODO add your handling code here:
-        jTextField1.setText(null);
+        UserName.setText(null);
         jPasswordField1.setText(null);
     }//GEN-LAST:event_jButton1MouseClicked
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        String user = jTextField1.getText();
+        String user = UserName.getText();
         String password = jPasswordField1.getText();
         
         if(user.contains("root") && password.contains("root"))
         {
-            jTextField1.setText(null);
+            UserName.setText(null);
             jPasswordField1.setText(null);
             
             
@@ -260,7 +259,7 @@ public class Login extends javax.swing.JFrame {
         else
         {
             JOptionPane.showMessageDialog(null, "Mot de passe INCORECT", "Login Error", JOptionPane.ERROR_MESSAGE);
-            jTextField1.setText(null);
+            UserName.setText(null);
             jPasswordField1.setText(null);
         }
     }//GEN-LAST:event_jButton2ActionPerformed
@@ -302,6 +301,7 @@ public class Login extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField UserName;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
@@ -317,6 +317,5 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPasswordField jPasswordField1;
-    private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 }
