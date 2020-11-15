@@ -6,6 +6,7 @@
 package oop.java.project.GUI;
 
 import java.awt.*;
+import java.awt.event.KeyEvent;
 import javax.swing.*;
 
 
@@ -111,11 +112,16 @@ public class Login extends javax.swing.JFrame {
         jPasswordField1.setBackground(new java.awt.Color(108, 122, 137));
         jPasswordField1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jPasswordField1.setForeground(new java.awt.Color(255, 255, 255));
+        jPasswordField1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jPasswordField1KeyPressed(evt);
+            }
+        });
         jPanel2.add(jPasswordField1);
         jPasswordField1.setBounds(630, 210, 370, 70);
 
         jButton1.setText("RESET");
-        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButton1MouseClicked(evt);
@@ -294,6 +300,62 @@ public class Login extends javax.swing.JFrame {
        
         
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jPasswordField1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jPasswordField1KeyPressed
+        // TODO add your handling code here:
+        
+        if(evt.getKeyCode() == KeyEvent.VK_ENTER)
+        {
+            String user = UserName.getText();
+        String password = jPasswordField1.getText();
+        
+        if(user.contains("job") && password.contains("root"))
+        {
+            UserName.setText(null);
+            jPasswordField1.setText(null);
+            
+            
+            Job job = new Job();
+            job.setVisible(true);
+            job.pack();
+            job.setLocationRelativeTo(null);
+            job.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            this.dispose();
+        }
+        else if(user.contains("employeur") && password.contains("root"))
+        {
+            UserName.setText(null);
+            jPasswordField1.setText(null);
+            
+            
+            Employeur empl = new Employeur();
+            empl.setVisible(true);
+            empl.pack();
+            empl.setLocationRelativeTo(null);
+            empl.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            this.dispose();
+        }
+        else if(user.contains("recruteur") && password.contains("root"))
+        {
+            UserName.setText(null);
+            jPasswordField1.setText(null);
+            
+            
+            Recruteur recru = new Recruteur();
+            recru.setVisible(true);
+            recru.pack();
+            recru.setLocationRelativeTo(null);
+            recru.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            this.dispose();
+        }
+        else
+        {
+            JOptionPane.showMessageDialog(null, "Mot de passe INCORECT", "Login Error", JOptionPane.ERROR_MESSAGE);
+            UserName.setText(null);
+            jPasswordField1.setText(null);
+        }
+        }
+    }//GEN-LAST:event_jPasswordField1KeyPressed
 
     /**
      * @param args the command line arguments
