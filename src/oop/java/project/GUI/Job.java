@@ -75,11 +75,11 @@ public class Job extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox();
         jComboBox3 = new javax.swing.JComboBox();
-        jDateChooser1 = new com.toedter.calendar.JDateChooser();
         jButton2 = new javax.swing.JButton();
         jLabel9 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
+        jDateChooser1 = new com.toedter.calendar.JDateChooser();
         jLabel7 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -151,10 +151,6 @@ public class Job extends javax.swing.JFrame {
         jPanel3.add(jComboBox3);
         jComboBox3.setBounds(410, 210, 247, 70);
 
-        jDateChooser1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel3.add(jDateChooser1);
-        jDateChooser1.setBounds(770, 210, 255, 70);
-
         jButton2.setText("VALIDER");
         jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -177,6 +173,8 @@ public class Job extends javax.swing.JFrame {
         jLabel10.setBackground(new java.awt.Color(255, 255, 255));
         jPanel3.add(jLabel10);
         jLabel10.setBounds(820, 440, 200, 80);
+        jPanel3.add(jDateChooser1);
+        jDateChooser1.setBounds(870, 230, 96, 22);
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/oop/java/project/GUI/Image/job.jpg"))); // NOI18N
         jPanel3.add(jLabel7);
@@ -200,9 +198,7 @@ public class Job extends javax.swing.JFrame {
         // TODO add your handling code here:
         
         String selectdate = ((JTextField)jDateChooser1.getDateEditor().getUiComponent()).getText();
-        //jTextField1.setText(selectdate);
         jLabel10.setText(selectdate);
-        
     }//GEN-LAST:event_jButton2MouseClicked
 
     private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked
