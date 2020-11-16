@@ -5,7 +5,7 @@
  */
 package oop.java.project;
 
-import oop.java.project.GUI.Login;
+import oop.java.project.GUI.*;
 
 /**
  *

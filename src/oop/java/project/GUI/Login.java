@@ -307,53 +307,53 @@ public class Login extends javax.swing.JFrame {
         if(evt.getKeyCode() == KeyEvent.VK_ENTER)
         {
             String user = UserName.getText();
-        String password = jPasswordField1.getText();
-        
-        if(user.contains("job") && password.contains("root"))
-        {
-            UserName.setText(null);
-            jPasswordField1.setText(null);
-            
-            
-            Job job = new Job();
-            job.setVisible(true);
-            job.pack();
-            job.setLocationRelativeTo(null);
-            job.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-            this.dispose();
-        }
-        else if(user.contains("employeur") && password.contains("root"))
-        {
-            UserName.setText(null);
-            jPasswordField1.setText(null);
-            
-            
-            Employeur empl = new Employeur();
-            empl.setVisible(true);
-            empl.pack();
-            empl.setLocationRelativeTo(null);
-            empl.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-            this.dispose();
-        }
-        else if(user.contains("recruteur") && password.contains("root"))
-        {
-            UserName.setText(null);
-            jPasswordField1.setText(null);
-            
-            
-            Recruteur recru = new Recruteur();
-            recru.setVisible(true);
-            recru.pack();
-            recru.setLocationRelativeTo(null);
-            recru.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-            this.dispose();
-        }
-        else
-        {
-            JOptionPane.showMessageDialog(null, "Mot de passe INCORECT", "Login Error", JOptionPane.ERROR_MESSAGE);
-            UserName.setText(null);
-            jPasswordField1.setText(null);
-        }
+            String password = jPasswordField1.getText();
+
+            if(user.contains("job") && password.contains("root"))
+            {
+                UserName.setText(null);
+                jPasswordField1.setText(null);
+
+
+                Job job = new Job();
+                job.setVisible(true);
+                job.pack();
+                job.setLocationRelativeTo(null);
+                job.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                this.dispose();
+            }
+            else if(user.contains("employeur") && password.contains("root"))
+            {
+                UserName.setText(null);
+                jPasswordField1.setText(null);
+
+
+                Employeur empl = new Employeur();
+                empl.setVisible(true);
+                empl.pack();
+                empl.setLocationRelativeTo(null);
+                empl.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                this.dispose();
+            }
+            else if(user.contains("recruteur") && password.contains("root"))
+            {
+                UserName.setText(null);
+                jPasswordField1.setText(null);
+
+
+                Recruteur recru = new Recruteur();
+                recru.setVisible(true);
+                recru.pack();
+                recru.setLocationRelativeTo(null);
+                recru.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                this.dispose();
+            }
+            else
+            {
+                JOptionPane.showMessageDialog(null, "Mot de passe INCORECT", "Login Error", JOptionPane.ERROR_MESSAGE);
+                UserName.setText(null);
+                jPasswordField1.setText(null);
+            }
         }
     }//GEN-LAST:event_jPasswordField1KeyPressed
 

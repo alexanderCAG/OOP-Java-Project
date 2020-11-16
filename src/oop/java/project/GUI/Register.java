@@ -6,6 +6,7 @@
 package oop.java.project.GUI;
 
 import java.awt.*;
+import java.awt.event.KeyEvent;
 import javax.swing.*;
 
 /**
@@ -142,10 +143,20 @@ public class Register extends javax.swing.JFrame {
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Demandeur d'emploie", "Employeur micro entreprise", "Employeur grosse entreprise", "Recruteur" }));
 
         jTextField10.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jTextField10.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTextField10KeyPressed(evt);
+            }
+        });
 
         jTextField11.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
 
         jTextField12.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jTextField12.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTextField12KeyPressed(evt);
+            }
+        });
 
         jLabel3.setIcon(new javax.swing.ImageIcon("C:\\Users\\alexa\\OneDrive\\Documents\\GitHub\\OOP-Java-Project\\Image\\telephone.png")); // NOI18N
 
@@ -335,6 +346,40 @@ public class Register extends javax.swing.JFrame {
         // TODO add your handling code here:
         System.exit(0);
     }//GEN-LAST:event_jLabel13MouseClicked
+
+    private void jTextField12KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField12KeyPressed
+        // TODO add your handling code here:
+        ///ACCEPTE QUE LES CHIFFRES
+        char car = evt.getKeyChar();
+        
+        if((car<'0' || car>'9') && (car != '.') && (car != (char)KeyEvent.VK_ENTER))
+        {
+            evt.consume();
+            JOptionPane.showMessageDialog(null,"SVP entrer seulement des numéros", "mesage de confirmation d'écriture des numéros", JOptionPane.INFORMATION_MESSAGE);
+        }
+        
+    }//GEN-LAST:event_jTextField12KeyPressed
+
+    private void jTextField10KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField10KeyPressed
+        // TODO add your handling code here:
+        ///ACCEPTE QUE LES LETTRES
+        
+        char car = evt.getKeyChar();
+        String carac = jTextField10.getText();
+        
+        for(int i=0; i<carac.length() ;i++)
+        {
+            if((car<'a' || car>'z') && (car<'A' || car>'Z') && (car != (char)KeyEvent.VK_ENTER) && (car != (char)KeyEvent.VK_SHIFT) && (car != (char)KeyEvent.VK_BACK_SPACE))
+            {
+                evt.consume();
+                //jTextField10.setForeground(new Color(204,102,0,120));
+                JOptionPane.showMessageDialog(null,"seulements les lettres sont acceptées", "mesage de confirmation d'écriture des lettres", JOptionPane.INFORMATION_MESSAGE);
+            }
+        }
+        
+        
+        
+    }//GEN-LAST:event_jTextField10KeyPressed
 
     /**
      * @param args the command line arguments
