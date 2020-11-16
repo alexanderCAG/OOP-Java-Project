@@ -174,7 +174,7 @@ public class Job extends javax.swing.JFrame {
         jPanel3.add(jLabel10);
         jLabel10.setBounds(820, 440, 200, 80);
         jPanel3.add(jDateChooser1);
-        jDateChooser1.setBounds(870, 230, 96, 22);
+        jDateChooser1.setBounds(770, 210, 250, 70);
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/oop/java/project/GUI/Image/job.jpg"))); // NOI18N
         jPanel3.add(jLabel7);
