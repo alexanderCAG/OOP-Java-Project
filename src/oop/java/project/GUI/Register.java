@@ -374,10 +374,8 @@ public class Register extends javax.swing.JFrame {
         {
             if((car<'a' || car>'z') && (car<'A' || car>'Z') && (car != (char)KeyEvent.VK_ENTER) && (car != (char)KeyEvent.VK_SHIFT) && (car != (char)KeyEvent.VK_BACK_SPACE) && (car != 65535))
             {
-                test=car;
                 evt.consume();
                 jTextField10.setForeground(new Color(255,0,50));
-                System.out.println(test);
                 //JOptionPane.showMessageDialog(null,"seulements les lettres sont acceptées", "mesage de confirmation d'écriture des lettres", JOptionPane.INFORMATION_MESSAGE);
             }
         }

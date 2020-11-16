@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package oop.java.project.GUI;
+package oop.java.project;
 
 import oop.java.project.GUI.*;
 
