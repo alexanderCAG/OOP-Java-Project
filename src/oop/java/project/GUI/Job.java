@@ -24,14 +24,6 @@ public class Job extends javax.swing.JFrame {
         this.setLocationRelativeTo(null); // center of the screen
         jTextField1.setBackground(new Color(0,102,153,120));
         
-        jLabel10.addKeyListener(new KeyAdapter(){
-            @Override
-            public void keyReleased(KeyEvent hidden)
-            {
-                jLabel9.setText("");
-            }
-        });
-        
 //        jButton2.validate();
 //        jComboBox1.validate();
 //        jComboBox3.validate();
@@ -198,7 +190,9 @@ public class Job extends javax.swing.JFrame {
         // TODO add your handling code here:
         
         String selectdate = ((JTextField)jDateChooser1.getDateEditor().getUiComponent()).getText();
-        jLabel10.setText(selectdate);
+        jLabel9.setText("");
+        jTextField1.setText(selectdate);      
+        
     }//GEN-LAST:event_jButton2MouseClicked
 
     private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked

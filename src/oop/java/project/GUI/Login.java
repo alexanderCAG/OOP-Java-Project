@@ -21,9 +21,10 @@ public class Login extends javax.swing.JFrame {
      */
     public Login() {
         initComponents();
+        setVisible(true);
         this.setLocationRelativeTo(null); // center of the screen
         
-        setVisible(true);
+        
     }
 
     /**
