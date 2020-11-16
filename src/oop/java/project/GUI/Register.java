@@ -365,15 +365,20 @@ public class Register extends javax.swing.JFrame {
         ///ACCEPTE QUE LES LETTRES
         
         char car = evt.getKeyChar();
+        int test;
         String carac = jTextField10.getText();
+        
+        jTextField10.setForeground(new Color(0,0,0));
         
         for(int i=0; i<carac.length() ;i++)
         {
-            if((car<'a' || car>'z') && (car<'A' || car>'Z') && (car != (char)KeyEvent.VK_ENTER) && (car != (char)KeyEvent.VK_SHIFT) && (car != (char)KeyEvent.VK_BACK_SPACE))
+            if((car<'a' || car>'z') && (car<'A' || car>'Z') && (car != (char)KeyEvent.VK_ENTER) && (car != (char)KeyEvent.VK_SHIFT) && (car != (char)KeyEvent.VK_BACK_SPACE) && (car != 65535))
             {
+                test=car;
                 evt.consume();
-                //jTextField10.setForeground(new Color(204,102,0,120));
-                JOptionPane.showMessageDialog(null,"seulements les lettres sont acceptées", "mesage de confirmation d'écriture des lettres", JOptionPane.INFORMATION_MESSAGE);
+                jTextField10.setForeground(new Color(255,0,50));
+                System.out.println(test);
+                //JOptionPane.showMessageDialog(null,"seulements les lettres sont acceptées", "mesage de confirmation d'écriture des lettres", JOptionPane.INFORMATION_MESSAGE);
             }
         }
         
