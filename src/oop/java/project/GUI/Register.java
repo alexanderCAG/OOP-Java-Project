@@ -6,7 +6,7 @@
 package oop.java.project.GUI;
 
 import java.awt.*;
-import java.awt.event.KeyEvent;
+import java.awt.event.*;
 import javax.swing.*;
 
 /**
