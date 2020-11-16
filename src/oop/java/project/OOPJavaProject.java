@@ -21,7 +21,6 @@ public class OOPJavaProject {
         
         new Login();
         
-        
     }
     
 }

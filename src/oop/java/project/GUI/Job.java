@@ -32,6 +32,25 @@ public class Job extends javax.swing.JFrame {
             }
         });
         
+//        jButton2.validate();
+//        jComboBox1.validate();
+//        jComboBox3.validate();
+//        jDateChooser1.validate();
+//        jLabel1.validate();
+//        jLabel10.validate();
+//        jLabel2.validate();
+//        jLabel3.validate();
+//        jLabel4.validate();
+//        jLabel5.validate();
+//        jLabel6.validate();
+//        jLabel7.validate();
+//        jLabel8.validate();
+//        jLabel9.validate();
+//        jPanel1.validate();
+//        jPanel2.validate();
+//        jPanel3.validate();
+//        jSeparator1.validate();
+//        jTextField1.validate();
     }
 
     /**
