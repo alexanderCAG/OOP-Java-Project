@@ -70,7 +70,7 @@ public class Login extends javax.swing.JFrame {
             }
         });
 
-        jLabel6.setIcon(new javax.swing.ImageIcon("C:\\Users\\alexa\\OneDrive\\Documents\\GitHub\\OOP-Java-Project\\Image\\alimentation.png")); // NOI18N
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/oop/java/project/GUI/Image/alimentation.png"))); // NOI18N
         jLabel6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLabel6.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -130,12 +130,12 @@ public class Login extends javax.swing.JFrame {
         jPanel2.add(jButton1);
         jButton1.setBounds(620, 320, 178, 48);
 
-        jLabel3.setIcon(new javax.swing.ImageIcon("C:\\Users\\alexa\\OneDrive\\Documents\\GitHub\\OOP-Java-Project\\Image\\user.png")); // NOI18N
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/oop/java/project/GUI/Image/user.png"))); // NOI18N
         jPanel2.add(jLabel3);
         jLabel3.setBounds(460, 130, 24, 20);
 
         jLabel2.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\alexa\\OneDrive\\Documents\\GitHub\\OOP-Java-Project\\Image\\lock.png")); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/oop/java/project/GUI/Image/lock.png"))); // NOI18N
         jPanel2.add(jLabel2);
         jLabel2.setBounds(460, 230, 30, 32);
 
@@ -195,7 +195,7 @@ public class Login extends javax.swing.JFrame {
         jPanel2.add(jPanel3);
         jPanel3.setBounds(646, 420, 330, 40);
 
-        jLabel10.setIcon(new javax.swing.ImageIcon("C:\\Users\\alexa\\OneDrive\\Documents\\GitHub\\OOP-Java-Project\\Image\\login.jpg")); // NOI18N
+        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/oop/java/project/GUI/Image/login.jpg"))); // NOI18N
         jPanel2.add(jLabel10);
         jLabel10.setBounds(0, 0, 1100, 540);
 

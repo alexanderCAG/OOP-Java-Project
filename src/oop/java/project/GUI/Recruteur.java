@@ -71,6 +71,7 @@ public class Recruteur extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -80,7 +81,7 @@ public class Recruteur extends javax.swing.JFrame {
         jPanel3.setBackground(new java.awt.Color(0, 102, 51));
         jPanel3.setLayout(null);
 
-        jLabel5.setIcon(new javax.swing.ImageIcon("C:\\Users\\alexa\\OneDrive\\Documents\\GitHub\\OOP-Java-Project\\Image\\deconnection.png")); // NOI18N
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/oop/java/project/GUI/Image/deconnection.png"))); // NOI18N
         jLabel5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLabel5.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -110,13 +111,13 @@ public class Recruteur extends javax.swing.JFrame {
         jPanel3.add(jLabel4);
         jLabel4.setBounds(80, 30, 240, 70);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\alexa\\OneDrive\\Documents\\GitHub\\OOP-Java-Project\\Image\\cercle2.png")); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/oop/java/project/GUI/Image/cercle2.png"))); // NOI18N
         jPanel3.add(jLabel1);
         jLabel1.setBounds(60, 0, 250, 150);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\alexa\\OneDrive\\Documents\\GitHub\\OOP-Java-Project\\Image\\recruteur.jpg")); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/oop/java/project/GUI/Image/recruteur.jpg"))); // NOI18N
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -175,16 +176,21 @@ public class Recruteur extends javax.swing.JFrame {
         jLabel10.setBounds(680, 220, 270, 70);
 
         jButton1.setBackground(new java.awt.Color(0, 102, 51));
-        jButton1.setText("ANALYSER");
+        jButton1.setText("AJOUTER");
         jPanel2.add(jButton1);
-        jButton1.setBounds(730, 310, 190, 60);
+        jButton1.setBounds(150, 310, 190, 60);
 
         jButton2.setBackground(new java.awt.Color(0, 102, 51));
         jButton2.setText("SUPPRIMER");
         jPanel2.add(jButton2);
         jButton2.setBounds(150, 530, 190, 60);
 
-        jLabel3.setIcon(new javax.swing.ImageIcon("C:\\Users\\alexa\\OneDrive\\Documents\\GitHub\\OOP-Java-Project\\Image\\recruteur.jpg")); // NOI18N
+        jButton3.setBackground(new java.awt.Color(0, 102, 51));
+        jButton3.setText("ANALYSER");
+        jPanel2.add(jButton3);
+        jButton3.setBounds(730, 310, 190, 60);
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/oop/java/project/GUI/Image/recruteur.jpg"))); // NOI18N
         jPanel2.add(jLabel3);
         jLabel3.setBounds(0, 146, 1100, 510);
 
@@ -251,6 +257,7 @@ public class Recruteur extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JComboBox jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
