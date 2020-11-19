@@ -30,7 +30,7 @@ public class OOPJavaProject {
        // String urlDatabase = "jdbc:mysql://localhost:3308/jps?characterEncoding=latin1";
 
         //création d'une connexion JDBC à la base 
-        Connection conn = DriverManager.getConnection(urlDatabase, "root", "");
+        Connection conn = DriverManager.getConnection(urlDatabase, "root", "root");
 
         // création d'un ordre SQL (statement)
         //Statement stmt = conn.createStatement();
