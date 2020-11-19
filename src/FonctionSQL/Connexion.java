@@ -14,7 +14,6 @@ public class Connexion {
         String url="jdbc:mysql://localhost:3306/Company";
         String user="root";
         String pass="Vhpsq47y78&";
-        try{
             Class.forName("com.mysql.jdbc.Driver");
             Connection conn=DriverManager.getConnection(url, user, pass);
             //PreparedStatement pamnt=conn.prepareStatement("insert ");
@@ -23,10 +22,22 @@ public class Connexion {
             //pamnt.executeUpdate();
             System.out.println("Driver load successfull");
             
+        try{
+        Statement stmt = conn.createStatement();
+
+        ResultSet rs = stmt.executeQuery("Select namejob from job");
+
+        while(rs.next()){
+            System.out.println(rs.getString(1)+" ");
         }
-        catch(Exception e){
-            System.out.println(e);
+        String sqlStatement = "";
+
+        //int rows = stmt.executeUpdate(sqlStatement);
+        conn.close();
+        }catch (SQLException ex) {
+            System.out.println(ex.getMessage());
         }
+
     }
     public static void main(String[] args) {
         // TODO code application logic here
