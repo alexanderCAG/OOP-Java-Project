@@ -30,7 +30,7 @@ public class Recruteur extends javax.swing.JFrame {
         jTextField1.setBackground(new Color(0,102,51,120));
         jTextField2.setBackground(new Color(0,102,51,120));
         jComboBox1.setBackground(new Color(0,102,70,120));
-        jPanel4.setBackground(new Color(0,102,51,120));
+        jPanel4.setBackground(new Color(0,102,51,0));
      
         jTextField1.addKeyListener(new KeyAdapter(){
             @Override
@@ -239,24 +239,24 @@ public class Recruteur extends javax.swing.JFrame {
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
         
-//        DefaultPieDataset graphe = new DefaultPieDataset();
-//        graphe.setValue("One", new Integer(10));
-//        graphe.setValue("Two", new Integer(20));
-//        graphe.setValue("Three", new Integer(30));
-//        graphe.setValue("Four", new Integer(10));
-//        
-//        JFreeChart chart = ChartFactory.createPieChart("Student score", graphe, true, true, true);
-//        PiePlot plot = (PiePlot)chart.getPlot();
+        DefaultPieDataset graphe = new DefaultPieDataset();
+        graphe.setValue("One", new Integer(10));
+        graphe.setValue("Two", new Integer(20));
+        graphe.setValue("Three", new Integer(30));
+        graphe.setValue("Four", new Integer(10));
         
-        DefaultCategoryDataset graphe = new DefaultCategoryDataset();
-        graphe.setValue(80, "Marks", "Student1");
-        graphe.setValue(80, "Marks", "Student2");
-        graphe.setValue(80, "Marks", "Student3");
-        graphe.setValue(80, "Marks", "Student4");
-      
-        JFreeChart chart = ChartFactory.createBarChart("Student score", "Student name", "Marks", graphe, PlotOrientation.VERTICAL, false, true, false);
-        CategoryPlot plot = chart.getCategoryPlot();
-        plot.setRangeGridlinePaint(Color.ORANGE);
+        JFreeChart chart = ChartFactory.createPieChart("Student score", graphe, true, true, true);
+        PiePlot plot = (PiePlot)chart.getPlot();
+        
+//        DefaultCategoryDataset graphe = new DefaultCategoryDataset();
+//        graphe.setValue(80, "Marks", "Student1");
+//        graphe.setValue(80, "Marks", "Student2");
+//        graphe.setValue(80, "Marks", "Student3");
+//        graphe.setValue(80, "Marks", "Student4");
+//      
+//        JFreeChart chart = ChartFactory.createBarChart("Student score", "Student name", "Marks", graphe, PlotOrientation.VERTICAL, false, true, false);
+//        CategoryPlot plot = chart.getCategoryPlot();
+//        plot.setRangeGridlinePaint(Color.ORANGE);
         
 //        ChartFrame frame = new ChartFrame("Bar Chart for student", chart);
 //        frame.setVisible(true);
