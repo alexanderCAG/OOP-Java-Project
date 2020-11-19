@@ -310,7 +310,7 @@ public class Login extends javax.swing.JFrame {
             String user = UserName.getText();
             String password = jPasswordField1.getText();
 
-            if(user.contains("job") && password.contains("root"))
+            if(user.equals("job") && password.equals("root"))
             {
                 UserName.setText(null);
                 jPasswordField1.setText(null);
@@ -323,7 +323,7 @@ public class Login extends javax.swing.JFrame {
                 job.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                 this.dispose();
             }
-            else if(user.contains("employeur") && password.contains("root"))
+            else if(user.equals("employeur") && password.equals("root"))
             {
                 UserName.setText(null);
                 jPasswordField1.setText(null);
@@ -336,7 +336,7 @@ public class Login extends javax.swing.JFrame {
                 empl.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                 this.dispose();
             }
-            else if(user.contains("recruteur") && password.contains("root"))
+            else if(user.equals("recruteur") && password.equals("root"))
             {
                 UserName.setText(null);
                 jPasswordField1.setText(null);
