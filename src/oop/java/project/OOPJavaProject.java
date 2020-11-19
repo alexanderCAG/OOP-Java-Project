@@ -16,6 +16,8 @@ public class OOPJavaProject {
 
     /**
      * @param args the command line arguments
+     * @throws java.lang.ClassNotFoundException
+     * @throws java.sql.SQLException
      */
     public static void main(String[] args) throws ClassNotFoundException, SQLException {
         // TODO code application logic here
@@ -24,14 +26,31 @@ public class OOPJavaProject {
         Class.forName("com.mysql.jdbc.Driver");
 
         // url de connexion "jdbc:mysql://localhost:3305/usernameECE"
-        String urlDatabase = "jdbc:mysql://localhost:3308/Company";
+        String urlDatabase = "jdbc:mysql://localhost:3306/company?autoReconnect=true&useSSL=false";
        // String urlDatabase = "jdbc:mysql://localhost:3308/jps?characterEncoding=latin1";
 
         //création d'une connexion JDBC à la base 
-        Connection conn = DriverManager.getConnection(urlDatabase, "root", "");
+        Connection conn = DriverManager.getConnection(urlDatabase, "root", "root");
 
         // création d'un ordre SQL (statement)
         //Statement stmt = conn.createStatement();
+        try{
+        Statement stmt = conn.createStatement();
+
+        ResultSet rs = stmt.executeQuery("Select namejob from job");
+
+        while(rs.next()){
+            System.out.println(rs.getString(1)+" ");
+        }
+        String sqlStatement = "";
+
+        //int rows = stmt.executeUpdate(sqlStatement);
+        conn.close();
+        }catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+        
+        
     }
     
 }
