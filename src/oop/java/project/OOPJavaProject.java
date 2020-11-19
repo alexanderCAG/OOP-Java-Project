@@ -22,7 +22,7 @@ public class OOPJavaProject {
         // TODO code application logic here
         String url="jdbc:mysql://localhost:3306/Company?autoReconnect=true&useSSL=false";
         String user="root";
-        String pass="";
+        String pass="Nanterre16##";
         Connection conn=DriverManager.getConnection(url, user, pass);
         try{
         Statement stmt = conn.createStatement();
