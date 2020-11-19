@@ -5,23 +5,21 @@
  */
 package FonctionSQL;
 import java.sql.*;
+import java.util.Scanner;
 /**
  *
  * @author Geoffroy
  */
 public class Connexion {
-    public static void Connexion1(){
-        String url="jdbc:mysql://localhost:3306/Company";
+    public static Connection Connexion1() throws SQLException{
+        String url="jdbc:mysql://localhost:3306/Company?autoReconnect=true&useSSL=false";
         String user="root";
         String pass="Vhpsq47y78&";
-            Class.forName("com.mysql.jdbc.Driver");
-            Connection conn=DriverManager.getConnection(url, user, pass);
-            //PreparedStatement pamnt=conn.prepareStatement("insert ");
-            /*pamnt.setString(1, 1);
-            pamnt.setString(1, 1);*/
-            //pamnt.executeUpdate();
-            System.out.println("Driver load successfull");
-            
+        Connection conn=DriverManager.getConnection(url, user, pass);
+        return conn;
+    }
+    public static void afficherjobs() throws SQLException{
+        Connection conn = Connexion1();
         try{
         Statement stmt = conn.createStatement();
 
@@ -37,12 +35,96 @@ public class Connexion {
         }catch (SQLException ex) {
             System.out.println(ex.getMessage());
         }
-
     }
-    public static void main(String[] args) {
-        // TODO code application logic here
-        Connexion1();
+    public static void affichermemeberemployer() throws SQLException{
+        Connection conn = Connexion1();
+        try{
+        Statement stmt = conn.createStatement();
+
+        ResultSet rs = stmt.executeQuery("Select namemem from memberemployer");
+
+        while(rs.next()){
+            System.out.println(rs.getString(1)+" ");
+        }
+        String sqlStatement = "";
+
+        //int rows = stmt.executeUpdate(sqlStatement);
+        conn.close();
+        }catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+    }
+    public static void affichernewemployer() throws SQLException{
+        Connection conn = Connexion1();
+        try{
+        Statement stmt = conn.createStatement();
+
+        ResultSet rs = stmt.executeQuery("Select namenew from newemployer");
+
+        while(rs.next()){
+            System.out.println(rs.getString(1)+" ");
+        }
+        String sqlStatement = "";
+
+        //int rows = stmt.executeUpdate(sqlStatement);
+        conn.close();
+        }catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+    }
+    public static void affichernewemployer() throws SQLException{
+        Connection conn = Connexion1();
+        try{
+        Statement stmt = conn.createStatement();
+
+        ResultSet rs = stmt.executeQuery("Select namenew from newemployer");
+
+        while(rs.next()){
+            System.out.println(rs.getString(1)+" ");
+        }
+        String sqlStatement = "";
+
+        //int rows = stmt.executeUpdate(sqlStatement);
+        conn.close();
+        }catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+    }
+    public static void addjobs() throws SQLException{
+        Connection conn = Connexion1();
+        Scanner s=new Scanner(System.in);
+        String namejob=s.nextLine();
+        try{
+        Statement stmt = conn.createStatement();
+        stmt.executeUpdate("INSERT INTO `Company`.Job ( namejob ) VALUES ('" + namejob + "');");
         
+        //int rows = stmt.executeUpdate(sqlStatement);
+        conn.close();
+        }catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+    }
+    public static void deletejobs() throws SQLException{
+        Connection conn = Connexion1();
+        Scanner s=new Scanner(System.in);
+        String namejob=s.nextLine();
+        try{
+        Statement stmt = conn.createStatement();
+        stmt.executeUpdate("delete from job where namejob='" + namejob + "';");
+        
+        //int rows = stmt.executeUpdate(sqlStatement);
+        conn.close();
+        }catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+    }
+    public static void main(String[] args) throws SQLException {
+        // TODO code application logic here
+        //afficherjobs();
+        //deletejobs();
+        //addjobs();
+        //affichermemeberemployer();
+        //affichernewemployer();
     }
     
 }
