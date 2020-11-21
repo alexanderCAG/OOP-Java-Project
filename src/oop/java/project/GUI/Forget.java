@@ -136,8 +136,10 @@ public class Forget extends javax.swing.JFrame {
         Random rand = new Random();
         randomCode = rand.nextInt(999999);
         String host = "smtp.gmail.com";
-        String user = "tsnemailsndr@gmail.com";
-        String pass = "vQ#Tgez@=KRFM2E4";
+        String user = "razafiemilie@hotmail.fr";
+        String pass = "@ryme-mada-601!!hotmail";
+//        String user = "tsnemailsndr@gmail.com";
+//        String pass = "vQ#Tgez@=KRFM2E4";
         String to = jTextField1.getText();
         String subject = "Reseting Code";
         String message = "Your reset code is "+ randomCode;

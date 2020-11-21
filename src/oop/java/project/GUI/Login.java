@@ -449,14 +449,10 @@ public class Login extends javax.swing.JFrame {
     private void okActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okActionPerformed
         // TODO add your handling code here:
         
-        //    Connection con = null;
-        //    ResultSet rs = null;
-        //    PreparedStatement pst = null;
-        
-        String query = "select * from company where email=? and mdp=?";
+        String query = "select * from testmail where email=? and mdp=?";
         
         try {
-            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/company?autoReconnect=true&useSSL=false", "root", "root");
+            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/testmail?autoReconnect=true&useSSL=false", "root", "root");
             pst = con.prepareStatement(query);
             pst.setString(1, UserName.getText());
             pst.setString(2, jPasswordField1.getText());
