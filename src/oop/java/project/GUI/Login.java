@@ -5,8 +5,11 @@
  */
 package oop.java.project.GUI;
 
+import com.sun.istack.internal.logging.Logger;
 import java.awt.*;
 import java.awt.event.*;
+import java.sql.*;
+import java.util.logging.Level;
 import javax.swing.*;
 
 
@@ -16,6 +19,40 @@ import javax.swing.*;
  */
 public class Login extends javax.swing.JFrame {
 
+    Connection con = null;
+    ResultSet rs = null;
+    PreparedStatement pst = null;
+    
+    
+    
+    
+//        Class.forName("com.mysql.jdbc.Driver");
+//
+//        // url de connexion "jdbc:mysql://localhost:3305/usernameECE"
+//        String urlDatabase = "jdbc:mysql://localhost:3306/company?autoReconnect=true&useSSL=false";
+//       // String urlDatabase = "jdbc:mysql://localhost:3308/jps?characterEncoding=latin1";
+//
+//        //création d'une connexion JDBC à la base 
+//        Connection conn = DriverManager.getConnection(urlDatabase, "root", "root");
+//
+//        // création d'un ordre SQL (statement)
+//        //Statement stmt = conn.createStatement();
+//        try{
+//        Statement stmt = conn.createStatement();
+//
+//        ResultSet rs = stmt.executeQuery("Select namejob from job");
+//
+//        while(rs.next()){
+//            System.out.println(rs.getString(1)+" ");
+//        }
+//        String sqlStatement = "";
+//
+//        //int rows = stmt.executeUpdate(sqlStatement);
+//        conn.close();
+//        }catch (SQLException ex) {
+//            System.out.println(ex.getMessage());
+//        }
+    
     /**
      * Creates new form Login
      */
@@ -51,6 +88,9 @@ public class Login extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
+        jPanel4 = new javax.swing.JPanel();
+        jLabel5 = new javax.swing.JLabel();
+        ok = new javax.swing.JButton();
         jLabel10 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -195,6 +235,44 @@ public class Login extends javax.swing.JFrame {
 
         jPanel2.add(jPanel3);
         jPanel3.setBounds(646, 420, 330, 40);
+
+        jLabel5.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 102, 51));
+        jLabel5.setText("Forgot ?");
+        jLabel5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel5MouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                .addContainerGap(18, Short.MAX_VALUE)
+                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        jPanel2.add(jPanel4);
+        jPanel4.setBounds(910, 370, 100, 40);
+
+        ok.setText("OK");
+        ok.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                okActionPerformed(evt);
+            }
+        });
+        jPanel2.add(ok);
+        ok.setBounds(810, 380, 49, 25);
 
         jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/oop/java/project/GUI/Image/login.jpg"))); // NOI18N
         jPanel2.add(jLabel10);
@@ -358,6 +436,46 @@ public class Login extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jPasswordField1KeyPressed
 
+    private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked
+        // TODO add your handling code here:
+        
+        Forget forget = new Forget();
+        forget.setVisible(true);
+        forget.pack();
+        forget.setLocationRelativeTo(null);
+        
+    }//GEN-LAST:event_jLabel5MouseClicked
+
+    private void okActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okActionPerformed
+        // TODO add your handling code here:
+        
+        //    Connection con = null;
+        //    ResultSet rs = null;
+        //    PreparedStatement pst = null;
+        
+        String query = "select * from company where email=? and mdp=?";
+        
+        try {
+            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/company?autoReconnect=true&useSSL=false", "root", "root");
+            pst = con.prepareStatement(query);
+            pst.setString(1, UserName.getText());
+            pst.setString(2, jPasswordField1.getText());
+            rs = pst.executeQuery();
+            
+            if(rs.next()){
+                JOptionPane.showMessageDialog(null, "Login successfully");
+            }else{
+                JOptionPane.showMessageDialog(null, "User or Password do not match");
+            }
+            
+        } catch (SQLException ex) {
+            java.util.logging.Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
+        
+    }//GEN-LAST:event_okActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -403,6 +521,7 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
@@ -410,6 +529,8 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
     private javax.swing.JPasswordField jPasswordField1;
+    private javax.swing.JButton ok;
     // End of variables declaration//GEN-END:variables
 }

@@ -23,32 +23,32 @@ public class OOPJavaProject {
         // TODO code application logic here
         
         //new Login();
-        Class.forName("com.mysql.jdbc.Driver");
-
-        // url de connexion "jdbc:mysql://localhost:3305/usernameECE"
-        String urlDatabase = "jdbc:mysql://localhost:3306/company?autoReconnect=true&useSSL=false";
-       // String urlDatabase = "jdbc:mysql://localhost:3308/jps?characterEncoding=latin1";
-
-        //création d'une connexion JDBC à la base 
-        Connection conn = DriverManager.getConnection(urlDatabase, "root", "root");
-
-        // création d'un ordre SQL (statement)
-        //Statement stmt = conn.createStatement();
-        try{
-        Statement stmt = conn.createStatement();
-
-        ResultSet rs = stmt.executeQuery("Select namejob from job");
-
-        while(rs.next()){
-            System.out.println(rs.getString(1)+" ");
-        }
-        String sqlStatement = "";
-
-        //int rows = stmt.executeUpdate(sqlStatement);
-        conn.close();
-        }catch (SQLException ex) {
-            System.out.println(ex.getMessage());
-        }
+//        Class.forName("com.mysql.jdbc.Driver");
+//
+//        // url de connexion "jdbc:mysql://localhost:3305/usernameECE"
+//        String urlDatabase = "jdbc:mysql://localhost:3306/company?autoReconnect=true&useSSL=false";
+//       // String urlDatabase = "jdbc:mysql://localhost:3308/jps?characterEncoding=latin1";
+//
+//        //création d'une connexion JDBC à la base 
+//        Connection conn = DriverManager.getConnection(urlDatabase, "root", "root");
+//
+//        // création d'un ordre SQL (statement)
+//        //Statement stmt = conn.createStatement();
+//        try{
+//        Statement stmt = conn.createStatement();
+//
+//        ResultSet rs = stmt.executeQuery("Select namejob from job");
+//
+//        while(rs.next()){
+//            System.out.println(rs.getString(1)+" ");
+//        }
+//        String sqlStatement = "";
+//
+//        //int rows = stmt.executeUpdate(sqlStatement);
+//        conn.close();
+//        }catch (SQLException ex) {
+//            System.out.println(ex.getMessage());
+//        }
         
         
     }
