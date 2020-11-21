@@ -8,7 +8,7 @@ package oop.java.project.GUI;
 import java.util.*;
 import javax.mail.*;
 import javax.mail.internet.*;
-import javax.swing.JOptionPane;
+import javax.swing.*;
 /**
  *
  * @author alexa
