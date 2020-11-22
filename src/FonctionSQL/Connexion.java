@@ -247,6 +247,7 @@ public class Connexion {
         //affichermemeberemployer();
         //affichernewemployer();
         //countnewemployer();
+        afficherjobseeker();
     }
     
 }
