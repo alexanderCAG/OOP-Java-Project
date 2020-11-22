@@ -25,12 +25,14 @@ public class Reset extends javax.swing.JFrame {
      */
     public Reset() {
         initComponents();
+        this.setLocationRelativeTo(null); // center of the screen
     }
 
     public Reset(String username)
     {
         initComponents();
         this.user = username;
+        this.setLocationRelativeTo(null); // center of the screen
     }
 
     /**
