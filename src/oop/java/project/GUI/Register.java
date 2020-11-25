@@ -333,21 +333,53 @@ public class Register extends javax.swing.JFrame {
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
         // TODO add your handling code here:
         //"Demandeur d'emploie", "Employeur micro entreprise", "Employeur grosse entreprise", "Recruteur"
-        if(jComboBox1.getSelectedItem().toString()=="Demandeur d'emploie"){
+        lastname=jTextField10.getText();
+        firstname=jTextField11.getText();
+        email=jTextField7.getText();
+        phone=jTextField12.getHeight();
+        motdepasse=jPasswordField1.getText();
+        if("".equals(firstname) ||"".equals(lastname) || "".equals(email)  || "".equals(motdepasse) ){
+            
+            if("".equals(lastname)){
+                jTextField10.setBackground(new java.awt.Color(255, 0, 0));
+            }
+            if("".equals(firstname)){
+                jTextField11.setBackground(new java.awt.Color(255, 0, 0));
+            }
+            if("".equals(email)){
+                jTextField7.setBackground(new java.awt.Color(255, 0, 0));
+            }
+            if("".equals(motdepasse)){
+                jPasswordField1.setBackground(new java.awt.Color(255, 0, 0));
+            }
+            if("".equals(jTextField12.getText())){
+                jTextField12.setBackground(new java.awt.Color(255, 0, 0));
+            }
+            if("".equals(jPasswordField2.getText())){
+                jPasswordField2.setBackground(new java.awt.Color(255, 0, 0));
+            }
+            /*
+            jTextField10.setText(null);
+            jTextField11.setText(null);
+            jTextField7.setText(null);
+            jPasswordField1.setText(null);*/
+        }
+        else{
+        if("Demandeur d'emploie".equals(jComboBox1.getSelectedItem().toString())){
             try {
                 addjobseeker();
             } catch (SQLException ex) {
                 Logger.getLogger(Register.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-        if(jComboBox1.getSelectedItem().toString()=="Employeur micro entreprise"){
+        if("Employeur micro entreprise".equals(jComboBox1.getSelectedItem().toString())){
             try {
                 addjobseeker();
             } catch (SQLException ex) {
                 Logger.getLogger(Register.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-        if(jComboBox1.getSelectedItem().toString()=="Recruteur"){
+        if("Recruteur".equals(jComboBox1.getSelectedItem().toString())){
             try {
                 addjobseeker();
             } catch (SQLException ex) {
@@ -360,6 +392,8 @@ public class Register extends javax.swing.JFrame {
         log.setLocationRelativeTo(null);
         log.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.dispose();
+        }
+        
         
     }//GEN-LAST:event_jButton1MouseClicked
 
