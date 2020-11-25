@@ -7,11 +7,12 @@ package oop.java.project.GUI;
 
 import static FonctionSQL.Connexion.Connexion1;
 import java.awt.*;
-import java.awt.event.*;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.*;
@@ -29,7 +30,7 @@ public class Login extends javax.swing.JFrame {
     public Login() {
         initComponents();
         this.setLocationRelativeTo(null); // center of the screen
-        
+        clock();
         setVisible(true);
     }
 
@@ -55,6 +56,7 @@ public class Login extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
+        lblClock = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
@@ -171,6 +173,10 @@ public class Login extends javax.swing.JFrame {
         jPanel2.add(jButton2);
         jButton2.setBounds(830, 320, 178, 48);
 
+        lblClock.setText("Hello");
+        jPanel2.add(lblClock);
+        lblClock.setBounds(950, 30, 120, 16);
+
         jPanel3.setBackground(new java.awt.Color(102, 153, 255));
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
@@ -203,6 +209,7 @@ public class Login extends javax.swing.JFrame {
         jPanel3.setBounds(646, 420, 330, 40);
 
         jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/oop/java/project/GUI/Image/login.jpg"))); // NOI18N
+        jLabel10.setText("Hello");
         jPanel2.add(jLabel10);
         jLabel10.setBounds(0, 0, 1100, 540);
 
@@ -456,6 +463,30 @@ public class Login extends javax.swing.JFrame {
             System.out.println(ex.getMessage());
         }
     }
+    public void clock(){
+        Thread clock=new Thread(){
+            @Override
+            public void run(){
+                try{
+                    for(;;){
+                    Calendar cal=new GregorianCalendar();
+                    int day=cal.get(Calendar.DAY_OF_MONTH);
+                    int month=cal.get(Calendar.MONTH);
+                    int year=cal.get(Calendar.YEAR);
+                    int second=cal.get(Calendar.SECOND);
+                    int minute=cal.get(Calendar.MINUTE);
+                    int hour=cal.get(Calendar.HOUR);
+                    lblClock.setText("hour: " + hour + ":" + minute + ":" + second);
+                    sleep(1000);
+                    }
+                }
+                catch(InterruptedException e){
+                    e.printStackTrace();
+                }
+            }
+        };
+        clock.start();
+    }
     /**
      * @param args the command line arguments
      */
@@ -509,5 +540,6 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPasswordField jPasswordField1;
+    private javax.swing.JLabel lblClock;
     // End of variables declaration//GEN-END:variables
 }
