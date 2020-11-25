@@ -5,8 +5,13 @@
  */
 package oop.java.project.GUI;
 
+import static FonctionSQL.Connexion.Connexion1;
 import java.awt.*;
 import java.awt.event.*;
+import java.sql.*;
+import java.util.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.*;
 
 /**
@@ -18,6 +23,13 @@ public class Register extends javax.swing.JFrame {
     /**
      * Creates new form Register
      */
+    private String idnew;
+    private String lastname;
+    private String firstname;
+    private String email;
+    private String motdepasse;
+    private int phone;
+    private String job;
     public Register() {
         initComponents();
         this.setLocationRelativeTo(null); // center of the screen
@@ -320,7 +332,28 @@ public class Register extends javax.swing.JFrame {
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
         // TODO add your handling code here:
-        
+        //"Demandeur d'emploie", "Employeur micro entreprise", "Employeur grosse entreprise", "Recruteur"
+        if(jComboBox1.getSelectedItem().toString()=="Demandeur d'emploie"){
+            try {
+                addjobseeker();
+            } catch (SQLException ex) {
+                Logger.getLogger(Register.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        if(jComboBox1.getSelectedItem().toString()=="Employeur micro entreprise"){
+            try {
+                addjobseeker();
+            } catch (SQLException ex) {
+                Logger.getLogger(Register.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        if(jComboBox1.getSelectedItem().toString()=="Recruteur"){
+            try {
+                addjobseeker();
+            } catch (SQLException ex) {
+                Logger.getLogger(Register.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
         Login log = new Login();
         log.setVisible(true);
         log.pack();
@@ -383,7 +416,60 @@ public class Register extends javax.swing.JFrame {
         
         
     }//GEN-LAST:event_jTextField10KeyPressed
-
+public void addjobseeker() throws SQLException{
+        Connection conn = Connexion1();
+        lastname=jTextField10.getText();
+        firstname=jTextField11.getText();
+        email=jTextField7.getText();
+        phone=jTextField12.getHeight();
+        motdepasse=jPasswordField1.getText();
+        job="Menage";
+        try{
+        Statement stmt = conn.createStatement();
+        stmt.executeUpdate("INSERT INTO `Company`.jobseeker ( lastnamesee, firstnamesee, email, motdepasse, phone, job ) VALUES ('" + lastname + "', '" + firstname + "', '" + email + "', '" + motdepasse + "', " + phone + ", '" + job + "');");
+        
+        //int rows = stmt.executeUpdate(sqlStatement);
+        conn.close();
+        }catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+    }
+public void addnewemployer() throws SQLException{
+        Connection conn = Connexion1();
+        lastname=jTextField10.getText();
+        firstname=jTextField11.getText();
+        email=jTextField7.getText();
+        phone=jTextField12.getHeight();
+        motdepasse=jPasswordField1.getText();
+        job="Menage";
+        try{
+        Statement stmt = conn.createStatement();
+        stmt.executeUpdate("INSERT INTO `Company`.newemployer ( lastnamenew, firstnamenew, email, motdepasse, phone, job ) VALUES ('" + lastname + "', '" + firstname + "', '" + email + "', '" + motdepasse + "', " + phone + ", '" + job + "');");
+        
+        //int rows = stmt.executeUpdate(sqlStatement);
+        conn.close();
+        }catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+    }
+public void addmemberemployer() throws SQLException{
+        Connection conn = Connexion1();
+        lastname=jTextField10.getText();
+        firstname=jTextField11.getText();
+        email=jTextField7.getText();
+        phone=jTextField12.getHeight();
+        motdepasse=jPasswordField1.getText();
+        job="Menage";
+        try{
+        Statement stmt = conn.createStatement();
+        stmt.executeUpdate("INSERT INTO `Company`.memberemployer ( lastnamemem, firstnamemem, email, motdepasse, phone, job ) VALUES ('" + lastname + "', '" + firstname + "', '" + email + "', '" + motdepasse + "', " + phone + ", '" + job + "');");
+        
+        //int rows = stmt.executeUpdate(sqlStatement);
+        conn.close();
+        }catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+    }
     /**
      * @param args the command line arguments
      */

@@ -5,8 +5,15 @@
  */
 package oop.java.project.GUI;
 
+import static FonctionSQL.Connexion.Connexion1;
 import java.awt.*;
 import java.awt.event.*;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.*;
 
 
@@ -247,7 +254,22 @@ public class Login extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        String user = UserName.getText();
+        try {
+                Verificationnewemployer();
+            } catch (SQLException ex) {
+                Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            try {
+                Verificationmemberemployer();
+            } catch (SQLException ex) {
+                Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            try {
+                Verificationjobseeker();
+            } catch (SQLException ex) {
+                Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        /*String user = UserName.getText();
         String password = jPasswordField1.getText();
         
         if(user.contains("job") && password.contains("root"))
@@ -294,7 +316,7 @@ public class Login extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Mot de passe INCORECT", "Login Error", JOptionPane.ERROR_MESSAGE);
             UserName.setText(null);
             jPasswordField1.setText(null);
-        }
+        }*/
         
   
        
@@ -304,59 +326,136 @@ public class Login extends javax.swing.JFrame {
     private void jPasswordField1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jPasswordField1KeyPressed
         // TODO add your handling code here:
         
-        if(evt.getKeyCode() == KeyEvent.VK_ENTER)
+        /*if(evt.getKeyCode() == KeyEvent.VK_ENTER)
         {
-            String user = UserName.getText();
-            String password = jPasswordField1.getText();
-
-            if(user.contains("job") && password.contains("root"))
-            {
+            
+                String user = UserName.getText();
+                String password = jPasswordField1.getText();
+                
+                if(user.contains("job") && password.contains("root"))
+                {
                 UserName.setText(null);
                 jPasswordField1.setText(null);
-
-
+                
+                
                 Job job = new Job();
                 job.setVisible(true);
                 job.pack();
                 job.setLocationRelativeTo(null);
                 job.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                 this.dispose();
-            }
-            else if(user.contains("employeur") && password.contains("root"))
-            {
+                }
+                else if(user.contains("employeur") && password.contains("root"))
+                {
                 UserName.setText(null);
                 jPasswordField1.setText(null);
-
-
+                
+                
                 Employeur empl = new Employeur();
                 empl.setVisible(true);
                 empl.pack();
                 empl.setLocationRelativeTo(null);
                 empl.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                 this.dispose();
-            }
-            else if(user.contains("recruteur") && password.contains("root"))
-            {
+                }
+                else if(user.contains("recruteur") && password.contains("root"))
+                {
                 UserName.setText(null);
                 jPasswordField1.setText(null);
-
-
+                
+                
                 Recruteur recru = new Recruteur();
                 recru.setVisible(true);
                 recru.pack();
                 recru.setLocationRelativeTo(null);
                 recru.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                 this.dispose();
-            }
-            else
-            {
+                }
+                else
+                {
                 JOptionPane.showMessageDialog(null, "Mot de passe INCORECT", "Login Error", JOptionPane.ERROR_MESSAGE);
                 UserName.setText(null);
                 jPasswordField1.setText(null);
+                }
+            
+        }*/
+    }//GEN-LAST:event_jPasswordField1KeyPressed
+    public void Verificationnewemployer() throws SQLException{
+        String user = UserName.getText();
+        String password = jPasswordField1.getText();
+        Connection conn = Connexion1();
+        try{
+        Statement stmt = conn.createStatement();
+
+        ResultSet rs = stmt.executeQuery("Select email, motdepasse from newemployer;");
+        String email;
+        String motdepasse;
+        while(rs.next()){
+            email=rs.getString(1);
+            motdepasse=rs.getString(2);
+            if(user.equals(email) && password.equals(motdepasse)){
+                System.out.println("Correct new employer");
             }
         }
-    }//GEN-LAST:event_jPasswordField1KeyPressed
+        String sqlStatement = "";
 
+        //int rows = stmt.executeUpdate(sqlStatement);
+        conn.close();
+        }catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+    }
+    
+    public void Verificationmemberemployer() throws SQLException{
+        String user = UserName.getText();
+        String password = jPasswordField1.getText();
+        Connection conn = Connexion1();
+        try{
+        Statement stmt = conn.createStatement();
+
+        ResultSet rs = stmt.executeQuery("Select email, motdepasse from memberemployer;");
+        String email;
+        String motdepasse;
+        while(rs.next()){
+            email=rs.getString(1);
+            motdepasse=rs.getString(2);
+            if(user.equals(email) && password.equals(motdepasse)){
+                System.out.println("Correct member employer");
+            }
+        }
+        String sqlStatement = "";
+
+        //int rows = stmt.executeUpdate(sqlStatement);
+        conn.close();
+        }catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+    }
+    public void Verificationjobseeker() throws SQLException{
+        String user = UserName.getText();
+        String password = jPasswordField1.getText();
+        Connection conn = Connexion1();
+        try{
+        Statement stmt = conn.createStatement();
+
+        ResultSet rs = stmt.executeQuery("Select email, motdepasse from jobseeker;");
+        String email;
+        String motdepasse;
+        while(rs.next()){
+            email=rs.getString(1);
+            motdepasse=rs.getString(2);
+            if(user.equals(email) && password.equals(motdepasse)){
+                System.out.println("Correct jobseeker");
+            }
+        }
+        String sqlStatement = "";
+
+        //int rows = stmt.executeUpdate(sqlStatement);
+        conn.close();
+        }catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+    }
     /**
      * @param args the command line arguments
      */
