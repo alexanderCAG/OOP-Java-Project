@@ -173,9 +173,10 @@ public class Login extends javax.swing.JFrame {
         jPanel2.add(jButton2);
         jButton2.setBounds(830, 320, 178, 48);
 
+        lblClock.setFont(new java.awt.Font("Verdana Pro Cond Black", 1, 13)); // NOI18N
         lblClock.setText("Hello");
         jPanel2.add(lblClock);
-        lblClock.setBounds(950, 30, 120, 16);
+        lblClock.setBounds(830, 30, 250, 50);
 
         jPanel3.setBackground(new java.awt.Color(102, 153, 255));
 
@@ -476,7 +477,7 @@ public class Login extends javax.swing.JFrame {
                     int second=cal.get(Calendar.SECOND);
                     int minute=cal.get(Calendar.MINUTE);
                     int hour=cal.get(Calendar.HOUR);
-                    lblClock.setText("hour: " + hour + ":" + minute + ":" + second);
+                    lblClock.setText("Hour: " + hour + ":" + minute + ":" + second + "  " + "Date: " + day + "/" + month + "/" + year);
                     sleep(1000);
                     }
                 }
