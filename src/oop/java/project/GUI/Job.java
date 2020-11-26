@@ -5,6 +5,7 @@
  */
 package oop.java.project.GUI;
 
+import Classe.Candidat;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
@@ -19,6 +20,7 @@ public class Job extends javax.swing.JFrame {
     /**
      * Creates new form Job
      */
+    private Candidat c;
     public Job() {
         initComponents();
         this.setLocationRelativeTo(null); // center of the screen
@@ -43,6 +45,12 @@ public class Job extends javax.swing.JFrame {
 //        jPanel3.validate();
 //        jSeparator1.validate();
 //        jTextField1.validate();
+    }
+    public Job(Candidat c) {
+        this.c=c;
+        initComponents();
+        this.setLocationRelativeTo(null); // center of the screen
+        jTextField1.setBackground(new Color(0,102,153,120));
     }
 
     /**
@@ -96,7 +104,7 @@ public class Job extends javax.swing.JFrame {
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 48)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setText("Alexander");
+        jLabel4.setText(c.getLastname() + " " + c.getFirstname());
         jPanel1.add(jLabel4);
         jLabel4.setBounds(360, 30, 330, 90);
 
