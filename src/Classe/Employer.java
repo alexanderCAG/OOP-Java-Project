@@ -15,4 +15,37 @@ public class Employer extends Person{
         super(id, lastname, firstname, email, motdepasse, phone, job);
         this.sizecompany=sizecompany;
     }
+
+    public String getSizecompany() {
+        return sizecompany;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public String getLastname() {
+        return lastname;
+    }
+
+    public String getFirstname() {
+        return firstname;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getMotdepasse() {
+        return motdepasse;
+    }
+
+    public int getPhone() {
+        return phone;
+    }
+
+    public String getJob() {
+        return job;
+    }
+    
 }

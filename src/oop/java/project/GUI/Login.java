@@ -6,6 +6,8 @@
 package oop.java.project.GUI;
 
 import Classe.Candidat;
+import Classe.Employer;
+import Classe.JobSeeker;
 import static FonctionSQL.Connexion.Connexion1;
 import java.awt.*;
 import java.sql.Connection;
@@ -469,14 +471,22 @@ public class Login extends javax.swing.JFrame {
         try{
         Statement stmt = conn.createStatement();
 
-        ResultSet rs = stmt.executeQuery("Select email, motdepasse from jobseeker;");
+        ResultSet rs = stmt.executeQuery("Select * from jobseeker;");
         String email;
         String motdepasse;
         while(rs.next()){
-            email=rs.getString(1);
-            motdepasse=rs.getString(2);
+            email=rs.getString(4);
+            motdepasse=rs.getString(5);
             if(user.equals(email) && password.equals(motdepasse)){
                 System.out.println("Correct jobseeker");
+                JobSeeker j= new JobSeeker(rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getInt(6), rs.getString(7));
+                System.out.println("Correct jobseeker");
+                Employeur employeur = new Employeur(j);
+                employeur.setVisible(true);
+                employeur.pack();
+                employeur.setLocationRelativeTo(null);
+                employeur.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                this.dispose();
             }
         }
         String sqlStatement = "";

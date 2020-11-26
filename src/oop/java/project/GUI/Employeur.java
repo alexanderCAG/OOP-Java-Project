@@ -5,6 +5,8 @@
  */
 package oop.java.project.GUI;
 
+import Classe.Employer;
+import Classe.JobSeeker;
 import com.itextpdf.text.*;
 import com.itextpdf.text.pdf.*;
 import java.awt.*;
@@ -22,7 +24,19 @@ public class Employeur extends javax.swing.JFrame {
     /**
      * Creates new form Employeur
      */
+    private JobSeeker j;
     public Employeur() {
+        initComponents();
+        this.setLocationRelativeTo(null); // center of the screen 
+        jPanel4.setBackground(new Color(204,102,0,120));
+        jTextArea2.setBackground(new Color(204,102,0,120));
+        jComboBox1.setBackground(new Color(150,102,0,120));
+        jComboBox2.setBackground(new Color(150,102,0,120));
+        jButton3.setBackground(new Color(150,102,0,120));
+        jButton4.setBackground(new Color(150,102,0,120));
+    }
+    public Employeur(JobSeeker j) {
+        this.j=j;
         initComponents();
         this.setLocationRelativeTo(null); // center of the screen 
         jPanel4.setBackground(new Color(204,102,0,120));
@@ -74,7 +88,7 @@ public class Employeur extends javax.swing.JFrame {
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 48)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel8.setText("Alexander");
+        jLabel8.setText(j.getLastname() + " " + j.getFirstname());
         jPanel2.add(jLabel8);
         jLabel8.setBounds(360, 30, 330, 90);
 
