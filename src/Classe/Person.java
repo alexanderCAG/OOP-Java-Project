@@ -16,8 +16,8 @@ public class Person {
     protected String email;
     protected String motdepasse;
     protected int phone;
-    protected Job job;
-    public Person(String id, String lastname, String firstname, String email, String motdepasse, int phone, Job job){
+    protected String job;
+    public Person(String id, String lastname, String firstname, String email, String motdepasse, int phone, String job){
         this.id=id;
         this.lastname=lastname;
         this.firstname=firstname;

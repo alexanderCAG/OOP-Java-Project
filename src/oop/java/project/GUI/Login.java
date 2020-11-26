@@ -5,6 +5,7 @@
  */
 package oop.java.project.GUI;
 
+import Classe.Candidat;
 import static FonctionSQL.Connexion.Connexion1;
 import java.awt.*;
 import java.sql.Connection;
@@ -417,7 +418,7 @@ public class Login extends javax.swing.JFrame {
             motdepasse=rs.getString(5);
             if(user.equals(email) && password.equals(motdepasse)){
                 System.out.println("Correct new candidat");
-                
+                Candidat c= new Candidat(rs.getString(1),rs.getString(2),rs.getString(2),rs.getString(3),rs.getString(4),rs.getInt(5), rs.getString(6));
             }
         }
         String sqlStatement = "";

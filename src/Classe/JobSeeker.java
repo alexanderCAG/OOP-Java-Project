@@ -10,7 +10,7 @@ package Classe;
  * @author Geoffroy
  */
 public class JobSeeker extends Person {
-    public JobSeeker(String id, String lastname, String firstname, String email, String motdepasse, int phone, Job job){
+    public JobSeeker(String id, String lastname, String firstname, String email, String motdepasse, int phone, String job){
         super(id, lastname, firstname, email, motdepasse, phone, job);
     }
     

@@ -11,7 +11,7 @@ package Classe;
  */
 public class Employer extends Person{
     private String sizecompany;
-    public Employer(String id, String lastname, String firstname, String email, String motdepasse, int phone, Job job, String sizecompany){
+    public Employer(String id, String lastname, String firstname, String email, String motdepasse, int phone, String job, String sizecompany){
         super(id, lastname, firstname, email, motdepasse, phone, job);
         this.sizecompany=sizecompany;
     }
