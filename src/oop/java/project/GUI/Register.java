@@ -7,6 +7,7 @@ package oop.java.project.GUI;
 
 import java.awt.*;
 import java.awt.event.*;
+import java.util.ArrayList;
 import java.util.regex.*;
 import javax.swing.*;
 
@@ -15,6 +16,7 @@ import javax.swing.*;
  * @author alexa
  */
 public class Register extends javax.swing.JFrame {
+    private Object MessageBox;
 
     /**
      * Creates new form Register
@@ -347,14 +349,27 @@ public class Register extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel9MouseClicked
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
-        // TODO add your handling code here:
+        // TODO add your handling code here
+            String namenew = jTextField10.getText();
+            char[] motdepasse1 = jPasswordField1.getPassword();
+            char[] motdepasse2 = jPasswordField1.getPassword();
+            String phone = jTextField12.getText();
+            String job = jTextField11.getText();
+            String email = jTextField7.getText();
+            if (motdepasse1 == motdepasse2){
+                String req = "INSERT INTO `Company`.NewEmployer ( namenew, email, motdepasse, phone, job ) VALUES ( '"+ namenew + "',"+ email + "'," + motdepasse1 + "', '" + phone + "', '" + job + "' );";
+                Login log = new Login();
+                log.setVisible(true);
+                log.pack();
+                log.setLocationRelativeTo(null);
+                log.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                this.dispose();
+            }
+            else {
+                javax.swing.JOptionPane.showMessageDialog(null,"Employer non ajouté");
+            }
+            
         
-        Login log = new Login();
-        log.setVisible(true);
-        log.pack();
-        log.setLocationRelativeTo(null);
-        log.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.dispose();
         
     }//GEN-LAST:event_jButton1MouseClicked
 
