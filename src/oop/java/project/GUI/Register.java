@@ -42,6 +42,10 @@ public class Register extends javax.swing.JFrame {
         jProgressBar1.setVisible(false);
     }
 
+    Register() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -539,7 +543,7 @@ public class Register extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jTextField12KeyReleased
 
-    private void jTextField11KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField11KeyReleased
+    private void jTextField11KeyReleased(java.awt.event.KeyEvent evt) {                                         
         // TODO add your handling code here:
         
         ///ACCEPTER QUE TEXTE
@@ -547,7 +551,7 @@ public class Register extends javax.swing.JFrame {
         String carac = jTextField11.getText();
         
 <<<<<<< HEAD
-    }//GEN-LAST:event_jTextField10KeyPressed
+    }                                       
 public void addjobseeker() throws SQLException{
         Connection conn = Connexion1();
         lastname=jTextField10.getText();
@@ -613,7 +617,7 @@ public void addmemberemployer() throws SQLException{
                 jTextField11.setForeground(new Color(255,0,50));
             }
         }
-    }//GEN-LAST:event_jTextField11KeyReleased
+    }                                        
 
     private void jTextField7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField7ActionPerformed
         // TODO add your handling code here:
