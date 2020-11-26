@@ -5,6 +5,7 @@
  */
 package oop.java.project.GUI;
 
+import Classe.JobSeeker;
 import java.awt.*;
 import java.awt.event.*;
 import java.util.Locale;
@@ -23,7 +24,35 @@ public class Recruteur extends javax.swing.JFrame {
     /**
      * Creates new form Recruteur
      */
+    private JobSeeker j;
     public Recruteur() {
+        initComponents();
+        this.setLocationRelativeTo(null); // center of the screen
+        jLabel7.setBackground(new Color(0,0,0,0));
+        jTextField1.setBackground(new Color(0,102,51,120));
+        jTextField2.setBackground(new Color(0,102,51,120));
+        jComboBox1.setBackground(new Color(0,102,70,120));
+        jPanel4.setBackground(new Color(0,102,51,0));
+     
+        jTextField1.addKeyListener(new KeyAdapter(){
+            @Override
+            public void keyReleased(KeyEvent hidden)
+            {
+                jLabel9.setText("");
+            }
+        });
+        
+        jTextField2.addKeyListener(new KeyAdapter(){
+            @Override
+            public void keyReleased(KeyEvent hidden)
+            {
+                jLabel10.setText("");
+            }
+        });
+        
+    }
+    public Recruteur(JobSeeker j) {
+        this.j=j;
         initComponents();
         this.setLocationRelativeTo(null); // center of the screen
         jLabel7.setBackground(new Color(0,0,0,0));
@@ -108,9 +137,9 @@ public class Recruteur extends javax.swing.JFrame {
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 48)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel8.setText("Alexander");
+        jLabel8.setText(j.getLastname() + " " + j.getFirstname());
         jPanel3.add(jLabel8);
-        jLabel8.setBounds(360, 30, 330, 90);
+        jLabel8.setBounds(360, 30, 490, 90);
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(0, 102, 51));

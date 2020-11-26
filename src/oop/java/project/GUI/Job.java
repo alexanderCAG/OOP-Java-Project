@@ -106,7 +106,7 @@ public class Job extends javax.swing.JFrame {
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText(c.getLastname() + " " + c.getFirstname());
         jPanel1.add(jLabel4);
-        jLabel4.setBounds(360, 30, 330, 90);
+        jLabel4.setBounds(360, 30, 490, 90);
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/oop/java/project/GUI/Image/deconnection.png"))); // NOI18N
         jLabel5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));

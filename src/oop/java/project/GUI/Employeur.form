@@ -69,12 +69,12 @@
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
                 <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                  <Connection code="j.getLastname() + &quot; &quot; + j.getFirstname()" type="code"/>
+                  <Connection code="e.getLastname() + &quot; &quot; + e.getFirstname()" type="code"/>
                 </Property>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="360" y="30" width="330" height="90"/>
+                  <AbsoluteConstraints x="330" y="30" width="530" height="90"/>
                 </Constraint>
               </Constraints>
             </Component>

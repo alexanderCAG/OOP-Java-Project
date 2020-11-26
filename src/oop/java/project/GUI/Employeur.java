@@ -24,7 +24,7 @@ public class Employeur extends javax.swing.JFrame {
     /**
      * Creates new form Employeur
      */
-    private JobSeeker j;
+    private Employer e;
     public Employeur() {
         initComponents();
         this.setLocationRelativeTo(null); // center of the screen 
@@ -35,8 +35,8 @@ public class Employeur extends javax.swing.JFrame {
         jButton3.setBackground(new Color(150,102,0,120));
         jButton4.setBackground(new Color(150,102,0,120));
     }
-    public Employeur(JobSeeker j) {
-        this.j=j;
+    public Employeur(Employer e) {
+        this.e=e;
         initComponents();
         this.setLocationRelativeTo(null); // center of the screen 
         jPanel4.setBackground(new Color(204,102,0,120));
@@ -88,9 +88,9 @@ public class Employeur extends javax.swing.JFrame {
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 48)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel8.setText(j.getLastname() + " " + j.getFirstname());
+        jLabel8.setText(e.getLastname() + " " + e.getFirstname());
         jPanel2.add(jLabel8);
-        jLabel8.setBounds(360, 30, 330, 90);
+        jLabel8.setBounds(330, 30, 530, 90);
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/oop/java/project/GUI/Image/deconnection.png"))); // NOI18N
         jLabel5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
