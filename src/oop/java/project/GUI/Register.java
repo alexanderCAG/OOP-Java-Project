@@ -8,14 +8,11 @@ package oop.java.project.GUI;
 import static FonctionSQL.Connexion.Connexion1;
 import java.awt.*;
 import java.awt.event.*;
-<<<<<<< HEAD
 import java.sql.*;
 import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-=======
 import java.util.regex.*;
->>>>>>> affichage
 import javax.swing.*;
 
 /**
@@ -554,7 +551,6 @@ public class Register extends javax.swing.JFrame {
         
         String carac = jTextField11.getText();
         
-<<<<<<< HEAD
     }                                       
 public void addjobseeker() throws SQLException{
         Connection conn = Connexion1();
@@ -610,7 +606,6 @@ public void addmemberemployer() throws SQLException{
             System.out.println(ex.getMessage());
         }
     }
-=======
         jTextField11.setForeground(new Color(0,0,0));
         
         for(char car : carac.toCharArray())
@@ -636,7 +631,6 @@ public void addmemberemployer() throws SQLException{
         }
     }//GEN-LAST:event_jTextField7ActionPerformed
 
->>>>>>> affichage
     /**
      * @param args the command line arguments
      */
