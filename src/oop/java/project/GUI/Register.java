@@ -39,13 +39,10 @@ public class Register extends javax.swing.JFrame {
         jProgressBar1.setVisible(false);
     }
 
-    Register() {
+    /*Register() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+    }*/
 
-    Register() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -606,7 +603,7 @@ public void addmemberemployer() throws SQLException{
             System.out.println(ex.getMessage());
         }
     }
-        jTextField11.setForeground(new Color(0,0,0));
+        /*jTextField11.setForeground(new Color(0,0,0));
         
         for(char car : carac.toCharArray())
         {
@@ -616,7 +613,7 @@ public void addmemberemployer() throws SQLException{
                 jTextField11.setForeground(new Color(255,0,50));
             }
         }
-    }                                        
+    }   */                                     
 
     private void jTextField7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField7ActionPerformed
         // TODO add your handling code here:
