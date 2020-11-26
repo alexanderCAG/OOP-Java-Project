@@ -409,14 +409,14 @@ public class Login extends javax.swing.JFrame {
         try{
         Statement stmt = conn.createStatement();
 
-        ResultSet rs = stmt.executeQuery("Select email, motdepasse from newemployer;");
+        ResultSet rs = stmt.executeQuery("Select email, motdepasse from candidat;");
         String email;
         String motdepasse;
         while(rs.next()){
             email=rs.getString(1);
             motdepasse=rs.getString(2);
             if(user.equals(email) && password.equals(motdepasse)){
-                System.out.println("Correct new employer");
+                System.out.println("Correct new candidat");
             }
         }
         String sqlStatement = "";
@@ -435,14 +435,14 @@ public class Login extends javax.swing.JFrame {
         try{
         Statement stmt = conn.createStatement();
 
-        ResultSet rs = stmt.executeQuery("Select email, motdepasse from memberemployer;");
+        ResultSet rs = stmt.executeQuery("Select email, motdepasse from employer;");
         String email;
         String motdepasse;
         while(rs.next()){
             email=rs.getString(1);
             motdepasse=rs.getString(2);
             if(user.equals(email) && password.equals(motdepasse)){
-                System.out.println("Correct member employer");
+                System.out.println("Correct employer");
             }
         }
         String sqlStatement = "";

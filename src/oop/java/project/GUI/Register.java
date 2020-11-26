@@ -567,7 +567,7 @@ public void addjobseeker() throws SQLException{
             System.out.println(ex.getMessage());
         }
     }
-public void addnewemployer() throws SQLException{
+public void addcandidat() throws SQLException{
         Connection conn = Connexion1();
         lastname=jTextField10.getText();
         firstname=jTextField11.getText();
@@ -577,7 +577,7 @@ public void addnewemployer() throws SQLException{
         job="Menage";
         try{
         Statement stmt = conn.createStatement();
-        stmt.executeUpdate("INSERT INTO `Company`.newemployer ( lastnamenew, firstnamenew, email, motdepasse, phone, job ) VALUES ('" + lastname + "', '" + firstname + "', '" + email + "', '" + motdepasse + "', " + phone + ", '" + job + "');");
+        stmt.executeUpdate("INSERT INTO `Company`.candidat ( lastnamenew, firstnamenew, email, motdepasse, phone, job ) VALUES ('" + lastname + "', '" + firstname + "', '" + email + "', '" + motdepasse + "', " + phone + ", '" + job + "');");
         
         //int rows = stmt.executeUpdate(sqlStatement);
         conn.close();
@@ -585,7 +585,7 @@ public void addnewemployer() throws SQLException{
             System.out.println(ex.getMessage());
         }
     }
-public void addmemberemployer() throws SQLException{
+public void addemployer() throws SQLException{
         Connection conn = Connexion1();
         lastname=jTextField10.getText();
         firstname=jTextField11.getText();
@@ -593,9 +593,10 @@ public void addmemberemployer() throws SQLException{
         phone=jTextField12.getHeight();
         motdepasse=jPasswordField1.getText();
         job="Menage";
+        String sizecompany="micro";
         try{
         Statement stmt = conn.createStatement();
-        stmt.executeUpdate("INSERT INTO `Company`.memberemployer ( lastnamemem, firstnamemem, email, motdepasse, phone, job ) VALUES ('" + lastname + "', '" + firstname + "', '" + email + "', '" + motdepasse + "', " + phone + ", '" + job + "');");
+        stmt.executeUpdate("INSERT INTO `Company`.employer ( lastnamemem, firstnamemem, email, motdepasse, phone, job, sizecompany ) VALUES ('" + lastname + "', '" + firstname + "', '" + email + "', '" + motdepasse + "', " + phone + ", '" + job + ", '" + sizecompany +"');");
         
         //int rows = stmt.executeUpdate(sqlStatement);
         conn.close();
