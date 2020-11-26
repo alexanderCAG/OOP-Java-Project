@@ -531,7 +531,7 @@ public class Login extends javax.swing.JFrame {
                             lblClock.setText("Hour: " + hour + ":0" + minute + ":0" + second + "  " + "Date: " + day + "/" + (month+1) + "/" + year);
                         }
                         else{
-                            lblClock.setText("Hour: " + hour + ":" + minute + ":" + second + "  " + "Date: " + day + "/" + (month+1) + "/" + year);
+                            lblClock.setText("Hour: " + hour + ":0" + minute + ":" + second + "  " + "Date: " + day + "/" + (month+1) + "/" + year);
                         }
                     }
                     else{
