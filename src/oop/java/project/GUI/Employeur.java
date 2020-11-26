@@ -5,7 +5,12 @@
  */
 package oop.java.project.GUI;
 
+import com.itextpdf.text.*;
+import com.itextpdf.text.pdf.*;
 import java.awt.*;
+import java.io.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.*;
 
 /**
@@ -55,6 +60,8 @@ public class Employeur extends javax.swing.JFrame {
         jTextArea2 = new javax.swing.JTextArea();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
         jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -163,9 +170,9 @@ public class Employeur extends javax.swing.JFrame {
 
         jButton3.setBackground(new java.awt.Color(150, 102, 0));
         jButton3.setText("VALIDER");
-        jButton3.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton3MouseClicked(evt);
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
             }
         });
         jPanel1.add(jButton3);
@@ -173,13 +180,23 @@ public class Employeur extends javax.swing.JFrame {
 
         jButton4.setBackground(new java.awt.Color(150, 102, 0));
         jButton4.setText("VALIDER");
-        jButton4.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton4MouseClicked(evt);
-            }
-        });
         jPanel1.add(jButton4);
         jButton4.setBounds(90, 340, 190, 50);
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {"OA?ND", "Adoea", "50"},
+                {"BNDIZ", "Djdaz", "062"},
+                {"BIBZA", "Cpdoa", "10"}
+            },
+            new String [] {
+                "Nom", "Prenom", "Age"
+            }
+        ));
+        jScrollPane1.setViewportView(jTable1);
+
+        jPanel1.add(jScrollPane1);
+        jScrollPane1.setBounds(130, 460, 460, 120);
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/oop/java/project/GUI/Image/employeur.jpg"))); // NOI18N
         jPanel1.add(jLabel3);
@@ -211,13 +228,72 @@ public class Employeur extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jLabel5MouseClicked
 
-    private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3MouseClicked
-
-    private void jButton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton4MouseClicked
+        
+//        String path = "";
+//        JFileChooser file = new JFileChooser();
+//        file.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+//        int x = file.showSaveDialog(this);
+//        
+//        if(x==JFileChooser.APPROVE_OPTION)
+//        {
+//            path = file.getSelectedFile().getPath();
+//        }
+        
+        Document doc = new Document();
+        
+        try {
+            //PdfWriter.getInstance(doc, new FileOutputStream(path + "Table.pdf"));
+            PdfWriter.getInstance(doc, new FileOutputStream("Table.pdf"));
+            doc.open();
+            
+            PdfPTable table = new PdfPTable(3);
+            
+            table.addCell("Nom");
+            table.addCell("Prenom");
+            table.addCell("Age");
+            
+            for(int i=0; i<jTable1.getRowCount();i++)
+            {
+                String Nom = jTable1.getValueAt(i, 0).toString();
+                String Prenom = jTable1.getValueAt(i, 1).toString();
+                String Age = jTable1.getValueAt(i, 2).toString();
+                
+                table.addCell(Nom);
+                table.addCell(Prenom);
+                table.addCell(Age);
+                
+            }
+            
+            doc.add(table);
+            
+            
+        } catch (FileNotFoundException ex) {
+        Logger.getLogger(Employeur.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (DocumentException ex) {
+            Logger.getLogger(Employeur.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        doc.close();
+            
+//        Document doc = new Document();
+//        
+//        try {
+//            PdfWriter.getInstance(doc, new FileOutputStream("hello.pdf"));
+//            doc.open();
+//            doc.add(new Paragraph("Hello la team comment ca va ?" + " Moi ca va bien"));
+//
+//            
+//        } catch (DocumentException ex) {
+//            Logger.getLogger(Employeur.class.getName()).log(Level.SEVERE, null, ex);
+//        } catch (FileNotFoundException ex) {
+//            Logger.getLogger(Employeur.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+//        
+//        doc.close();
+        
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -271,8 +347,10 @@ public class Employeur extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JTable jTable1;
     private javax.swing.JTextArea jTextArea2;
     // End of variables declaration//GEN-END:variables
 }

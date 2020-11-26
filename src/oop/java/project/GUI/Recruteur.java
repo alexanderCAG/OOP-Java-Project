@@ -7,7 +7,12 @@ package oop.java.project.GUI;
 
 import java.awt.*;
 import java.awt.event.*;
+import java.util.Locale;
 import javax.swing.*;
+import org.jfree.chart.*;
+import org.jfree.chart.plot.*;
+import org.jfree.data.category.*;
+import org.jfree.data.general.DefaultPieDataset;
 
 /**
  *
@@ -25,6 +30,7 @@ public class Recruteur extends javax.swing.JFrame {
         jTextField1.setBackground(new Color(0,102,51,120));
         jTextField2.setBackground(new Color(0,102,51,120));
         jComboBox1.setBackground(new Color(0,102,70,120));
+        jPanel4.setBackground(new Color(0,102,51,0));
      
         jTextField1.addKeyListener(new KeyAdapter(){
             @Override
@@ -72,6 +78,7 @@ public class Recruteur extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
+        jPanel4 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -187,8 +194,18 @@ public class Recruteur extends javax.swing.JFrame {
 
         jButton3.setBackground(new java.awt.Color(0, 102, 51));
         jButton3.setText("ANALYSER");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
         jPanel2.add(jButton3);
         jButton3.setBounds(730, 310, 190, 60);
+
+        jPanel4.setBackground(new java.awt.Color(0, 102, 51));
+        jPanel4.setLayout(new java.awt.BorderLayout());
+        jPanel2.add(jPanel4);
+        jPanel4.setBounds(610, 400, 420, 230);
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/oop/java/project/GUI/Image/recruteur.jpg"))); // NOI18N
         jPanel2.add(jLabel3);
@@ -218,6 +235,39 @@ public class Recruteur extends javax.swing.JFrame {
         log.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.dispose();
     }//GEN-LAST:event_jLabel5MouseClicked
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+        
+        DefaultPieDataset graphe = new DefaultPieDataset();
+        graphe.setValue("One", new Integer(10));
+        graphe.setValue("Two", new Integer(20));
+        graphe.setValue("Three", new Integer(30));
+        graphe.setValue("Four", new Integer(10));
+        
+        JFreeChart chart = ChartFactory.createPieChart("Student score", graphe, true, true, true);
+        PiePlot plot = (PiePlot)chart.getPlot();
+        
+//        DefaultCategoryDataset graphe = new DefaultCategoryDataset();
+//        graphe.setValue(80, "Marks", "Student1");
+//        graphe.setValue(80, "Marks", "Student2");
+//        graphe.setValue(80, "Marks", "Student3");
+//        graphe.setValue(80, "Marks", "Student4");
+//      
+//        JFreeChart chart = ChartFactory.createBarChart("Student score", "Student name", "Marks", graphe, PlotOrientation.VERTICAL, false, true, false);
+//        CategoryPlot plot = chart.getCategoryPlot();
+//        plot.setRangeGridlinePaint(Color.ORANGE);
+        
+//        ChartFrame frame = new ChartFrame("Bar Chart for student", chart);
+//        frame.setVisible(true);
+//        frame.setSize(450,350);
+        
+        ChartPanel barPanel = new ChartPanel(chart);
+        jPanel4.removeAll();
+        jPanel4.add(barPanel, BorderLayout.CENTER);
+        jPanel4.validate();
+        
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -272,6 +322,7 @@ public class Recruteur extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;

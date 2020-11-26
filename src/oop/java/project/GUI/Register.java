@@ -8,10 +8,14 @@ package oop.java.project.GUI;
 import static FonctionSQL.Connexion.Connexion1;
 import java.awt.*;
 import java.awt.event.*;
+<<<<<<< HEAD
 import java.sql.*;
 import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+=======
+import java.util.regex.*;
+>>>>>>> affichage
 import javax.swing.*;
 
 /**
@@ -35,6 +39,7 @@ public class Register extends javax.swing.JFrame {
         this.setLocationRelativeTo(null); // center of the screen
         jPanel3.setBackground(new Color(204,102,0,120));
         jPanel4.setBackground(new Color(204,102,0,120));
+        jProgressBar1.setVisible(false);
     }
 
     /**
@@ -69,6 +74,9 @@ public class Register extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jPasswordField1 = new javax.swing.JPasswordField();
         jPasswordField2 = new javax.swing.JPasswordField();
+        jLabel8 = new javax.swing.JLabel();
+        jProgressBar1 = new javax.swing.JProgressBar();
+        jTextField1 = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -156,17 +164,22 @@ public class Register extends javax.swing.JFrame {
 
         jTextField10.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jTextField10.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                jTextField10KeyPressed(evt);
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jTextField10KeyReleased(evt);
             }
         });
 
         jTextField11.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jTextField11.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jTextField11KeyReleased(evt);
+            }
+        });
 
         jTextField12.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jTextField12.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                jTextField12KeyPressed(evt);
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jTextField12KeyReleased(evt);
             }
         });
 
@@ -243,6 +256,11 @@ public class Register extends javax.swing.JFrame {
         jPanel4.setBackground(new java.awt.Color(204, 102, 0));
 
         jTextField7.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jTextField7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField7ActionPerformed(evt);
+            }
+        });
 
         jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/oop/java/project/GUI/Image/lock.png"))); // NOI18N
 
@@ -251,6 +269,11 @@ public class Register extends javax.swing.JFrame {
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/oop/java/project/GUI/Image/mail.png"))); // NOI18N
 
         jPasswordField1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jPasswordField1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jPasswordField1KeyReleased(evt);
+            }
+        });
 
         jPasswordField2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
 
@@ -278,30 +301,38 @@ public class Register extends javax.swing.JFrame {
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addContainerGap(51, Short.MAX_VALUE)
-                        .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(41, 41, 41)
-                        .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(65, 65, 65)
-                        .addComponent(jLabel4)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel5)
-                        .addGap(12, 12, 12)))
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(51, 51, 51)
-                        .addComponent(jLabel10))
+                        .addGap(25, 25, 25)
+                        .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(40, 40, 40)
-                        .addComponent(jPasswordField2, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(73, 73, 73))
+                        .addGap(36, 36, 36)
+                        .addComponent(jLabel4)))
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel5)
+                        .addGap(61, 61, 61)
+                        .addComponent(jLabel10)
+                        .addGap(52, 52, 52))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(36, 36, 36)
+                        .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(38, 38, 38)
+                        .addComponent(jPasswordField2, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(36, 36, 36))))
         );
 
         jPanel2.add(jPanel4);
-        jPanel4.setBounds(699, 68, 460, 380);
+        jPanel4.setBounds(670, 70, 460, 310);
+        jPanel2.add(jLabel8);
+        jLabel8.setBounds(630, 470, 100, 40);
+        jPanel2.add(jProgressBar1);
+        jProgressBar1.setBounds(840, 400, 288, 14);
+
+        jTextField1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jPanel2.add(jTextField1);
+        jTextField1.setBounds(950, 420, 83, 22);
 
         jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/oop/java/project/GUI/Image/inscription.jpg"))); // NOI18N
         jPanel2.add(jLabel11);
@@ -414,41 +445,108 @@ public class Register extends javax.swing.JFrame {
         System.exit(0);
     }//GEN-LAST:event_jLabel13MouseClicked
 
-    private void jTextField12KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField12KeyPressed
+    private void jTextField10KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField10KeyReleased
         // TODO add your handling code here:
-        ///ACCEPTE QUE LES CHIFFRES
-        char car = evt.getKeyChar();
+        ///ACCEPTER QUE TEXTE
         
-        if((car<'0' || car>'9') && (car != '.') && (car != (char)KeyEvent.VK_ENTER))
-        {
-            evt.consume();
-            JOptionPane.showMessageDialog(null,"SVP entrer seulement des numéros", "mesage de confirmation d'écriture des numéros", JOptionPane.INFORMATION_MESSAGE);
-        }
-        
-    }//GEN-LAST:event_jTextField12KeyPressed
-
-    private void jTextField10KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField10KeyPressed
-        // TODO add your handling code here:
-        ///ACCEPTE QUE LES LETTRES
-        
-        char car = evt.getKeyChar();
-        int test;
         String carac = jTextField10.getText();
         
         jTextField10.setForeground(new Color(0,0,0));
         
-        for(int i=0; i<carac.length() ;i++)
+        for(char car : carac.toCharArray())
         {
-            if((car<'a' || car>'z') && (car<'A' || car>'Z') && (car != (char)KeyEvent.VK_ENTER) && (car != (char)KeyEvent.VK_SHIFT) && (car != (char)KeyEvent.VK_BACK_SPACE) && (car != 65535))
+            if((car<'a' || car>'z') && (car<'A' || car>'Z') && (car != (char)KeyEvent.VK_ENTER) && (car != (char)KeyEvent.VK_BACK_SPACE) && (car != 65535))
             {
                 evt.consume();
                 jTextField10.setForeground(new Color(255,0,50));
-                //JOptionPane.showMessageDialog(null,"seulements les lettres sont acceptées", "mesage de confirmation d'écriture des lettres", JOptionPane.INFORMATION_MESSAGE);
             }
         }
+    }//GEN-LAST:event_jTextField10KeyReleased
+
+    private void jPasswordField1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jPasswordField1KeyReleased
+        // TODO add your handling code here:
         
+        String mdp = jPasswordField1.getText();
+
+        String check1 = "^(?=.*[a-z])(?=."
+                       + "*[A-Z])(?=.*\\d)"
+                       + "(?=.*[-+_!@#$%^&*., ?]).+$";
         
+        String check2 = "^(?=.*[a-z])(?=."
+                       + "*[A-Z])(?=.*\\d).+$";
         
+        String check3 = "^(?=.*[a-z])(?=."
+                       + "*[A-Z]).+$";
+        
+        Pattern p1 = Pattern.compile(check1);
+        Matcher m1 = p1.matcher(mdp);
+        
+        Pattern p2 = Pattern.compile(check2);
+        Matcher m2 = p2.matcher(mdp);
+        
+        Pattern p3 = Pattern.compile(check3);
+        Matcher m3 = p3.matcher(mdp);
+        
+        if((evt.getKeyCode() == KeyEvent.VK_ENTER))
+        {
+            jProgressBar1.setVisible(true);
+            for(char car : mdp.toCharArray())
+            {
+
+                if(m1.matches())
+                {
+                    jProgressBar1.setValue(100);
+                    jTextField1.setText("Fort");
+                }
+                else if(m2.matches())
+                {
+                    jProgressBar1.setValue(50);
+                    jTextField1.setText("Moyen");
+                }
+                else if(m3.matches())
+                {
+                    jProgressBar1.setValue(25);
+                    jTextField1.setText("Faible");
+                }
+                else
+                {
+                    jProgressBar1.setValue(15);
+                    jTextField1.setText("Insuffisant");
+                }
+            }
+            
+            jLabel8.setText(mdp);
+        }
+        
+    }//GEN-LAST:event_jPasswordField1KeyReleased
+
+    private void jTextField12KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField12KeyReleased
+        // TODO add your handling code here:
+        
+        ///ACCEPTE QUE LES CHIFFRES
+        
+        String carac = jTextField12.getText();
+        
+        jTextField12.setForeground(new Color(0,0,0));
+        
+        for(char car : carac.toCharArray())
+        {
+            if((car<'0' || car>'9') && (car != '.') && (car != (char)KeyEvent.VK_ENTER) && (car != (char)KeyEvent.VK_BACK_SPACE))
+            {
+                evt.consume();
+                jTextField12.setForeground(new Color(255,0,50));
+            }
+        }
+    }//GEN-LAST:event_jTextField12KeyReleased
+
+    private void jTextField11KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField11KeyReleased
+        // TODO add your handling code here:
+        
+        ///ACCEPTER QUE TEXTE
+        
+        String carac = jTextField11.getText();
+        
+<<<<<<< HEAD
     }//GEN-LAST:event_jTextField10KeyPressed
 public void addjobseeker() throws SQLException{
         Connection conn = Connexion1();
@@ -504,6 +602,33 @@ public void addmemberemployer() throws SQLException{
             System.out.println(ex.getMessage());
         }
     }
+=======
+        jTextField11.setForeground(new Color(0,0,0));
+        
+        for(char car : carac.toCharArray())
+        {
+            if((car<'a' || car>'z') && (car<'A' || car>'Z') && (car != (char)KeyEvent.VK_ENTER) && (car != (char)KeyEvent.VK_BACK_SPACE) && (car != 65535))
+            {
+                evt.consume();
+                jTextField11.setForeground(new Color(255,0,50));
+            }
+        }
+    }//GEN-LAST:event_jTextField11KeyReleased
+
+    private void jTextField7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField7ActionPerformed
+        // TODO add your handling code here:
+        
+        if(!(Pattern.matches("[a-zA-Z0-9]+[@]{1}+[a-zA-Z0-9]+[.]{1}+[a-zA-Z0-9]+$", jTextField7.getText())))
+        {
+            jTextField1.setText("Invalide");
+        }
+        else
+        {
+            jTextField1.setText("Valide");
+        }
+    }//GEN-LAST:event_jTextField7ActionPerformed
+
+>>>>>>> affichage
     /**
      * @param args the command line arguments
      */
@@ -554,6 +679,7 @@ public void addmemberemployer() throws SQLException{
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
@@ -561,6 +687,8 @@ public void addmemberemployer() throws SQLException{
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JPasswordField jPasswordField2;
+    private javax.swing.JProgressBar jProgressBar1;
+    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField10;
     private javax.swing.JTextField jTextField11;
     private javax.swing.JTextField jTextField12;

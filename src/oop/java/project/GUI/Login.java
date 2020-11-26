@@ -29,9 +29,15 @@ public class Login extends javax.swing.JFrame {
      */
     public Login() {
         initComponents();
+        setVisible(true);
         this.setLocationRelativeTo(null); // center of the screen
+<<<<<<< HEAD
         clock();
         setVisible(true);
+=======
+        
+        
+>>>>>>> affichage
     }
 
     /**
@@ -336,12 +342,20 @@ public class Login extends javax.swing.JFrame {
         
         /*if(evt.getKeyCode() == KeyEvent.VK_ENTER)
         {
+<<<<<<< HEAD
             
                 String user = UserName.getText();
                 String password = jPasswordField1.getText();
                 
                 if(user.contains("job") && password.contains("root"))
                 {
+=======
+            String user = UserName.getText();
+            String password = jPasswordField1.getText();
+
+            if(user.equals("job") && password.equals("root"))
+            {
+>>>>>>> affichage
                 UserName.setText(null);
                 jPasswordField1.setText(null);
                 
@@ -352,9 +366,15 @@ public class Login extends javax.swing.JFrame {
                 job.setLocationRelativeTo(null);
                 job.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                 this.dispose();
+<<<<<<< HEAD
                 }
                 else if(user.contains("employeur") && password.contains("root"))
                 {
+=======
+            }
+            else if(user.equals("employeur") && password.equals("root"))
+            {
+>>>>>>> affichage
                 UserName.setText(null);
                 jPasswordField1.setText(null);
                 
@@ -365,9 +385,15 @@ public class Login extends javax.swing.JFrame {
                 empl.setLocationRelativeTo(null);
                 empl.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                 this.dispose();
+<<<<<<< HEAD
                 }
                 else if(user.contains("recruteur") && password.contains("root"))
                 {
+=======
+            }
+            else if(user.equals("recruteur") && password.equals("root"))
+            {
+>>>>>>> affichage
                 UserName.setText(null);
                 jPasswordField1.setText(null);
                 
