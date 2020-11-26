@@ -266,7 +266,7 @@ public class Login extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         try {
-                Verificationnewemployer();
+                Verificationcandidat();
             } catch (SQLException ex) {
                 Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -402,7 +402,7 @@ public class Login extends javax.swing.JFrame {
             
         }*/
     }//GEN-LAST:event_jPasswordField1KeyPressed
-    public void Verificationnewemployer() throws SQLException{
+    public void Verificationcandidat() throws SQLException{
         String user = UserName.getText();
         String password = jPasswordField1.getText();
         Connection conn = Connexion1();
