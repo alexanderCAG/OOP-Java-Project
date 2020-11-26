@@ -9,8 +9,8 @@ package Classe;
  *
  * @author Geoffroy
  */
-public class NewEmployer extends Person {
-    public NewEmployer(String id, String lastname, String firstname, String email, String motdepasse, int phone, Job job){
+public class Candidat extends Person {
+    public Candidat(String id, String lastname, String firstname, String email, String motdepasse, int phone, Job job){
         super(id, lastname, firstname, email, motdepasse, phone, job);
     }
 }

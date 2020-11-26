@@ -271,7 +271,7 @@ public class Login extends javax.swing.JFrame {
                 Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
             }
             try {
-                Verificationmemberemployer();
+                Verificationemployer();
             } catch (SQLException ex) {
                 Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -409,14 +409,15 @@ public class Login extends javax.swing.JFrame {
         try{
         Statement stmt = conn.createStatement();
 
-        ResultSet rs = stmt.executeQuery("Select email, motdepasse from candidat;");
+        ResultSet rs = stmt.executeQuery("Select * from candidat;");
         String email;
         String motdepasse;
         while(rs.next()){
-            email=rs.getString(1);
-            motdepasse=rs.getString(2);
+            email=rs.getString(4);
+            motdepasse=rs.getString(5);
             if(user.equals(email) && password.equals(motdepasse)){
                 System.out.println("Correct new candidat");
+                
             }
         }
         String sqlStatement = "";
@@ -428,7 +429,7 @@ public class Login extends javax.swing.JFrame {
         }
     }
     
-    public void Verificationmemberemployer() throws SQLException{
+    public void Verificationemployer() throws SQLException{
         String user = UserName.getText();
         String password = jPasswordField1.getText();
         Connection conn = Connexion1();
@@ -443,6 +444,7 @@ public class Login extends javax.swing.JFrame {
             motdepasse=rs.getString(2);
             if(user.equals(email) && password.equals(motdepasse)){
                 System.out.println("Correct employer");
+                
             }
         }
         String sqlStatement = "";

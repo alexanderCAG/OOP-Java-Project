@@ -9,8 +9,10 @@ package Classe;
  *
  * @author Geoffroy
  */
-public class MemberEmployer extends Person {
-    public MemberEmployer(String id, String lastname, String firstname, String email, String motdepasse, int phone, Job job){
+public class Employer extends Person{
+    private String sizecompany;
+    public Employer(String id, String lastname, String firstname, String email, String motdepasse, int phone, Job job, String sizecompany){
         super(id, lastname, firstname, email, motdepasse, phone, job);
+        this.sizecompany=sizecompany;
     }
 }
