@@ -136,8 +136,10 @@ public class Forget extends javax.swing.JFrame {
         Random rand = new Random();
         randomCode = rand.nextInt(999999);
         String host = "smtp.gmail.com";
-        String user = "razafiemilie@hotmail.fr";
-        String pass = "@ryme-mada-601!!hotmail";
+        String user = "svpagencying3@gmail.com";
+        String pass = "EceParis";
+//        String user = "razafiemilie@hotmail.fr";
+//        String pass = "@ryme-mada-601!!hotmail";
 //        String user = "tsnemailsndr@gmail.com";
 //        String pass = "vQ#Tgez@=KRFM2E4";
         String to = jTextField1.getText();
@@ -154,17 +156,30 @@ public class Forget extends javax.swing.JFrame {
         java.security.Security.addProvider(new com.sun.net.ssl.internal.ssl.Provider());
         Session mailSession = Session.getDefaultInstance(pros, null);
         mailSession.setDebug(sessionDebug);
+        System.out.println("1");
         Message msg = new MimeMessage(mailSession);
+        System.out.println("2");
         msg.setFrom(new InternetAddress(user));
+        System.out.println("3");
         InternetAddress [] address = { new InternetAddress(to) };
+        System.out.println("4");
         msg.setRecipients(Message.RecipientType.TO, address);
+        System.out.println("5");
         msg.setSubject(subject);
+        System.out.println("6");
         msg.setText(message);
+        System.out.println("7");
+        //Transport.send(msg);
         Transport transport = mailSession.getTransport("smtp");
+        System.out.println("8");
         transport.connect(host, user, pass);
+        System.out.println("9");
         transport.sendMessage(msg, msg.getAllRecipients());
+        System.out.println("10");
         transport.close();
+        System.out.println("11");
         JOptionPane.showMessageDialog(null, "code was been send to the email");
+        System.out.println("12");
         }catch(Exception ex){
             JOptionPane.showMessageDialog(rootPane, ex);
         }

@@ -452,7 +452,7 @@ public class Login extends javax.swing.JFrame {
         String query = "select * from testmail where email=? and mdp=?";
         
         try {
-            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/testmail?autoReconnect=true&useSSL=false", "root", "root");
+            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/company?autoReconnect=true&useSSL=false", "root", "root");
             pst = con.prepareStatement(query);
             pst.setString(1, UserName.getText());
             pst.setString(2, jPasswordField1.getText());
