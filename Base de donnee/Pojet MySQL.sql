@@ -26,6 +26,7 @@ CREATE TABLE `Company`.Employer (
     `motdepasse` VARCHAR(20) NOT NULL,
 	`phone` INT(30) NOT NULL ,
 	`job` VARCHAR( 30 ) NOT NULL,
+    `sizecompany` VARCHAR( 30 ) NOT NULL,
     PRIMARY KEY (`idmem`)
 );
 CREATE TABLE `Company`.JobSeeker (
@@ -53,11 +54,11 @@ INSERT INTO `Company`.Candidat ( idnew, lastnamenew, firstnamenew, email, motdep
 INSERT INTO `Company`.Candidat ( idnew, lastnamenew, firstnamenew, email, motdepasse, phone, job ) VALUES ('N4', 'Bidaud', 'Duncan', 'duncan.bidaud@edu.ece.fr', 'dyjs', 0678659655, 'Ingénieur en robotique');
 INSERT INTO `Company`.Candidat ( idnew, lastnamenew, firstnamenew, email, motdepasse, phone, job ) VALUES ('N5', 'Colle-Abbey', 'Alexander', 'alexanderCAG@edu.ece.fr;', 'dyjs', 0678619856, 'Ingénieur en domotique');
 
-INSERT INTO `Company`.Employer ( idmem, lastnamemem, firstnamemem, email, motdepasse, phone, job ) VALUES ('M1', 'Gagnon', 'Benoit', 'benoit@edu.ece.fr', 'dyjs', 0645326848, 'Ingénieur en robotique');
-INSERT INTO `Company`.Employer ( idmem, lastnamemem, firstnamemem, email, motdepasse, phone, job ) VALUES ('M2', 'Duval', 'Henry', 'henry@edu.ece.fr', 'dyjs', 0645186248, 'Ingénieur en domotique');
-INSERT INTO `Company`.Employer ( idmem, lastnamemem, firstnamemem, email, motdepasse, phone, job ) VALUES ('M3', 'Martin', 'Thomas', 'thomas@edu.ece.fr', 'dyjs', 074522252, 'Ingénieur en robotique');
-INSERT INTO `Company`.Employer ( idmem, lastnamemem, firstnamemem, email, motdepasse, phone, job ) VALUES ('M4', 'Archambault', 'Alexandre', 'alexandre@edu.ece.fr', 'dyjs', 0642226155, 'Ingénieur en robotique');
-INSERT INTO `Company`.Employer ( idmem, lastnamemem, firstnamemem, email, motdepasse, phone, job ) VALUES ('M5', 'Tuby', 'Aurélien', 'aurelien@edu.ece.fr;', 'dyjs', 067621661, 'Ingénieur en drone');
+INSERT INTO `Company`.Employer ( idmem, lastnamemem, firstnamemem, email, motdepasse, phone, job, sizecompany ) VALUES ('M1', 'Gagnon', 'Benoit', 'benoit@edu.ece.fr', 'dyjs', 0645326848, 'Ingénieur en robotique', 'micro');
+INSERT INTO `Company`.Employer ( idmem, lastnamemem, firstnamemem, email, motdepasse, phone, job, sizecompany ) VALUES ('M2', 'Duval', 'Henry', 'henry@edu.ece.fr', 'dyjs', 0645186248, 'Ingénieur en domotique', 'micro');
+INSERT INTO `Company`.Employer ( idmem, lastnamemem, firstnamemem, email, motdepasse, phone, job, sizecompany ) VALUES ('M3', 'Martin', 'Thomas', 'thomas@edu.ece.fr', 'dyjs', 074522252, 'Ingénieur en robotique', 'grande');
+INSERT INTO `Company`.Employer ( idmem, lastnamemem, firstnamemem, email, motdepasse, phone, job, sizecompany ) VALUES ('M4', 'Archambault', 'Alexandre', 'alexandre@edu.ece.fr', 'dyjs', 0642226155, 'Ingénieur en robotique', 'micro');
+INSERT INTO `Company`.Employer ( idmem, lastnamemem, firstnamemem, email, motdepasse, phone, job, sizecompany ) VALUES ('M5', 'Tuby', 'Aurélien', 'aurelien@edu.ece.fr;', 'dyjs', 067621661, 'Ingénieur en drone', 'grande');
 
 INSERT INTO `Company`.JobSeeker ( idsee, lastnamesee, firstnamesee, email, motdepasse, phone, job ) VALUES ('S1', 'Nivet', 'Benjamin', 'benjamin@edu.ece.fr', 'dyjs', 0648475265, 'Ingénieur en domotique');
 INSERT INTO `Company`.JobSeeker ( idsee, lastnamesee, firstnamesee, email, motdepasse, phone, job ) VALUES ('S2', 'Lux', 'Tom', 'tom@edu.ece.fr', 'dyjs', 0648475265, 'Ingénieur en drone');
