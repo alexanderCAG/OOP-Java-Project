@@ -79,13 +79,13 @@ public class Employeur extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         jComboBox1 = new javax.swing.JComboBox();
+        jComboBox2 = new javax.swing.JComboBox();
         jPanel4 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTextArea2 = new javax.swing.JTextArea();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
-        jTextField1 = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jLabel3 = new javax.swing.JLabel();
@@ -150,6 +150,11 @@ public class Employeur extends javax.swing.JFrame {
         jPanel1.add(jComboBox1);
         jComboBox1.setBounds(400, 210, 247, 70);
 
+        jComboBox2.setBackground(new java.awt.Color(150, 102, 0));
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jPanel1.add(jComboBox2);
+        jComboBox2.setBounds(60, 210, 247, 70);
+
         jPanel4.setBackground(new java.awt.Color(153, 102, 0));
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
@@ -203,11 +208,6 @@ public class Employeur extends javax.swing.JFrame {
         jButton4.setText("VALIDER");
         jPanel1.add(jButton4);
         jButton4.setBounds(90, 340, 190, 50);
-
-        jTextField1.setBackground(new java.awt.Color(255, 255, 255, 100));
-        jTextField1.setText("jTextField1");
-        jPanel1.add(jTextField1);
-        jTextField1.setBounds(70, 210, 240, 70);
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -390,6 +390,7 @@ public class Employeur extends javax.swing.JFrame {
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JComboBox jComboBox1;
+    private javax.swing.JComboBox jComboBox2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -407,6 +408,5 @@ public class Employeur extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTable jTable1;
     private javax.swing.JTextArea jTextArea2;
-    private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 }
