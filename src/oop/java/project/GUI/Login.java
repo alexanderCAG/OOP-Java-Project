@@ -37,7 +37,6 @@ public class Login extends javax.swing.JFrame {
         clock();
         setVisible(true);
         
-        
     }
 
     /**
@@ -338,10 +337,10 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jPasswordField1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jPasswordField1KeyPressed
-        try {
+        /*try {
             // TODO add your handling code here:
             Verificationcandidat();
-            /*if(evt.getKeyCode() == KeyEvent.VK_ENTER)
+            if(evt.getKeyCode() == KeyEvent.VK_ENTER)
             {
             
             String user = UserName.getText();
@@ -404,10 +403,10 @@ public class Login extends javax.swing.JFrame {
             jPasswordField1.setText(null);
             }
             
-            }*/
+            }
         } catch (SQLException ex) {
             Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        }*/
     }//GEN-LAST:event_jPasswordField1KeyPressed
     public void Verificationcandidat() throws SQLException{
         String user = UserName.getText();
