@@ -199,12 +199,12 @@ public class Employeur extends javax.swing.JFrame {
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {"OA?ND", "Adoea", "50"},
-                {"BNDIZ", "Djdaz", "062"},
-                {"BIBZA", "Cpdoa", "10"}
+                {"OA?ND", "Adoea"},
+                {"BNDIZ", "Djdaz"},
+                {"BIBZA", "Cpdoa"}
             },
             new String [] {
-                "Nom", "Prenom", "Age"
+                "Nom", "Prenom"
             }
         ));
         jScrollPane1.setViewportView(jTable1);
@@ -266,17 +266,17 @@ public class Employeur extends javax.swing.JFrame {
             
             table.addCell("Nom");
             table.addCell("Prenom");
-            table.addCell("Age");
+            //table.addCell("Age");
             
             for(int i=0; i<jTable1.getRowCount();i++)
             {
                 String Nom = jTable1.getValueAt(i, 0).toString();
                 String Prenom = jTable1.getValueAt(i, 1).toString();
-                String Age = jTable1.getValueAt(i, 2).toString();
+                //String Age = jTable1.getValueAt(i, 2).toString();
                 
                 table.addCell(Nom);
                 table.addCell(Prenom);
-                table.addCell(Age);
+                //table.addCell(Age);
                 
             }
             

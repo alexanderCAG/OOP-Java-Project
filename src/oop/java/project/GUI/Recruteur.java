@@ -283,9 +283,9 @@ public class Recruteur extends javax.swing.JFrame {
 //        graphe.setValue(80, "Marks", "Student3");
 //        graphe.setValue(80, "Marks", "Student4");
 //      
-//        JFreeChart chart = ChartFactory.createBarChart("Student score", "Student name", "Marks", graphe, PlotOrientation.VERTICAL, false, true, false);
-//        CategoryPlot plot = chart.getCategoryPlot();
-//        plot.setRangeGridlinePaint(Color.ORANGE);
+        JFreeChart chart = ChartFactory.createBarChart("Student score", "Student name", "Marks", graphe, PlotOrientation.VERTICAL, false, true, false);
+        CategoryPlot plot = chart.getCategoryPlot();
+        plot.setRangeGridlinePaint(Color.ORANGE);
         
 //        ChartFrame frame = new ChartFrame("Bar Chart for student", chart);
 //        frame.setVisible(true);
