@@ -65,6 +65,7 @@ public class Recruteur extends javax.swing.JFrame {
     public Recruteur(JobSeeker j) throws SQLException{
         this.j=j;
         initComponents();
+        Affichagejob();
         this.setLocationRelativeTo(null); // center of the screen
         jLabel7.setBackground(new Color(0,0,0,0));
         jTextField1.setBackground(new Color(0,102,51,120));
@@ -234,6 +235,11 @@ public class Recruteur extends javax.swing.JFrame {
 
         jButton2.setBackground(new java.awt.Color(0, 102, 51));
         jButton2.setText("SUPPRIMER");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
         jPanel2.add(jButton2);
         jButton2.setBounds(150, 530, 190, 60);
 
@@ -321,6 +327,14 @@ public class Recruteur extends javax.swing.JFrame {
             Logger.getLogger(Recruteur.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        try {
+            Supprimerjob();       // TODO add your handling code here:
+        } catch (SQLException ex) {
+            Logger.getLogger(Recruteur.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jButton2ActionPerformed
     /*public int Nombredejob(){
         Connection conn=Connexion1();
         try{
@@ -382,18 +396,19 @@ public class Recruteur extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Mot de passe INCORECT", "Login Error", JOptionPane.ERROR_MESSAGE);
         }
     }
-    public void Supprimercandidat() throws SQLException{
+    public void Supprimerjob() throws SQLException{
         Connection conn=Connexion1();
-        String namejob=jTextField1.getText();
+        String namejob=jComboBox1.getSelectedItem().toString();
         try{
         Statement stmt = conn.createStatement();
-        stmt.executeUpdate("Delete from job where namejob=" + namejob + ";");
+        stmt.executeUpdate("Delete from job where namejob='" + namejob + "';");
         
         //int rows = stmt.executeUpdate(sqlStatement);
         conn.close();
         }catch (SQLException ex) {
             System.out.println(ex.getMessage());
         }
+        Affichagejob();
     }
     /**
      * @param args the command line arguments
