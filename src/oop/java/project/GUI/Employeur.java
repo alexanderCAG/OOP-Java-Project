@@ -34,7 +34,6 @@ public class Employeur extends javax.swing.JFrame {
      */
     private Employer e;
     private PdfPTable table;
-    private ArrayList<AJob> listJob;
     public Employeur() {
         initComponents();
         this.setLocationRelativeTo(null); // center of the screen 
@@ -46,8 +45,6 @@ public class Employeur extends javax.swing.JFrame {
         jButton4.setBackground(new Color(150,102,0,120));
     }
     public Employeur(Employer e) {
-        ArrayList<AJob> listJob=new ArrayList();
-        this.listJob=listJob;
         this.e=e;
         initComponents();
         this.setLocationRelativeTo(null); // center of the screen 
@@ -320,37 +317,7 @@ public class Employeur extends javax.swing.JFrame {
 //        doc.close();
         
     }//GEN-LAST:event_jButton3ActionPerformed
-    public void Affichagecandidat() throws SQLException{
-        Connection conn=Connexion1();
-        try{
-        Statement stmt = conn.createStatement();
 
-        ResultSet rs = stmt.executeQuery("Select * from job;");
-        while(rs.next()){
-            String namejob=rs.getString(1);
-            AJob j=new AJob(namejob);
-            listJob.add(j);
-        }
-        String sqlStatement = "";
-
-        //int rows = stmt.executeUpdate(sqlStatement);
-        conn.close();
-        }catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Mot de passe INCORECT", "Login Error", JOptionPane.ERROR_MESSAGE);
-        }
-    }
-    public void Supprimercandidat() throws SQLException{
-        Connection conn=Connexion1();
-        try{
-        Statement stmt = conn.createStatement();
-        stmt.executeUpdate("Delete from job where namejob=" + );
-        
-        //int rows = stmt.executeUpdate(sqlStatement);
-        conn.close();
-        }catch (SQLException ex) {
-            System.out.println(ex.getMessage());
-        }
-    }
     /**
      * @param args the command line arguments
      */

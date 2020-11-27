@@ -5,10 +5,19 @@
  */
 package oop.java.project.GUI;
 
+import Classe.AJob;
 import Classe.JobSeeker;
+import static FonctionSQL.Connexion.Connexion1;
 import java.awt.*;
 import java.awt.event.*;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.Locale;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.*;
 import org.jfree.chart.*;
 import org.jfree.chart.plot.*;
@@ -25,6 +34,8 @@ public class Recruteur extends javax.swing.JFrame {
      * Creates new form Recruteur
      */
     private JobSeeker j;
+    
+    private String[] listJob;
     public Recruteur() {
         initComponents();
         this.setLocationRelativeTo(null); // center of the screen
@@ -51,7 +62,7 @@ public class Recruteur extends javax.swing.JFrame {
         });
         
     }
-    public Recruteur(JobSeeker j) {
+    public Recruteur(JobSeeker j) throws SQLException{
         this.j=j;
         initComponents();
         this.setLocationRelativeTo(null); // center of the screen
@@ -213,6 +224,11 @@ public class Recruteur extends javax.swing.JFrame {
 
         jButton1.setBackground(new java.awt.Color(0, 102, 51));
         jButton1.setText("AJOUTER");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
         jPanel2.add(jButton1);
         jButton1.setBounds(150, 310, 190, 60);
 
@@ -298,6 +314,87 @@ public class Recruteur extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jButton3ActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        try {
+            Affichagejob();        // TODO add your handling code here:
+        } catch (SQLException ex) {
+            Logger.getLogger(Recruteur.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
+    /*public int Nombredejob(){
+        Connection conn=Connexion1();
+        try{
+        Statement stmt = conn.createStatement();
+
+        ResultSet rs = stmt.executeQuery("Select count(namejob) from job;");
+        while(rs.next()){
+            int longueurlistjob=rs.getInt(1);
+        }
+        String sqlStatement = "";
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(listJob));
+
+        return longueurlistjob;
+        //int rows = stmt.executeUpdate(sqlStatement);
+        conn.close();
+        }catch (SQLException ex)
+            JOptionPane.showMessageDialog(null, "Mot de passe INCORECT", "Login Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }*/
+    public int Nombrejob() throws SQLException{
+        
+        Connection conn=Connexion1();
+        int nombrejob = 0;
+        try{
+        Statement stmt = conn.createStatement();
+        ResultSet rs = stmt.executeQuery("Select count(namejob) from job;");
+        while(rs.next()){
+            nombrejob=rs.getInt(1);
+            System.out.println("Hello " + nombrejob);
+        }
+        //int rows = stmt.executeUpdate(sqlStatement);
+        conn.close();
+        }catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Mot de passe INCORECT", "Login Error", JOptionPane.ERROR_MESSAGE);
+        }
+        return nombrejob;
+    }
+    public void Affichagejob() throws SQLException{
+        int nombrejob=Nombrejob();
+        String[] listJob=new String[nombrejob];
+        Connection conn=Connexion1();
+        try{
+        Statement stmt = conn.createStatement();
+        int i=0;
+        ResultSet rs = stmt.executeQuery("Select * from job;");
+        while(rs.next()){
+            String namejob=rs.getString(1);
+            System.out.println("Coucou " + namejob);
+            listJob[i]=namejob;
+            System.out.println(listJob[i]);
+            i+=1;
+        }
+        String sqlStatement = "";
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(listJob));
+
+        //int rows = stmt.executeUpdate(sqlStatement);
+        conn.close();
+        }catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Mot de passe INCORECT", "Login Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+    public void Supprimercandidat() throws SQLException{
+        Connection conn=Connexion1();
+        String namejob=jTextField1.getText();
+        try{
+        Statement stmt = conn.createStatement();
+        stmt.executeUpdate("Delete from job where namejob=" + namejob + ";");
+        
+        //int rows = stmt.executeUpdate(sqlStatement);
+        conn.close();
+        }catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+    }
     /**
      * @param args the command line arguments
      */
