@@ -16,9 +16,9 @@ import java.util.Scanner;
  */
 public class AgencyDAG {
     private String nameag;
-    private ArrayList<Job> listJob;
+    private ArrayList<AJob> listJob;
 
-    public AgencyDAG(String nameag, ArrayList<Job> listJob) {
+    public AgencyDAG(String nameag, ArrayList<AJob> listJob) {
         this.nameag = nameag;
         this.listJob = listJob;
     }

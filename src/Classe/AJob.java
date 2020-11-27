@@ -5,16 +5,16 @@
  */
 package Classe;
 
-import java.util.*;
+import java.util.ArrayList;
 
 /**
  *
  * @author Geoffroy
  */
-public class Job {
+public class AJob {
     private String namejob;
     private ArrayList<Person> listPerson;
-    public Job(String namejob) {
+    public AJob(String namejob) {
         this.namejob = namejob;
         this.listPerson = listPerson;
         ArrayList<Person> listPerson= new ArrayList();
@@ -25,5 +25,4 @@ public class Job {
     public void deletePerson(Person person){
         listPerson.remove(person);
     }
-    
 }
