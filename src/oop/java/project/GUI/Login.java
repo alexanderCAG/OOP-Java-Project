@@ -544,7 +544,22 @@ public void clock(){
                     int second=cal.get(Calendar.SECOND);
                     int minute=cal.get(Calendar.MINUTE);
                     int hour=cal.get(Calendar.HOUR);
-                    lblClock.setText("Hour: " + hour + ":" + minute + ":" + second + "  " + "Date: " + day + "/" + month + "/" + year);
+                    if(minute<10){
+                        if(second<10){
+                            lblClock.setText("Hour: " + hour + ":0" + minute + ":0" + second + "  " + "Date: " + day + "/" + (month+1) + "/" + year);
+                        }
+                        else{
+                            lblClock.setText("Hour: " + hour + ":0" + minute + ":" + second + "  " + "Date: " + day + "/" + (month+1) + "/" + year);
+                        }
+                    }
+                    else{
+                        if(second<10){
+                            lblClock.setText("Hour: " + hour + ":" + minute + ":0" + second + "  " + "Date: " + day + "/" + (month+1) + "/" + year);
+                        }
+                        else{
+                            lblClock.setText("Hour: " + hour + ":" + minute + ":" + second + "  " + "Date: " + day + "/" + (month+1) + "/" + year);
+                        }
+                    }
                     sleep(1000);
                     }
                 }

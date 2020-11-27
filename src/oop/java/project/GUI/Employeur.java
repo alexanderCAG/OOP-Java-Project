@@ -308,7 +308,9 @@ public class Employeur extends javax.swing.JFrame {
 //        doc.close();
         
     }//GEN-LAST:event_jButton3ActionPerformed
-
+    public void Affichagecandidat(){
+        
+    }
     /**
      * @param args the command line arguments
      */
