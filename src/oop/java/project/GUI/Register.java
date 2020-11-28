@@ -241,11 +241,11 @@ public class Register extends javax.swing.JFrame {
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jCheckBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(23, Short.MAX_VALUE))
+                .addContainerGap(13, Short.MAX_VALUE))
         );
 
         jPanel3.add(jPanel5);
-        jPanel5.setBounds(50, 100, 420, 100);
+        jPanel5.setBounds(50, 110, 420, 90);
 
         jPanel2.add(jPanel3);
         jPanel3.setBounds(59, 68, 500, 500);
@@ -644,6 +644,8 @@ public void addemployer() throws SQLException{
             jPanel5.setBackground(new Color(204,102,0,120));
             jCheckBox1.setBackground(new Color(0,0,0,0));
             jPanel5.setVisible(true);
+        }else{
+            jPanel5.setVisible(false);
         }
         
     }//GEN-LAST:event_jComboBox1ActionPerformed
