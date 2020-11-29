@@ -6,8 +6,13 @@
 package oop.java.project.GUI;
 
 import Classe.Candidat;
+import static FonctionSQL.Connexion.Connexion1;
 import java.awt.*;
 import java.awt.event.*;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import javax.swing.*;
 
 
@@ -21,6 +26,7 @@ public class Job extends javax.swing.JFrame {
      * Creates new form Job
      */
     private Candidat c;
+    private String[] listJob;
     public Job() {
         initComponents();
         this.setLocationRelativeTo(null); // center of the screen
@@ -46,9 +52,10 @@ public class Job extends javax.swing.JFrame {
 //        jSeparator1.validate();
 //        jTextField1.validate();
     }
-    public Job(Candidat c) {
+    public Job(Candidat c) throws SQLException {
         this.c=c;
         initComponents();
+        Affichagejob();
         this.setLocationRelativeTo(null); // center of the screen
         jTextField1.setBackground(new Color(0,102,153,120));
     }
@@ -214,7 +221,49 @@ public class Job extends javax.swing.JFrame {
         this.dispose();
         
     }//GEN-LAST:event_jLabel5MouseClicked
+    public int Nombrejob() throws SQLException{
+        
+        Connection conn=Connexion1();
+        int nombrejob = 0;
+        try{
+        Statement stmt = conn.createStatement();
+        ResultSet rs = stmt.executeQuery("Select count(namejob) from job;");
+        while(rs.next()){
+            nombrejob=rs.getInt(1);
+            System.out.println("Hello " + nombrejob);
+        }
+        //int rows = stmt.executeUpdate(sqlStatement);
+        conn.close();
+        }catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Mot de passe INCORECT", "Login Error", JOptionPane.ERROR_MESSAGE);
+        }
+        return nombrejob;
+    }
+    public void Affichagejob() throws SQLException{
+        int nombrejob=Nombrejob();
+        String[] listJob=new String[nombrejob];
+        Connection conn=Connexion1();
+        try{
+        Statement stmt = conn.createStatement();
+        int i=0;
+        ResultSet rs = stmt.executeQuery("Select * from job;");
+        while(rs.next()){
+            String namejob=rs.getString(1);
+            System.out.println("Coucou " + namejob);
+            listJob[i]=namejob;
+            System.out.println(listJob[i]);
+            i+=1;
+        }
+        String sqlStatement = "";
+        this.listJob=listJob;
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(listJob));
 
+        //int rows = stmt.executeUpdate(sqlStatement);
+        conn.close();
+        }catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Mot de passe INCORECT", "Login Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }
     /**
      * @param args the command line arguments
      */

@@ -36,12 +36,12 @@ public class Recruteur extends javax.swing.JFrame {
     private JobSeeker j;
     
     private String[] listJob;
+    private int[] nombrepersonnejob;
     public Recruteur() {
         initComponents();
         this.setLocationRelativeTo(null); // center of the screen
         jLabel7.setBackground(new Color(0,0,0,0));
         jTextField1.setBackground(new Color(0,102,51,120));
-        jTextField2.setBackground(new Color(0,102,51,120));
         jComboBox1.setBackground(new Color(0,102,70,120));
         jPanel4.setBackground(new Color(0,102,51,0));
      
@@ -53,23 +53,17 @@ public class Recruteur extends javax.swing.JFrame {
             }
         });
         
-        jTextField2.addKeyListener(new KeyAdapter(){
-            @Override
-            public void keyReleased(KeyEvent hidden)
-            {
-                jLabel10.setText("");
-            }
-        });
         
     }
     public Recruteur(JobSeeker j) throws SQLException{
         this.j=j;
         initComponents();
+        
         Affichagejob();
+        
         this.setLocationRelativeTo(null); // center of the screen
         jLabel7.setBackground(new Color(0,0,0,0));
         jTextField1.setBackground(new Color(0,102,51,120));
-        jTextField2.setBackground(new Color(0,102,51,120));
         jComboBox1.setBackground(new Color(0,102,70,120));
         jPanel4.setBackground(new Color(0,102,51,0));
      
@@ -81,13 +75,6 @@ public class Recruteur extends javax.swing.JFrame {
             }
         });
         
-        jTextField2.addKeyListener(new KeyAdapter(){
-            @Override
-            public void keyReleased(KeyEvent hidden)
-            {
-                jLabel10.setText("");
-            }
-        });
         
     }
 
@@ -112,10 +99,8 @@ public class Recruteur extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox();
-        jLabel10 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
@@ -200,12 +185,6 @@ public class Recruteur extends javax.swing.JFrame {
         jPanel2.add(jLabel9);
         jLabel9.setBounds(100, 220, 270, 70);
 
-        jTextField2.setBackground(new java.awt.Color(0, 102, 51));
-        jTextField2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jTextField2.setForeground(new java.awt.Color(255, 255, 255));
-        jPanel2.add(jTextField2);
-        jTextField2.setBounds(690, 220, 260, 70);
-
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(0, 102, 51));
         jLabel7.setText("             Liste d'emplois");
@@ -216,12 +195,6 @@ public class Recruteur extends javax.swing.JFrame {
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jPanel2.add(jComboBox1);
         jComboBox1.setBounds(120, 430, 260, 70);
-
-        jLabel10.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(0, 102, 51));
-        jLabel10.setText("             Analyse d'emplois");
-        jPanel2.add(jLabel10);
-        jLabel10.setBounds(680, 220, 270, 70);
 
         jButton1.setBackground(new java.awt.Color(0, 102, 51));
         jButton1.setText("AJOUTER");
@@ -251,12 +224,12 @@ public class Recruteur extends javax.swing.JFrame {
             }
         });
         jPanel2.add(jButton3);
-        jButton3.setBounds(730, 310, 190, 60);
+        jButton3.setBounds(710, 250, 190, 60);
 
         jPanel4.setBackground(new java.awt.Color(0, 102, 51));
         jPanel4.setLayout(new java.awt.BorderLayout());
         jPanel2.add(jPanel4);
-        jPanel4.setBounds(610, 400, 420, 230);
+        jPanel4.setBounds(530, 330, 500, 300);
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/oop/java/project/GUI/Image/recruteur.jpg"))); // NOI18N
         jPanel2.add(jLabel3);
@@ -291,12 +264,21 @@ public class Recruteur extends javax.swing.JFrame {
         // TODO add your handling code here:
         
         DefaultPieDataset graphe = new DefaultPieDataset();
-        graphe.setValue("One", new Integer(10));
-        graphe.setValue("Two", new Integer(20));
-        graphe.setValue("Three", new Integer(30));
-        graphe.setValue("Four", new Integer(10));
+        try {
+            Cammenbert();
+        } catch (SQLException ex) {
+            Logger.getLogger(Recruteur.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        System.out.println("Tu y est arrive.");
+        for(int i=0; i<listJob.length;i++){
+            graphe.setValue(listJob[i], new Integer(nombrepersonnejob[i]));
+        }
+        //graphe.setValue("One", new Integer(10));
+        //graphe.setValue("Two", new Integer(20));
+        //graphe.setValue("Three", new Integer(30));
+        //graphe.setValue("Four", new Integer(10));
         
-        JFreeChart chart = ChartFactory.createPieChart("Student score", graphe, true, true, true);
+        JFreeChart chart = ChartFactory.createPieChart("Nombre d'employé par Metier", graphe, true, true, true);
         PiePlot plot = (PiePlot)chart.getPlot();
         
 //        DefaultCategoryDataset graphe = new DefaultCategoryDataset();
@@ -322,7 +304,7 @@ public class Recruteur extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         try {
-            Affichagejob();        // TODO add your handling code here:
+            Ajouterjob();        // TODO add your handling code here:
         } catch (SQLException ex) {
             Logger.getLogger(Recruteur.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -388,6 +370,7 @@ public class Recruteur extends javax.swing.JFrame {
             i+=1;
         }
         String sqlStatement = "";
+        this.listJob=listJob;
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(listJob));
 
         //int rows = stmt.executeUpdate(sqlStatement);
@@ -396,12 +379,47 @@ public class Recruteur extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Mot de passe INCORECT", "Login Error", JOptionPane.ERROR_MESSAGE);
         }
     }
+    public void Cammenbert() throws SQLException{
+        
+        int[] nombrepersonnejob=new int[listJob.length];
+        for(int i=0; i<listJob.length; i++){
+            Connection conn=Connexion1();
+        try{
+            Statement stmt = conn.createStatement();
+            ResultSet rs = stmt.executeQuery("Select count(lastnamemem) from employer where job='" + listJob[i] + "';");
+            while(rs.next()){
+            nombrepersonnejob[i]=rs.getInt(1);
+            System.out.println("Hola " + nombrepersonnejob[i]);
+        }
+        //int rows = stmt.executeUpdate(sqlStatement);
+        conn.close();
+        }catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Le camembert ne marche pas", "Login Error", JOptionPane.ERROR_MESSAGE);
+        }
+        }
+        this.nombrepersonnejob=nombrepersonnejob;
+        
+    }
     public void Supprimerjob() throws SQLException{
         Connection conn=Connexion1();
         String namejob=jComboBox1.getSelectedItem().toString();
         try{
         Statement stmt = conn.createStatement();
         stmt.executeUpdate("Delete from job where namejob='" + namejob + "';");
+        
+        //int rows = stmt.executeUpdate(sqlStatement);
+        conn.close();
+        }catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+        Affichagejob();
+    }
+    public void Ajouterjob() throws SQLException{
+        Connection conn=Connexion1();
+        String namejob=jTextField1.getText();
+        try{
+        Statement stmt = conn.createStatement();
+        stmt.executeUpdate("INSERT INTO `Company`.Job ( namejob ) VALUES ('" + namejob +"');");
         
         //int rows = stmt.executeUpdate(sqlStatement);
         conn.close();
@@ -451,7 +469,6 @@ public class Recruteur extends javax.swing.JFrame {
     private javax.swing.JButton jButton3;
     private javax.swing.JComboBox jComboBox1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -466,6 +483,5 @@ public class Recruteur extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
     // End of variables declaration//GEN-END:variables
 }

@@ -34,6 +34,8 @@ public class Employeur extends javax.swing.JFrame {
      */
     private Employer e;
     private PdfPTable table;
+    private String[] listJob;
+    private String text;
     public Employeur() {
         initComponents();
         this.setLocationRelativeTo(null); // center of the screen 
@@ -44,9 +46,10 @@ public class Employeur extends javax.swing.JFrame {
         jButton3.setBackground(new Color(150,102,0,120));
         jButton4.setBackground(new Color(150,102,0,120));
     }
-    public Employeur(Employer e) {
+    public Employeur(Employer e) throws SQLException {
         this.e=e;
         initComponents();
+        Affichagejob();
         this.setLocationRelativeTo(null); // center of the screen 
         jPanel4.setBackground(new Color(204,102,0,120));
         jTextArea2.setBackground(new Color(204,102,0,120));
@@ -203,6 +206,11 @@ public class Employeur extends javax.swing.JFrame {
 
         jButton4.setBackground(new java.awt.Color(150, 102, 0));
         jButton4.setText("VALIDER");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
         jPanel1.add(jButton4);
         jButton4.setBounds(90, 340, 190, 50);
 
@@ -318,6 +326,76 @@ public class Employeur extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jButton3ActionPerformed
 
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        try {
+            candidatjob();        // TODO add your handling code here:
+        } catch (SQLException ex) {
+            Logger.getLogger(Employeur.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jButton4ActionPerformed
+    public int Nombrejob() throws SQLException{
+        
+        Connection conn=Connexion1();
+        int nombrejob = 0;
+        try{
+        Statement stmt = conn.createStatement();
+        ResultSet rs = stmt.executeQuery("Select count(namejob) from job;");
+        while(rs.next()){
+            nombrejob=rs.getInt(1);
+            System.out.println("Hello " + nombrejob);
+        }
+        //int rows = stmt.executeUpdate(sqlStatement);
+        conn.close();
+        }catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Mot de passe INCORECT", "Login Error", JOptionPane.ERROR_MESSAGE);
+        }
+        return nombrejob;
+    }
+    public void Affichagejob() throws SQLException{
+        int nombrejob=Nombrejob();
+        String[] listJob=new String[nombrejob];
+        Connection conn=Connexion1();
+        try{
+        Statement stmt = conn.createStatement();
+        int i=0;
+        ResultSet rs = stmt.executeQuery("Select * from job;");
+        while(rs.next()){
+            String namejob=rs.getString(1);
+            System.out.println("Coucou " + namejob);
+            listJob[i]=namejob;
+            System.out.println(listJob[i]);
+            i+=1;
+        }
+        String sqlStatement = "";
+        this.listJob=listJob;
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel(listJob));
+
+        //int rows = stmt.executeUpdate(sqlStatement);
+        conn.close();
+        }catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Mot de passe INCORECT", "Login Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+    public void candidatjob() throws SQLException{
+        Connection conn=Connexion1();
+        String text="";
+        try{
+        Statement stmt = conn.createStatement();
+        ResultSet rs = stmt.executeQuery("Select * from candidat where job='" + jComboBox2.getSelectedItem().toString() + "';");
+        //jComboBox2.getSelectedItem().toString()
+        while(rs.next()){
+            text=text  +rs.getString(1) + " "+rs.getString(2)+ " "+rs.getString(3)+ " " +rs.getString(4)+ " "+rs.getString(5)+ " " +rs.getString(6)+ " "+rs.getString(7)+"\n";
+        }
+        String sqlStatement = "";
+        this.text=text;
+        jTextArea2.setText(text);
+
+        //int rows = stmt.executeUpdate(sqlStatement);
+        conn.close();
+        }catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Mot de passe INCORECT", "Login Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }
     /**
      * @param args the command line arguments
      */
@@ -376,4 +454,8 @@ public class Employeur extends javax.swing.JFrame {
     private javax.swing.JTable jTable1;
     private javax.swing.JTextArea jTextArea2;
     // End of variables declaration//GEN-END:variables
+
+    private void Affichage() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }
