@@ -133,7 +133,7 @@ public class Reset extends javax.swing.JFrame {
         {
             try{
                 
-                String updateQuery = "UPDATE `employer` SET `mdp`=? WHERE email=?";
+                String updateQuery = "UPDATE `employer` SET `motdepasse`=? WHERE email=?";
                 con = DriverManager.getConnection("jdbc:mysql://localhost:3306/company?autoReconnect=true&useSSL=false", "root", "root");
                 pst = con.prepareStatement(updateQuery);
                 pst.setString(1, jTextField2.getText());
