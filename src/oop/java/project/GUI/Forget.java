@@ -130,23 +130,83 @@ public class Forget extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    
+    String username = "razafiemilie@hotmail.fr";
+    String password = "@ryme-mada-601!!hotmail";
+    
+//      String username = "alexanderabbey98@gmail.com";
+//      String password = "Minecraft1";
+    
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        try{
+//        try{
+//        Random rand = new Random();
+//        randomCode = rand.nextInt(999999);
+//        String host = "smtp.gmail.com";
+//        String user = "svpagencying3@gmail.com";
+//        String pass = "EceParis";
+////        String user = "razafiemilie@hotmail.fr";
+////        String pass = "@ryme-mada-601!!hotmail";
+////        String user = "tsnemailsndr@gmail.com";
+////        String pass = "vQ#Tgez@=KRFM2E4";
+//        String to = jTextField1.getText();
+//        String subject = "Reseting Code";
+//        String message = "Your reset code is "+ randomCode;
+//        boolean sessionDebug = false;
+//        Properties pros = System.getProperties();
+//        pros.put("mail.smtp.starttls.enable", "true");
+//        pros.put("mail.smtp.host", "host");
+//        pros.put("mail.smtp.port", "587");
+//        pros.put("mail.smtp.auth", "true");
+//        pros.put("mail.smtp.starttls.required", "true");
+//        
+//        java.security.Security.addProvider(new com.sun.net.ssl.internal.ssl.Provider());
+//        Session mailSession = Session.getDefaultInstance(pros, null);
+//        mailSession.setDebug(sessionDebug);
+//        System.out.println("1");
+//        Message msg = new MimeMessage(mailSession);
+//        System.out.println("2");
+//        msg.setFrom(new InternetAddress(user));
+//        System.out.println("3");
+//        InternetAddress [] address = { new InternetAddress(to) };
+//        System.out.println("4");
+//        msg.setRecipients(Message.RecipientType.TO, address);
+//        System.out.println("5");
+//        msg.setSubject(subject);
+//        System.out.println("6");
+//        msg.setText(message);
+//        System.out.println("7");
+//        //Transport.send(msg);
+//        Transport transport = mailSession.getTransport("smtp");
+//        System.out.println("8");
+//        transport.connect(host, user, pass);
+//        System.out.println("9");
+//        transport.sendMessage(msg, msg.getAllRecipients());
+//        System.out.println("10");
+//        transport.close();
+//        System.out.println("11");
+//        JOptionPane.showMessageDialog(null, "code was been send to the email");
+//        System.out.println("12");
+//        }catch(Exception ex){
+//            JOptionPane.showMessageDialog(rootPane, ex);
+//        }
+        
         Random rand = new Random();
         randomCode = rand.nextInt(999999);
         String host = "smtp.gmail.com";
-        String user = "svpagencying3@gmail.com";
-        String pass = "EceParis";
-//        String user = "razafiemilie@hotmail.fr";
-//        String pass = "@ryme-mada-601!!hotmail";
-//        String user = "tsnemailsndr@gmail.com";
-//        String pass = "vQ#Tgez@=KRFM2E4";
+
+        
+
         String to = jTextField1.getText();
         String subject = "Reseting Code";
-        String message = "Your reset code is "+ randomCode;
-        boolean sessionDebug = false;
-        Properties pros = System.getProperties();
+        String msg = "Your reset code is "+ randomCode;
+        
+        Properties pros = new Properties();
+//        pros.put("mail.smtp.starttls.enable", "true");
+//        pros.put("mail.smtp.host", "smtp.gmail.com");
+//        pros.put("mail.smtp.port", "587");
+//        pros.put("mail.smtp.auth", "true");
+        
         pros.put("mail.smtp.starttls.enable", "true");
         pros.put("mail.smtp.host", "host");
         pros.put("mail.smtp.port", "587");
@@ -154,32 +214,30 @@ public class Forget extends javax.swing.JFrame {
         pros.put("mail.smtp.starttls.required", "true");
         
         java.security.Security.addProvider(new com.sun.net.ssl.internal.ssl.Provider());
-        Session mailSession = Session.getDefaultInstance(pros, null);
-        mailSession.setDebug(sessionDebug);
-        System.out.println("1");
-        Message msg = new MimeMessage(mailSession);
-        System.out.println("2");
-        msg.setFrom(new InternetAddress(user));
-        System.out.println("3");
-        InternetAddress [] address = { new InternetAddress(to) };
-        System.out.println("4");
-        msg.setRecipients(Message.RecipientType.TO, address);
-        System.out.println("5");
-        msg.setSubject(subject);
-        System.out.println("6");
-        msg.setText(message);
-        System.out.println("7");
-        //Transport.send(msg);
-        Transport transport = mailSession.getTransport("smtp");
-        System.out.println("8");
-        transport.connect(host, user, pass);
-        System.out.println("9");
-        transport.sendMessage(msg, msg.getAllRecipients());
-        System.out.println("10");
-        transport.close();
-        System.out.println("11");
-        JOptionPane.showMessageDialog(null, "code was been send to the email");
-        System.out.println("12");
+        Session session = Session.getDefaultInstance(pros, null);
+        
+//        Session session = Session.getInstance(pros, new javax.mail.Authenticator() {
+//            protected PasswordAuthentication getPasswordAuthentification(){
+//                return new PasswordAuthentication(username,password);
+//            }
+//        });
+        
+        
+        try{
+            
+            
+            Message message = new MimeMessage(session);
+            message.setFrom(new InternetAddress(username));
+            InternetAddress [] address = { new InternetAddress(to) };
+            message.setRecipients(Message.RecipientType.TO, address);
+            message.setSubject(subject);
+            message.setText(msg);
+            
+            Transport.send(message);
+            JOptionPane.showMessageDialog(null, "code was been send to the email");
+            
+            
+            
         }catch(Exception ex){
             JOptionPane.showMessageDialog(rootPane, ex);
         }

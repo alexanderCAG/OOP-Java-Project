@@ -449,7 +449,7 @@ public class Login extends javax.swing.JFrame {
     private void okActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okActionPerformed
         // TODO add your handling code here:
         
-        String query = "select * from testmail where email=? and mdp=?";
+        String query = "select * from employer where email=? and mdp=?";
         
         try {
             con = DriverManager.getConnection("jdbc:mysql://localhost:3306/company?autoReconnect=true&useSSL=false", "root", "root");
