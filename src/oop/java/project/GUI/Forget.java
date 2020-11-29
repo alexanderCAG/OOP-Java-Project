@@ -211,7 +211,6 @@ public class Forget extends javax.swing.JFrame {
 //        pros.put("mail.smtp.auth", "true");
         
         pros.put("mail.smtp.starttls.enable", "true");
-        //pros.put("mail.smtp.host", "host");
         pros.put("mail.smtp.host", "smtp.gmail.com");
         pros.put("mail.smtp.port", "587");
         pros.put("mail.smtp.auth", "true");
@@ -261,6 +260,7 @@ public class Forget extends javax.swing.JFrame {
             Transport.send(message);
             JOptionPane.showMessageDialog(null, "code was been send to the email");
              
+           
             
         }catch(Exception ex){
             JOptionPane.showMessageDialog(rootPane, ex.getMessage());
@@ -269,6 +269,9 @@ public class Forget extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    
+    /*https://myaccount.google.com/lesssecureapps?pli=1&rapt=AEjHL4M6QZxUMX52FcmzhBAl8SSgXIU-AewFDYg0HPjFf-FP1cd17g-BWSC9HMKaZ9oJhq5Os5tMfOBHhwBZJTt49ZM3Vrd2oA*/
+    
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         
