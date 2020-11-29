@@ -217,8 +217,8 @@ public class Forget extends javax.swing.JFrame {
         pros.put("mail.smtp.auth", "true");
         pros.put("mail.smtp.starttls.required", "true");
         
-        String sslfactory = "javax.net.ssl.SSLSocketFactory";
-        String smtpServ = "2a00:1450:400c:c00::6c";
+//        String sslfactory = "javax.net.ssl.SSLSocketFactory";
+//        String smtpServ = "2a00:1450:400c:c00::6c";
         
 //        pros.setProperty("mail.smtp.host", "smtp.gmail.com");
 //        pros.setProperty("mail.smtp.socketFactory.class", sslfactory);
@@ -241,12 +241,12 @@ public class Forget extends javax.swing.JFrame {
 //        });
         
         Session session = Session.getDefaultInstance(pros, 
-        new javax.mail.Authenticator(){
-        @Override
-        protected PasswordAuthentication getPasswordAuthentication() {
-            return new PasswordAuthentication(username,password);// Specify the Username and the PassWord
-        }
-});
+                new javax.mail.Authenticator(){
+                @Override
+                protected PasswordAuthentication getPasswordAuthentication() {
+                    return new PasswordAuthentication(username,password);// Specify the Username and the PassWord
+                }
+        });
         
         
         try{
