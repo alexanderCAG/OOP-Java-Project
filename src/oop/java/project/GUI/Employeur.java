@@ -333,6 +333,8 @@ public class Employeur extends javax.swing.JFrame {
             Logger.getLogger(Employeur.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_jButton4ActionPerformed
+    
+    
     public int Nombrejob() throws SQLException{
         
         Connection conn=Connexion1();
@@ -376,6 +378,8 @@ public class Employeur extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Mot de passe INCORECT", "Login Error", JOptionPane.ERROR_MESSAGE);
         }
     }
+    
+    
     public void candidatjob() throws SQLException{
         Connection conn=Connexion1();
         String text="";
