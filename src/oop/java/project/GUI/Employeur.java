@@ -22,6 +22,7 @@ import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.*;
+import javax.swing.table.*;
 
 /**
  *
@@ -216,12 +217,10 @@ public class Employeur extends javax.swing.JFrame {
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {"OA?ND", "Adoea", "50"},
-                {"BNDIZ", "Djdaz", "062"},
-                {"BIBZA", "Cpdoa", "10"}
+
             },
             new String [] {
-                "Nom", "Prenom", "Age"
+                "Nom", "Prenom"
             }
         ));
         jScrollPane1.setViewportView(jTable1);
@@ -353,6 +352,8 @@ public class Employeur extends javax.swing.JFrame {
         }
         return nombrejob;
     }
+    
+    
     public void Affichagejob() throws SQLException{
         int nombrejob=Nombrejob();
         String[] listJob=new String[nombrejob];
@@ -382,19 +383,21 @@ public class Employeur extends javax.swing.JFrame {
     
     public void candidatjob() throws SQLException{
         Connection conn=Connexion1();
-        String text="";
+        
         try{
         Statement stmt = conn.createStatement();
         ResultSet rs = stmt.executeQuery("Select * from candidat where job='" + jComboBox2.getSelectedItem().toString() + "';");
-        //jComboBox2.getSelectedItem().toString()
-        while(rs.next()){
-            text=text  +rs.getString(1) + " "+rs.getString(2)+ " "+rs.getString(3)+ " " +rs.getString(4)+ " "+rs.getString(5)+ " " +rs.getString(6)+ " "+rs.getString(7)+"\n";
-        }
-        String sqlStatement = "";
-        this.text=text;
-        jTextArea2.setText(text);
 
-        //int rows = stmt.executeUpdate(sqlStatement);
+        while(rs.next())
+        {
+            String user= rs.getString(2);
+            String pass= rs.getString(3);
+            
+            String data[] = {user,pass};
+            DefaultTableModel tab = (DefaultTableModel) jTable1.getModel();
+            tab.addRow(data);
+        }
+        
         conn.close();
         }catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Mot de passe INCORECT", "Login Error", JOptionPane.ERROR_MESSAGE);
