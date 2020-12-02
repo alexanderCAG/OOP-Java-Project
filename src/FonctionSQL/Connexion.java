@@ -12,6 +12,7 @@ import Classe.Recruiter;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.Scanner;
+import javax.swing.JOptionPane;
 /**
  *
  * @author Geoffroy
@@ -119,132 +120,6 @@ public class Connexion {
         }
         return listdemandesemploi;
     }
-    public static void afficherjobs() throws SQLException{
-        Connection conn = Connexion1();
-        try{
-        Statement stmt = conn.createStatement();
-
-        ResultSet rs = stmt.executeQuery("Select namejob from job");
-
-        while(rs.next()){
-            System.out.println(rs.getString(1)+" ");
-        }
-        String sqlStatement = "";
-
-        //int rows = stmt.executeUpdate(sqlStatement);
-        conn.close();
-        }catch (SQLException ex) {
-            System.out.println(ex.getMessage());
-        }
-    }
-    public static void affichermemeberemployer() throws SQLException{
-        Connection conn = Connexion1();
-        try{
-        Statement stmt = conn.createStatement();
-
-        ResultSet rs = stmt.executeQuery("Select lastnamemem, firstnamemem from memberemployer");
-
-        while(rs.next()){
-            System.out.println(rs.getString(1)+" "+rs.getString(2));
-        }
-        String sqlStatement = "";
-
-        //int rows = stmt.executeUpdate(sqlStatement);
-        conn.close();
-        }catch (SQLException ex) {
-            System.out.println(ex.getMessage());
-        }
-    }
-    public static void affichernewemployer() throws SQLException{
-        Connection conn = Connexion1();
-        try{
-        Statement stmt = conn.createStatement();
-
-        ResultSet rs = stmt.executeQuery("Select lastnamenew, firstnamenew from newemployer");
-
-        while(rs.next()){
-            System.out.println(rs.getString(1)+" "+rs.getString(2));
-        }
-        String sqlStatement = "";
-
-        //int rows = stmt.executeUpdate(sqlStatement);
-        conn.close();
-        }catch (SQLException ex) {
-            System.out.println(ex.getMessage());
-        }
-    }
-    public static void afficherjobseeker() throws SQLException{
-        Connection conn = Connexion1();
-        try{
-        Statement stmt = conn.createStatement();
-
-        ResultSet rs = stmt.executeQuery("Select lastnamesee, firstnamesee from jobseeker");
-
-        while(rs.next()){
-            System.out.println(rs.getString(1)+" "+rs.getString(2));
-        }
-        String sqlStatement = "";
-
-        //int rows = stmt.executeUpdate(sqlStatement);
-        conn.close();
-        }catch (SQLException ex) {
-            System.out.println(ex.getMessage());
-        }
-    }
-    public static void countnewemployer() throws SQLException{
-        Connection conn = Connexion1();
-        try{
-        Statement stmt = conn.createStatement();
-
-        ResultSet rs = stmt.executeQuery("Select count(lastnamenew) from newemployer");
-
-        while(rs.next()){
-            System.out.println(rs.getString(1));
-        }
-        String sqlStatement = "";
-
-        //int rows = stmt.executeUpdate(sqlStatement);
-        conn.close();
-        }catch (SQLException ex) {
-            System.out.println(ex.getMessage());
-        }
-    }
-    public static void countmemberemployer() throws SQLException{
-        Connection conn = Connexion1();
-        try{
-        Statement stmt = conn.createStatement();
-
-        ResultSet rs = stmt.executeQuery("Select count(lastnamemem) from memberemployer");
-
-        while(rs.next()){
-            System.out.println(rs.getString(1));
-        }
-        String sqlStatement = "";
-
-        //int rows = stmt.executeUpdate(sqlStatement);
-        conn.close();
-        }catch (SQLException ex) {
-            System.out.println(ex.getMessage());
-        }
-    }
-    public static void countjobseeker() throws SQLException{
-        Connection conn = Connexion1();
-        try{
-        Statement stmt = conn.createStatement();
-
-        ResultSet rs = stmt.executeQuery("Select count(lastnamesee) from jobseeker");
-
-        while(rs.next()){
-            System.out.println(rs.getString(1));
-        }
-        String sqlStatement = "";
-
-        //int rows = stmt.executeUpdate(sqlStatement);
-        conn.close();
-        }catch (SQLException ex) {
-            System.out.println(ex.getMessage());
-        }
-    }
     public static void addjob(String namejob) throws SQLException{
         Connection conn = Connexion1();
         try{
@@ -269,7 +144,7 @@ public class Connexion {
             System.out.println(ex.getMessage());
         }
     }
-    public static void addemployer(int id, String lastname, String firstname, String email, String motdepasse, int phone, String job, String sizecompany) throws SQLException{
+    public static void addemployer(String lastname, String firstname, String email, String motdepasse, int phone, String job, String sizecompany) throws SQLException{
         Connection conn = Connexion1();
         try{
         Statement stmt = conn.createStatement();
@@ -281,11 +156,23 @@ public class Connexion {
             System.out.println(ex.getMessage());
         }
     }
-    public static void addrecruiter(int id, String lastname, String firstname, String email, String motdepasse, int phone, String job) throws SQLException{
+    public static void addrecruiter(String lastname, String firstname, String email, String motdepasse, int phone, String job) throws SQLException{
         Connection conn = Connexion1();
         try{
         Statement stmt = conn.createStatement();
-        stmt.executeUpdate("INSERT INTO `Company`.Employer ( lastnameemp, firstnameemp, email, motdepasse, phone, job, sizecompany, compteur ) VALUES ('" + lastname + "', '" + firstname + "', '" + email + "', '" + motdepasse + "', " + phone + ", '" + job + ", '" + job + "');");
+        stmt.executeUpdate("INSERT INTO `Company`.Employer ( lastnamerec, firstnamerec, email, motdepasse, phone, job, sizecompany, compteur ) VALUES ('" + lastname + "', '" + firstname + "', '" + email + "', '" + motdepasse + "', " + phone + ", '" + job + ", '" + job + "');");
+        
+        //int rows = stmt.executeUpdate(sqlStatement);
+        conn.close();
+        }catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+    }
+    public static void adddemandeemploi(int idcan, String Metier, String statut, String Date) throws SQLException{
+        Connection conn = Connexion1();
+        try{
+        Statement stmt = conn.createStatement();
+        stmt.executeUpdate("INSERT INTO `Company`.DemandeEmploi ( idcan, metier, statut, datedebut ) VALUES ('" + idcan + "', '" + Metier + "', '" + statut + "', '" + Date + "');");
         
         //int rows = stmt.executeUpdate(sqlStatement);
         conn.close();
@@ -304,6 +191,46 @@ public class Connexion {
         }catch (SQLException ex) {
             System.out.println(ex.getMessage());
         }
+    }
+    public static int Nombrejob() throws SQLException{
+        
+        Connection conn=Connexion1();
+        int nombrejob = 0;
+        try{
+        Statement stmt = conn.createStatement();
+        ResultSet rs = stmt.executeQuery("Select count(namejob) from job;");
+        while(rs.next()){
+            nombrejob=rs.getInt(1);
+            System.out.println("Hello " + nombrejob);
+        }
+        //int rows = stmt.executeUpdate(sqlStatement);
+        conn.close();
+        }catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Mot de passe INCORECT", "Login Error", JOptionPane.ERROR_MESSAGE);
+        }
+        return nombrejob;
+    }
+    public static String[] Affichagejob() throws SQLException{
+        int nombrejob=Nombrejob();
+        String[] listJob=new String[nombrejob];
+        Connection conn=Connexion1();
+        try{
+        Statement stmt = conn.createStatement();
+        int i=0;
+        ResultSet rs = stmt.executeQuery("Select * from job;");
+        while(rs.next()){
+            String namejob=rs.getString(1);
+            System.out.println("Coucou " + namejob);
+            listJob[i]=namejob;
+            System.out.println(listJob[i]);
+            i+=1;
+        }
+        //jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(listJob));
+        conn.close();
+        }catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Mot de passe INCORECT", "Login Error", JOptionPane.ERROR_MESSAGE);
+        }
+        return listJob;
     }
     public static void main(String[] args) throws SQLException {
         // TODO code application logic here
