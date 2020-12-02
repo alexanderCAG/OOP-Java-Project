@@ -5,13 +5,14 @@
  */
 package oop.java.project.GUI;
 
+import com.itextpdf.text.Image;
 import com.itextpdf.text.*;
 import com.itextpdf.text.pdf.*;
 import java.awt.*;
 import java.io.*;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.util.logging.*;
 import javax.swing.*;
+import java.util.*;
 
 /**
  *
@@ -241,14 +242,45 @@ public class Employeur extends javax.swing.JFrame {
 //            path = file.getSelectedFile().getPath();
 //        }
         
-        Document doc = new Document();
+        Document doc = new Document(PageSize.A4.rotate());
         
         try {
             //PdfWriter.getInstance(doc, new FileOutputStream(path + "Table.pdf"));
             PdfWriter.getInstance(doc, new FileOutputStream("Table.pdf"));
             doc.open();
             
+            
+            //Mettre le camembert mais avant il faut "l'imprimer"
+//            com.itextpdf.text.Image image1 = com.itextpdf.text.Image.getInstance("chart.png");
+//            image1.scaleAbsolute(480, 300);
+//            doc.add(image1);
+            
+            Paragraph titredoc = new Paragraph("CONFIDENTIEL",FontFactory.getFont(FontFactory.TIMES_BOLD,22, BaseColor.RED));
+            titredoc.setAlignment(Element.ALIGN_CENTER);
+            doc.add(titredoc);
+            
+            Image image = Image.getInstance("image.png");
+            //doc.add(new Paragraph("Image"));
+            //image.scaleToFit(10,10);
+            image.setAlignment(Element.ALIGN_LEFT);
+            doc.add(image);
+            
+            Paragraph date = new Paragraph(new Date().toString());
+            date.setAlignment(Element.ALIGN_RIGHT);
+            doc.add(date);
+            
+            //doc.add(new Paragraph("CONFIDENTIEL",FontFactory.getFont(FontFactory.TIMES_BOLD,18, BaseColor.RED)));
+            //doc.add(new Paragraph(new Date().toString()));
+            doc.add(new Paragraph("----------------------------------------------------------------------------------"));
+            doc.add(new Paragraph("\n"));
+            
             PdfPTable table = new PdfPTable(3);
+            PdfPCell cell = new PdfPCell(new Paragraph("Liste des candidtas"));
+            
+            cell.setColspan(3); //mettre nombre colonne
+            cell.setHorizontalAlignment(Element.ALIGN_CENTER);
+            cell.setBackgroundColor(BaseColor.ORANGE);
+            table.addCell(cell);
             
             table.addCell("Nom");
             table.addCell("Prenom");
@@ -272,6 +304,8 @@ public class Employeur extends javax.swing.JFrame {
         } catch (FileNotFoundException ex) {
         Logger.getLogger(Employeur.class.getName()).log(Level.SEVERE, null, ex);
         } catch (DocumentException ex) {
+            Logger.getLogger(Employeur.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
             Logger.getLogger(Employeur.class.getName()).log(Level.SEVERE, null, ex);
         }
         
