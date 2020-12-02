@@ -245,11 +245,8 @@ public class Connexion {
             System.out.println(ex.getMessage());
         }
     }
-    public static void addjobs() throws SQLException{
+    public static void addjob(String namejob) throws SQLException{
         Connection conn = Connexion1();
-        Scanner s=new Scanner(System.in);
-        System.out.println("Inserez le nom d'un job,svp:");
-        String namejob=s.nextLine();
         try{
         Statement stmt = conn.createStatement();
         stmt.executeUpdate("INSERT INTO `Company`.Job ( namejob ) VALUES ('" + namejob + "');");
@@ -260,20 +257,11 @@ public class Connexion {
             System.out.println(ex.getMessage());
         }
     }
-    public static void addnewemployer() throws SQLException{
+    public static void addcandidat(String lastname, String firstname, String email, String motdepasse, int phone, boolean selection) throws SQLException{
         Connection conn = Connexion1();
-        Scanner s=new Scanner(System.in);
-        System.out.println("Inserez le un nouveau new employer,svp:");
-        String idnew=s.nextLine();
-        String lastnamenew=s.nextLine();
-        String firstnamenew=s.nextLine();
-        String email=s.nextLine();
-        String motdepasse=s.nextLine();
-        int phone=s.nextInt();
-        String job=s.nextLine();
         try{
         Statement stmt = conn.createStatement();
-        stmt.executeUpdate("INSERT INTO `Company`.NewEmployer ( idnew, lastnamenew, firstnamenew, email, motdepasse, phone, job ) VALUES ('" + idnew + "', '" + lastnamenew + "', '" + firstnamenew + "', '" + email + "', '" + motdepasse + "', " + phone + ", '" + job + "');");
+        stmt.executeUpdate("INSERT INTO `Company`.Candidat ( lastnamecan, firstnamecan, email, motdepasse, phone, job ) VALUES ('" + lastname + "', '" + firstname + "', '" + email + "', '" + motdepasse + "', " + phone + ", '" + selection + "');");
         
         //int rows = stmt.executeUpdate(sqlStatement);
         conn.close();
@@ -281,21 +269,11 @@ public class Connexion {
             System.out.println(ex.getMessage());
         }
     }
-    
-    public static void addmememployer() throws SQLException{
+    public static void addemployer(int id, String lastname, String firstname, String email, String motdepasse, int phone, String job, String sizecompany) throws SQLException{
         Connection conn = Connexion1();
-        Scanner s=new Scanner(System.in);
-        System.out.println("Inserez le un nouveau member employer,svp:");
-        String idmem=s.nextLine();
-        String lastnamemem=s.nextLine();
-        String firstnamemem=s.nextLine();
-        String email=s.nextLine();
-        String motdepasse=s.nextLine();
-        int phone=s.nextInt();
-        String job=s.nextLine();
         try{
         Statement stmt = conn.createStatement();
-        stmt.executeUpdate("INSERT INTO `Company`.memberEmployer ( idmem, lastnamemem, firstnamemem, email, motdepasse, phone, job ) VALUES ('" + idmem + "', '" + lastnamemem + "', '" + firstnamemem + "', '" + email + "', '" + motdepasse + "', " + phone + ", '" + job + "');");
+        stmt.executeUpdate("INSERT INTO `Company`.Employer ( lastnameemp, firstnameemp, email, motdepasse, phone, job, sizecompany, compteur ) VALUES ('" + lastname + "', '" + firstname + "', '" + email + "', '" + motdepasse + "', " + phone + ", '" + job + ", '" + sizecompany + ", '" + 0 + "');");
         
         //int rows = stmt.executeUpdate(sqlStatement);
         conn.close();
@@ -303,20 +281,11 @@ public class Connexion {
             System.out.println(ex.getMessage());
         }
     }
-     public static void addjobseeker() throws SQLException{
+    public static void addrecruiter(int id, String lastname, String firstname, String email, String motdepasse, int phone, String job) throws SQLException{
         Connection conn = Connexion1();
-        Scanner s=new Scanner(System.in);
-        System.out.println("Inserez le un nouveau jobseeker,svp:");
-        String idmem=s.nextLine();
-        String lastnamemem=s.nextLine();
-        String firstnamemem=s.nextLine();
-        String email=s.nextLine();
-        String motdepasse=s.nextLine();
-        int phone=s.nextInt();
-        String job=s.nextLine();
         try{
         Statement stmt = conn.createStatement();
-        stmt.executeUpdate("INSERT INTO `Company`.jobseeker ( idmem, lastnamemem, firstnamemem, email, motdepasse, phone, job ) VALUES ('" + idmem + "', '" + lastnamemem + "', '" + firstnamemem + "', '" + email + "', '" + motdepasse + "', " + phone + ", '" + job + "');");
+        stmt.executeUpdate("INSERT INTO `Company`.Employer ( lastnameemp, firstnameemp, email, motdepasse, phone, job, sizecompany, compteur ) VALUES ('" + lastname + "', '" + firstname + "', '" + email + "', '" + motdepasse + "', " + phone + ", '" + job + ", '" + job + "');");
         
         //int rows = stmt.executeUpdate(sqlStatement);
         conn.close();
@@ -324,12 +293,8 @@ public class Connexion {
             System.out.println(ex.getMessage());
         }
     }
-     
-    public static void deletejobs() throws SQLException{
+    public static void deletejobs(String namejob) throws SQLException{
         Connection conn = Connexion1();
-        Scanner s=new Scanner(System.in);
-        System.out.println("Inserez le nom d'un job à supprimer,svp:");
-        String namejob=s.nextLine();
         try{
         Statement stmt = conn.createStatement();
         stmt.executeUpdate("delete from job where namejob='" + namejob + "';");
