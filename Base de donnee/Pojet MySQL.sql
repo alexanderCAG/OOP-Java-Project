@@ -9,35 +9,44 @@ CREATE TABLE `Company`.Job (
     PRIMARY KEY (`namejob`)
 );
 CREATE TABLE `Company`.Candidat (
-	`idnew` VARCHAR(20) NOT NULL,
-	`lastnamenew` VARCHAR(20) NOT NULL,
-    `firstnamenew` VARCHAR(20) NOT NULL,
+	`idcan` INT AUTO_INCREMENT NOT NULL,
+	`lastnamecan` VARCHAR(20) NOT NULL,
+    `firstnamecan` VARCHAR(20) NOT NULL,
 	`email` VARCHAR(40) NOT NULL,
     `motdepasse` VARCHAR(20) NOT NULL,
-	`phone` INT(30) NOT NULL ,
-	`job` VARCHAR( 30 ) NOT NULL,
-    PRIMARY KEY (`idnew`)
+	`phone` INT NOT NULL ,
+	`selection` BOOLEAN NOT NULL DEFAULT FALSE,
+    PRIMARY KEY (`idcan`)
 );
 CREATE TABLE `Company`.Employer (
-	`idmem` VARCHAR(20) NOT NULL,
-	`lastnamemem` VARCHAR(20) NOT NULL,
-    `firstnamemem` VARCHAR(20) NOT NULL,
+	`idemp` INT AUTO_INCREMENT NOT NULL,
+	`lastnameemp` VARCHAR(20) NOT NULL,
+    `firstnameemp` VARCHAR(20) NOT NULL,
 	`email` VARCHAR(40) NOT NULL,
     `motdepasse` VARCHAR(20) NOT NULL,
-	`phone` INT(30) NOT NULL ,
+	`phone` INT NOT NULL ,
 	`job` VARCHAR( 30 ) NOT NULL,
     `sizecompany` VARCHAR( 30 ) NOT NULL,
-    PRIMARY KEY (`idmem`)
+    `compteur` INT NOT NULL ,
+    PRIMARY KEY (`idemp`)
 );
-CREATE TABLE `Company`.JobSeeker (
-	`idsee` VARCHAR(20) NOT NULL,
-	`lastnamesee` VARCHAR(20) NOT NULL,
-    `firstnamesee` VARCHAR(20) NOT NULL,
+CREATE TABLE `Company`.Recruter (
+	`idrec` INT AUTO_INCREMENT NOT NULL,
+	`lastnamerec` VARCHAR(20) NOT NULL,
+    `firstnamerec` VARCHAR(20) NOT NULL,
 	`email` VARCHAR(40) NOT NULL,
     `motdepasse` VARCHAR(20) NOT NULL,
-	`phone` INT(30) NOT NULL ,
+	`phone` INT NOT NULL ,
 	`job` VARCHAR( 30 ) NOT NULL,
-    PRIMARY KEY (`idsee`)
+    PRIMARY KEY (`idrec`)
+);
+CREATE TABLE `Company`.DemandeEmploi (
+	`id` INT AUTO_INCREMENT NOT NULL,
+	`idcan` INT NOT NULL,
+	`metier` VARCHAR(20) NOT NULL,
+    `statut` VARCHAR(20) NOT NULL,
+	`datedebut` VARCHAR(40) NOT NULL,
+    PRIMARY KEY (`id`)
 );
 -- , 1965, '75006 Paris'
 INSERT INTO `Company`.Agency ( nameag ) VALUES ('Agence DAG');
@@ -48,20 +57,27 @@ INSERT INTO `Company`.Job ( namejob ) VALUES ('Ingénieur en drone');
 INSERT INTO `Company`.Job ( namejob ) VALUES ('Ingénieur en electromagnetisme');
 INSERT INTO `Company`.Job ( namejob ) VALUES ('Ingénieur');
 
-INSERT INTO `Company`.Candidat ( idnew, lastnamenew, firstnamenew, email, motdepasse, phone, job ) VALUES ('N1', 'Granier', 'Geoffroy', 'geoffroy.granier@edu.ece.fr', 'dyjs', 0721564966, 'Ingénieur en robotique');
-INSERT INTO `Company`.Candidat ( idnew, lastnamenew, firstnamenew, email, motdepasse, phone, job ) VALUES ('N2', 'Boucher', 'Thomas', 'geoffroy.granier@edu.ece.fr', 'dyjs', 0615468557, 'Ingénieur en drone');
-INSERT INTO `Company`.Candidat ( idnew, lastnamenew, firstnamenew, email, motdepasse, phone, job ) VALUES ('N3', 'Pelletier', 'Geo', 'geo.granier@edu.ece.fr', 'dyjs', 0679545685, 'Ingénieur en domotique');
-INSERT INTO `Company`.Candidat ( idnew, lastnamenew, firstnamenew, email, motdepasse, phone, job ) VALUES ('N4', 'Bidaud', 'Duncan', 'duncan.bidaud@edu.ece.fr', 'dyjs', 0678659655, 'Ingénieur en robotique');
-INSERT INTO `Company`.Candidat ( idnew, lastnamenew, firstnamenew, email, motdepasse, phone, job ) VALUES ('N5', 'Colle-Abbey', 'Alexander', 'alexanderCAG@edu.ece.fr;', 'dyjs', 0678619856, 'Ingénieur en domotique');
+INSERT INTO `Company`.Candidat ( lastnamecan, firstnamecan, email, motdepasse, phone, selection ) VALUES ('Granier', 'Geoffroy', 'geoffroy.granier@edu.ece.fr', 'dyjs', 0721564966, true);
+INSERT INTO `Company`.Candidat ( lastnamecan, firstnamecan, email, motdepasse, phone, selection ) VALUES ('Boucher', 'Thomas', 'geoffroy.granier@edu.ece.fr', 'dyjs', 0615468557, false);
+INSERT INTO `Company`.Candidat ( lastnamecan, firstnamecan, email, motdepasse, phone, selection ) VALUES ('Pelletier', 'Geo', 'geo.granier@edu.ece.fr', 'dyjs', 0679545685, false);
+INSERT INTO `Company`.Candidat ( lastnamecan, firstnamecan, email, motdepasse, phone, selection ) VALUES ('Bidaud', 'Duncan', 'duncan.bidaud@edu.ece.fr', 'dyjs', 0678659655, false);
+INSERT INTO `Company`.Candidat ( lastnamecan, firstnamecan, email, motdepasse, phone, selection ) VALUES ('Colle-Abbey', 'Alexander', 'alexanderCAG@edu.ece.fr;', 'dyjs', 0678619856, false);
 
-INSERT INTO `Company`.Employer ( idmem, lastnamemem, firstnamemem, email, motdepasse, phone, job, sizecompany ) VALUES ('M1', 'Gagnon', 'Benoit', 'benoit@edu.ece.fr', 'dyjs', 0645326848, 'Ingénieur en robotique', 'micro');
-INSERT INTO `Company`.Employer ( idmem, lastnamemem, firstnamemem, email, motdepasse, phone, job, sizecompany ) VALUES ('M2', 'Duval', 'Henry', 'henry@edu.ece.fr', 'dyjs', 0645186248, 'Ingénieur en domotique', 'micro');
-INSERT INTO `Company`.Employer ( idmem, lastnamemem, firstnamemem, email, motdepasse, phone, job, sizecompany ) VALUES ('M3', 'Martin', 'Thomas', 'thomas@edu.ece.fr', 'dyjs', 074522252, 'Ingénieur en robotique', 'grande');
-INSERT INTO `Company`.Employer ( idmem, lastnamemem, firstnamemem, email, motdepasse, phone, job, sizecompany ) VALUES ('M4', 'Archambault', 'Alexandre', 'alexandre@edu.ece.fr', 'dyjs', 0642226155, 'Ingénieur en robotique', 'micro');
-INSERT INTO `Company`.Employer ( idmem, lastnamemem, firstnamemem, email, motdepasse, phone, job, sizecompany ) VALUES ('M5', 'Tuby', 'Aurélien', 'aurelien@edu.ece.fr;', 'dyjs', 067621661, 'Ingénieur en drone', 'grande');
+INSERT INTO `Company`.Employer ( lastnameemp, firstnameemp, email, motdepasse, phone, job, sizecompany, compteur ) VALUES ('Gagnon', 'Benoit', 'benoit@edu.ece.fr', 'dyjs', 0645326848, 'Ingénieur en robotique', 'micro', 1);
+INSERT INTO `Company`.Employer ( lastnameemp, firstnameemp, email, motdepasse, phone, job, sizecompany, compteur ) VALUES ('Duval', 'Henry', 'henry@edu.ece.fr', 'dyjs', 0645186248, 'Ingénieur en domotique', 'micro', 3);
+INSERT INTO `Company`.Employer ( lastnameemp, firstnameemp, email, motdepasse, phone, job, sizecompany, compteur ) VALUES ('Martin', 'Thomas', 'thomas@edu.ece.fr', 'dyjs', 074522252, 'Ingénieur en robotique', 'grande', 4);
+INSERT INTO `Company`.Employer ( lastnameemp, firstnameemp, email, motdepasse, phone, job, sizecompany, compteur ) VALUES ('Archambault', 'Alexandre', 'alexandre@edu.ece.fr', 'dyjs', 0642226155, 'Ingénieur en robotique', 'micro', 8);
+INSERT INTO `Company`.Employer ( lastnameemp, firstnameemp, email, motdepasse, phone, job, sizecompany, compteur ) VALUES ('Tuby', 'Aurélien', 'aurelien@edu.ece.fr;', 'dyjs', 067621661, 'Ingénieur en drone', 'grande', 5);
 
-INSERT INTO `Company`.Recruter ( idsee, lastnamesee, firstnamesee, email, motdepasse, phone, job ) VALUES ('S1', 'Nivet', 'Benjamin', 'benjamin@edu.ece.fr', 'dyjs', 0648475265, 'Ingénieur en domotique');
-INSERT INTO `Company`.Recruter ( idsee, lastnamesee, firstnamesee, email, motdepasse, phone, job ) VALUES ('S2', 'Lux', 'Tom', 'tom@edu.ece.fr', 'dyjs', 0648475265, 'Ingénieur en drone');
-INSERT INTO `Company`.Recruter ( idsee, lastnamesee, firstnamesee, email, motdepasse, phone, job ) VALUES ('S3', 'Gaudet', 'Dorone', 'dorone@edu.ece.fr', 'dyjs', 0648475265, 'Ingénieur en robotique');
-INSERT INTO `Company`.Recruter ( idsee, lastnamesee, firstnamesee, email, motdepasse, phone, job ) VALUES ('S4', 'Duval', 'Stanislas', 'stanislas@edu.ece.fr', 'dyjs', 0648475265, 'Ingénieur en robotique');
-INSERT INTO `Company`.Recruter ( idsee, lastnamesee, firstnamesee, email, motdepasse, phone, job ) VALUES ('S5', 'Gauthier', 'Jacques', 'jacques@edu.ece.fr;', 'dyjs', 0648475265, 'Ingénieur en electromagnetisme');
+INSERT INTO `Company`.Recruter ( lastnamerec, firstnamerec, email, motdepasse, phone, job ) VALUES ('Nivet', 'Benjamin', 'benjamin@edu.ece.fr', 'dyjs', 0648475265, 'Ingénieur en domotique');
+INSERT INTO `Company`.Recruter ( lastnamerec, firstnamerec, email, motdepasse, phone, job ) VALUES ('Lux', 'Tom', 'tom@edu.ece.fr', 'dyjs', 0648475265, 'Ingénieur en drone');
+INSERT INTO `Company`.Recruter ( lastnamerec, firstnamerec, email, motdepasse, phone, job ) VALUES ('Gaudet', 'Dorone', 'dorone@edu.ece.fr', 'dyjs', 0648475265, 'Ingénieur en robotique');
+INSERT INTO `Company`.Recruter ( lastnamerec, firstnamerec, email, motdepasse, phone, job ) VALUES ('Duval', 'Stanislas', 'stanislas@edu.ece.fr', 'dyjs', 0648475265, 'Ingénieur en robotique');
+INSERT INTO `Company`.Recruter ( lastnamerec, firstnamerec, email, motdepasse, phone, job ) VALUES ('Gauthier', 'Jacques', 'jacques@edu.ece.fr;', 'dyjs', 0648475265, 'Ingénieur en electromagnetisme');
+
+INSERT INTO `Company`.DemandeEmploi ( idcan, metier, statut, datedebut ) VALUES (1, 'Ingenieur', 'Etudiant', '13.dec 2020');
+INSERT INTO `Company`.DemandeEmploi ( idcan, metier, statut, datedebut ) VALUES (1, 'Ingenieur', 'Etudiant', '1.feb 2020');
+INSERT INTO `Company`.DemandeEmploi ( idcan, metier, statut, datedebut ) VALUES (2, 'Ingenieur', 'Etudiant', '12.jan 2020');
+INSERT INTO `Company`.DemandeEmploi ( idcan, metier, statut, datedebut ) VALUES (2, 'Ingenieur', 'Etudiant', '13.dec 2020');
+INSERT INTO `Company`.DemandeEmploi ( idcan, metier, statut, datedebut ) VALUES (3, 'Ingenieur', 'Etudiant', '14.dec 2020');
+INSERT INTO `Company`.DemandeEmploi ( idcan, metier, statut, datedebut ) VALUES (4, 'Ingenieur', 'Etudiant', '14.dec 2020');
