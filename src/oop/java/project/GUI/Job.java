@@ -13,10 +13,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.*;
-import javax.swing.table.DefaultTableModel;
 
 
 /**
@@ -87,11 +84,12 @@ public class Job extends javax.swing.JFrame {
         jComboBox3 = new javax.swing.JComboBox();
         jButton2 = new javax.swing.JButton();
         jDateChooser1 = new com.toedter.calendar.JDateChooser();
-        jTable1 = new javax.swing.JTable();
-        jLabel7 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
+        jLabel7 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jTable3 = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -178,15 +176,17 @@ public class Job extends javax.swing.JFrame {
         jPanel3.add(jDateChooser1);
         jDateChooser1.setBounds(770, 210, 250, 70);
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
             },
             new String [] {
-                "Métier", "Statut", "Date"
+                "Métier", "Statut", "Date de début"
             }
         ));
-        jPanel3.add(jTable1);
-        jTable1.setBounds(30, 330, 360, 220);
+        jScrollPane2.setViewportView(jTable2);
+
+        jPanel3.add(jScrollPane2);
+        jScrollPane2.setBounds(660, 270, 452, 402);
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/oop/java/project/GUI/Image/job.jpg"))); // NOI18N
         jPanel3.add(jLabel7);
@@ -194,21 +194,18 @@ public class Job extends javax.swing.JFrame {
         jPanel3.add(jScrollPane1);
         jScrollPane1.setBounds(630, 350, 2, 2);
 
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+        jTable3.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Nom", "Prenom"
             }
         ));
-        jScrollPane2.setViewportView(jTable2);
+        jScrollPane3.setViewportView(jTable3);
 
-        jPanel3.add(jScrollPane2);
-        jScrollPane2.setBounds(660, 270, 452, 402);
+        jPanel3.add(jScrollPane3);
+        jScrollPane3.setBounds(130, 460, 460, 120);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -246,13 +243,7 @@ public class Job extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel5MouseClicked
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        try {
-            // TODO add your handling code here:
-            AffichageDemandeEmploi();
-        } catch (SQLException ex) {
-            Logger.getLogger(Job.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
+        // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
     public int Nombrejob() throws SQLException{
         
@@ -296,18 +287,6 @@ public class Job extends javax.swing.JFrame {
         }catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Mot de passe INCORECT", "Login Error", JOptionPane.ERROR_MESSAGE);
         }
-    }
-    public void AffichageDemandeEmploi() throws SQLException{
-        
-        String Metier = jComboBox1.getSelectedItem().toString();
-        String Statut = jComboBox3.getSelectedItem().toString();
-        String Date = jDateChooser1.getDateFormatString();
-        
-            
-        String data[] = {Metier,Statut,Date};
-        DefaultTableModel tab = (DefaultTableModel) jTable1.getModel();
-        tab.addRow(data);
-        
     }
     /**
      * @param args the command line arguments
@@ -363,8 +342,9 @@ public class Job extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable2;
+    private javax.swing.JTable jTable3;
     // End of variables declaration//GEN-END:variables
 }
