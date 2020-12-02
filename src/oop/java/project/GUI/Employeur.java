@@ -408,6 +408,8 @@ public class Employeur extends javax.swing.JFrame {
         Statement stmt = conn.createStatement();
         ResultSet rs = stmt.executeQuery("Select * from candidat where job='" + jComboBox2.getSelectedItem().toString() + "';");
         DefaultTableModel tab = (DefaultTableModel) jTable1.getModel();
+        tab.getDataVector().removeAllElements();
+        
         while(rs.next())
         {
             String user= rs.getString(2);
