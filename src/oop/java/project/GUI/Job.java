@@ -13,7 +13,10 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
 
 
 /**
@@ -83,7 +86,6 @@ public class Job extends javax.swing.JFrame {
         jComboBox1 = new javax.swing.JComboBox();
         jComboBox3 = new javax.swing.JComboBox();
         jButton2 = new javax.swing.JButton();
-        jLabel10 = new javax.swing.JLabel();
         jDateChooser1 = new com.toedter.calendar.JDateChooser();
         jTable1 = new javax.swing.JTable();
         jLabel7 = new javax.swing.JLabel();
@@ -166,12 +168,13 @@ public class Job extends javax.swing.JFrame {
                 jButton2MouseClicked(evt);
             }
         });
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
         jPanel3.add(jButton2);
         jButton2.setBounds(418, 368, 231, 77);
-
-        jLabel10.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel3.add(jLabel10);
-        jLabel10.setBounds(830, 450, 200, 80);
         jPanel3.add(jDateChooser1);
         jDateChooser1.setBounds(770, 210, 250, 70);
 
@@ -241,6 +244,16 @@ public class Job extends javax.swing.JFrame {
         this.dispose();
         
     }//GEN-LAST:event_jLabel5MouseClicked
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        try {
+            // TODO add your handling code here:
+            AffichageDemandeEmploi();
+        } catch (SQLException ex) {
+            Logger.getLogger(Job.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }//GEN-LAST:event_jButton2ActionPerformed
     public int Nombrejob() throws SQLException{
         
         Connection conn=Connexion1();
@@ -284,6 +297,18 @@ public class Job extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Mot de passe INCORECT", "Login Error", JOptionPane.ERROR_MESSAGE);
         }
     }
+    public void AffichageDemandeEmploi() throws SQLException{
+        
+        String Metier = jComboBox1.getSelectedItem().toString();
+        String Statut = jComboBox3.getSelectedItem().toString();
+        String Date = jDateChooser1.getDateFormatString();
+        
+            
+        String data[] = {Metier,Statut,Date};
+        DefaultTableModel tab = (DefaultTableModel) jTable1.getModel();
+        tab.addRow(data);
+        
+    }
     /**
      * @param args the command line arguments
      */
@@ -326,7 +351,6 @@ public class Job extends javax.swing.JFrame {
     private javax.swing.JComboBox jComboBox3;
     private com.toedter.calendar.JDateChooser jDateChooser1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
