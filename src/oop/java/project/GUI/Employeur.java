@@ -380,7 +380,7 @@ public class Employeur extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Mot de passe INCORECT", "Login Error", JOptionPane.ERROR_MESSAGE);
         }
     }
-    
+    /*
     public void candidatjob() throws SQLException{
         Connection conn=Connexion1();
         
@@ -400,8 +400,8 @@ public class Employeur extends javax.swing.JFrame {
         }catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Mot de passe INCORECT", "Login Error", JOptionPane.ERROR_MESSAGE);
         }
-    }
-    /*public void candidatjob() throws SQLException{
+    }*/
+    public void candidatjob() throws SQLException{
         Connection conn=Connexion1();
         
         try{
@@ -422,7 +422,7 @@ public class Employeur extends javax.swing.JFrame {
         }catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Mot de passe INCORECT", "Login Error", JOptionPane.ERROR_MESSAGE);
         }
-    }*/
+    }
     /**
      * @param args the command line arguments
      */

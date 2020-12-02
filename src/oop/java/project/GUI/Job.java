@@ -6,6 +6,7 @@
 package oop.java.project.GUI;
 
 import Classe.Candidat;
+import Classe.DemandeEmploi;
 import static FonctionSQL.Connexion.Connexion1;
 import java.awt.*;
 import java.awt.event.*;
@@ -13,7 +14,11 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
 
 
 /**
@@ -27,6 +32,7 @@ public class Job extends javax.swing.JFrame {
      */
     private Candidat c;
     private String[] listJob;
+    private ArrayList listdemande;
     public Job() {
         initComponents();
         this.setLocationRelativeTo(null); // center of the screen
@@ -54,6 +60,7 @@ public class Job extends javax.swing.JFrame {
     }
     public Job(Candidat c) throws SQLException {
         this.c=c;
+        ArrayList listdemande =new ArrayList();
         initComponents();
         Affichagejob();
         this.setLocationRelativeTo(null); // center of the screen
@@ -158,7 +165,7 @@ public class Job extends javax.swing.JFrame {
 
         jComboBox3.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Etudiant", "BAC +3", "BAC +5" }));
         jPanel3.add(jComboBox3);
-        jComboBox3.setBounds(410, 210, 247, 70);
+        jComboBox3.setBounds(60, 300, 247, 70);
 
         jButton2.setText("VALIDER");
         jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -172,9 +179,9 @@ public class Job extends javax.swing.JFrame {
             }
         });
         jPanel3.add(jButton2);
-        jButton2.setBounds(418, 368, 231, 77);
+        jButton2.setBounds(70, 500, 231, 77);
         jPanel3.add(jDateChooser1);
-        jDateChooser1.setBounds(770, 210, 250, 70);
+        jDateChooser1.setBounds(60, 390, 250, 70);
 
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -186,7 +193,7 @@ public class Job extends javax.swing.JFrame {
         jScrollPane2.setViewportView(jTable2);
 
         jPanel3.add(jScrollPane2);
-        jScrollPane2.setBounds(660, 270, 452, 402);
+        jScrollPane2.setBounds(370, 160, 690, 460);
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/oop/java/project/GUI/Image/job.jpg"))); // NOI18N
         jPanel3.add(jLabel7);
@@ -243,7 +250,11 @@ public class Job extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel5MouseClicked
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
+        try {
+            AffichageDemandeEmploi(); // TODO add your handling code here:
+        } catch (SQLException ex) {
+            Logger.getLogger(Job.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_jButton2ActionPerformed
     public int Nombrejob() throws SQLException{
         
@@ -288,6 +299,65 @@ public class Job extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Mot de passe INCORECT", "Login Error", JOptionPane.ERROR_MESSAGE);
         }
     }
+    public void AffichageDemandeEmploi() throws SQLException{
+
+        String Metier = jComboBox1.getSelectedItem().toString();
+        String Statut = jComboBox3.getSelectedItem().toString();
+        String Date = jDateChooser1.getDateFormatString();
+        
+
+        String data[] = {Metier,Statut,Date};
+        DemandeEmploi demande=new DemandeEmploi(Metier, Statut, Date);
+        listdemande.add(demande);
+        DefaultTableModel tab = (DefaultTableModel) jTable2.getModel();
+        tab.addRow(data);
+
+    }
+    public void BasededonneeDemandeEmploi() throws SQLException{
+
+        String Metier = jComboBox1.getSelectedItem().toString();
+        String Statut = jComboBox3.getSelectedItem().toString();
+        String Date = jDateChooser1.getDateFormatString();
+        Connection conn = Connexion1();
+        try{
+        Statement stmt = conn.createStatement();
+        stmt.executeUpdate("INSERT INTO `Company`.DemandeEmploi ( idcandidat, metier, statut, date ) VALUES ('" + c.getId() + "', '" + Metier + "', '" + Statut + "', '" + Date +"');");
+        
+        //int rows = stmt.executeUpdate(sqlStatement);
+        conn.close();
+        }catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+
+    }
+    public void LireBasededonneeDemandeEmploi() throws SQLException{
+        Connection conn=Connexion1();
+        DefaultTableModel tab = (DefaultTableModel) jTable2.getModel();
+        try{
+        Statement stmt = conn.createStatement();
+        int i=0;
+        ResultSet rs = stmt.executeQuery("Select * from DemandeurEmploi where id='" + c.getId() + "';");
+        while(rs.next()){
+            String Metier=rs.getString(2);
+            String Statut=rs.getString(3);
+            String Date=rs.getString(4);
+            if(Metier!=null && Statut!=null && Date!=null){
+                String data[] = {Metier,Statut,Date};
+                DefaultTableModel tab = (DefaultTableModel) jTable2.getModel();
+                tab.addRow(data);
+            }
+        }
+        String sqlStatement = "";
+        this.listJob=listJob;
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(listJob));
+
+        //int rows = stmt.executeUpdate(sqlStatement);
+        conn.close();
+        }catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Mot de passe INCORECT", "Login Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+    
     /**
      * @param args the command line arguments
      */
