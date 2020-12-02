@@ -405,15 +405,15 @@ public class Employeur extends javax.swing.JFrame {
         
         try{
         Statement stmt = conn.createStatement();
-        ResultSet rs = stmt.executeQuery("Select * from candidat where job='" + jComboBox2.getSelectedItem().toString() + "';");
+        ResultSet rs = stmt.executeQuery("select lastnamecan, firstnamecan, datedebut from demandeemploi natural join candidat where metier='" + jComboBox2.getSelectedItem().toString() + "';");
         DefaultTableModel tab = (DefaultTableModel) jTable1.getModel();
         tab.getDataVector().removeAllElements();
         
         while(rs.next())
         {
-            String user= rs.getString(2);
-            String pass= rs.getString(3);
-            String date= rs.getString(6);
+            String user= rs.getString(1);
+            String pass= rs.getString(2);
+            String date= rs.getString(3);
             
             String data[] = {user,pass,date};
             

@@ -386,7 +386,7 @@ public class Recruteur extends javax.swing.JFrame {
             Connection conn=Connexion1();
         try{
             Statement stmt = conn.createStatement();
-            ResultSet rs = stmt.executeQuery("Select count(lastnamemem) from employer where job='" + listJob[i] + "';");
+            ResultSet rs = stmt.executeQuery("Select count(lastnameemp) from employer where job='" + listJob[i] + "';");
             while(rs.next()){
             nombrepersonnejob[i]=rs.getInt(1);
             System.out.println("Hola " + nombrepersonnejob[i]);

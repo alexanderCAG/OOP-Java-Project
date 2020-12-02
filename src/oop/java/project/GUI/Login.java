@@ -278,7 +278,7 @@ public class Login extends javax.swing.JFrame {
                 Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
             }
             try {
-                Verificationjobseeker();
+                Verificationrecruiter();
             } catch (SQLException ex) {
                 Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -478,14 +478,14 @@ public class Login extends javax.swing.JFrame {
             jPasswordField1.setText(null);
         }
     }
-    public void Verificationjobseeker() throws SQLException{
+    public void Verificationrecruiter() throws SQLException{
         String user = UserName.getText();
         String password = jPasswordField1.getText();
         Connection conn = Connexion1();
         try{
         Statement stmt = conn.createStatement();
 
-        ResultSet rs = stmt.executeQuery("Select * from jobseeker;");
+        ResultSet rs = stmt.executeQuery("Select * from recruiter;");
         String email;
         String motdepasse;
         while(rs.next()){
