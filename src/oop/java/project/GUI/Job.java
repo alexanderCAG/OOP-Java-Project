@@ -95,8 +95,6 @@ public class Job extends javax.swing.JFrame {
         jTable2 = new javax.swing.JTable();
         jLabel7 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        jTable3 = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -193,26 +191,13 @@ public class Job extends javax.swing.JFrame {
         jScrollPane2.setViewportView(jTable2);
 
         jPanel3.add(jScrollPane2);
-        jScrollPane2.setBounds(370, 160, 690, 460);
+        jScrollPane2.setBounds(370, 170, 690, 450);
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/oop/java/project/GUI/Image/job.jpg"))); // NOI18N
         jPanel3.add(jLabel7);
         jLabel7.setBounds(0, 150, 1100, 500);
         jPanel3.add(jScrollPane1);
         jScrollPane1.setBounds(630, 350, 2, 2);
-
-        jTable3.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "Nom", "Prenom"
-            }
-        ));
-        jScrollPane3.setViewportView(jTable3);
-
-        jPanel3.add(jScrollPane3);
-        jScrollPane3.setBounds(130, 460, 460, 120);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -303,12 +288,10 @@ public class Job extends javax.swing.JFrame {
 
         String Metier = jComboBox1.getSelectedItem().toString();
         String Statut = jComboBox3.getSelectedItem().toString();
-        String Date = jDateChooser1.getDateFormatString();
+        String Date = ((JTextField)jDateChooser1.getDateEditor().getUiComponent()).getText();;
         
 
         String data[] = {Metier,Statut,Date};
-        DemandeEmploi demande=new DemandeEmploi(Metier, Statut, Date);
-        listdemande.add(demande);
         DefaultTableModel tab = (DefaultTableModel) jTable2.getModel();
         tab.addRow(data);
 
@@ -343,7 +326,7 @@ public class Job extends javax.swing.JFrame {
             String Date=rs.getString(4);
             if(Metier!=null && Statut!=null && Date!=null){
                 String data[] = {Metier,Statut,Date};
-                DefaultTableModel tab = (DefaultTableModel) jTable2.getModel();
+                //DefaultTableModel tab = (DefaultTableModel) jTable2.getModel();
                 tab.addRow(data);
             }
         }
@@ -412,9 +395,7 @@ public class Job extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTable jTable2;
-    private javax.swing.JTable jTable3;
     // End of variables declaration//GEN-END:variables
 }
