@@ -83,7 +83,6 @@ public class Job extends javax.swing.JFrame {
         jComboBox1 = new javax.swing.JComboBox();
         jComboBox3 = new javax.swing.JComboBox();
         jButton2 = new javax.swing.JButton();
-        jLabel10 = new javax.swing.JLabel();
         jDateChooser1 = new com.toedter.calendar.JDateChooser();
         jTable1 = new javax.swing.JTable();
         jLabel7 = new javax.swing.JLabel();
@@ -168,10 +167,6 @@ public class Job extends javax.swing.JFrame {
         });
         jPanel3.add(jButton2);
         jButton2.setBounds(418, 368, 231, 77);
-
-        jLabel10.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel3.add(jLabel10);
-        jLabel10.setBounds(830, 450, 200, 80);
         jPanel3.add(jDateChooser1);
         jDateChooser1.setBounds(770, 210, 250, 70);
 
@@ -183,7 +178,7 @@ public class Job extends javax.swing.JFrame {
             }
         ));
         jPanel3.add(jTable1);
-        jTable1.setBounds(690, 330, 360, 220);
+        jTable1.setBounds(30, 330, 360, 220);
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/oop/java/project/GUI/Image/job.jpg"))); // NOI18N
         jPanel3.add(jLabel7);
@@ -326,7 +321,6 @@ public class Job extends javax.swing.JFrame {
     private javax.swing.JComboBox jComboBox3;
     private com.toedter.calendar.JDateChooser jDateChooser1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
