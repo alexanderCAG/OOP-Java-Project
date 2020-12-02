@@ -250,7 +250,7 @@ public class Employeur extends javax.swing.JFrame {
             doc.open();
             
             
-            //Mettre le camembert mais avant il faut "l'imprimer"
+            /*Mettre le camembert mais avant il faut "l'imprimer"*/
 //            com.itextpdf.text.Image image1 = com.itextpdf.text.Image.getInstance("chart.png");
 //            image1.scaleAbsolute(480, 300);
 //            doc.add(image1);
@@ -261,7 +261,7 @@ public class Employeur extends javax.swing.JFrame {
             
             Image image = Image.getInstance("image.png");
             //doc.add(new Paragraph("Image"));
-            //image.scaleToFit(10,10);
+            //image.scaleToFit(10,10);      /*definir la taille de l'image*/
             image.setAlignment(Element.ALIGN_LEFT);
             doc.add(image);
             
@@ -271,7 +271,7 @@ public class Employeur extends javax.swing.JFrame {
             
             //doc.add(new Paragraph("CONFIDENTIEL",FontFactory.getFont(FontFactory.TIMES_BOLD,18, BaseColor.RED)));
             //doc.add(new Paragraph(new Date().toString()));
-            doc.add(new Paragraph("----------------------------------------------------------------------------------"));
+            doc.add(new Paragraph("---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
             doc.add(new Paragraph("\n"));
             
             PdfPTable table = new PdfPTable(3);
