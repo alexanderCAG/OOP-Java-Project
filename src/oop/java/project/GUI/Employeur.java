@@ -37,6 +37,7 @@ public class Employeur extends javax.swing.JFrame {
     private PdfPTable table;
     private String[] listJob;
     private String text;
+    private String[] data;
     public Employeur() {
         initComponents();
         this.setLocationRelativeTo(null); // center of the screen 
@@ -380,8 +381,27 @@ public class Employeur extends javax.swing.JFrame {
         }
     }
     
-    
     public void candidatjob() throws SQLException{
+        Connection conn=Connexion1();
+        
+        try{
+        Statement stmt = conn.createStatement();
+        ResultSet rs = stmt.executeQuery("Select * from candidat where job='" + jComboBox2.getSelectedItem().toString() + "';");
+
+        while(rs.next())
+        {
+            String user= rs.getString(2);
+            String pass= rs.getString(3);
+            
+            String data[] = {user,pass};
+        }
+        this.data=data;
+        conn.close();
+        }catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Mot de passe INCORECT", "Login Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+    /*public void candidatjob() throws SQLException{
         Connection conn=Connexion1();
         
         try{
@@ -402,7 +422,7 @@ public class Employeur extends javax.swing.JFrame {
         }catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Mot de passe INCORECT", "Login Error", JOptionPane.ERROR_MESSAGE);
         }
-    }
+    }*/
     /**
      * @param args the command line arguments
      */

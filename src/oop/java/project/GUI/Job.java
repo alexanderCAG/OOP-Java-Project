@@ -30,7 +30,7 @@ public class Job extends javax.swing.JFrame {
     public Job() {
         initComponents();
         this.setLocationRelativeTo(null); // center of the screen
-        jTextField1.setBackground(new Color(0,102,153,120));
+        //jTextField1.setBackground(new Color(0,102,153,120));
         
 //        jButton2.validate();
 //        jComboBox1.validate();
@@ -57,7 +57,7 @@ public class Job extends javax.swing.JFrame {
         initComponents();
         Affichagejob();
         this.setLocationRelativeTo(null); // center of the screen
-        jTextField1.setBackground(new Color(0,102,153,120));
+        //jTextField1.setBackground(new Color(0,102,153,120));
     }
 
     /**
@@ -83,11 +83,13 @@ public class Job extends javax.swing.JFrame {
         jComboBox1 = new javax.swing.JComboBox();
         jComboBox3 = new javax.swing.JComboBox();
         jButton2 = new javax.swing.JButton();
-        jLabel9 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
         jDateChooser1 = new com.toedter.calendar.JDateChooser();
+        jTable1 = new javax.swing.JTable();
         jLabel7 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTable2 = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -167,25 +169,43 @@ public class Job extends javax.swing.JFrame {
         jPanel3.add(jButton2);
         jButton2.setBounds(418, 368, 231, 77);
 
-        jLabel9.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel9.setText("SALAIRE");
-        jPanel3.add(jLabel9);
-        jLabel9.setBounds(490, 490, 90, 100);
-
-        jTextField1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jTextField1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jPanel3.add(jTextField1);
-        jTextField1.setBounds(350, 510, 374, 66);
-
         jLabel10.setBackground(new java.awt.Color(255, 255, 255));
         jPanel3.add(jLabel10);
-        jLabel10.setBounds(820, 440, 200, 80);
+        jLabel10.setBounds(830, 450, 200, 80);
         jPanel3.add(jDateChooser1);
         jDateChooser1.setBounds(770, 210, 250, 70);
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+            },
+            new String [] {
+                "Métier", "Statut", "Date"
+            }
+        ));
+        jPanel3.add(jTable1);
+        jTable1.setBounds(690, 330, 360, 220);
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/oop/java/project/GUI/Image/job.jpg"))); // NOI18N
         jPanel3.add(jLabel7);
         jLabel7.setBounds(0, 150, 1100, 500);
+        jPanel3.add(jScrollPane1);
+        jScrollPane1.setBounds(630, 350, 2, 2);
+
+        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane2.setViewportView(jTable2);
+
+        jPanel3.add(jScrollPane2);
+        jScrollPane2.setBounds(660, 270, 452, 402);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -205,8 +225,8 @@ public class Job extends javax.swing.JFrame {
         // TODO add your handling code here:
         
         String selectdate = ((JTextField)jDateChooser1.getDateEditor().getUiComponent()).getText();
-        jLabel9.setText("");
-        jTextField1.setText(selectdate);      
+        //jLabel9.setText("");
+        //jTextField1.setText(selectdate);      
         
     }//GEN-LAST:event_jButton2MouseClicked
 
@@ -314,11 +334,13 @@ public class Job extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTable jTable1;
+    private javax.swing.JTable jTable2;
     // End of variables declaration//GEN-END:variables
 }
