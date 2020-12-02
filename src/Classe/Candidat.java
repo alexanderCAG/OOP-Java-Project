@@ -10,8 +10,8 @@ package Classe;
  * @author Geoffroy
  */
 public class Candidat extends Person {
-    public Candidat(String id, String lastname, String firstname, String email, String motdepasse, int phone, String job){
-        super(id, lastname, firstname, email, motdepasse, phone, job);
+    public Candidat(String id, String lastname, String firstname, String email, String motdepasse, int phone){
+        super(id, lastname, firstname, email, motdepasse, phone);
     }
 
     public String getId() {
@@ -38,8 +38,5 @@ public class Candidat extends Person {
         return phone;
     }
 
-    public String getJob() {
-        return job;
-    }
     
 }
