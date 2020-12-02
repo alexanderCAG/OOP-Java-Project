@@ -15,5 +15,34 @@ public class Recruiter extends Person {
         super(id, lastname, firstname, email, motdepasse, phone);
         this.job=job;
     }
+
+    public String getJob() {
+        return job;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public String getLastname() {
+        return lastname;
+    }
+
+    public String getFirstname() {
+        return firstname;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getMotdepasse() {
+        return motdepasse;
+    }
+
+    public int getPhone() {
+        return phone;
+    }
+    
     
 }
