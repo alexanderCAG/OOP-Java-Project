@@ -13,7 +13,10 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
 
 
 /**
@@ -165,6 +168,11 @@ public class Job extends javax.swing.JFrame {
                 jButton2MouseClicked(evt);
             }
         });
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
         jPanel3.add(jButton2);
         jButton2.setBounds(418, 368, 231, 77);
         jPanel3.add(jDateChooser1);
@@ -236,6 +244,16 @@ public class Job extends javax.swing.JFrame {
         this.dispose();
         
     }//GEN-LAST:event_jLabel5MouseClicked
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        try {
+            // TODO add your handling code here:
+            AffichageDemandeEmploi();
+        } catch (SQLException ex) {
+            Logger.getLogger(Job.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }//GEN-LAST:event_jButton2ActionPerformed
     public int Nombrejob() throws SQLException{
         
         Connection conn=Connexion1();
@@ -278,6 +296,18 @@ public class Job extends javax.swing.JFrame {
         }catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Mot de passe INCORECT", "Login Error", JOptionPane.ERROR_MESSAGE);
         }
+    }
+    public void AffichageDemandeEmploi() throws SQLException{
+        
+        String Metier = jComboBox1.getSelectedItem().toString();
+        String Statut = jComboBox3.getSelectedItem().toString();
+        String Date = jDateChooser1.getDateFormatString();
+        
+            
+        String data[] = {Metier,Statut,Date};
+        DefaultTableModel tab = (DefaultTableModel) jTable1.getModel();
+        tab.addRow(data);
+        
     }
     /**
      * @param args the command line arguments
