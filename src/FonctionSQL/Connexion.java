@@ -132,11 +132,11 @@ public class Connexion {
             System.out.println(ex.getMessage());
         }
     }
-    public static void addcandidat(String lastname, String firstname, String email, String motdepasse, int phone, boolean selection) throws SQLException{
+    public static void addcandidat(String lastname, String firstname, String email, String motdepasse, int phone, int selection) throws SQLException{
         Connection conn = Connexion1();
         try{
         Statement stmt = conn.createStatement();
-        stmt.executeUpdate("INSERT INTO `Company`.Candidat ( lastnamecan, firstnamecan, email, motdepasse, phone, job ) VALUES ('" + lastname + "', '" + firstname + "', '" + email + "', '" + motdepasse + "', " + phone + ", '" + selection + "');");
+        stmt.executeUpdate("INSERT INTO `Company`.Candidat ( lastnamecan, firstnamecan, email, motdepasse, phone, selection ) VALUES ('" + lastname + "', '" + firstname + "', '" + email + "', '" + motdepasse + "', " + phone + ", '" + selection + "');");
         
         //int rows = stmt.executeUpdate(sqlStatement);
         conn.close();
@@ -148,7 +148,7 @@ public class Connexion {
         Connection conn = Connexion1();
         try{
         Statement stmt = conn.createStatement();
-        stmt.executeUpdate("INSERT INTO `Company`.Employer ( lastnameemp, firstnameemp, email, motdepasse, phone, job, sizecompany, compteur ) VALUES ('" + lastname + "', '" + firstname + "', '" + email + "', '" + motdepasse + "', " + phone + ", '" + job + ", '" + sizecompany + ", '" + 0 + "');");
+        stmt.executeUpdate("INSERT INTO `Company`.Employer ( lastnameemp, firstnameemp, email, motdepasse, phone, job, sizecompany, compteur ) VALUES ('" + lastname + "', '" + firstname + "', '" + email + "', '" + motdepasse + "', " + phone + ", '" + job + "', '" + sizecompany + "', " + 0 + ");");
         
         //int rows = stmt.executeUpdate(sqlStatement);
         conn.close();
@@ -160,7 +160,7 @@ public class Connexion {
         Connection conn = Connexion1();
         try{
         Statement stmt = conn.createStatement();
-        stmt.executeUpdate("INSERT INTO `Company`.Employer ( lastnamerec, firstnamerec, email, motdepasse, phone, job, sizecompany, compteur ) VALUES ('" + lastname + "', '" + firstname + "', '" + email + "', '" + motdepasse + "', " + phone + ", '" + job + ", '" + job + "');");
+        stmt.executeUpdate("INSERT INTO `Company`.Recruiter ( lastnamerec, firstnamerec, email, motdepasse, phone, job ) VALUES ('" + lastname + "', '" + firstname + "', '" + email + "', '" + motdepasse + "', " + phone + ", '" + job + "');");
         
         //int rows = stmt.executeUpdate(sqlStatement);
         conn.close();
@@ -172,7 +172,7 @@ public class Connexion {
         Connection conn = Connexion1();
         try{
         Statement stmt = conn.createStatement();
-        stmt.executeUpdate("INSERT INTO `Company`.DemandeEmploi ( idcan, metier, statut, datedebut ) VALUES ('" + idcan + "', '" + Metier + "', '" + statut + "', '" + Date + "');");
+        stmt.executeUpdate("INSERT INTO `Company`.DemandeEmploi ( idcan, metier, statut, datedebut ) VALUES (" + idcan + ", '" + Metier + "', '" + statut + "', '" + Date + "');");
         
         //int rows = stmt.executeUpdate(sqlStatement);
         conn.close();
@@ -191,6 +191,22 @@ public class Connexion {
         }catch (SQLException ex) {
             System.out.println(ex.getMessage());
         }
+    }
+    /*public int numberspecificjob(String namejob) throws SQLException{
+        Connection conn = Connexion1();
+        int number=0;
+        try{
+            Statement stmt = conn.createStatement();
+            ResultSet rs = stmt.executeQuery("Select count(lastnamemem) from employer where job='" + namejob + "';");
+            while(rs.next()){
+            number=rs.getInt(1);
+        }
+        //int rows = stmt.executeUpdate(sqlStatement);
+        conn.close();
+        }catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Le camembert ne marche pas", "Login Error", JOptionPane.ERROR_MESSAGE);
+        }
+        return number;
     }
     public static int Nombrejob() throws SQLException{
         
@@ -231,9 +247,17 @@ public class Connexion {
             JOptionPane.showMessageDialog(null, "Mot de passe INCORECT", "Login Error", JOptionPane.ERROR_MESSAGE);
         }
         return listJob;
-    }
+    }*/
     public static void main(String[] args) throws SQLException {
         // TODO code application logic here
+        addjob("Chauffeurs");
+        addcandidat("Nivet", "Guillaume", "guillaume@edu.ece.fr", "dyjs", 689957846, 0);
+        addemployer("Granger", "Isaure", "isaure@edu.ece.fr", "dyjs", 689789524, "Ingenieur", "micro");
+        addrecruiter("Farrenq", "Thomas", "thomas@edu.ece.fr", "dyjs", 751335526, "Ingenieur en robotique");
+        adddemandeemploi(1, "Ingenieur en electromagnetisme", "Etudiant", "15 déc. 2021");
+        deletejobs("Ingenieur");
+        
+        //addemployer("Gonzales", String firstname, String email, String motdepasse, int phone, String job, String sizecompany);
     }
     
 }

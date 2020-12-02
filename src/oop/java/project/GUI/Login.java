@@ -7,6 +7,7 @@ package oop.java.project.GUI;
 
 import Classe.Candidat;
 import Classe.Employer;
+import Classe.Recruiter;
 import static FonctionSQL.Connexion.Connexion1;
 import java.awt.*;
 import java.sql.Connection;
@@ -422,7 +423,7 @@ public class Login extends javax.swing.JFrame {
             motdepasse=rs.getString(5);
             if(user.equals(email) && password.equals(motdepasse)){
                 System.out.println("Correct new candidat");
-                Candidat c= new Candidat(rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getInt(6), rs.getString(7));
+                Candidat c= new Candidat(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getInt(6), rs.getBoolean(7));
                 Job job = new Job(c);
                 job.setVisible(true);
                 job.pack();
@@ -457,7 +458,8 @@ public class Login extends javax.swing.JFrame {
             motdepasse=rs.getString(5);
             if(user.equals(email) && password.equals(motdepasse)){
                 System.out.println("Correct employer");
-                Employer e= new Employer(rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getInt(6), rs.getString(7), rs.getString(8));
+                Employer e= new Employer(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getInt(6), rs.getString(7), rs.getString(8), rs.getInt(9));
+                //int id, String lastname, String firstname, String email, String motdepasse, int phone, String job, String sizecompany, int compteur
                 Employeur employeur = new Employeur(e);
                 employeur.setVisible(true);
                 employeur.pack();
@@ -490,10 +492,11 @@ public class Login extends javax.swing.JFrame {
             email=rs.getString(4);
             motdepasse=rs.getString(5);
             if(user.equals(email) && password.equals(motdepasse)){
-                System.out.println("Correct jobseeker");
-                JobSeeker j= new JobSeeker(rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getInt(6), rs.getString(7));
-                System.out.println("Correct jobseeker");
-                Recruteur recruteur = new Recruteur(j);
+                System.out.println("Correct recruteur");
+                Recruiter r= new Recruiter(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getInt(6), rs.getString(7));
+                //int id, String lastname, String firstname, String email, String motdepasse, int phone, String job
+                System.out.println("Correct recruteur");
+                Recruteur recruteur = new Recruteur(r);
                 recruteur.setVisible(true);
                 recruteur.pack();
                 recruteur.setLocationRelativeTo(null);

@@ -6,7 +6,7 @@
 package oop.java.project.GUI;
 
 import Classe.AJob;
-import Classe.JobSeeker;
+import Classe.Recruiter;
 import static FonctionSQL.Connexion.Connexion1;
 import java.awt.*;
 import java.awt.event.*;
@@ -33,7 +33,7 @@ public class Recruteur extends javax.swing.JFrame {
     /**
      * Creates new form Recruteur
      */
-    private JobSeeker j;
+    private Recruiter r;
     
     private String[] listJob;
     private int[] nombrepersonnejob;
@@ -55,8 +55,8 @@ public class Recruteur extends javax.swing.JFrame {
         
         
     }
-    public Recruteur(JobSeeker j) throws SQLException{
-        this.j=j;
+    public Recruteur(Recruiter r) throws SQLException{
+        this.r=r;
         initComponents();
         
         Affichagejob();
@@ -134,7 +134,7 @@ public class Recruteur extends javax.swing.JFrame {
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 48)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel8.setText(j.getLastname() + " " + j.getFirstname());
+        jLabel8.setText(r.getLastname() + " " + r.getFirstname());
         jPanel3.add(jLabel8);
         jLabel8.setBounds(360, 30, 490, 90);
 

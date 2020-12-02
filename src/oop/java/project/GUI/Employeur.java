@@ -8,7 +8,6 @@ package oop.java.project.GUI;
 import Classe.AJob;
 import Classe.AgencyDAG;
 import Classe.Employer;
-import Classe.JobSeeker;
 import static FonctionSQL.Connexion.Connexion1;
 import com.itextpdf.text.*;
 import com.itextpdf.text.pdf.*;

@@ -293,7 +293,7 @@ public class Job extends javax.swing.JFrame {
 
         String data[] = {Metier,Statut,Date};
         DefaultTableModel tab = (DefaultTableModel) jTable2.getModel();
-        tab.getDataVector().removeAllElements();
+        //tab.getDataVector().removeAllElements();
         tab.addRow(data);
 
     }
