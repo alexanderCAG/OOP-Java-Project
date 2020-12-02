@@ -9,7 +9,9 @@ import Classe.Candidat;
 import Classe.Employer;
 import Classe.Recruiter;
 import static FonctionSQL.Connexion.Connexion1;
-import java.awt.*;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -19,6 +21,8 @@ import java.util.GregorianCalendar;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.*;
+import sun.audio.AudioPlayer;
+import sun.audio.AudioStream;
 
 
 /**
@@ -35,6 +39,7 @@ public class Login extends javax.swing.JFrame {
         setVisible(true);
         this.setLocationRelativeTo(null); // center of the screen
         clock();
+        playMusic("Music\\\\mwb95free_wake.wav");
         setVisible(true);
         
     }
@@ -552,6 +557,17 @@ public class Login extends javax.swing.JFrame {
             }
         };
         clock.start();
+    }
+    public static void playMusic(String filepatch){
+        InputStream music;
+        try{
+            music=new FileInputStream(new File(filepatch));
+            AudioStream audios=new AudioStream(music);
+            AudioPlayer.player.start(audios);
+        }
+        catch(Exception e){
+            JOptionPane.showMessageDialog(null, "Error");
+        }
     }
     /**
      * @param args the command line arguments
