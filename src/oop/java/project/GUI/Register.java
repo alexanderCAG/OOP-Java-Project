@@ -71,7 +71,6 @@ public class Register extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
         jComboBox2 = new javax.swing.JComboBox();
-        jCheckBox1 = new javax.swing.JCheckBox();
         jButton1 = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         jTextField7 = new javax.swing.JTextField();
@@ -217,35 +216,28 @@ public class Register extends javax.swing.JFrame {
 
         jPanel5.setBackground(new java.awt.Color(204, 102, 0));
 
-        jComboBox2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jComboBox2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jComboBox2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Micro Entreprise", "Grosse Entreprise" }));
-
-        jCheckBox1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jCheckBox1.setText("     Membre ?");
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
-                .addGap(26, 26, 26)
-                .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 66, Short.MAX_VALUE)
-                .addComponent(jCheckBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(32, 32, 32))
+                .addGap(28, 28, 28)
+                .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 361, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(31, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
-                .addGap(21, 21, 21)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jCheckBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(13, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel3.add(jPanel5);
-        jPanel5.setBounds(50, 110, 420, 90);
+        jPanel5.setBounds(50, 110, 420, 70);
 
         jPanel2.add(jPanel3);
         jPanel3.setBounds(59, 68, 500, 500);
@@ -641,8 +633,7 @@ public void addemployer() throws SQLException{
         
         if("Employeur".equals(jComboBox1.getSelectedItem().toString()))
         {
-            jPanel5.setBackground(new Color(204,102,0,120));
-            jCheckBox1.setBackground(new Color(0,0,0,0));
+            jPanel5.setBackground(new Color(204,102,0,0));
             jPanel5.setVisible(true);
         }else{
             jPanel5.setVisible(false);
@@ -688,7 +679,6 @@ public void addemployer() throws SQLException{
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
-    private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JComboBox jComboBox1;
     private javax.swing.JComboBox jComboBox2;
     private javax.swing.JLabel jLabel1;
