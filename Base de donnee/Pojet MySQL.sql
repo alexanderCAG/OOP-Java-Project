@@ -75,9 +75,9 @@ INSERT INTO `Company`.Recruiter ( lastnamerec, firstnamerec, email, motdepasse, 
 INSERT INTO `Company`.Recruiter ( lastnamerec, firstnamerec, email, motdepasse, phone, job ) VALUES ('Duval', 'Stanislas', 'stanislas@edu.ece.fr', 'dyjs', 0648475265, 'Ingénieur en robotique');
 INSERT INTO `Company`.Recruiter ( lastnamerec, firstnamerec, email, motdepasse, phone, job ) VALUES ('Gauthier', 'Jacques', 'jacques@edu.ece.fr;', 'dyjs', 0648475265, 'Ingénieur en electromagnetisme');
 
-INSERT INTO `Company`.DemandeEmploi ( idcan, metier, statut, datedebut ) VALUES (1, 'Ingenieur', 'Etudiant', '13.dec 2020');
-INSERT INTO `Company`.DemandeEmploi ( idcan, metier, statut, datedebut ) VALUES (1, 'Ingenieur', 'Etudiant', '1.feb 2020');
-INSERT INTO `Company`.DemandeEmploi ( idcan, metier, statut, datedebut ) VALUES (2, 'Ingenieur', 'Etudiant', '12.jan 2020');
-INSERT INTO `Company`.DemandeEmploi ( idcan, metier, statut, datedebut ) VALUES (2, 'Ingenieur', 'Etudiant', '13.dec 2020');
-INSERT INTO `Company`.DemandeEmploi ( idcan, metier, statut, datedebut ) VALUES (3, 'Ingenieur', 'Etudiant', '14.dec 2020');
-INSERT INTO `Company`.DemandeEmploi ( idcan, metier, statut, datedebut ) VALUES (4, 'Ingenieur', 'Etudiant', '14.dec 2020');
+INSERT INTO `Company`.DemandeEmploi ( idcan, metier, statut, datedebut ) VALUES (1, 'Ingenieur', 'Etudiant', '13 déc. 2020');
+INSERT INTO `Company`.DemandeEmploi ( idcan, metier, statut, datedebut ) VALUES (1, 'Ingenieur', 'Etudiant', '1 feb. 2020');
+INSERT INTO `Company`.DemandeEmploi ( idcan, metier, statut, datedebut ) VALUES (2, 'Ingenieur', 'Etudiant', '12 jan. 2020');
+INSERT INTO `Company`.DemandeEmploi ( idcan, metier, statut, datedebut ) VALUES (2, 'Ingenieur', 'Etudiant', '13 déc. 2020');
+INSERT INTO `Company`.DemandeEmploi ( idcan, metier, statut, datedebut ) VALUES (3, 'Ingenieur', 'Etudiant', '14 déc. 2020');
+INSERT INTO `Company`.DemandeEmploi ( idcan, metier, statut, datedebut ) VALUES (4, 'Ingenieur', 'Etudiant', '14 déc. 2020');

@@ -234,13 +234,6 @@ public class Connexion {
     }
     public static void main(String[] args) throws SQLException {
         // TODO code application logic here
-        //afficherjobs();
-        //deletejobs();
-        //addjobs();
-        //affichermemeberemployer();
-        //affichernewemployer();
-        //countnewemployer();
-        afficherjobseeker();
     }
     
 }
