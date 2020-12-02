@@ -10,13 +10,13 @@ package Classe;
  * @author Geoffroy
  */
 public class Person {
-    protected String id;
+    protected int id;
     protected String lastname;
     protected String firstname;
     protected String email;
     protected String motdepasse;
     protected int phone;
-    public Person(String id, String lastname, String firstname, String email, String motdepasse, int phone){
+    public Person(int id, String lastname, String firstname, String email, String motdepasse, int phone){
         this.id=id;
         this.lastname=lastname;
         this.firstname=firstname;

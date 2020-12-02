@@ -10,15 +10,28 @@ package Classe;
  * @author Geoffroy
  */
 public class DemandeEmploi {
+    private int id;
+    private int idcan;
     private String Metier;
     private String statut;
     private String Date;
 
-    public DemandeEmploi(String Metier, String statut, String Date) {
+    public DemandeEmploi(int id, int idcan, String Metier, String statut, String Date) {
+        this.id = id;
+        this.idcan = idcan;
         this.Metier = Metier;
         this.statut = statut;
         this.Date = Date;
     }
+
+    public int getId() {
+        return id;
+    }
+
+    public int getIdcan() {
+        return idcan;
+    }
+
     public String getMetier() {
         return Metier;
     }
@@ -30,4 +43,5 @@ public class DemandeEmploi {
     public String getDate() {
         return Date;
     }
+    
 }

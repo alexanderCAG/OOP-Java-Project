@@ -7,7 +7,6 @@ package oop.java.project.GUI;
 
 import Classe.Candidat;
 import Classe.Employer;
-import Classe.JobSeeker;
 import static FonctionSQL.Connexion.Connexion1;
 import java.awt.*;
 import java.sql.Connection;
@@ -278,7 +277,7 @@ public class Login extends javax.swing.JFrame {
                 Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
             }
             try {
-                Verificationjobseeker();
+                Verificationrecruiter();
             } catch (SQLException ex) {
                 Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
             }

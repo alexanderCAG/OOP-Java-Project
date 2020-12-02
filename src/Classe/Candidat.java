@@ -10,11 +10,13 @@ package Classe;
  * @author Geoffroy
  */
 public class Candidat extends Person {
-    public Candidat(String id, String lastname, String firstname, String email, String motdepasse, int phone){
+    private boolean selection;
+    public Candidat(int id, String lastname, String firstname, String email, String motdepasse, int phone, boolean selection){
         super(id, lastname, firstname, email, motdepasse, phone);
+        this.selection=selection;
     }
-
-    public String getId() {
+    
+    public int getId() {
         return id;
     }
 
@@ -38,5 +40,9 @@ public class Candidat extends Person {
         return phone;
     }
 
+    public boolean isSelection() {
+        return selection;
+    }
+    
     
 }

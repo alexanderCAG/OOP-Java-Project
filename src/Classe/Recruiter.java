@@ -10,5 +10,10 @@ package Classe;
  * @author Geoffroy
  */
 public class Recruiter extends Person {
+    private String job;
+    public Recruiter(int id, String lastname, String firstname, String email, String motdepasse, int phone, String job) {
+        super(id, lastname, firstname, email, motdepasse, phone);
+        this.job=job;
+    }
     
 }

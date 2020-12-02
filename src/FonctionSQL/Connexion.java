@@ -4,7 +4,13 @@
  * and open the template in the editor.
  */
 package FonctionSQL;
+import Classe.AJob;
+import Classe.Candidat;
+import Classe.DemandeEmploi;
+import Classe.Employer;
+import Classe.Recruiter;
 import java.sql.*;
+import java.util.ArrayList;
 import java.util.Scanner;
 /**
  *
@@ -17,6 +23,101 @@ public class Connexion {
         String pass="Vhpsq47y78&";
         Connection conn=DriverManager.getConnection(url, user, pass);
         return conn;
+    }
+    public static ArrayList Alljobs() throws SQLException{
+        ArrayList listjob= new ArrayList();
+        Connection conn = Connexion1();
+        try{
+        Statement stmt = conn.createStatement();
+
+        ResultSet rs = stmt.executeQuery("Select * from job;");
+
+        while(rs.next()){
+            AJob j=new AJob(rs.getString(1));
+            listjob.add(j);
+        }
+        //int rows = stmt.executeUpdate(sqlStatement);
+        conn.close();
+        }catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+        return listjob;
+    }
+    public static ArrayList Allcandidats() throws SQLException{
+        ArrayList listcandidat= new ArrayList();
+        Connection conn = Connexion1();
+        try{
+        Statement stmt = conn.createStatement();
+
+        ResultSet rs = stmt.executeQuery("Select * from candidat;");
+
+        while(rs.next()){
+            Candidat c=new Candidat(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getInt(6), rs.getBoolean(7));
+            listcandidat.add(c);
+        }
+        //int rows = stmt.executeUpdate(sqlStatement);
+        conn.close();
+        }catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+        return listcandidat;
+    }
+    public static ArrayList Allemployers() throws SQLException{
+        ArrayList listemployer= new ArrayList();
+        Connection conn = Connexion1();
+        try{
+        Statement stmt = conn.createStatement();
+
+        ResultSet rs = stmt.executeQuery("Select * from employer;");
+
+        while(rs.next()){
+            Employer e=new Employer(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getInt(6), rs.getString(7), rs.getString(8), rs.getInt(9));
+            listemployer.add(e);
+        }
+        //int rows = stmt.executeUpdate(sqlStatement);
+        conn.close();
+        }catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+        return listemployer;
+    }
+    public static ArrayList Allrecruiters() throws SQLException{
+        ArrayList listrecruiter= new ArrayList();
+        Connection conn = Connexion1();
+        try{
+        Statement stmt = conn.createStatement();
+
+        ResultSet rs = stmt.executeQuery("Select * from recruiter;");
+
+        while(rs.next()){
+            Recruiter r=new Recruiter(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getInt(6), rs.getString(7));
+            listrecruiter.add(r);
+        }
+        //int rows = stmt.executeUpdate(sqlStatement);
+        conn.close();
+        }catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+        return listrecruiter;
+    }
+    public static ArrayList Alldemandesemploi() throws SQLException{
+        ArrayList listdemandesemploi= new ArrayList();
+        Connection conn = Connexion1();
+        try{
+        Statement stmt = conn.createStatement();
+
+        ResultSet rs = stmt.executeQuery("Select * from demandeemploi;");
+
+        while(rs.next()){
+            DemandeEmploi d=new DemandeEmploi(rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getString(4), rs.getString(5));
+            listdemandesemploi.add(d);
+        }
+        //int rows = stmt.executeUpdate(sqlStatement);
+        conn.close();
+        }catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+        return listdemandesemploi;
     }
     public static void afficherjobs() throws SQLException{
         Connection conn = Connexion1();

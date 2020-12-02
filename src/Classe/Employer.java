@@ -11,16 +11,22 @@ package Classe;
  */
 public class Employer extends Person{
     private String sizecompany;
-    public Employer(String id, String lastname, String firstname, String email, String motdepasse, int phone, String job, String sizecompany){
-        super(id, lastname, firstname, email, motdepasse, phone, job);
+    private int compteur;
+    public Employer(int id, String lastname, String firstname, String email, String motdepasse, int phone, String job, String sizecompany, int compteur){
+        super(id, lastname, firstname, email, motdepasse, phone);
         this.sizecompany=sizecompany;
+        this.compteur=compteur;
     }
 
+    public int getCompteur() {
+        return compteur;
+    }
+    
     public String getSizecompany() {
         return sizecompany;
     }
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
@@ -42,10 +48,6 @@ public class Employer extends Person{
 
     public int getPhone() {
         return phone;
-    }
-
-    public String getJob() {
-        return job;
     }
     
 }
