@@ -255,13 +255,13 @@ public class Employeur extends javax.swing.JFrame {
 //            image1.scaleAbsolute(480, 300);
 //            doc.add(image1);
             
-            Paragraph titredoc = new Paragraph("CONFIDENTIEL",FontFactory.getFont(FontFactory.TIMES_BOLD,22, BaseColor.RED));
+            Paragraph titredoc = new Paragraph("CONFIDENTIEL",FontFactory.getFont(FontFactory.TIMES_BOLD,30, BaseColor.RED));
             titredoc.setAlignment(Element.ALIGN_CENTER);
             doc.add(titredoc);
             
-            Image image = Image.getInstance("image.png");
+            Image image = Image.getInstance("src/oop/java/project/GUI/Image/playmobil.png");
             //doc.add(new Paragraph("Image"));
-            //image.scaleToFit(10,10);      /*definir la taille de l'image*/
+            image.scaleToFit(200,200);      /*definir la taille de l'image*/
             image.setAlignment(Element.ALIGN_LEFT);
             doc.add(image);
             
