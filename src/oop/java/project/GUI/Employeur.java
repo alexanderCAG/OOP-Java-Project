@@ -221,7 +221,7 @@ public class Employeur extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Nom", "Prenom"
+                "Nom", "Prenom", "Date de début"
             }
         ));
         jScrollPane1.setViewportView(jTable1);
@@ -412,8 +412,9 @@ public class Employeur extends javax.swing.JFrame {
         {
             String user= rs.getString(2);
             String pass= rs.getString(3);
+            String date= rs.getString(6);
             
-            String data[] = {user,pass};
+            String data[] = {user,pass,date};
             
             tab.addRow(data);
         }
