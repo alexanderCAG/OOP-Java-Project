@@ -51,6 +51,7 @@ public class Employeur extends javax.swing.JFrame {
         this.e=e;
         initComponents();
         Affichagejob();
+        allcandidatjob();
         this.setLocationRelativeTo(null); // center of the screen 
         jPanel4.setBackground(new Color(204,102,0,120));
         jTextArea2.setBackground(new Color(204,102,0,120));
@@ -420,6 +421,30 @@ public class Employeur extends javax.swing.JFrame {
             tab.addRow(data);
         }
         
+        conn.close();
+        }catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Mot de passe INCORECT", "Login Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+    public void allcandidatjob() throws SQLException{
+        Connection conn=Connexion1();
+        
+        try{
+        Statement stmt = conn.createStatement();
+        ResultSet rs = stmt.executeQuery("select lastnamecan, firstnamecan, datedebut from demandeemploi natural join candidat;");
+        DefaultTableModel tab = (DefaultTableModel) jTable1.getModel();
+        tab.getDataVector().removeAllElements();
+        String text= "Lastname Firstname Start Date";
+        while(rs.next())
+        {
+            String lastname= rs.getString(1);
+            String firstname= rs.getString(2);
+            String date= rs.getString(3);
+            text=text + "\n" + lastname + " " + firstname + " " + date;
+            
+            tab.addRow(data);
+        }
+        jTextArea2.setText(text);
         conn.close();
         }catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Mot de passe INCORECT", "Login Error", JOptionPane.ERROR_MESSAGE);
