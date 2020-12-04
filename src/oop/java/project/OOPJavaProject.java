@@ -5,8 +5,8 @@
  */
 package oop.java.project;
 
+import View.Login;
 import java.sql.*;
-import oop.java.project.GUI.*;
 
 /**
  *

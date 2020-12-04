@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Classe;
+package Model;
 
 import static FonctionSQL.Connexion.Connexion1;
 import java.sql.*;

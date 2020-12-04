@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package oop.java.project.GUI;
+package View;
 
 import static FonctionSQL.Connexion.Connexion1;
 import java.awt.*;
@@ -99,7 +99,7 @@ public class Register extends javax.swing.JFrame {
             }
         });
 
-        jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/oop/java/project/GUI/Image/home.png"))); // NOI18N
+        jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/Image/home.png"))); // NOI18N
         jLabel12.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLabel12.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -107,7 +107,7 @@ public class Register extends javax.swing.JFrame {
             }
         });
 
-        jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/oop/java/project/GUI/Image/alimentation.png"))); // NOI18N
+        jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/Image/alimentation.png"))); // NOI18N
         jLabel13.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLabel13.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -185,11 +185,11 @@ public class Register extends javax.swing.JFrame {
             }
         });
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/oop/java/project/GUI/Image/telephone.png"))); // NOI18N
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/Image/telephone.png"))); // NOI18N
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/oop/java/project/GUI/Image/user.png"))); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/Image/user.png"))); // NOI18N
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/oop/java/project/GUI/Image/user.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/Image/user.png"))); // NOI18N
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -241,7 +241,7 @@ public class Register extends javax.swing.JFrame {
         );
 
         jPanel2.add(jPanel3);
-        jPanel3.setBounds(59, 68, 505, 477);
+        jPanel3.setBounds(59, 68, 0, 0);
 
         jButton1.setBackground(new java.awt.Color(204, 102, 0));
         jButton1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -264,11 +264,11 @@ public class Register extends javax.swing.JFrame {
             }
         });
 
-        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/oop/java/project/GUI/Image/lock.png"))); // NOI18N
+        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/Image/lock.png"))); // NOI18N
 
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/oop/java/project/GUI/Image/lock.png"))); // NOI18N
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/Image/lock.png"))); // NOI18N
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/oop/java/project/GUI/Image/mail.png"))); // NOI18N
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/Image/mail.png"))); // NOI18N
 
         jPasswordField1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jPasswordField1.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -336,7 +336,7 @@ public class Register extends javax.swing.JFrame {
         jPanel2.add(jTextField1);
         jTextField1.setBounds(950, 420, 83, 22);
 
-        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/oop/java/project/GUI/Image/inscription.jpg"))); // NOI18N
+        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/Image/inscription.jpg"))); // NOI18N
         jPanel2.add(jLabel11);
         jLabel11.setBounds(0, 0, 1200, 680);
 
