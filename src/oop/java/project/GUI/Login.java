@@ -8,6 +8,7 @@ package oop.java.project.GUI;
 import Classe.Candidat;
 import Classe.Employer;
 import Classe.Recruiter;
+import Controller.SeConnecter;
 import static FonctionSQL.Connexion.Connexion1;
 import java.io.File;
 import java.io.FileInputStream;
@@ -41,6 +42,7 @@ public class Login extends javax.swing.JFrame {
         clock();
         playMusic("Music\\\\mwb95free_wake.wav");
         setVisible(true);
+        jButton2.addActionListener(new SeConnecter(UserName.getText, jPasswordField1.getText()) {});
         
     }
 
