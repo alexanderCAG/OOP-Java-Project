@@ -33,9 +33,9 @@ public class Recruteur extends javax.swing.JFrame {
     /**
      * Creates new form Recruteur
      */
-    private Recruiter r;
+    public Recruiter r;
     
-    private String[] listJob;
+    public String[] listJob;
     private int[] nombrepersonnejob;
     public Recruteur() {
         initComponents();
@@ -59,7 +59,7 @@ public class Recruteur extends javax.swing.JFrame {
         this.r=r;
         initComponents();
         
-        Affichagejob();
+        Affichagejob();t
         
         this.setLocationRelativeTo(null); // center of the screen
         jLabel7.setBackground(new Color(0,0,0,0));
@@ -336,49 +336,8 @@ public class Recruteur extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Mot de passe INCORECT", "Login Error", JOptionPane.ERROR_MESSAGE);
         }
     }*/
-    public int Nombrejob() throws SQLException{
-        
-        Connection conn=Connexion1();
-        int nombrejob = 0;
-        try{
-        Statement stmt = conn.createStatement();
-        ResultSet rs = stmt.executeQuery("Select count(namejob) from job;");
-        while(rs.next()){
-            nombrejob=rs.getInt(1);
-            System.out.println("Hello " + nombrejob);
-        }
-        //int rows = stmt.executeUpdate(sqlStatement);
-        conn.close();
-        }catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Mot de passe INCORECT", "Login Error", JOptionPane.ERROR_MESSAGE);
-        }
-        return nombrejob;
-    }
-    public void Affichagejob() throws SQLException{
-        int nombrejob=Nombrejob();
-        String[] listJob=new String[nombrejob];
-        Connection conn=Connexion1();
-        try{
-        Statement stmt = conn.createStatement();
-        int i=0;
-        ResultSet rs = stmt.executeQuery("Select * from job;");
-        while(rs.next()){
-            String namejob=rs.getString(1);
-            System.out.println("Coucou " + namejob);
-            listJob[i]=namejob;
-            System.out.println(listJob[i]);
-            i+=1;
-        }
-        String sqlStatement = "";
-        this.listJob=listJob;
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(listJob));
-
-        //int rows = stmt.executeUpdate(sqlStatement);
-        conn.close();
-        }catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Mot de passe INCORECT", "Login Error", JOptionPane.ERROR_MESSAGE);
-        }
-    }
+    
+    
     public void Cammenbert() throws SQLException{
         
         int[] nombrepersonnejob=new int[listJob.length];
@@ -400,34 +359,8 @@ public class Recruteur extends javax.swing.JFrame {
         this.nombrepersonnejob=nombrepersonnejob;
         
     }
-    public void Supprimerjob() throws SQLException{
-        Connection conn=Connexion1();
-        String namejob=jComboBox1.getSelectedItem().toString();
-        try{
-        Statement stmt = conn.createStatement();
-        stmt.executeUpdate("Delete from job where namejob='" + namejob + "';");
-        
-        //int rows = stmt.executeUpdate(sqlStatement);
-        conn.close();
-        }catch (SQLException ex) {
-            System.out.println(ex.getMessage());
-        }
-        Affichagejob();
-    }
-    public void Ajouterjob() throws SQLException{
-        Connection conn=Connexion1();
-        String namejob=jTextField1.getText();
-        try{
-        Statement stmt = conn.createStatement();
-        stmt.executeUpdate("INSERT INTO `Company`.Job ( namejob ) VALUES ('" + namejob +"');");
-        
-        //int rows = stmt.executeUpdate(sqlStatement);
-        conn.close();
-        }catch (SQLException ex) {
-            System.out.println(ex.getMessage());
-        }
-        Affichagejob();
-    }
+    
+    
     /**
      * @param args the command line arguments
      */
@@ -467,7 +400,7 @@ public class Recruteur extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
-    private javax.swing.JComboBox jComboBox1;
+    public javax.swing.JComboBox jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

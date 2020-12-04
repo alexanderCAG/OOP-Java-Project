@@ -41,6 +41,7 @@ public class Login extends javax.swing.JFrame {
         this.setLocationRelativeTo(null); // center of the screen
         clock();
         playMusic("Music\\\\mwb95free_wake.wav");
+        //jButton2.addActionListener(new SeConnecter(UserName.getText(), jPasswordField1.getText(), this));
         setVisible(true);
         
         
@@ -177,7 +178,6 @@ public class Login extends javax.swing.JFrame {
         jLabel8.setBounds(490, 120, 110, 40);
 
         jButton2.setText("CONNEXION");
-        jButton2.addActionListener(new SeConnecter(UserName.getText(), jPasswordField1.getText(), this));
         jPanel2.add(jButton2);
         jButton2.setBounds(830, 320, 178, 48);
 
@@ -244,7 +244,7 @@ public class Login extends javax.swing.JFrame {
         // TODO add your handling code here:
         this.setState(JFrame.ICONIFIED);
     }//GEN-LAST:event_jLabel4MouseClicked
-
+    jButton2.addActionListener(new SeConnecter(UserName.getText(), jPasswordField1.getText(), this));
     private void jLabel9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel9MouseClicked
         // TODO add your handling code here:
         
