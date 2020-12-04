@@ -3,11 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package View;
+package oop.java.project.GUI;
 
-import Model.AJob;
-import Model.AgencyDAG;
-import Model.Employer;
+import Classe.AJob;
+import Classe.AgencyDAG;
+import Classe.Employer;
 import static FonctionSQL.Connexion.Connexion1;
 import com.itextpdf.text.*;
 import com.itextpdf.text.pdf.*;
@@ -106,7 +106,7 @@ public class Employeur extends javax.swing.JFrame {
         jPanel2.add(jLabel8);
         jLabel8.setBounds(330, 30, 530, 90);
 
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/Image/deconnection.png"))); // NOI18N
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/oop/java/project/GUI/Image/deconnection.png"))); // NOI18N
         jLabel5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLabel5.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -122,14 +122,14 @@ public class Employeur extends javax.swing.JFrame {
         jPanel2.add(jLabel4);
         jLabel4.setBounds(80, 30, 240, 70);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/Image/cercle2.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/oop/java/project/GUI/Image/cercle2.png"))); // NOI18N
         jPanel2.add(jLabel1);
         jLabel1.setBounds(60, 0, 250, 150);
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
         jPanel3.setLayout(null);
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/Image/employeur.jpg"))); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/oop/java/project/GUI/Image/employeur.jpg"))); // NOI18N
         jPanel3.add(jLabel2);
         jLabel2.setBounds(0, 0, 1100, 500);
 
@@ -229,7 +229,7 @@ public class Employeur extends javax.swing.JFrame {
         jPanel1.add(jScrollPane1);
         jScrollPane1.setBounds(130, 460, 460, 120);
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/Image/employeur.jpg"))); // NOI18N
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/oop/java/project/GUI/Image/employeur.jpg"))); // NOI18N
         jPanel1.add(jLabel3);
         jLabel3.setBounds(0, 146, 1100, 510);
 

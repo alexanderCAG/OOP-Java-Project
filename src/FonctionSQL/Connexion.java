@@ -4,11 +4,11 @@
  * and open the template in the editor.
  */
 package FonctionSQL;
-import Model.AJob;
-import Model.Candidat;
-import Model.DemandeEmploi;
-import Model.Employer;
-import Model.Recruiter;
+import Classe.AJob;
+import Classe.Candidat;
+import Classe.DemandeEmploi;
+import Classe.Employer;
+import Classe.Recruiter;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.Scanner;

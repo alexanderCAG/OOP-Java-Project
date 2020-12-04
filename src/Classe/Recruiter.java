@@ -3,19 +3,23 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Model;
+package Classe;
 
 /**
  *
  * @author Geoffroy
  */
-public class Candidat extends Person {
-    private boolean selection;
-    public Candidat(int id, String lastname, String firstname, String email, String motdepasse, int phone, boolean selection){
+public class Recruiter extends Person {
+    private String job;
+    public Recruiter(int id, String lastname, String firstname, String email, String motdepasse, int phone, String job) {
         super(id, lastname, firstname, email, motdepasse, phone);
-        this.selection=selection;
+        this.job=job;
     }
-    
+
+    public String getJob() {
+        return job;
+    }
+
     public int getId() {
         return id;
     }
@@ -38,10 +42,6 @@ public class Candidat extends Person {
 
     public int getPhone() {
         return phone;
-    }
-
-    public boolean isSelection() {
-        return selection;
     }
     
     
