@@ -59,13 +59,14 @@ public class Recruteur extends javax.swing.JFrame {
         this.r=r;
         initComponents();
         
-        Affichagejob();t
+        Affichagejob();
         
         this.setLocationRelativeTo(null); // center of the screen
         jLabel7.setBackground(new Color(0,0,0,0));
         jTextField1.setBackground(new Color(0,102,51,120));
         jComboBox1.setBackground(new Color(0,102,70,120));
         jPanel4.setBackground(new Color(0,102,51,0));
+        jButton1.addActionListener(new AjoutJob(this.jTextField1.getText());
      
         jTextField1.addKeyListener(new KeyAdapter(){
             @Override
@@ -198,11 +199,6 @@ public class Recruteur extends javax.swing.JFrame {
 
         jButton1.setBackground(new java.awt.Color(0, 102, 51));
         jButton1.setText("AJOUTER");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
         jPanel2.add(jButton1);
         jButton1.setBounds(150, 310, 190, 60);
 
@@ -301,14 +297,6 @@ public class Recruteur extends javax.swing.JFrame {
         jPanel4.validate();
         
     }//GEN-LAST:event_jButton3ActionPerformed
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        try {
-            Ajouterjob();        // TODO add your handling code here:
-        } catch (SQLException ex) {
-            Logger.getLogger(Recruteur.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         try {

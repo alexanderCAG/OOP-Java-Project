@@ -37,12 +37,11 @@ public class Login extends javax.swing.JFrame {
      */
     public Login() {
         initComponents();
-        setVisible(true);
         this.setLocationRelativeTo(null); // center of the screen
         clock();
         playMusic("Music\\\\mwb95free_wake.wav");
-        this.jButton2.addActionListener(new SeConnecter(this.UserName.getText(), this.jPasswordField1.getText(), this));
-        setVisible(true);
+        System.out.println("Hello" + UserName.getText());
+        jButton2.addActionListener(new SeConnecter(this));
     }
 
     /**
@@ -531,7 +530,7 @@ public class Login extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField UserName;
+    public javax.swing.JTextField UserName;
     private javax.swing.JButton jButton1;
     public javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
@@ -546,7 +545,7 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JPasswordField jPasswordField1;
+    public javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JLabel lblClock;
     // End of variables declaration//GEN-END:variables
 }
