@@ -31,6 +31,7 @@ import oop.java.project.GUI.Recruteur;
 public class SeConnecter implements ActionListener{
     private String user;
     private String pass;
+    private Login l;
     public void actionPerformed(ActionEvent ae) {
         try {
                 Verificationcandidat();
@@ -48,9 +49,10 @@ public class SeConnecter implements ActionListener{
                 Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
             }
     }
-    public SeConnecter(String user, String pass) {
+    public SeConnecter(String user, String pass, Login l) {
         this.user = user;
         this.pass = pass;
+        this.l=l;
         
     }
     public void Verificationcandidat() throws SQLException{
@@ -64,7 +66,7 @@ public class SeConnecter implements ActionListener{
         while(rs.next()){
             email=rs.getString(4);
             motdepasse=rs.getString(5);
-            if(user.equals(email) && password.equals(motdepasse)){
+            if(user.equals(email) && pass.equals(motdepasse)){
                 System.out.println("Correct new candidat");
                 Candidat c= new Candidat(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getInt(6), rs.getBoolean(7));
                 Job job = new Job(c);
@@ -72,7 +74,7 @@ public class SeConnecter implements ActionListener{
                 job.pack();
                 job.setLocationRelativeTo(null);
                 job.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                //this.dispose();
+                l.dispose();
             }
         }
         String sqlStatement = "";
@@ -81,14 +83,10 @@ public class SeConnecter implements ActionListener{
         conn.close();
         }catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Mot de passe INCORECT", "Login Error", JOptionPane.ERROR_MESSAGE);
-            UserName.setText(null);
-            jPasswordField1.setText(null);
         }
     }
     
     public void Verificationemployer() throws SQLException{
-        String user = UserName.getText();
-        String password = jPasswordField1.getText();
         Connection conn = Connexion1();
         try{
         Statement stmt = conn.createStatement();
@@ -99,7 +97,7 @@ public class SeConnecter implements ActionListener{
         while(rs.next()){
             email=rs.getString(4);
             motdepasse=rs.getString(5);
-            if(user.equals(email) && password.equals(motdepasse)){
+            if(user.equals(email) && pass.equals(motdepasse)){
                 System.out.println("Correct employer");
                 Employer e= new Employer(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getInt(6), rs.getString(7), rs.getString(8), rs.getInt(9));
                 //int id, String lastname, String firstname, String email, String motdepasse, int phone, String job, String sizecompany, int compteur
@@ -108,7 +106,7 @@ public class SeConnecter implements ActionListener{
                 employeur.pack();
                 employeur.setLocationRelativeTo(null);
                 employeur.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                this.dispose();
+                l.dispose();
             }
         }
         String sqlStatement = "";
@@ -117,13 +115,9 @@ public class SeConnecter implements ActionListener{
         conn.close();
         }catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Mot de passe INCORECT", "Login Error", JOptionPane.ERROR_MESSAGE);
-            UserName.setText(null);
-            jPasswordField1.setText(null);
         }
     }
     public void Verificationrecruiter() throws SQLException{
-        String user = UserName.getText();
-        String password = jPasswordField1.getText();
         Connection conn = Connexion1();
         try{
         Statement stmt = conn.createStatement();
@@ -134,7 +128,7 @@ public class SeConnecter implements ActionListener{
         while(rs.next()){
             email=rs.getString(4);
             motdepasse=rs.getString(5);
-            if(user.equals(email) && password.equals(motdepasse)){
+            if(user.equals(email) && pass.equals(motdepasse)){
                 System.out.println("Correct recruteur");
                 Recruiter r= new Recruiter(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getInt(6), rs.getString(7));
                 //int id, String lastname, String firstname, String email, String motdepasse, int phone, String job
@@ -144,7 +138,7 @@ public class SeConnecter implements ActionListener{
                 recruteur.pack();
                 recruteur.setLocationRelativeTo(null);
                 recruteur.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                this.dispose();
+                l.dispose();
             }
         }
         String sqlStatement = "";
@@ -153,8 +147,6 @@ public class SeConnecter implements ActionListener{
         conn.close();
         }catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Mot de passe INCORECT", "Login Error", JOptionPane.ERROR_MESSAGE);
-            UserName.setText(null);
-            jPasswordField1.setText(null);
         }
     }
     

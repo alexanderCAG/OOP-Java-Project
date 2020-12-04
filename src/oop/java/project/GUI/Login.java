@@ -42,7 +42,7 @@ public class Login extends javax.swing.JFrame {
         clock();
         playMusic("Music\\\\mwb95free_wake.wav");
         setVisible(true);
-        jButton2.addActionListener(new SeConnecter(UserName.getText, jPasswordField1.getText()) {});
+        jButton2.addActionListener(new SeConnecter(UserName.getText(), jPasswordField1.getText(), this));
         
     }
 
