@@ -4,10 +4,13 @@
  * and open the template in the editor.
  */
 package oop.java.project.GUI;
-
+import Controller.*;
 import Classe.Candidat;
 import Classe.Employer;
 import Classe.Recruiter;
+import static Controller.Controller.Verificationcandidat;
+import static Controller.Controller.Verificationemployer;
+import static Controller.Controller.Verificationrecruiter;
 import static FonctionSQL.Connexion.Connexion1;
 import java.io.File;
 import java.io.FileInputStream;
@@ -271,27 +274,24 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1MouseClicked
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
         try {
-                Verificationcandidat();
-            } catch (SQLException ex) {
-                Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            try {
-                Verificationemployer();
-            } catch (SQLException ex) {
-                Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            try {
-                Verificationrecruiter();
-            } catch (SQLException ex) {
-                Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        /*String user = UserName.getText();
-        String password = jPasswordField1.getText();
-        
-        if(user.contains("job") && password.contains("root"))
-        {
+            // TODO add your handling code here:
+            Verificationcandidat(UserName.getText(), jPasswordField1.getText(), this);
+        } catch (SQLException ex) {
+            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        try {
+            Verificationemployer(UserName.getText(), jPasswordField1.getText(), this);
+        } catch (SQLException ex) {
+            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        try {
+            Verificationrecruiter(UserName.getText(), jPasswordField1.getText(), this);
+            /*String user = UserName.getText();
+            String password = jPasswordField1.getText();
+            
+            if(user.contains("job") && password.contains("root"))
+            {
             UserName.setText(null);
             jPasswordField1.setText(null);
             
@@ -302,9 +302,9 @@ public class Login extends javax.swing.JFrame {
             job.setLocationRelativeTo(null);
             job.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             this.dispose();
-        }
-        else if(user.contains("employeur") && password.contains("root"))
-        {
+            }
+            else if(user.contains("employeur") && password.contains("root"))
+            {
             UserName.setText(null);
             jPasswordField1.setText(null);
             
@@ -315,9 +315,9 @@ public class Login extends javax.swing.JFrame {
             empl.setLocationRelativeTo(null);
             empl.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             this.dispose();
-        }
-        else if(user.contains("recruteur") && password.contains("root"))
-        {
+            }
+            else if(user.contains("recruteur") && password.contains("root"))
+            {
             UserName.setText(null);
             jPasswordField1.setText(null);
             
@@ -328,13 +328,16 @@ public class Login extends javax.swing.JFrame {
             recru.setLocationRelativeTo(null);
             recru.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             this.dispose();
-        }
-        else
-        {
+            }
+            else
+            {
             JOptionPane.showMessageDialog(null, "Mot de passe INCORECT", "Login Error", JOptionPane.ERROR_MESSAGE);
             UserName.setText(null);
             jPasswordField1.setText(null);
-        }*/
+            }*/
+        } catch (SQLException ex) {
+            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
   
        
@@ -413,112 +416,7 @@ public class Login extends javax.swing.JFrame {
             Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
         }*/
     }//GEN-LAST:event_jPasswordField1KeyPressed
-    public void Verificationcandidat() throws SQLException{
-        String user = UserName.getText();
-        String password = jPasswordField1.getText();
-        Connection conn = Connexion1();
-        try{
-        Statement stmt = conn.createStatement();
-
-        ResultSet rs = stmt.executeQuery("Select * from candidat;");
-        String email;
-        String motdepasse;
-        while(rs.next()){
-            email=rs.getString(4);
-            motdepasse=rs.getString(5);
-            if(user.equals(email) && password.equals(motdepasse)){
-                System.out.println("Correct new candidat");
-                Candidat c= new Candidat(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getInt(6), rs.getBoolean(7));
-                Job job = new Job(c);
-                job.setVisible(true);
-                job.pack();
-                job.setLocationRelativeTo(null);
-                job.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                this.dispose();
-            }
-        }
-        String sqlStatement = "";
-
-        //int rows = stmt.executeUpdate(sqlStatement);
-        conn.close();
-        }catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Mot de passe INCORECT", "Login Error", JOptionPane.ERROR_MESSAGE);
-            UserName.setText(null);
-            jPasswordField1.setText(null);
-        }
-    }
     
-    public void Verificationemployer() throws SQLException{
-        String user = UserName.getText();
-        String password = jPasswordField1.getText();
-        Connection conn = Connexion1();
-        try{
-        Statement stmt = conn.createStatement();
-
-        ResultSet rs = stmt.executeQuery("Select * from employer;");
-        String email;
-        String motdepasse;
-        while(rs.next()){
-            email=rs.getString(4);
-            motdepasse=rs.getString(5);
-            if(user.equals(email) && password.equals(motdepasse)){
-                System.out.println("Correct employer");
-                Employer e= new Employer(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getInt(6), rs.getString(7), rs.getString(8), rs.getInt(9));
-                //int id, String lastname, String firstname, String email, String motdepasse, int phone, String job, String sizecompany, int compteur
-                Employeur employeur = new Employeur(e);
-                employeur.setVisible(true);
-                employeur.pack();
-                employeur.setLocationRelativeTo(null);
-                employeur.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                this.dispose();
-            }
-        }
-        String sqlStatement = "";
-
-        //int rows = stmt.executeUpdate(sqlStatement);
-        conn.close();
-        }catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Mot de passe INCORECT", "Login Error", JOptionPane.ERROR_MESSAGE);
-            UserName.setText(null);
-            jPasswordField1.setText(null);
-        }
-    }
-    public void Verificationrecruiter() throws SQLException{
-        String user = UserName.getText();
-        String password = jPasswordField1.getText();
-        Connection conn = Connexion1();
-        try{
-        Statement stmt = conn.createStatement();
-
-        ResultSet rs = stmt.executeQuery("Select * from recruiter;");
-        String email;
-        String motdepasse;
-        while(rs.next()){
-            email=rs.getString(4);
-            motdepasse=rs.getString(5);
-            if(user.equals(email) && password.equals(motdepasse)){
-                System.out.println("Correct recruteur");
-                Recruiter r= new Recruiter(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getInt(6), rs.getString(7));
-                //int id, String lastname, String firstname, String email, String motdepasse, int phone, String job
-                System.out.println("Correct recruteur");
-                Recruteur recruteur = new Recruteur(r);
-                recruteur.setVisible(true);
-                recruteur.pack();
-                recruteur.setLocationRelativeTo(null);
-                recruteur.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                this.dispose();
-            }
-        }
-        String sqlStatement = "";
-
-        //int rows = stmt.executeUpdate(sqlStatement);
-        conn.close();
-        }catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Mot de passe INCORECT", "Login Error", JOptionPane.ERROR_MESSAGE);
-            UserName.setText(null);
-            jPasswordField1.setText(null);
-        }
-    }
     public void clock(){
         Thread clock=new Thread(){
             @Override
