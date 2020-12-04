@@ -42,7 +42,7 @@ public class Login extends javax.swing.JFrame {
         clock();
         playMusic("Music\\\\mwb95free_wake.wav");
         setVisible(true);
-        jButton2.addActionListener(new SeConnecter(UserName.getText(), jPasswordField1.getText(), this));
+        
         
     }
 
@@ -177,11 +177,7 @@ public class Login extends javax.swing.JFrame {
         jLabel8.setBounds(490, 120, 110, 40);
 
         jButton2.setText("CONNEXION");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
+        jButton2.addActionListener(new SeConnecter(UserName.getText(), jPasswordField1.getText(), this));
         jPanel2.add(jButton2);
         jButton2.setBounds(830, 320, 178, 48);
 
@@ -271,77 +267,6 @@ public class Login extends javax.swing.JFrame {
         UserName.setText(null);
         jPasswordField1.setText(null);
     }//GEN-LAST:event_jButton1MouseClicked
-
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-        try {
-                Verificationcandidat();
-            } catch (SQLException ex) {
-                Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            try {
-                Verificationemployer();
-            } catch (SQLException ex) {
-                Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            try {
-                Verificationrecruiter();
-            } catch (SQLException ex) {
-                Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        /*String user = UserName.getText();
-        String password = jPasswordField1.getText();
-        
-        if(user.contains("job") && password.contains("root"))
-        {
-            UserName.setText(null);
-            jPasswordField1.setText(null);
-            
-            
-            Job job = new Job();
-            job.setVisible(true);
-            job.pack();
-            job.setLocationRelativeTo(null);
-            job.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-            this.dispose();
-        }
-        else if(user.contains("employeur") && password.contains("root"))
-        {
-            UserName.setText(null);
-            jPasswordField1.setText(null);
-            
-            
-            Employeur empl = new Employeur();
-            empl.setVisible(true);
-            empl.pack();
-            empl.setLocationRelativeTo(null);
-            empl.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-            this.dispose();
-        }
-        else if(user.contains("recruteur") && password.contains("root"))
-        {
-            UserName.setText(null);
-            jPasswordField1.setText(null);
-            
-            
-            Recruteur recru = new Recruteur();
-            recru.setVisible(true);
-            recru.pack();
-            recru.setLocationRelativeTo(null);
-            recru.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-            this.dispose();
-        }
-        else
-        {
-            JOptionPane.showMessageDialog(null, "Mot de passe INCORECT", "Login Error", JOptionPane.ERROR_MESSAGE);
-            UserName.setText(null);
-            jPasswordField1.setText(null);
-        }*/
-        
-  
-       
-        
-    }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jPasswordField1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jPasswordField1KeyPressed
         /*try {
