@@ -33,7 +33,9 @@ public class SeConnecter implements ActionListener{
     private String pass;
     private Login l;
     public void actionPerformed(ActionEvent ae) {
-        try {
+        l.jButton2.setText("Bonjour");
+        System.out.println(user + pass);
+        /*try {
                 Verificationcandidat();
             } catch (SQLException ex) {
                 Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
@@ -47,7 +49,7 @@ public class SeConnecter implements ActionListener{
                 Verificationrecruiter();
             } catch (SQLException ex) {
                 Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
-            }
+            }*/
     }
     public SeConnecter(String user, String pass, Login l) {
         this.user = user;

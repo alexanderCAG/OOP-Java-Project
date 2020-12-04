@@ -41,10 +41,8 @@ public class Login extends javax.swing.JFrame {
         this.setLocationRelativeTo(null); // center of the screen
         clock();
         playMusic("Music\\\\mwb95free_wake.wav");
-        //jButton2.addActionListener(new SeConnecter(UserName.getText(), jPasswordField1.getText(), this));
+        this.jButton2.addActionListener(new SeConnecter(this.UserName.getText(), this.jPasswordField1.getText(), this));
         setVisible(true);
-        
-        
     }
 
     /**
@@ -244,7 +242,7 @@ public class Login extends javax.swing.JFrame {
         // TODO add your handling code here:
         this.setState(JFrame.ICONIFIED);
     }//GEN-LAST:event_jLabel4MouseClicked
-    jButton2.addActionListener(new SeConnecter(UserName.getText(), jPasswordField1.getText(), this));
+    
     private void jLabel9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel9MouseClicked
         // TODO add your handling code here:
         
@@ -535,7 +533,7 @@ public class Login extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField UserName;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    public javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;

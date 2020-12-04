@@ -12,6 +12,8 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import oop.java.project.GUI.Recruteur;
 
@@ -21,11 +23,17 @@ import oop.java.project.GUI.Recruteur;
  */
 public class AjoutJob implements ActionListener {
     private String namejob;
+    private Recruteur r;
     public AjoutJob(String namejob){
         this.namejob=namejob;
+        this.r=r;
     }
     public void actionPerformed(ActionEvent ae){
-        
+        try {
+            Ajouterjob(r);
+        } catch (SQLException ex) {
+            Logger.getLogger(AjoutJob.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     public void Ajouterjob(Recruteur r) throws SQLException{
         Connection conn=Connexion1();
