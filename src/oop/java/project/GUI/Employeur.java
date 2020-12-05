@@ -8,6 +8,7 @@ package oop.java.project.GUI;
 import Classe.AJob;
 import Classe.AgencyDAG;
 import Classe.Employer;
+import Controller.AffichageDemandeEmploiJob;
 import static FonctionSQL.Connexion.Connexion1;
 import com.itextpdf.text.*;
 import com.itextpdf.text.pdf.*;
@@ -59,6 +60,7 @@ public class Employeur extends javax.swing.JFrame {
         jComboBox2.setBackground(new Color(150,102,0,120));
         jButton3.setBackground(new Color(150,102,0,120));
         jButton4.setBackground(new Color(150,102,0,120));
+        jButton4.addActionListener(new AffichageDemandeEmploiJob(this));
     }
 
     /**
@@ -208,11 +210,6 @@ public class Employeur extends javax.swing.JFrame {
 
         jButton4.setBackground(new java.awt.Color(150, 102, 0));
         jButton4.setText("VALIDER");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
-            }
-        });
         jPanel1.add(jButton4);
         jButton4.setBounds(90, 340, 190, 50);
 
@@ -325,10 +322,6 @@ public class Employeur extends javax.swing.JFrame {
 //        doc.close();
         
     }//GEN-LAST:event_jButton3ActionPerformed
-
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        
-    }//GEN-LAST:event_jButton4ActionPerformed
     
     
     public int Nombrejob() throws SQLException{

@@ -62,7 +62,6 @@ public class Recruteur extends javax.swing.JFrame {
         this.r=r;
         initComponents();
         Affichagejob();
-        
         this.setLocationRelativeTo(null); // center of the screen
         jLabel7.setBackground(new Color(0,0,0,0));
         jTextField1.setBackground(new Color(0,102,51,120));

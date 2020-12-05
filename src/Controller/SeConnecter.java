@@ -85,7 +85,6 @@ public class SeConnecter implements ActionListener{
             JOptionPane.showMessageDialog(null, "Mot de passe INCORECT", "Login Error", JOptionPane.ERROR_MESSAGE);
         }
     }
-    
     public void Verificationemployer() throws SQLException{
         Connection conn = Connexion1();
         try{
@@ -99,9 +98,9 @@ public class SeConnecter implements ActionListener{
             motdepasse=rs.getString(5);
             if(user.equals(email) && pass.equals(motdepasse)){
                 System.out.println("Correct employer");
-                Employer e1= new Employer(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getInt(6), rs.getString(7), rs.getString(8), rs.getInt(9));
+                Employer e= new Employer(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getInt(6), rs.getString(7), rs.getString(8), rs.getInt(9));
                 //int id, String lastname, String firstname, String email, String motdepasse, int phone, String job, String sizecompany, int compteur
-                Employeur employeur = new Employeur(e1);
+                Employeur employeur = new Employeur(e);
                 employeur.setVisible(true);
                 employeur.pack();
                 employeur.setLocationRelativeTo(null);
