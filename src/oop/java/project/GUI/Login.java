@@ -30,8 +30,9 @@ public class Login extends javax.swing.JFrame {
         this.setLocationRelativeTo(null); // center of the screen
         clock();
         playMusic("Music\\\\mwb95free_wake.wav");
-        this.setVisible(true);
-        //jButton2.addActionListener(new SeConnecter(this));
+        
+        jButton2.addActionListener(new SeConnecter(this));
+        setVisible(true);
     }
 
     /**
