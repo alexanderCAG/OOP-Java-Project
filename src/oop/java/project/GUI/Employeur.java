@@ -92,6 +92,7 @@ public class Employeur extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
+        jLabel10 = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox();
         jComboBox2 = new javax.swing.JComboBox();
         jPanel4 = new javax.swing.JPanel();
@@ -161,6 +162,10 @@ public class Employeur extends javax.swing.JFrame {
         jLabel6.setBounds(870, 50, 140, 40);
         jPanel2.add(jSeparator1);
         jSeparator1.setBounds(870, 82, 140, 20);
+
+        jLabel10.setForeground(new java.awt.Color(255, 255, 0));
+        jPanel2.add(jLabel10);
+        jLabel10.setBounds(560, 120, 0, 0);
 
         jPanel1.add(jPanel2);
         jPanel2.setBounds(0, 0, 1100, 180);
@@ -431,6 +436,9 @@ public class Employeur extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Mot de passe INCORECT", "Login Error", JOptionPane.ERROR_MESSAGE);
         }
     }
+    public void Remise(){
+        
+    }
     /**
      * @param args the command line arguments
      */
@@ -472,6 +480,7 @@ public class Employeur extends javax.swing.JFrame {
     private javax.swing.JComboBox jComboBox1;
     public javax.swing.JComboBox jComboBox2;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
