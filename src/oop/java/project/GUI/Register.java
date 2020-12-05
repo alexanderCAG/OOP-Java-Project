@@ -29,7 +29,7 @@ public class Register extends javax.swing.JFrame {
     private String firstname;
     private String email;
     private String motdepasse;
-    private int phone;
+    private String phone;
     private String job;
     public Register() {
         initComponents();
@@ -369,7 +369,7 @@ public class Register extends javax.swing.JFrame {
         lastname=jTextField10.getText();
         firstname=jTextField11.getText();
         email=jTextField7.getText();
-        phone=jTextField12.getHeight();
+        phone=jTextField12.getText();
         motdepasse=jPasswordField1.getText();
         if("".equals(firstname) ||"".equals(lastname) || "".equals(email)  || "".equals(motdepasse) ){
             
@@ -554,7 +554,7 @@ public void addrecruiter() throws SQLException{
         lastname=jTextField10.getText();
         firstname=jTextField11.getText();
         email=jTextField7.getText();
-        phone=jTextField12.getHeight();
+        phone=jTextField12.getText();
         motdepasse=jPasswordField1.getText();
         job="";
         try{
@@ -572,7 +572,7 @@ public void addcandidat() throws SQLException{
         lastname=jTextField10.getText();
         firstname=jTextField11.getText();
         email=jTextField7.getText();
-        phone=jTextField12.getHeight();
+        phone=jTextField12.getText();
         motdepasse=jPasswordField1.getText();
         try{
         Statement stmt = conn.createStatement();
@@ -589,7 +589,7 @@ public void addemployer() throws SQLException{
         lastname=jTextField10.getText();
         firstname=jTextField11.getText();
         email=jTextField7.getText();
-        phone=jTextField12.getHeight();
+        phone=jTextField12.getText();
         motdepasse=jPasswordField1.getText();
         job="Menage";
         String sizecompany="micro";
