@@ -11,7 +11,7 @@ package Classe;
  */
 public class Candidat extends Person {
     private boolean selection;
-    public Candidat(int id, String lastname, String firstname, String email, String motdepasse, int phone, boolean selection){
+    public Candidat(int id, String lastname, String firstname, String email, String motdepasse, String phone, boolean selection){
         super(id, lastname, firstname, email, motdepasse, phone);
         this.selection=selection;
     }
@@ -36,7 +36,7 @@ public class Candidat extends Person {
         return motdepasse;
     }
 
-    public int getPhone() {
+    public String getPhone() {
         return phone;
     }
 

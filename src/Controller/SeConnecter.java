@@ -67,7 +67,7 @@ public class SeConnecter implements ActionListener{
             motdepasse=rs.getString(5);
             if(user.equals(email) && pass.equals(motdepasse)){
                 System.out.println("Correct new candidat");
-                Candidat c= new Candidat(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getInt(6), rs.getBoolean(7));
+                Candidat c= new Candidat(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6), rs.getBoolean(7));
                 Job job = new Job(c);
                 job.setVisible(true);
                 job.pack();
@@ -97,7 +97,8 @@ public class SeConnecter implements ActionListener{
             motdepasse=rs.getString(5);
             if(user.equals(email) && pass.equals(motdepasse)){
                 System.out.println("Correct employer");
-                Employer e= new Employer(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getInt(6), rs.getString(7), rs.getString(8), rs.getInt(9));
+                IncrementationCompteur(rs.getInt(1),rs.getInt(9)+1);
+                Employer e= new Employer(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6), rs.getString(7), rs.getString(8), rs.getInt(9)+1);
                 //int id, String lastname, String firstname, String email, String motdepasse, int phone, String job, String sizecompany, int compteur
                 Employeur employeur = new Employeur(e);
                 employeur.setVisible(true);
@@ -128,7 +129,7 @@ public class SeConnecter implements ActionListener{
             motdepasse=rs.getString(5);
             if(user.equals(email) && pass.equals(motdepasse)){
                 System.out.println("Correct recruteur");
-                Recruiter r= new Recruiter(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getInt(6), rs.getString(7));
+                Recruiter r= new Recruiter(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6), rs.getString(7));
                 //int id, String lastname, String firstname, String email, String motdepasse, int phone, String job
                 System.out.println("Correct recruteur");
                 Recruteur recruteur = new Recruteur(r);
@@ -145,6 +146,18 @@ public class SeConnecter implements ActionListener{
         conn.close();
         }catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Mot de passe INCORECT", "Login Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+    public void IncrementationCompteur(int idemp, int compteur) throws SQLException{
+        Connection conn = Connexion1();
+        try{
+        Statement stmt = conn.createStatement();
+        stmt.executeUpdate("UPDATE `Company`.employer SET `compteur`=" + compteur + " WHERE `idemp`=" + idemp + ";");
+        
+        //int rows = stmt.executeUpdate(sqlStatement);
+        conn.close();
+        }catch (SQLException ex) {
+            System.out.println(ex.getMessage());
         }
     }
     

@@ -53,7 +53,7 @@ public class EnleverJob implements ActionListener{
         try{
         Statement stmt = conn.createStatement();
         int i=0;
-        ResultSet rs = stmt.executeQuery("Select * from job;");
+        ResultSet rs = stmt.executeQuery("Select namejob from job;");
         while(rs.next()){
             String namejob=rs.getString(1);
             System.out.println("Coucou " + namejob);

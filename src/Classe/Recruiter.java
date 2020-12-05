@@ -11,7 +11,7 @@ package Classe;
  */
 public class Recruiter extends Person {
     private String job;
-    public Recruiter(int id, String lastname, String firstname, String email, String motdepasse, int phone, String job) {
+    public Recruiter(int id, String lastname, String firstname, String email, String motdepasse, String phone, String job) {
         super(id, lastname, firstname, email, motdepasse, phone);
         this.job=job;
     }
@@ -40,7 +40,7 @@ public class Recruiter extends Person {
         return motdepasse;
     }
 
-    public int getPhone() {
+    public String getPhone() {
         return phone;
     }
     

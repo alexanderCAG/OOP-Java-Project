@@ -39,7 +39,7 @@ public class AjoutJob implements ActionListener {
         Connection conn=Connexion1();
         try{
         Statement stmt = conn.createStatement();
-        stmt.executeUpdate("INSERT INTO `Company`.Job ( namejob ) VALUES ('" + namejob +"');");
+        stmt.executeUpdate("INSERT INTO `Company`.Job ( namejob, discount ) VALUES ('" + namejob +"', '" + 0 + "');");
         
         //int rows = stmt.executeUpdate(sqlStatement);
         conn.close();
@@ -55,7 +55,7 @@ public class AjoutJob implements ActionListener {
         try{
         Statement stmt = conn.createStatement();
         int i=0;
-        ResultSet rs = stmt.executeQuery("Select * from job;");
+        ResultSet rs = stmt.executeQuery("Select namejob from job;");
         while(rs.next()){
             String namejob=rs.getString(1);
             System.out.println("Coucou " + namejob);

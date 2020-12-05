@@ -12,7 +12,7 @@ package Classe;
 public class Employer extends Person{
     private String sizecompany;
     private int compteur;
-    public Employer(int id, String lastname, String firstname, String email, String motdepasse, int phone, String job, String sizecompany, int compteur){
+    public Employer(int id, String lastname, String firstname, String email, String motdepasse, String phone, String job, String sizecompany, int compteur){
         super(id, lastname, firstname, email, motdepasse, phone);
         this.sizecompany=sizecompany;
         this.compteur=compteur;
@@ -46,7 +46,7 @@ public class Employer extends Person{
         return motdepasse;
     }
 
-    public int getPhone() {
+    public String getPhone() {
         return phone;
     }
     

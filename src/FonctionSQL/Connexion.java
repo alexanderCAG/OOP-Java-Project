@@ -57,7 +57,7 @@ public class Connexion {
         ResultSet rs = stmt.executeQuery("Select * from candidat;");
 
         while(rs.next()){
-            Candidat c=new Candidat(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getInt(6), rs.getBoolean(7));
+            Candidat c=new Candidat(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6), rs.getBoolean(7));
             listcandidat.add(c);
         }
         //int rows = stmt.executeUpdate(sqlStatement);
@@ -76,7 +76,7 @@ public class Connexion {
         ResultSet rs = stmt.executeQuery("Select * from employer;");
 
         while(rs.next()){
-            Employer e=new Employer(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getInt(6), rs.getString(7), rs.getString(8), rs.getInt(9));
+            Employer e=new Employer(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7), rs.getString(8), rs.getInt(9));
             listemployer.add(e);
         }
         //int rows = stmt.executeUpdate(sqlStatement);
@@ -95,7 +95,7 @@ public class Connexion {
         ResultSet rs = stmt.executeQuery("Select * from recruiter;");
 
         while(rs.next()){
-            Recruiter r=new Recruiter(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getInt(6), rs.getString(7));
+            Recruiter r=new Recruiter(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7));
             listrecruiter.add(r);
         }
         //int rows = stmt.executeUpdate(sqlStatement);
