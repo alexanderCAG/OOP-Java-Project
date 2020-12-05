@@ -7,6 +7,7 @@ package oop.java.project.GUI;
 
 import Classe.Candidat;
 import Classe.DemandeEmploi;
+import Controller.ListedemandeEmploi;
 import static FonctionSQL.Connexion.Connexion1;
 import java.awt.*;
 import java.awt.event.*;
@@ -64,6 +65,7 @@ public class Job extends javax.swing.JFrame {
         initComponents();
         Affichagejob();
         this.setLocationRelativeTo(null); // center of the screen
+        jButton2.addActionListener(new ListedemandeEmploi(this));
         //jTextField1.setBackground(new Color(0,102,153,120));
     }
 
