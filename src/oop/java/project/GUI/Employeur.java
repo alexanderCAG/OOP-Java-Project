@@ -51,6 +51,15 @@ public class Employeur extends javax.swing.JFrame {
     public Employeur(Employer e) throws SQLException {
         this.e=e;
         initComponents();
+        if(e.getCompteur()==5){
+            jLabel9.setText("Vous etes desormais un nouveau membre.");
+        }
+        if(e.getCompteur()<5){
+            jLabel9.setText("Vous etes un nouvelle employer.");
+        }
+        if(e.getCompteur()>5){
+            jLabel9.setText("Vous etes un membre.");
+        }
         Affichagejob();
         allcandidatjob();
         this.setLocationRelativeTo(null); // center of the screen 
@@ -78,6 +87,7 @@ public class Employeur extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
@@ -127,6 +137,12 @@ public class Employeur extends javax.swing.JFrame {
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/oop/java/project/GUI/Image/cercle2.png"))); // NOI18N
         jPanel2.add(jLabel1);
         jLabel1.setBounds(60, 0, 250, 150);
+
+        jLabel9.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel9.setForeground(new java.awt.Color(255, 255, 0));
+        jLabel9.setText("jLabel9");
+        jPanel2.add(jLabel9);
+        jLabel9.setBounds(330, 20, 440, 16);
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
         jPanel3.setLayout(null);
@@ -463,6 +479,7 @@ public class Employeur extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
