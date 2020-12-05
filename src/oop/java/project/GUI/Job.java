@@ -90,6 +90,7 @@ public class Job extends javax.swing.JFrame {
         jComboBox1 = new javax.swing.JComboBox();
         jComboBox3 = new javax.swing.JComboBox();
         jButton2 = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
         jDateChooser1 = new com.toedter.calendar.JDateChooser();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
@@ -178,6 +179,15 @@ public class Job extends javax.swing.JFrame {
         });
         jPanel3.add(jButton2);
         jButton2.setBounds(70, 500, 231, 77);
+
+        jButton1.setText("jButton1");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jPanel3.add(jButton1);
+        jButton1.setBounds(140, 610, 79, 25);
         jPanel3.add(jDateChooser1);
         jDateChooser1.setBounds(60, 390, 250, 70);
 
@@ -241,6 +251,11 @@ public class Job extends javax.swing.JFrame {
             Logger.getLogger(Job.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        SupprimerLigne();
+    }//GEN-LAST:event_jButton1ActionPerformed
     public int Nombrejob() throws SQLException{
         
         Connection conn=Connexion1();
@@ -341,6 +356,9 @@ public class Job extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Mot de passe INCORECT", "Login Error", JOptionPane.ERROR_MESSAGE);
         }
     }
+    public void SupprimerLigne(){
+        ((DefaultTableModel)jTable2.getModel()).removeRow(4);
+    }
     
     /**
      * @param args the command line arguments
@@ -379,6 +397,7 @@ public class Job extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JComboBox jComboBox1;
     private javax.swing.JComboBox jComboBox3;
