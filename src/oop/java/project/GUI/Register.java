@@ -399,25 +399,25 @@ public class Register extends javax.swing.JFrame {
         }
         else{
         if("Demandeur d'emploie".equals(jComboBox1.getSelectedItem().toString())){
-            try {
-                addjobseeker();
+            /*try {
+                addrecruiter);
             } catch (SQLException ex) {
                 Logger.getLogger(Register.class.getName()).log(Level.SEVERE, null, ex);
-            }
+            }*/
         }
         if("Employeur micro entreprise".equals(jComboBox1.getSelectedItem().toString())){
-            try {
+            /*try {
                 addjobseeker();
             } catch (SQLException ex) {
                 Logger.getLogger(Register.class.getName()).log(Level.SEVERE, null, ex);
-            }
+            }*/
         }
         if("Recruteur".equals(jComboBox1.getSelectedItem().toString())){
-            try {
+            /*try {
                 addjobseeker();
             } catch (SQLException ex) {
                 Logger.getLogger(Register.class.getName()).log(Level.SEVERE, null, ex);
-            }
+            }*/
         }
         Login log = new Login();
         log.setVisible(true);
@@ -549,17 +549,17 @@ public class Register extends javax.swing.JFrame {
         String carac = jTextField11.getText();
         
     }                                       
-public void addjobseeker() throws SQLException{
+public void addrecruiter() throws SQLException{
         Connection conn = Connexion1();
         lastname=jTextField10.getText();
         firstname=jTextField11.getText();
         email=jTextField7.getText();
         phone=jTextField12.getHeight();
         motdepasse=jPasswordField1.getText();
-        job="Menage";
+        job="";
         try{
         Statement stmt = conn.createStatement();
-        stmt.executeUpdate("INSERT INTO `Company`.jobseeker ( lastnamesee, firstnamesee, email, motdepasse, phone, job ) VALUES ('" + lastname + "', '" + firstname + "', '" + email + "', '" + motdepasse + "', " + phone + ", '" + job + "');");
+        stmt.executeUpdate("INSERT INTO `Company`.Recruiter ( lastnamerec, firstnamerec, email, motdepasse, phone, job ) VALUES ('" + lastname + "', '" + firstname + "', '" + email + "', '" + phone + "', '" + motdepasse + "', '" + job +"');");
         
         //int rows = stmt.executeUpdate(sqlStatement);
         conn.close();
@@ -574,10 +574,9 @@ public void addcandidat() throws SQLException{
         email=jTextField7.getText();
         phone=jTextField12.getHeight();
         motdepasse=jPasswordField1.getText();
-        job="Menage";
         try{
         Statement stmt = conn.createStatement();
-        stmt.executeUpdate("INSERT INTO `Company`.candidat ( lastnamenew, firstnamenew, email, motdepasse, phone, job ) VALUES ('" + lastname + "', '" + firstname + "', '" + email + "', '" + motdepasse + "', " + phone + ", '" + job + "');");
+        stmt.executeUpdate("INSERT INTO `Company`.Candidat ( lastnamecan, firstnamecan, email, motdepasse, phone, selection ) VALUES ('" + lastname + "', '" + firstname + "', '" + email + "', '" + phone + "', '" + motdepasse + "', " + true + ";");
         
         //int rows = stmt.executeUpdate(sqlStatement);
         conn.close();
@@ -596,7 +595,7 @@ public void addemployer() throws SQLException{
         String sizecompany="micro";
         try{
         Statement stmt = conn.createStatement();
-        stmt.executeUpdate("INSERT INTO `Company`.employer ( lastnamemem, firstnamemem, email, motdepasse, phone, job, sizecompany ) VALUES ('" + lastname + "', '" + firstname + "', '" + email + "', '" + motdepasse + "', " + phone + ", '" + job + ", '" + sizecompany +"');");
+        stmt.executeUpdate("INSERT INTO `Company`.Employer ( lastnameemp, firstnameemp, email, motdepasse, phone, job, sizecompany, compteur ) VALUES ('" + lastname + "', '" + firstname + "', '" + email + "', '" + phone + "', '" + motdepasse + "', '" + job + "', '" + "micro" + "', 0);");
         
         //int rows = stmt.executeUpdate(sqlStatement);
         conn.close();
