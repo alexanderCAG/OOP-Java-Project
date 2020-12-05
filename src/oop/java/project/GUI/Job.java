@@ -380,9 +380,9 @@ public class Job extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton2;
-    private javax.swing.JComboBox jComboBox1;
-    private javax.swing.JComboBox jComboBox3;
-    private com.toedter.calendar.JDateChooser jDateChooser1;
+    public javax.swing.JComboBox jComboBox1;
+    public javax.swing.JComboBox jComboBox3;
+    public com.toedter.calendar.JDateChooser jDateChooser1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -397,6 +397,6 @@ public class Job extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JTable jTable2;
+    public javax.swing.JTable jTable2;
     // End of variables declaration//GEN-END:variables
 }
