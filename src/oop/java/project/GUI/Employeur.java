@@ -53,12 +53,24 @@ public class Employeur extends javax.swing.JFrame {
         initComponents();
         if(e.getCompteur()==5){
             jLabel9.setText("Vous etes desormais un nouveau membre.");
+            if(e.getSizecompany()=="micro"){
+                jLabel10.setText("1000 euros de discount");
+            }
+            else{
+                jLabel10.setText("2000 euros de discount");
+            }
         }
         if(e.getCompteur()<5){
             jLabel9.setText("Vous etes un nouvelle employer.");
         }
         if(e.getCompteur()>5){
             jLabel9.setText("Vous etes un membre.");
+            if(e.getSizecompany()=="micro"){
+                jLabel10.setText("1000 euros de discount");
+            }
+            else{
+                jLabel10.setText("2000 euros de discount");
+            }
         }
         Affichagejob();
         allcandidatjob();
