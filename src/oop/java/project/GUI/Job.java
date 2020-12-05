@@ -263,7 +263,7 @@ public class Job extends javax.swing.JFrame {
             try{
                 
                 Statement stmt = conn.createStatement();
-                stmt.executeUpdate("Delete from demandeemploi where id=" + c.getId() + ", metier='" + Metier+ "',statut='" + statut + "',datedebut='"+Date+ "';");
+                stmt.executeUpdate("Delete from demandeemploi where id=" + c.getId() + ",Metier='" + Metier + "',Statut='" + statut + "',DateDebut='" + Date + "';");
                 
                 //int rows = stmt.executeUpdate(sqlStatement);
                 conn.close();
