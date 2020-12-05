@@ -248,25 +248,66 @@ public class Job extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel5MouseClicked
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-        //SupprimerLigne();
-        
-        DefaultTableModel table = (DefaultTableModel) jTable2.getModel();
-        
-        if(jTable2.getSelectedRow() == 1)
-        {
-            table.removeRow(jTable2.getSelectedRow());
-        }else
-        {
-            if(jTable2.getRowCount() == 0)
-            {
-                JOptionPane.showMessageDialog(this, "La Table est vide");
+        try{                                         
+            // TODO add your handling code here:
+            //SupprimerLigne();
+            
+            //DefaultTableModel table = (DefaultTableModel) jTable2.getModel();
+            int ligne = jTable2.getSelectedRow();
+            String id = jTable2.getModel().getValueAt(ligne, 0).toString();
+            
+            Connection conn=Connexion1();
+            try{
+                
+                Statement stmt = conn.createStatement();
+                stmt.executeUpdate("Delete from demandeemploi where id=" + id + ";");
+                
+                //int rows = stmt.executeUpdate(sqlStatement);
+                conn.close();
+            }catch (SQLException ex) {
+                System.out.println(ex.getMessage());
             }
-            else
-            {
-                JOptionPane.showMessageDialog(this, "Selectionne une ligne à supprimer");
-            }
+            
+            
+            
+//        if(jTable2.getSelectedRow() == 1)
+//        {
+//            table.removeRow(jTable2.getSelectedRow());
+//        }else
+//        {
+//            if(jTable2.getRowCount() == 0)
+//            {
+//                JOptionPane.showMessageDialog(this, "La Table est vide");
+//            }
+//            else
+//            {
+//                JOptionPane.showMessageDialog(this, "Selectionne une ligne à supprimer");
+//            }
+//        }
+            
+        }catch (SQLException ex) {
+            Logger.getLogger(Job.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
+       
+        
+        
+       
+        
+//        if(jTable2.getSelectedRow() == 1)
+//        {
+//            table.removeRow(jTable2.getSelectedRow());
+//        }else
+//        {
+//            if(jTable2.getRowCount() == 0)
+//            {
+//                JOptionPane.showMessageDialog(this, "La Table est vide");
+//            }
+//            else
+//            {
+//                JOptionPane.showMessageDialog(this, "Selectionne une ligne à supprimer");
+//            }
+//        }
         
     }//GEN-LAST:event_jButton1ActionPerformed
     
