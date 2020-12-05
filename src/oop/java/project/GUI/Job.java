@@ -94,7 +94,7 @@ public class Job extends javax.swing.JFrame {
         jComboBox3 = new javax.swing.JComboBox();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        jTextField1 = new javax.swing.JTextField();
+        jLabel9 = new javax.swing.JLabel();
         jDateChooser1 = new com.toedter.calendar.JDateChooser();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
@@ -170,14 +170,14 @@ public class Job extends javax.swing.JFrame {
         jPanel3.add(jComboBox3);
         jComboBox3.setBounds(60, 300, 247, 70);
 
-        jButton1.setText("jButton1");
+        jButton1.setText("Supprimer");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
         jPanel3.add(jButton1);
-        jButton1.setBounds(100, 600, 79, 25);
+        jButton1.setBounds(250, 600, 100, 25);
 
         jButton2.setText("VALIDER");
         jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -188,9 +188,10 @@ public class Job extends javax.swing.JFrame {
         jPanel3.add(jButton2);
         jButton2.setBounds(70, 500, 231, 77);
 
-        jTextField1.setText("jTextField1");
-        jPanel3.add(jTextField1);
-        jTextField1.setBounds(200, 600, 70, 30);
+        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel9.setText("Sélectionnez une ligne pour supprimer");
+        jPanel3.add(jLabel9);
+        jLabel9.setBounds(20, 600, 220, 20);
         jPanel3.add(jDateChooser1);
         jDateChooser1.setBounds(60, 390, 250, 70);
 
@@ -393,6 +394,7 @@ public class Job extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
@@ -400,6 +402,5 @@ public class Job extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator1;
     public javax.swing.JTable jTable2;
-    private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 }
