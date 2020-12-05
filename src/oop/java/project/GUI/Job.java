@@ -92,7 +92,9 @@ public class Job extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox();
         jComboBox3 = new javax.swing.JComboBox();
+        jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        jTextField1 = new javax.swing.JTextField();
         jDateChooser1 = new com.toedter.calendar.JDateChooser();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
@@ -168,6 +170,15 @@ public class Job extends javax.swing.JFrame {
         jPanel3.add(jComboBox3);
         jComboBox3.setBounds(60, 300, 247, 70);
 
+        jButton1.setText("jButton1");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jPanel3.add(jButton1);
+        jButton1.setBounds(100, 600, 79, 25);
+
         jButton2.setText("VALIDER");
         jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -176,6 +187,10 @@ public class Job extends javax.swing.JFrame {
         });
         jPanel3.add(jButton2);
         jButton2.setBounds(70, 500, 231, 77);
+
+        jTextField1.setText("jTextField1");
+        jPanel3.add(jTextField1);
+        jTextField1.setBounds(200, 600, 70, 30);
         jPanel3.add(jDateChooser1);
         jDateChooser1.setBounds(60, 390, 250, 70);
 
@@ -231,6 +246,11 @@ public class Job extends javax.swing.JFrame {
         this.dispose();
         
     }//GEN-LAST:event_jLabel5MouseClicked
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        SupprimerLigne();
+    }//GEN-LAST:event_jButton1ActionPerformed
     public int Nombrejob() throws SQLException{
         
         Connection conn=Connexion1();
@@ -299,6 +319,10 @@ public class Job extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Mot de passe INCORECT", "Login Error", JOptionPane.ERROR_MESSAGE);
         }
     }
+    public void SupprimerLigne(){
+        int numLigne = jTextField1.getHeight();
+        ((DefaultTableModel)jTable2.getModel()).removeRow(numLigne);
+    }
     
     /**
      * @param args the command line arguments
@@ -337,6 +361,7 @@ public class Job extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     public javax.swing.JComboBox jComboBox1;
     public javax.swing.JComboBox jComboBox3;
@@ -356,5 +381,6 @@ public class Job extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator1;
     public javax.swing.JTable jTable2;
+    private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 }
