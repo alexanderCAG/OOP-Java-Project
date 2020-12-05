@@ -34,8 +34,9 @@ public class SeConnecter implements ActionListener{
     private Login l;
     public void actionPerformed(ActionEvent ae) {
         l.jButton2.setText("Bonjour");
-        System.out.println(l.UserName.getText() + l.jPasswordField1.getText());
-        /*try {
+        this.user=this.l.UserName.getText();
+        this.pass=this.l.jPasswordField1.getText();
+        try {
                 Verificationcandidat();
             } catch (SQLException ex) {
                 Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
@@ -49,14 +50,10 @@ public class SeConnecter implements ActionListener{
                 Verificationrecruiter();
             } catch (SQLException ex) {
                 Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
-            }*/
+            }
     }
     public SeConnecter(Login l) {
         this.l=l;
-        System.out.println("Bonjour1" + l.UserName.getText());
-        this.user = l.UserName.getText();
-        this.pass = l.jPasswordField1.getText();
-        
     }
     public void Verificationcandidat() throws SQLException{
         Connection conn = Connexion1();
@@ -102,9 +99,9 @@ public class SeConnecter implements ActionListener{
             motdepasse=rs.getString(5);
             if(user.equals(email) && pass.equals(motdepasse)){
                 System.out.println("Correct employer");
-                Employer e= new Employer(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getInt(6), rs.getString(7), rs.getString(8), rs.getInt(9));
+                Employer e1= new Employer(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getInt(6), rs.getString(7), rs.getString(8), rs.getInt(9));
                 //int id, String lastname, String firstname, String email, String motdepasse, int phone, String job, String sizecompany, int compteur
-                Employeur employeur = new Employeur(e);
+                Employeur employeur = new Employeur(e1);
                 employeur.setVisible(true);
                 employeur.pack();
                 employeur.setLocationRelativeTo(null);

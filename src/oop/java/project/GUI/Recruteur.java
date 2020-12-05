@@ -7,6 +7,9 @@ package oop.java.project.GUI;
 
 import Classe.AJob;
 import Classe.Recruiter;
+import Controller.AffichageCamembert;
+import Controller.AjoutJob;
+import Controller.EnleverJob;
 import static FonctionSQL.Connexion.Connexion1;
 import java.awt.*;
 import java.awt.event.*;
@@ -58,7 +61,6 @@ public class Recruteur extends javax.swing.JFrame {
     public Recruteur(Recruiter r) throws SQLException{
         this.r=r;
         initComponents();
-        
         Affichagejob();
         
         this.setLocationRelativeTo(null); // center of the screen
@@ -66,8 +68,9 @@ public class Recruteur extends javax.swing.JFrame {
         jTextField1.setBackground(new Color(0,102,51,120));
         jComboBox1.setBackground(new Color(0,102,70,120));
         jPanel4.setBackground(new Color(0,102,51,0));
-        jButton1.addActionListener(new AjoutJob(this.jTextField1.getText());
-     
+        jButton1.addActionListener(new AjoutJob(this));
+        jButton2.addActionListener(new EnleverJob(this));
+        jButton3.addActionListener(new AffichageCamembert(this));
         jTextField1.addKeyListener(new KeyAdapter(){
             @Override
             public void keyReleased(KeyEvent hidden)
@@ -204,21 +207,11 @@ public class Recruteur extends javax.swing.JFrame {
 
         jButton2.setBackground(new java.awt.Color(0, 102, 51));
         jButton2.setText("SUPPRIMER");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
         jPanel2.add(jButton2);
         jButton2.setBounds(150, 530, 190, 60);
 
         jButton3.setBackground(new java.awt.Color(0, 102, 51));
         jButton3.setText("ANALYSER");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
-            }
-        });
         jPanel2.add(jButton3);
         jButton3.setBounds(710, 250, 190, 60);
 
@@ -255,56 +248,6 @@ public class Recruteur extends javax.swing.JFrame {
         log.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.dispose();
     }//GEN-LAST:event_jLabel5MouseClicked
-
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
-        
-        DefaultPieDataset graphe = new DefaultPieDataset();
-        try {
-            Cammenbert();
-        } catch (SQLException ex) {
-            Logger.getLogger(Recruteur.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        System.out.println("Tu y est arrive.");
-        for(int i=0; i<listJob.length;i++){
-            graphe.setValue(listJob[i], new Integer(nombrepersonnejob[i]));
-        }
-        //graphe.setValue("One", new Integer(10));
-        //graphe.setValue("Two", new Integer(20));
-        //graphe.setValue("Three", new Integer(30));
-        //graphe.setValue("Four", new Integer(10));
-        
-        JFreeChart chart = ChartFactory.createPieChart("Nombre d'employé par Metier", graphe, true, true, true);
-        PiePlot plot = (PiePlot)chart.getPlot();
-        
-//        DefaultCategoryDataset graphe = new DefaultCategoryDataset();
-//        graphe.setValue(80, "Marks", "Student1");
-//        graphe.setValue(80, "Marks", "Student2");
-//        graphe.setValue(80, "Marks", "Student3");
-//        graphe.setValue(80, "Marks", "Student4");
-//      
-//        JFreeChart chart = ChartFactory.createBarChart("Student score", "Student name", "Marks", graphe, PlotOrientation.VERTICAL, false, true, false);
-//        CategoryPlot plot = chart.getCategoryPlot();
-//        plot.setRangeGridlinePaint(Color.ORANGE);
-        
-//        ChartFrame frame = new ChartFrame("Bar Chart for student", chart);
-//        frame.setVisible(true);
-//        frame.setSize(450,350);
-        
-        ChartPanel barPanel = new ChartPanel(chart);
-        jPanel4.removeAll();
-        jPanel4.add(barPanel, BorderLayout.CENTER);
-        jPanel4.validate();
-        
-    }//GEN-LAST:event_jButton3ActionPerformed
-
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        try {
-            Supprimerjob();       // TODO add your handling code here:
-        } catch (SQLException ex) {
-            Logger.getLogger(Recruteur.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }//GEN-LAST:event_jButton2ActionPerformed
     /*public int Nombredejob(){
         Connection conn=Connexion1();
         try{
@@ -326,26 +269,49 @@ public class Recruteur extends javax.swing.JFrame {
     }*/
     
     
-    public void Cammenbert() throws SQLException{
-        
-        int[] nombrepersonnejob=new int[listJob.length];
-        for(int i=0; i<listJob.length; i++){
-            Connection conn=Connexion1();
+    
+    public void Affichagejob() throws SQLException{
+        int nombrejob=Nombrejob();
+        String[] listJob=new String[nombrejob];
+        Connection conn=Connexion1();
         try{
-            Statement stmt = conn.createStatement();
-            ResultSet rs = stmt.executeQuery("Select count(lastnameemp) from employer where job='" + listJob[i] + "';");
-            while(rs.next()){
-            nombrepersonnejob[i]=rs.getInt(1);
-            System.out.println("Hola " + nombrepersonnejob[i]);
+        Statement stmt = conn.createStatement();
+        int i=0;
+        ResultSet rs = stmt.executeQuery("Select * from job;");
+        while(rs.next()){
+            String namejob=rs.getString(1);
+            System.out.println("Coucou " + namejob);
+            listJob[i]=namejob;
+            System.out.println(listJob[i]);
+            i+=1;
+        }
+        String sqlStatement = "";
+        listJob=listJob;
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(listJob));
+
+        //int rows = stmt.executeUpdate(sqlStatement);
+        conn.close();
+        }catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Mot de passe INCORECT", "Login Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+    public int Nombrejob() throws SQLException{
+        
+        Connection conn=Connexion1();
+        int nombrejob = 0;
+        try{
+        Statement stmt = conn.createStatement();
+        ResultSet rs = stmt.executeQuery("Select count(namejob) from job;");
+        while(rs.next()){
+            nombrejob=rs.getInt(1);
+            System.out.println("Hello " + nombrejob);
         }
         //int rows = stmt.executeUpdate(sqlStatement);
         conn.close();
         }catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Le camembert ne marche pas", "Login Error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Mot de passe INCORECT", "Login Error", JOptionPane.ERROR_MESSAGE);
         }
-        }
-        this.nombrepersonnejob=nombrepersonnejob;
-        
+        return nombrejob;
     }
     
     
@@ -385,8 +351,8 @@ public class Recruteur extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    public javax.swing.JButton jButton1;
+    public javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     public javax.swing.JComboBox jComboBox1;
     private javax.swing.JLabel jLabel1;
@@ -401,8 +367,8 @@ public class Recruteur extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
+    public javax.swing.JPanel jPanel4;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JTextField jTextField1;
+    public javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 }

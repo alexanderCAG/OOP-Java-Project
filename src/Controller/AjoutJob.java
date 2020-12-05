@@ -22,20 +22,20 @@ import oop.java.project.GUI.Recruteur;
  * @author Geoffroy
  */
 public class AjoutJob implements ActionListener {
-    private String namejob;
     private Recruteur r;
-    public AjoutJob(String namejob){
-        this.namejob=namejob;
+    private String namejob;
+    public AjoutJob(Recruteur r){
         this.r=r;
     }
     public void actionPerformed(ActionEvent ae){
+        this.namejob=this.r.jTextField1.getText();
         try {
-            Ajouterjob(r);
+            Ajouterjob();
         } catch (SQLException ex) {
             Logger.getLogger(AjoutJob.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    public void Ajouterjob(Recruteur r) throws SQLException{
+    public void Ajouterjob() throws SQLException{
         Connection conn=Connexion1();
         try{
         Statement stmt = conn.createStatement();
@@ -46,9 +46,9 @@ public class AjoutJob implements ActionListener {
         }catch (SQLException ex) {
             System.out.println(ex.getMessage());
         }
-        Affichagejob(r);
+        Affichagejob();
     }
-    public void Affichagejob(Recruteur r) throws SQLException{
+    public void Affichagejob() throws SQLException{
         int nombrejob=Nombrejob();
         String[] listJob=new String[nombrejob];
         Connection conn=Connexion1();

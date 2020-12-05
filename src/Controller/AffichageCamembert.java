@@ -6,6 +6,7 @@
 package Controller;
 
 import static FonctionSQL.Connexion.Connexion1;
+import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.Connection;
@@ -15,36 +16,73 @@ import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 import oop.java.project.GUI.Recruteur;
+import org.jfree.chart.ChartFactory;
+import org.jfree.chart.ChartPanel;
+import org.jfree.chart.JFreeChart;
+import org.jfree.chart.plot.PiePlot;
+import org.jfree.data.general.DefaultPieDataset;
 
 /**
  *
  * @author Geoffroy
  */
-public class EnleverJob implements ActionListener{
+public class AffichageCamembert implements ActionListener{
     private Recruteur r;
-    public EnleverJob(Recruteur r) {
-        this.r = r;
+    private String[] listJob;
+    private int[] nombrepersonnejob;
+    private JPanel jPanel4;
+    public AffichageCamembert(Recruteur r){
+        this.r=r;
     }
     public void actionPerformed(ActionEvent ae){
         try {
-            Supprimerjob();
+            Affichagejob();
         } catch (SQLException ex) {
-            Logger.getLogger(EnleverJob.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(AffichageCamembert.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        try {
+            Graphique();
+        } catch (SQLException ex) {
+            Logger.getLogger(AffichageCamembert.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    public void Supprimerjob() throws SQLException{
-        Connection conn=Connexion1();
-        try{
-        Statement stmt = conn.createStatement();
-        stmt.executeUpdate("Delete from job where namejob='" + r.jTextField1.getText() + "';");
+    public void Graphique() throws SQLException{
+        DefaultPieDataset graphe = new DefaultPieDataset();
+        Cammenbert();
+        System.out.println("Tu y est arrive.");
+        for(int i=0; i<listJob.length;i++){
+            graphe.setValue(listJob[i], new Integer(nombrepersonnejob[i]));
+        }
         
+        JFreeChart chart = ChartFactory.createPieChart("Nombre d'employé par Metier", graphe, true, true, true);
+        PiePlot plot = (PiePlot)chart.getPlot();
+        ChartPanel barPanel = new ChartPanel(chart);
+        r.jPanel4.removeAll();
+        r.jPanel4.add(barPanel, BorderLayout.CENTER);
+        r.jPanel4.validate();
+    }
+    public void Cammenbert() throws SQLException{
+        
+        int[] nombrepersonnejob=new int[listJob.length];
+        for(int i=0; i<listJob.length; i++){
+            Connection conn=Connexion1();
+        try{
+            Statement stmt = conn.createStatement();
+            ResultSet rs = stmt.executeQuery("Select count(lastnameemp) from employer where job='" + listJob[i] + "';");
+            while(rs.next()){
+            nombrepersonnejob[i]=rs.getInt(1);
+            System.out.println("Hola " + nombrepersonnejob[i]);
+        }
         //int rows = stmt.executeUpdate(sqlStatement);
         conn.close();
         }catch (SQLException ex) {
-            System.out.println(ex.getMessage());
+            JOptionPane.showMessageDialog(null, "Le camembert ne marche pas", "Login Error", JOptionPane.ERROR_MESSAGE);
         }
-        Affichagejob();
+        }
+        this.nombrepersonnejob=nombrepersonnejob;
+        
     }
     public void Affichagejob() throws SQLException{
         int nombrejob=Nombrejob();
@@ -63,6 +101,7 @@ public class EnleverJob implements ActionListener{
         }
         String sqlStatement = "";
         r.listJob=listJob;
+        this.listJob=listJob;
         r.jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(listJob));
 
         //int rows = stmt.executeUpdate(sqlStatement);

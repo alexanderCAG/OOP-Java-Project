@@ -327,11 +327,7 @@ public class Employeur extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        try {
-            candidatjob();        // TODO add your handling code here:
-        } catch (SQLException ex) {
-            Logger.getLogger(Employeur.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        
     }//GEN-LAST:event_jButton4ActionPerformed
     
     
@@ -401,31 +397,7 @@ public class Employeur extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Mot de passe INCORECT", "Login Error", JOptionPane.ERROR_MESSAGE);
         }
     }*/
-    public void candidatjob() throws SQLException{
-        Connection conn=Connexion1();
-        
-        try{
-        Statement stmt = conn.createStatement();
-        ResultSet rs = stmt.executeQuery("select lastnamecan, firstnamecan, datedebut from demandeemploi natural join candidat where metier='" + jComboBox2.getSelectedItem().toString() + "';");
-        DefaultTableModel tab = (DefaultTableModel) jTable1.getModel();
-        tab.getDataVector().removeAllElements();
-        
-        while(rs.next())
-        {
-            String user= rs.getString(1);
-            String pass= rs.getString(2);
-            String date= rs.getString(3);
-            
-            String data[] = {user,pass,date};
-            
-            tab.addRow(data);
-        }
-        
-        conn.close();
-        }catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Mot de passe INCORECT", "Login Error", JOptionPane.ERROR_MESSAGE);
-        }
-    }
+    
     public void allcandidatjob() throws SQLException{
         Connection conn=Connexion1();
         
@@ -489,7 +461,7 @@ public class Employeur extends javax.swing.JFrame {
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JComboBox jComboBox1;
-    private javax.swing.JComboBox jComboBox2;
+    public javax.swing.JComboBox jComboBox2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -505,7 +477,7 @@ public class Employeur extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JTable jTable1;
+    public javax.swing.JTable jTable1;
     private javax.swing.JTextArea jTextArea2;
     // End of variables declaration//GEN-END:variables
 
