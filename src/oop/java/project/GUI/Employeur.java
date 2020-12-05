@@ -177,7 +177,7 @@ public class Employeur extends javax.swing.JFrame {
 
         jLabel10.setForeground(new java.awt.Color(255, 255, 0));
         jPanel2.add(jLabel10);
-        jLabel10.setBounds(560, 120, 0, 0);
+        jLabel10.setBounds(490, 100, 170, 50);
 
         jPanel1.add(jPanel2);
         jPanel2.setBounds(0, 0, 1100, 180);
