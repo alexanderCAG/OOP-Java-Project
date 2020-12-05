@@ -258,11 +258,12 @@ public class Job extends javax.swing.JFrame {
             String Metier = jTable2.getModel().getValueAt(ligne, 0).toString();
             String statut = jTable2.getModel().getValueAt(ligne, 1).toString();
             String Date = jTable2.getModel().getValueAt(ligne, 2).toString();
+            ((DefaultTableModel)jTable2.getModel()).removeRow(ligne);
             Connection conn=Connexion1();
             try{
                 
                 Statement stmt = conn.createStatement();
-                stmt.executeUpdate("Delete from demandeemploi where id=" + c.getId() + ", Metier="+Metier+",Statut="+statut+",DateDebut="+Date+ ";");
+                stmt.executeUpdate("Delete from demandeemploi where id=" + c.getId() + ", metier='" + Metier+ "',statut='" + statut + "',datedebut='"+Date+ "';");
                 
                 //int rows = stmt.executeUpdate(sqlStatement);
                 conn.close();
