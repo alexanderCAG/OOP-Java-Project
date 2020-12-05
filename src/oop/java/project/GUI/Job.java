@@ -255,13 +255,14 @@ public class Job extends javax.swing.JFrame {
             
             //DefaultTableModel table = (DefaultTableModel) jTable2.getModel();
             int ligne = jTable2.getSelectedRow();
-            String id = jTable2.getModel().getValueAt(ligne, 0).toString();
-            
+            String Metier = jTable2.getModel().getValueAt(ligne, 0).toString();
+            String statut = jTable2.getModel().getValueAt(ligne, 1).toString();
+            String Date = jTable2.getModel().getValueAt(ligne, 2).toString();
             Connection conn=Connexion1();
             try{
                 
                 Statement stmt = conn.createStatement();
-                stmt.executeUpdate("Delete from demandeemploi where id=" + id + ";");
+                stmt.executeUpdate("Delete from demandeemploi where id=" + c.getId() + ", Metier="+Metier+",Statut="+statut+",DateDebut="+Date+ ";");
                 
                 //int rows = stmt.executeUpdate(sqlStatement);
                 conn.close();
@@ -379,10 +380,6 @@ public class Job extends javax.swing.JFrame {
         }catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Mot de passe INCORECT", "Login Error", JOptionPane.ERROR_MESSAGE);
         }
-    }
-    public void SupprimerLigne(){
-        int numLigne = jTextField1.getHeight();
-        ((DefaultTableModel)jTable2.getModel()).removeRow(numLigne);
     }
     
     /**
