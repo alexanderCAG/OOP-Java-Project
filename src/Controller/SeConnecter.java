@@ -33,9 +33,8 @@ public class SeConnecter implements ActionListener{
     private String pass;
     private Login l;
     public void actionPerformed(ActionEvent ae) {
-        l=new Login();
         l.jButton2.setText("Bonjour");
-        System.out.println(l.UserName.getText() + l.jPasswordField1);
+        System.out.println(l.UserName.getText() + l.jPasswordField1.getText());
         /*try {
                 Verificationcandidat();
             } catch (SQLException ex) {
@@ -54,7 +53,7 @@ public class SeConnecter implements ActionListener{
     }
     public SeConnecter(Login l) {
         this.l=l;
-        System.out.println("Bonjour" + l.UserName.getText());
+        System.out.println("Bonjour1" + l.UserName.getText());
         this.user = l.UserName.getText();
         this.pass = l.jPasswordField1.getText();
         
