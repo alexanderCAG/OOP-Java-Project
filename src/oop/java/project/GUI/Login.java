@@ -5,22 +5,12 @@
  */
 package oop.java.project.GUI;
 
-import Classe.Candidat;
-import Classe.Employer;
-import Classe.Recruiter;
 import Controller.SeConnecter;
-import static FonctionSQL.Connexion.Connexion1;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStream;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.*;
 import sun.audio.AudioPlayer;
 import sun.audio.AudioStream;
@@ -40,7 +30,8 @@ public class Login extends javax.swing.JFrame {
         this.setLocationRelativeTo(null); // center of the screen
         clock();
         playMusic("Music\\\\mwb95free_wake.wav");
-        jButton2.addActionListener(new SeConnecter(this));
+        this.setVisible(true);
+        //jButton2.addActionListener(new SeConnecter(this));
     }
 
     /**
