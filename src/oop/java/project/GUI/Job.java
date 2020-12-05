@@ -64,8 +64,9 @@ public class Job extends javax.swing.JFrame {
         ArrayList listdemande =new ArrayList();
         initComponents();
         Affichagejob();
+        LireBasededonneeDemandeEmploi();
         this.setLocationRelativeTo(null); // center of the screen
-        jButton2.addActionListener(new ListedemandeEmploi(this));
+        jButton2.addActionListener(new ListedemandeEmploi(this, c));
         //jTextField1.setBackground(new Color(0,102,153,120));
     }
 
@@ -273,35 +274,17 @@ public class Job extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Mot de passe INCORECT", "Login Error", JOptionPane.ERROR_MESSAGE);
         }
     }
-    
-    public void BasededonneeDemandeEmploi() throws SQLException{
-
-        String Metier = jComboBox1.getSelectedItem().toString();
-        String Statut = jComboBox3.getSelectedItem().toString();
-        String Date = jDateChooser1.getDateFormatString();
-        Connection conn = Connexion1();
-        try{
-        Statement stmt = conn.createStatement();
-        stmt.executeUpdate("INSERT INTO `Company`.DemandeEmploi ( idcandidat, metier, statut, date ) VALUES ('" + c.getId() + "', '" + Metier + "', '" + Statut + "', '" + Date +"');");
-        
-        //int rows = stmt.executeUpdate(sqlStatement);
-        conn.close();
-        }catch (SQLException ex) {
-            System.out.println(ex.getMessage());
-        }
-
-    }
     public void LireBasededonneeDemandeEmploi() throws SQLException{
         Connection conn=Connexion1();
         DefaultTableModel tab = (DefaultTableModel) jTable2.getModel();
         try{
         Statement stmt = conn.createStatement();
         int i=0;
-        ResultSet rs = stmt.executeQuery("Select * from DemandeurEmploi where id='" + c.getId() + "';");
+        ResultSet rs = stmt.executeQuery("Select * from DemandeEmploi where id='" + c.getId() + "';");
         while(rs.next()){
-            String Metier=rs.getString(2);
-            String Statut=rs.getString(3);
-            String Date=rs.getString(4);
+            String Metier=rs.getString(3);
+            String Statut=rs.getString(4);
+            String Date=rs.getString(5);
             if(Metier!=null && Statut!=null && Date!=null){
                 String data[] = {Metier,Statut,Date};
                 //DefaultTableModel tab = (DefaultTableModel) jTable2.getModel();
