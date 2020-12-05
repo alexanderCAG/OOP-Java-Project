@@ -164,11 +164,11 @@ public class Job extends javax.swing.JFrame {
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Secrétaire", "Informaticien", "Medecin" }));
         jPanel3.add(jComboBox1);
-        jComboBox1.setBounds(60, 210, 247, 70);
+        jComboBox1.setBounds(60, 210, 180, 60);
 
         jComboBox3.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Etudiant", "BAC +3", "BAC +5" }));
         jPanel3.add(jComboBox3);
-        jComboBox3.setBounds(60, 300, 247, 70);
+        jComboBox3.setBounds(290, 210, 190, 60);
 
         jButton1.setText("Supprimer");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -177,7 +177,7 @@ public class Job extends javax.swing.JFrame {
             }
         });
         jPanel3.add(jButton1);
-        jButton1.setBounds(250, 600, 100, 25);
+        jButton1.setBounds(840, 460, 170, 50);
 
         jButton2.setText("VALIDER");
         jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -186,14 +186,14 @@ public class Job extends javax.swing.JFrame {
             }
         });
         jPanel3.add(jButton2);
-        jButton2.setBounds(70, 500, 231, 77);
+        jButton2.setBounds(290, 310, 190, 50);
 
-        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel9.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel9.setText("Sélectionnez une ligne pour supprimer");
         jPanel3.add(jLabel9);
-        jLabel9.setBounds(20, 600, 220, 20);
+        jLabel9.setBounds(800, 410, 240, 30);
         jPanel3.add(jDateChooser1);
-        jDateChooser1.setBounds(60, 390, 250, 70);
+        jDateChooser1.setBounds(520, 210, 210, 60);
 
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -205,7 +205,7 @@ public class Job extends javax.swing.JFrame {
         jScrollPane2.setViewportView(jTable2);
 
         jPanel3.add(jScrollPane2);
-        jScrollPane2.setBounds(370, 170, 690, 450);
+        jScrollPane2.setBounds(60, 380, 670, 250);
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/oop/java/project/GUI/Image/job.jpg"))); // NOI18N
         jPanel3.add(jLabel7);
