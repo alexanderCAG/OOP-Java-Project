@@ -280,16 +280,14 @@ public class Job extends javax.swing.JFrame {
         try{
         Statement stmt = conn.createStatement();
         int i=0;
-        ResultSet rs = stmt.executeQuery("Select * from DemandeEmploi where id='" + c.getId() + "';");
+        ResultSet rs = stmt.executeQuery("Select * from DemandeEmploi where idcan='" + c.getId() + "';");
         while(rs.next()){
             String Metier=rs.getString(3);
             String Statut=rs.getString(4);
             String Date=rs.getString(5);
-            if(Metier!=null && Statut!=null && Date!=null){
-                String data[] = {Metier,Statut,Date};
-                //DefaultTableModel tab = (DefaultTableModel) jTable2.getModel();
-                tab.addRow(data);
-            }
+            String data[] = {Metier,Statut,Date};
+            //DefaultTableModel tab = (DefaultTableModel) jTable2.getModel();
+            tab.addRow(data);
         }
         String sqlStatement = "";
         this.listJob=listJob;
