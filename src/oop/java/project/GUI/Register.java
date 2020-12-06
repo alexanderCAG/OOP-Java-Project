@@ -463,11 +463,12 @@ public class Register extends javax.swing.JFrame {
         }*/
         //&&  firstname!="" && jPasswordField1.getText()==jPasswordField2.getText() && && lastname!="" && email!="" && phone!="" && motdepasse!="" && email.contains("@") && num==true && first==true && last==true && taillemdp!="Insuffisant"
         //
-        if(motdepasse == null ? pass2 == null : motdepasse.equals(pass2) && taillemdp!="Insuffisant" && pass2!=""  && num==true && first==true && last==true && !"Insuffisant".equals(taillemdp) && firstname!="" &&lastname!="" && email!="" && phone!="" && motdepasse!=""){
+        if(motdepasse == null ? pass2 == null : motdepasse.equals(pass2) && taillemdp!="Insuffisant" && pass2!="" && email.contains("@") && num==true && first==true && last==true && !"Insuffisant".equals(taillemdp) && firstname!="" &&lastname!="" && email!="" && phone!="" && motdepasse!=""){
 
         if("Demandeur d'emploie".equals(jComboBox1.getSelectedItem().toString())){
             try {
                 addcandidat();
+                JOptionPane.showMessageDialog(null, "Compte crée");
             } catch (SQLException ex) {
                 Logger.getLogger(Register.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -475,6 +476,7 @@ public class Register extends javax.swing.JFrame {
         else if("Employeur".equals(jComboBox1.getSelectedItem().toString())){
             try {
                 addemployer();
+                JOptionPane.showMessageDialog(null, "Compte crée");
             } catch (SQLException ex) {
                 Logger.getLogger(Register.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -482,6 +484,7 @@ public class Register extends javax.swing.JFrame {
         else if("Recruteur".equals(jComboBox1.getSelectedItem().toString())){
             try {
                 addrecruiter();
+                JOptionPane.showMessageDialog(null, "Compte crée");
             } catch (SQLException ex) {
                 Logger.getLogger(Register.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -492,6 +495,8 @@ public class Register extends javax.swing.JFrame {
         log.setLocationRelativeTo(null);
         log.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.dispose();
+        }else{
+            JOptionPane.showMessageDialog(null, "Erreur");
         }
         
         
@@ -560,44 +565,42 @@ public class Register extends javax.swing.JFrame {
         Pattern p3 = Pattern.compile(check3);
         Matcher m3 = p3.matcher(mdp);
         
-        if((evt.getKeyCode() == KeyEvent.VK_ENTER))
+        jProgressBar1.setVisible(true);
+        for(char car : mdp.toCharArray())
         {
-            jProgressBar1.setVisible(true);
-            for(char car : mdp.toCharArray())
-            {
 
-                if(m1.matches())
-                {
-                    jProgressBar1.setValue(100);
-                    taillemdp = "Fort";
-                    jTextField1.setText(taillemdp);
-                    
-                }
-                else if(m2.matches())
-                {
-                    jProgressBar1.setValue(50);
-                    taillemdp = "Moyen";
-                    jTextField1.setText(taillemdp);
-                    
-                }
-                else if(m3.matches())
-                {
-                    jProgressBar1.setValue(25);
-                    taillemdp = "Faible";
-                    jTextField1.setText(taillemdp);
-                    
-                }
-                else
-                {
-                    jProgressBar1.setValue(15);
-                    taillemdp = "Insuffisant";
-                    jTextField1.setText(taillemdp);
-                    
-                }
+            if(m1.matches())
+            {
+                jProgressBar1.setValue(100);
+                taillemdp = "Fort";
+                jTextField1.setText(taillemdp);
+
             }
-            
-            jLabel8.setText(mdp);
+            else if(m2.matches())
+            {
+                jProgressBar1.setValue(50);
+                taillemdp = "Moyen";
+                jTextField1.setText(taillemdp);
+
+            }
+            else if(m3.matches())
+            {
+                jProgressBar1.setValue(25);
+                taillemdp = "Faible";
+                jTextField1.setText(taillemdp);
+
+            }
+            else
+            {
+                jProgressBar1.setValue(15);
+                taillemdp = "Insuffisant";
+                jTextField1.setText(taillemdp);
+
+            }
         }
+
+        jLabel8.setText(mdp);
+        
         
     }//GEN-LAST:event_jPasswordField1KeyReleased
 
@@ -673,7 +676,7 @@ public void addcandidat() throws SQLException{
         Connection conn = Connexion1();
         try{
         Statement stmt = conn.createStatement();
-        stmt.executeUpdate("INSERT INTO `Company`.Candidat ( lastnamecan, firstnamecan, email, motdepasse, phone, selection ) VALUES ('" + lastname + "', '" + firstname + "', '" + email + "', '" + phone + "', '" + motdepasse + "', " + true + ");");
+        stmt.executeUpdate("INSERT INTO `Company`.Candidat ( lastnamecan, firstnamecan, email, motdepasse, phone, selection ) VALUES ('" + lastname + "', '" + firstname + "', '" + email + "', '" + motdepasse + "', '" + phone + "', " + true + ");");
         //"INSERT INTO `Company`.Candidat ( lastnamecan, firstnamecan, email, motdepasse, phone, selection ) VALUES ('" + lastname + "', '" + firstname + "', '" + email + "', '" + phone + "', '" + motdepasse + "', " + true + ";"
         //int rows = stmt.executeUpdate(sqlStatement);
         conn.close();
