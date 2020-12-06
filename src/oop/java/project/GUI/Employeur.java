@@ -95,7 +95,7 @@ public class Employeur extends javax.swing.JFrame {
         jButton4.addActionListener(new AffichageDemandeEmploiJob(this));
         jButton5.addActionListener(new AjoutJobEmpl(this));
         jButton3.addActionListener(new PDF(this));
-        jButton5.addActionListener(new Discount(this));
+        //jButton5.addActionListener(new Discount(this));
         jButton6.addActionListener(new SelectionCandidat(this));
         jTextField1.addKeyListener(new KeyAdapter(){
             @Override
@@ -493,7 +493,7 @@ public class Employeur extends javax.swing.JFrame {
         //Cette methode affiche tous les candidats qui ont fait une demande emploi qui n'ont jamais ete selectionne par les employer
         try{
         Statement stmt = conn.createStatement();
-        ResultSet rs = stmt.executeQuery("select lastnamecan, firstnamecan, datedebut from demandeemploi natural join candidat where selection=false;");
+        ResultSet rs = stmt.executeQuery("select lastnamecan, firstnamecan, datedebut from demandeemploi natural join candidat where selection=true;");
         //DefaultTableModel tab = new DefaultTableModel(data, 0);
         //jTable1.setModel(new DefaultTableModel(null, new String[]{"Nom", "Prenom", "Date de début"}));
         DefaultTableModel tab = (DefaultTableModel) jTable1.getModel();

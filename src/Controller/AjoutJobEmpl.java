@@ -36,18 +36,32 @@ public class AjoutJobEmpl implements ActionListener {
         {
             try {
             Ajouterjob();
+            discount();
             } catch (SQLException ex) {
                 Logger.getLogger(AjoutJob.class.getName()).log(Level.SEVERE, null, ex);
             }
+            
         }
         
+    }
+    public void discount(){
+        //si une seule ligne du tableau est selectionne alors le calcul s'effectue
+        double valeurcandidat = 5;
+        valeurcandidat = valeurcandidat-valeurcandidat*e.discount ;
+
+        e.jPanel5.setVisible(true);
+        e.jPanel6.setVisible(false);
+        e.jPanel7.setVisible(true);
+
+        e.jTextField4.setText(Double.toString(valeurcandidat) + " euros");
+            
     }
     
     public void Ajouterjob() throws SQLException{
         Connection conn=Connexion1();
         try{
         Statement stmt = conn.createStatement();
-        stmt.executeUpdate("INSERT INTO `Company`.Job ( namejob, discount ) VALUES ('" + namejob +"', '" + 0 + "');");
+        stmt.executeUpdate("INSERT INTO `Company`.Job ( namejob ) VALUES ('" + namejob + "');");
         
         //int rows = stmt.executeUpdate(sqlStatement);
         conn.close();

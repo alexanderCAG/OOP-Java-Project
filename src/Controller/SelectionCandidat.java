@@ -31,9 +31,11 @@ public class SelectionCandidat implements ActionListener{
         if(e.jTable1.getSelectedRowCount() == 1){
             try {
                 selection();
+                
             } catch (SQLException ex) {
                 Logger.getLogger(SelectionCandidat.class.getName()).log(Level.SEVERE, null, ex);
             }
+            
         }else if(e.jTable1.getRowCount() == 0){
             //Le calcul ne s'effectue pas car l'utilisateur n'a pas fait de selection
             JOptionPane.showMessageDialog(null, "Tableau vide");
@@ -59,7 +61,7 @@ public class SelectionCandidat implements ActionListener{
             try{
                 //la ligne est supprime dans la base de donnee
                 Statement stmt = conn.createStatement();
-                stmt.executeUpdate("UPDATE `Company`.employer SET `selection`=" + true + " WHERE `firstname`='" + firstname + "'and lastname='" + lastname + "';");
+                stmt.executeUpdate("UPDATE `Company`.employer SET `selection`=" + false + " WHERE `firstname`='" + firstname + "'and lastname='" + lastname + "';");
                 
                 //int rows = stmt.executeUpdate(sqlStatement);
                 conn.close();
@@ -71,5 +73,13 @@ public class SelectionCandidat implements ActionListener{
            }catch (SQLException ex) {
             Logger.getLogger(Job.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+    public void calcul(){
+        e.jPanel5.setVisible(true);
+        e.jPanel6.setVisible(true);
+        e.jPanel7.setVisible(false);
+        double valeurcandidat = 5;
+        valeurcandidat = valeurcandidat-valeurcandidat*e.discount ;
+        e.jTextField4.setText(Double.toString(valeurcandidat));
     }
 }
