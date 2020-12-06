@@ -295,9 +295,9 @@ public class Employeur extends javax.swing.JFrame {
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
         
-        String value = JOptionPane.showInputDialog(this , "'Choisir emplacement' ou 'automatique'");
+        String value = JOptionPane.showInputDialog(this , "'choisir' ou 'automatique'");
         
-        if("Choisir emplacement".equals(value))
+        if("choisir".equals(value))
         {
             String path = "";
             JFileChooser file = new JFileChooser();
@@ -309,7 +309,7 @@ public class Employeur extends javax.swing.JFrame {
                 path = file.getSelectedFile().getPath();
             }
             
-            Document doc = new Document(PageSize.A4.rotate());
+            Document doc = new Document();
         
         try {
             PdfWriter.getInstance(doc, new FileOutputStream(path + "Table.pdf"));
@@ -321,24 +321,24 @@ public class Employeur extends javax.swing.JFrame {
 //            image1.scaleAbsolute(480, 300);
 //            doc.add(image1);
             
-            Paragraph titredoc = new Paragraph("CONFIDENTIEL",FontFactory.getFont(FontFactory.TIMES_BOLD,30, BaseColor.RED));
-            titredoc.setAlignment(Element.ALIGN_CENTER);
-            doc.add(titredoc);
-            
-            com.itextpdf.text.Image image = com.itextpdf.text.Image.getInstance("src/oop/java/project/GUI/Image/playmobil.png");
-            //doc.add(new Paragraph("Image"));
-            image.scaleToFit(200,200);      /*definir la taille de l'image*/
-            image.setAlignment(Element.ALIGN_LEFT);
-            doc.add(image);
-            
-            Paragraph date = new Paragraph(new Date().toString());
-            date.setAlignment(Element.ALIGN_RIGHT);
-            doc.add(date);
-            
-            //doc.add(new Paragraph("CONFIDENTIEL",FontFactory.getFont(FontFactory.TIMES_BOLD,18, BaseColor.RED)));
-            //doc.add(new Paragraph(new Date().toString()));
-            doc.add(new Paragraph("---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
-            doc.add(new Paragraph("\n"));
+//            Paragraph titredoc = new Paragraph("CONFIDENTIEL",FontFactory.getFont(FontFactory.TIMES_BOLD,30, BaseColor.RED));
+//            titredoc.setAlignment(Element.ALIGN_CENTER);
+//            doc.add(titredoc);
+//            
+//            com.itextpdf.text.Image image = com.itextpdf.text.Image.getInstance("src/oop/java/project/GUI/Image/playmobil.png");
+//            //doc.add(new Paragraph("Image"));
+//            image.scaleToFit(200,200);      /*definir la taille de l'image*/
+//            image.setAlignment(Element.ALIGN_LEFT);
+//            doc.add(image);
+//            
+//            Paragraph date = new Paragraph(new Date().toString());
+//            date.setAlignment(Element.ALIGN_RIGHT);
+//            doc.add(date);
+//            
+//            //doc.add(new Paragraph("CONFIDENTIEL",FontFactory.getFont(FontFactory.TIMES_BOLD,18, BaseColor.RED)));
+//            //doc.add(new Paragraph(new Date().toString()));
+//            doc.add(new Paragraph("---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
+//            doc.add(new Paragraph("\n"));
             
             PdfPTable table = new PdfPTable(3);
             PdfPCell cell = new PdfPCell(new Paragraph("Liste des candidtas"));
