@@ -96,6 +96,7 @@ public class Employeur extends javax.swing.JFrame {
         jButton5.addActionListener(new AjoutJobEmpl(this));
         jButton3.addActionListener(new PDF(this));
         jButton5.addActionListener(new Discount(this));
+        jButton6.addActionListener(new SelectionCandidat(this));
         jTextField1.addKeyListener(new KeyAdapter(){
             @Override
             public void keyReleased(KeyEvent hidden)
@@ -244,11 +245,6 @@ public class Employeur extends javax.swing.JFrame {
 
         jButton6.setBackground(new java.awt.Color(150, 102, 0));
         jButton6.setText("Choix du candidat");
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -428,30 +424,6 @@ public class Employeur extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jLabel5MouseClicked
 
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        // TODO add your handling code here
-        
-        
-        if(jTable1.getSelectedRowCount() == 1)
-        {
-            double valeurcandidat = 5;
-            valeurcandidat = valeurcandidat-valeurcandidat*discount ;
-            
-            jPanel5.setVisible(true);
-            jPanel6.setVisible(true);
-            jPanel7.setVisible(false);
-            
-            jTextField4.setText(Double.toString(valeurcandidat) + " euros");
-            
-        }else if(jTable1.getRowCount() == 0)
-        {
-            JOptionPane.showMessageDialog(null, "Tableau vide");
-        }else {
-            JOptionPane.showMessageDialog(null, "Ne selectionner qu'un seul candidat");
-        }
-        
-    }//GEN-LAST:event_jButton6ActionPerformed
-
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
         
@@ -518,10 +490,10 @@ public class Employeur extends javax.swing.JFrame {
     
     public void allcandidatjob() throws SQLException{
         Connection conn=Connexion1();
-        //Cette methode affiche tous les candidats qui ont fait une demande emploi
+        //Cette methode affiche tous les candidats qui ont fait une demande emploi qui n'ont jamais ete selectionne par les employer
         try{
         Statement stmt = conn.createStatement();
-        ResultSet rs = stmt.executeQuery("select lastnamecan, firstnamecan, datedebut from demandeemploi natural join candidat;");
+        ResultSet rs = stmt.executeQuery("select lastnamecan, firstnamecan, datedebut from demandeemploi natural join candidat where selection=false;");
         //DefaultTableModel tab = new DefaultTableModel(data, 0);
         //jTable1.setModel(new DefaultTableModel(null, new String[]{"Nom", "Prenom", "Date de début"}));
         DefaultTableModel tab = (DefaultTableModel) jTable1.getModel();

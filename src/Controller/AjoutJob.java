@@ -44,7 +44,7 @@ public class AjoutJob implements ActionListener {
         Connection conn=Connexion1();
         try{
         Statement stmt = conn.createStatement();
-        stmt.executeUpdate("INSERT INTO `Company`.Job ( namejob, discount ) VALUES ('" + namejob +"', '" + 0 + "');");
+        stmt.executeUpdate("INSERT INTO `Company`.Job ( namejob ) VALUES ('" + namejob + "');");
         
         //int rows = stmt.executeUpdate(sqlStatement);
         conn.close();
