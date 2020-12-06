@@ -534,7 +534,7 @@ public class Employeur extends javax.swing.JFrame {
 //        for(int i=0;i<rows;i++)
 //            ((DefaultTableModel)jTable1.getModel()).removeRow(i);
         
-        tab.getDataVector().removeAllElements();
+        //tab.getDataVector().removeAllElements();
         
         String text= "Lastname Firstname Start Date";
         while(rs.next())

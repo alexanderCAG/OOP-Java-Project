@@ -51,10 +51,11 @@ public class Login extends javax.swing.JFrame {
             {
                 if(hidden.getKeyCode() == KeyEvent.VK_ENTER)
                 {
-                    
+                    jButton2.doClick();
                 }
             }
         });
+        
         
         jPanel4.setBackground(new Color(0,0,0,0));
     }
