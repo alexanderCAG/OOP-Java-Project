@@ -19,6 +19,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.*;
@@ -292,7 +293,76 @@ public class Employeur extends javax.swing.JFrame {
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
         
+        Document doc = new Document(PageSize.A4.rotate());
         
+        try {
+            //PdfWriter.getInstance(doc, new FileOutputStream(path + "Table.pdf"));
+            PdfWriter.getInstance(doc, new FileOutputStream("Table.pdf"));
+            doc.open();
+            
+            
+            /*Mettre le camembert mais avant il faut "l'imprimer"*/
+//            com.itextpdf.text.Image image1 = com.itextpdf.text.Image.getInstance("chart.png");
+//            image1.scaleAbsolute(480, 300);
+//            doc.add(image1);
+            
+            Paragraph titredoc = new Paragraph("CONFIDENTIEL",FontFactory.getFont(FontFactory.TIMES_BOLD,30, BaseColor.RED));
+            titredoc.setAlignment(Element.ALIGN_CENTER);
+            doc.add(titredoc);
+            
+            com.itextpdf.text.Image image = com.itextpdf.text.Image.getInstance("src/oop/java/project/GUI/Image/playmobil.png");
+            //doc.add(new Paragraph("Image"));
+            image.scaleToFit(200,200);      /*definir la taille de l'image*/
+            image.setAlignment(Element.ALIGN_LEFT);
+            doc.add(image);
+            
+            Paragraph date = new Paragraph(new Date().toString());
+            date.setAlignment(Element.ALIGN_RIGHT);
+            doc.add(date);
+            
+            //doc.add(new Paragraph("CONFIDENTIEL",FontFactory.getFont(FontFactory.TIMES_BOLD,18, BaseColor.RED)));
+            //doc.add(new Paragraph(new Date().toString()));
+            doc.add(new Paragraph("---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
+            doc.add(new Paragraph("\n"));
+            
+            PdfPTable table = new PdfPTable(3);
+            PdfPCell cell = new PdfPCell(new Paragraph("Liste des candidtas"));
+            
+            cell.setColspan(3); //mettre nombre colonne
+            cell.setHorizontalAlignment(Element.ALIGN_CENTER);
+            cell.setBackgroundColor(BaseColor.ORANGE);
+            table.addCell(cell);
+            
+            table.addCell("Nom");
+            table.addCell("Prenom");
+            table.addCell("Age");
+            
+            for(int i=0; i<jTable1.getRowCount();i++)
+            {
+                String Nom = jTable1.getValueAt(i, 0).toString();
+                String Prenom = jTable1.getValueAt(i, 1).toString();
+                String Age = jTable1.getValueAt(i, 2).toString();
+                
+                table.addCell(Nom);
+                table.addCell(Prenom);
+                table.addCell(Age);
+                
+            }
+            
+            doc.add(table);
+            
+            JOptionPane.showMessageDialog(null, "Votre liste a été enregistré au format PDF dans vos documents");
+            
+            
+        } catch (FileNotFoundException ex) {
+        Logger.getLogger(Employeur.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (DocumentException ex) {
+            Logger.getLogger(Employeur.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(Employeur.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        doc.close();
         
     }//GEN-LAST:event_jButton3ActionPerformed
     
