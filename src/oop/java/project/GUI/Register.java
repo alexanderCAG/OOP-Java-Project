@@ -615,7 +615,7 @@ public class Register extends javax.swing.JFrame {
         }
         try{
         Statement stmt = conn.createStatement();
-        stmt.executeUpdate("INSERT INTO `Company`.Recruiter ( lastnamerec, firstnamerec, email, motdepasse, phone, job ) VALUES ('" + lastname + "', '" + firstname + "', '" + email + "', '" + phone + "', '" + motdepasse + "', '" + job + "');");
+        stmt.executeUpdate("INSERT INTO `Company`.Recruiter ( lastnamerec, firstnamerec, email, motdepasse, phone, job ) VALUES ('" + lastname + "', '" + firstname + "', '" + email + "', '" + motdepasse + "', '" + phone + "', '" + job + "');");
         //"INSERT INTO `Company`.Employer ( lastnameemp, firstnameemp, email, motdepasse, phone, job, sizecompany, compteur ) VALUES ('" + lastname + "', '" + firstname + "', '" + email + "', '" + phone + "', '" + motdepasse + "', '" + job + "', '" + sizecompany + "', 0);"
         //int rows = stmt.executeUpdate(sqlStatement);
         conn.close();
@@ -642,7 +642,7 @@ public void addcandidat() throws SQLException{
         String sizecompany=jComboBox3.getSelectedItem().toString();
         try{
         Statement stmt = conn.createStatement();
-        stmt.executeUpdate("INSERT INTO `Company`.Employer ( lastnameemp, firstnameemp, email, motdepasse, phone, job, sizecompany, compteur ) VALUES ('" + lastname + "', '" + firstname + "', '" + email + "', '" + phone + "', '" + motdepasse + "', '" + job + "', '" + sizecompany + "', 0);");
+        stmt.executeUpdate("INSERT INTO `Company`.Employer ( lastnameemp, firstnameemp, email, motdepasse, phone, job, sizecompany, compteur ) VALUES ('" + lastname + "', '" + firstname + "', '" + email + "', '" + motdepasse + "', '" + phone + "', '" + job + "', '" + sizecompany + "', 0);");
         //"INSERT INTO `Company`.Job ( namejob, discount ) VALUES ('" + namejob +"', '" + 0 + "');"
         //int rows = stmt.executeUpdate(sqlStatement);
         conn.close();
