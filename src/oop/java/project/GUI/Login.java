@@ -6,12 +6,20 @@
 package oop.java.project.GUI;
 
 import Controller.SeConnecter;
+import static FonctionSQL.Connexion.Connexion1;
 import java.awt.Color;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStream;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.*;
 import sun.audio.AudioPlayer;
 import sun.audio.AudioStream;
@@ -212,6 +220,12 @@ public class Login extends javax.swing.JFrame {
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(0, 0, 204));
         jLabel5.setText("FORGOT ?");
+        jLabel5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel5MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -356,6 +370,40 @@ public class Login extends javax.swing.JFrame {
             Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
         }*/
     }//GEN-LAST:event_jPasswordField1KeyPressed
+
+    private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked
+        try {                                     
+            // TODO add your handling code here:
+            
+            Forget forget = new Forget();
+            forget.setVisible(true);
+            forget.pack();
+            forget.setLocationRelativeTo(null);
+            
+            Connection con=Connexion1();
+            String query = "select * from employer where email=? and mdp=?";
+            
+            try {
+                Statement stmt = con.prepareStatement(query);
+                stmt.setString(1, UserName.getText());
+                stmt.setString(2, jPasswordField1.getText());
+                ResultSet rs = stmt.executeQuery(query);
+                
+                if(rs.next()){
+                    JOptionPane.showMessageDialog(null, "Login successfully");
+                }else{
+                    JOptionPane.showMessageDialog(null, "User or Password do not match");
+                }
+                
+            } catch (SQLException ex) {
+                java.util.logging.Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }//GEN-LAST:event_jLabel5MouseClicked
     
     public void clock(){
         Thread clock=new Thread(){
