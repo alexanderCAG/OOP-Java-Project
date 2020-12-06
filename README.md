@@ -14,6 +14,7 @@ Alors ? on y va, c'est partie.
 
 Pour commencer voilà un petit tuto pour bien utiliser cette nouvelle application.
 
+
 - Commencez par telecharger la Base De Donnee **_*Company*_** qui se trouve dans le dossier **_*Base de donnee*_** sous le nom de **_*Projet MySQL*_**.
 - Ajouter les librairies, pour cela selection l'ensemble des fichiers **_*.jar*_** du dossier **_*Librairie*_** (en tout 8 librairies)
 - Ensuite il faut aussi insérer votre _mot de passe dans netbeans:_ 
@@ -22,10 +23,12 @@ Pour commencer voilà un petit tuto pour bien utiliser cette nouvelle applicatio
 	Juste après avoir effectué ces deux étapes vous pourrez lancé notre code en faisant un clic droit sur **_*Login*_** dans le package **_*opp.java.project.GUI*_**.
 
 
+
 			Login :
 
 - Entrer votre mail et mot de passe pour vous connecter SINON vous pouvez vous inscrire avec "click here to create a new account"
 - Si jamais vous avez oubliez votre mot de passe appuyez sur "Forgot ?"
+
 
 			Inscription :
 
@@ -34,10 +37,12 @@ Pour commencer voilà un petit tuto pour bien utiliser cette nouvelle applicatio
 - Entrer vos information personnelles (attention aux erreurs 😆) et on ne cesse de le dire mais un bon mot de passe comporte des caractères spéciaux.
 	Pour le bien du projet rentrer votre vrai adresse mail (vous comprendrez plus tard) et de toute manière c'est blindé (caractere@caractere.caractere)
 
+
 			Candidat :
 			
 - Choisi le poste auquel tu voudrais postuler, ton statut et la date à laquelle tu peux commencer
 - Si jamais tu as fais une erreur ou alors tu ne souhaite plus postuler dans un certain job tu peux toute fois te desister
+
 
 			Employeur :
 
@@ -47,11 +52,13 @@ Pour commencer voilà un petit tuto pour bien utiliser cette nouvelle applicatio
 	qui vous permet de dégoté ce petit bijou de candidat.
 - Si votre choix est indécie vous avez le choix d'enregistrer la liste au format pdf (_suivre les indications_)
 
+
 			Recruteur :
 
 - Félicitation, vous avez presque tous les droits, vous pouvez consulter toute la listes des jobs, vous pouvez même décider d'en supprimer sans demander 
 	l'avis des employeurs 😕
 - Vous pouvez aussi visualiser les jobs les plus populaires grâce aux nombres de candidtat qui s'y trouve.
+			
 			
 			Forget / Reset :
 
