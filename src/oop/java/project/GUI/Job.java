@@ -8,6 +8,7 @@ package oop.java.project.GUI;
 import Classe.Candidat;
 import Classe.DemandeEmploi;
 import Controller.ListedemandeEmploi;
+import Controller.SupprimerLigneTableau;
 import static FonctionSQL.Connexion.Connexion1;
 import java.awt.*;
 import java.awt.event.*;
@@ -31,7 +32,7 @@ public class Job extends javax.swing.JFrame {
     /**
      * Creates new form Job
      */
-    private Candidat c;
+    public Candidat c;
     private String[] listJob;
     private ArrayList listdemande;
     public Job() {
@@ -67,6 +68,7 @@ public class Job extends javax.swing.JFrame {
         LireBasededonneeDemandeEmploi();
         this.setLocationRelativeTo(null); // center of the screen
         jButton2.addActionListener(new ListedemandeEmploi(this, c));
+        jButton1.addActionListener(new SupprimerLigneTableau(this));
         //jTextField1.setBackground(new Color(0,102,153,120));
     }
 
@@ -175,11 +177,6 @@ public class Job extends javax.swing.JFrame {
         jComboBox3.setBounds(290, 210, 190, 60);
 
         jButton1.setText("Supprimer");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
         jPanel3.add(jButton1);
         jButton1.setBounds(840, 460, 170, 50);
 
@@ -251,39 +248,6 @@ public class Job extends javax.swing.JFrame {
         this.dispose();
         
     }//GEN-LAST:event_jLabel5MouseClicked
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        //Cette methode permet a l'utilisateu de supprimer une demande en la selectionnant et en appuyant sur le bouton supprimer
-        try{
-            
-            int ligne = jTable2.getSelectedRow();
-            if(ligne<0)
-            {
-                JOptionPane.showMessageDialog(this, "Selectionne une ligne à supprimer");
-                return;
-            }
-            String Metier = jTable2.getModel().getValueAt(ligne, 0).toString();
-            String statut = jTable2.getModel().getValueAt(ligne, 1).toString();
-            String Date = jTable2.getModel().getValueAt(ligne, 2).toString();
-            Connection conn=Connexion1();
-            try{
-                
-                Statement stmt = conn.createStatement();
-                stmt.executeUpdate("Delete from demandeemploi where idcan=" + c.getId() + " and metier='" + Metier + "' and statut='" + statut + "' and datedebut='" + Date + "';");
-                
-                //int rows = stmt.executeUpdate(sqlStatement);
-                conn.close();
-            }catch (SQLException ex) {
-                System.out.println(ex.getMessage());
-            }
-            ((DefaultTableModel)jTable2.getModel()).removeRow(ligne);
-            
-           }catch (SQLException ex) {
-            Logger.getLogger(Job.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
-          
-    }//GEN-LAST:event_jButton1ActionPerformed
     
     public int Nombrejob() throws SQLException{
         //Cette methode permet de compter le nombre de job dans la base de donnee company

@@ -5,6 +5,7 @@
  */
 package oop.java.project.GUI;
 
+import Controller.OptionEmployeur;
 import static FonctionSQL.Connexion.Connexion1;
 import java.awt.*;
 import java.awt.event.*;
@@ -46,6 +47,7 @@ public class Register extends javax.swing.JFrame {
         jPanel4.setBackground(new Color(204,102,0,120));
         jProgressBar1.setVisible(false);
         jPanel5.setVisible(false);
+        jComboBox1.addActionListener(new OptionEmployeur(this));
     }
 
     /*Register() {
@@ -174,11 +176,6 @@ public class Register extends javax.swing.JFrame {
 
         jComboBox1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Demandeur d'emploie", "Employeur", "Recruteur" }));
-        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox1ActionPerformed(evt);
-            }
-        });
 
         jTextField10.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jTextField10.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -287,7 +284,7 @@ public class Register extends javax.swing.JFrame {
         );
 
         jPanel2.add(jPanel3);
-        jPanel3.setBounds(59, 68, 510, 477);
+        jPanel3.setBounds(59, 68, 510, 481);
 
         jButton1.setBackground(new java.awt.Color(204, 102, 0));
         jButton1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -700,19 +697,6 @@ public void addcandidat() throws SQLException{
         }
     }   */                                     
 
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
-        // TODO add your handling code here:
-        
-        if("Employeur".equals(jComboBox1.getSelectedItem().toString()))
-        {
-            jPanel5.setBackground(new Color(204,102,0,0));
-            jPanel5.setVisible(true);
-        }else{
-            jPanel5.setVisible(false);
-        }
-        
-    }//GEN-LAST:event_jComboBox1ActionPerformed
-
     private void jTextField7KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField7KeyReleased
         // TODO add your handling code here:
         
@@ -814,7 +798,7 @@ public void addcandidat() throws SQLException{
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
-    private javax.swing.JComboBox jComboBox1;
+    public javax.swing.JComboBox jComboBox1;
     private javax.swing.JComboBox jComboBox2;
     private javax.swing.JComboBox jComboBox3;
     private javax.swing.JLabel jLabel1;
@@ -834,7 +818,7 @@ public void addcandidat() throws SQLException{
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel5;
+    public javax.swing.JPanel jPanel5;
     private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JPasswordField jPasswordField2;
     private javax.swing.JProgressBar jProgressBar1;
