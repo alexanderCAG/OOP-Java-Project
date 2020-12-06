@@ -50,12 +50,12 @@ public class AjoutJobEmpl implements ActionListener {
         e.jPanel6.setVisible(false);
         e.jPanel7.setVisible(true);
         double prix = 0;
-            double prixT = 0;
+        double prixT = 0;
 
-            prix = Double.parseDouble(e.jTextField2.getText());
-            prixT = prix - prix*e.discount;
+        prix = Double.parseDouble(e.jTextField2.getText());
+        prixT = prix - prix*0.45;//e.discount;
 
-            e.jTextField3.setText(Double.toString(prixT) + " euros");
+        e.jTextField3.setText(Double.toString(prixT) + " euros");
         
             
     }
