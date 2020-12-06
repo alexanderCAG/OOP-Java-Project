@@ -271,7 +271,7 @@ public class Recruteur extends javax.swing.JFrame {
     
     public void Affichagejob() throws SQLException{
         int nombrejob=Nombrejob();
-        String[] listJob=new String[nombrejob];
+        String[] listJob=new String[nombrejob];//le tableau aura le nombre de colonnes necessaires
         Connection conn=Connexion1();
         try{
         Statement stmt = conn.createStatement();
@@ -281,7 +281,7 @@ public class Recruteur extends javax.swing.JFrame {
             String namejob=rs.getString(1);
             System.out.println("Coucou " + namejob);
             listJob[i]=namejob;
-            System.out.println(listJob[i]);
+            System.out.println(listJob[i]);//on obtient la liste de job final
             i+=1;
         }
         String sqlStatement = "";
@@ -295,7 +295,7 @@ public class Recruteur extends javax.swing.JFrame {
         }
     }
     public int Nombrejob() throws SQLException{
-        
+        //Cette methode permet de compter le nombre de job dans la base de donnee company
         Connection conn=Connexion1();
         int nombrejob = 0;
         try{
@@ -310,7 +310,7 @@ public class Recruteur extends javax.swing.JFrame {
         }catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Mot de passe INCORECT", "Login Error", JOptionPane.ERROR_MESSAGE);
         }
-        return nombrejob;
+        return nombrejob;//Ce nombre est envoye a la methode affichagejob qui va cree un tableau
     }
     
     
