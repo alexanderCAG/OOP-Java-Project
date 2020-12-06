@@ -281,7 +281,6 @@ public class Login extends javax.swing.JFrame {
     private void jLabel9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel9MouseClicked
         try {
             // TODO add your handling code here:
-            
             Register reg = new Register();//Creation d'une jframe register
             reg.setVisible(true);//affichage de la jframe register
             reg.pack();
