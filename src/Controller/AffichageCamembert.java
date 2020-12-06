@@ -51,7 +51,6 @@ public class AffichageCamembert implements ActionListener{
     public void Graphique() throws SQLException{
         DefaultPieDataset graphe = new DefaultPieDataset();
         Cammenbert();
-        System.out.println("Tu y est arrive.");
         for(int i=0; i<listJob.length;i++){
             graphe.setValue(listJob[i], new Integer(nombrepersonnejob[i]));
         }
@@ -73,7 +72,6 @@ public class AffichageCamembert implements ActionListener{
             ResultSet rs = stmt.executeQuery("Select count(lastnameemp) from employer where job='" + listJob[i] + "';");
             while(rs.next()){
             nombrepersonnejob[i]=rs.getInt(1);
-            System.out.println("Hola " + nombrepersonnejob[i]);
         }
         //int rows = stmt.executeUpdate(sqlStatement);
         conn.close();
@@ -94,9 +92,7 @@ public class AffichageCamembert implements ActionListener{
         ResultSet rs = stmt.executeQuery("Select * from job;");
         while(rs.next()){
             String namejob=rs.getString(1);
-            System.out.println("Coucou " + namejob);
             listJob[i]=namejob;
-            System.out.println(listJob[i]);
             i+=1;
         }
         String sqlStatement = "";
@@ -119,7 +115,6 @@ public class AffichageCamembert implements ActionListener{
         ResultSet rs = stmt.executeQuery("Select count(namejob) from job;");
         while(rs.next()){
             nombrejob=rs.getInt(1);
-            System.out.println("Hello " + nombrejob);
         }
         //int rows = stmt.executeUpdate(sqlStatement);
         conn.close();

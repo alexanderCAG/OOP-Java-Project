@@ -5,7 +5,6 @@
  */
 package oop.java.project.GUI;
 
-import Classe.AJob;
 import Classe.Recruiter;
 import Controller.AffichageCamembert;
 import Controller.AjoutJob;
@@ -17,15 +16,8 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.ArrayList;
-import java.util.Locale;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.swing.*;
-import org.jfree.chart.*;
-import org.jfree.chart.plot.*;
-import org.jfree.data.category.*;
-import org.jfree.data.general.DefaultPieDataset;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -279,9 +271,7 @@ public class Recruteur extends javax.swing.JFrame {
         ResultSet rs = stmt.executeQuery("Select * from job;");
         while(rs.next()){
             String namejob=rs.getString(1);
-            System.out.println("Coucou " + namejob);
-            listJob[i]=namejob;
-            System.out.println(listJob[i]);//on obtient la liste de job final
+            listJob[i]=namejob;//on obtient la liste de job final
             i+=1;
         }
         String sqlStatement = "";
@@ -303,7 +293,6 @@ public class Recruteur extends javax.swing.JFrame {
         ResultSet rs = stmt.executeQuery("Select count(namejob) from job;");
         while(rs.next()){
             nombrejob=rs.getInt(1);
-            System.out.println("Hello " + nombrejob);
         }
         //int rows = stmt.executeUpdate(sqlStatement);
         conn.close();

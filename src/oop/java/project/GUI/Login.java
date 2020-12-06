@@ -148,11 +148,6 @@ public class Login extends javax.swing.JFrame {
         jPasswordField1.setBackground(new java.awt.Color(108, 122, 137));
         jPasswordField1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jPasswordField1.setForeground(new java.awt.Color(255, 255, 255));
-        jPasswordField1.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                jPasswordField1KeyPressed(evt);
-            }
-        });
         jPanel2.add(jPasswordField1);
         jPasswordField1.setBounds(630, 210, 370, 70);
 
@@ -255,7 +250,7 @@ public class Login extends javax.swing.JFrame {
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, 18, Short.MAX_VALUE)
+                .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -315,92 +310,6 @@ public class Login extends javax.swing.JFrame {
         UserName.setText(null);//reinitialise username et jpasswordField a nul
         jPasswordField1.setText(null);
     }//GEN-LAST:event_jButton1MouseClicked
-
-    private void jPasswordField1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jPasswordField1KeyPressed
-//        try {
-//        if(evt.getKeyCode() == KeyEvent.VK_ENTER)
-//        {
-//            new SeConnecter(this);
-//        }
-//        }catch (SQLException ex) {
-//            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
-//        }
-        
-        
-        
-        
-        
-        /*try {
-            // TODO add your handling code here:
-            Verificationcandidat();
-            if(evt.getKeyCode() == KeyEvent.VK_ENTER)
-            {
-            
-            String user = UserName.getText();
-            String password = jPasswordField1.getText();
-
-            if(user.contains("job") && password.contains("root"))
-            {
-            String user = UserName.getText();
-            String password = jPasswordField1.getText();
-            
-            if(user.equals("job") && password.equals("root"))
-            {
-            UserName.setText(null);
-            jPasswordField1.setText(null);
-            
-            
-            Job job = new Job();
-            job.setVisible(true);
-            job.pack();
-            job.setLocationRelativeTo(null);
-            job.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-            this.dispose();
-            }
-            else if(user.contains("employeur") && password.contains("root"))
-            {
-            }
-            else if(user.equals("employeur") && password.equals("root"))
-            {
-            UserName.setText(null);
-            jPasswordField1.setText(null);
-            
-            
-            Employeur empl = new Employeur();
-            empl.setVisible(true);
-            empl.pack();
-            empl.setLocationRelativeTo(null);
-            empl.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-            this.dispose();
-            }
-            else if(user.contains("recruteur") && password.contains("root"))
-            {
-            }
-            else if(user.equals("recruteur") && password.equals("root"))
-            {
-            UserName.setText(null);
-            jPasswordField1.setText(null);
-            
-
-            Recruteur recru = new Recruteur();
-            recru.setVisible(true);
-            recru.pack();
-            recru.setLocationRelativeTo(null);
-            recru.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-            this.dispose();
-            }
-            else
-            {
-            JOptionPane.showMessageDialog(null, "Mot de passe INCORECT", "Login Error", JOptionPane.ERROR_MESSAGE);
-            UserName.setText(null);
-            jPasswordField1.setText(null);
-            }
-            
-            }
-        } catch (SQLException ex) {
-            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
-        }*/
-    }//GEN-LAST:event_jPasswordField1KeyPressed
 
     private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked
         

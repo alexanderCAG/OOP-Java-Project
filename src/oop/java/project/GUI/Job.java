@@ -6,19 +6,14 @@
 package oop.java.project.GUI;
 
 import Classe.Candidat;
-import Classe.DemandeEmploi;
 import Controller.ListedemandeEmploi;
 import Controller.SupprimerLigneTableau;
 import static FonctionSQL.Connexion.Connexion1;
-import java.awt.*;
-import java.awt.event.*;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 
@@ -258,7 +253,6 @@ public class Job extends javax.swing.JFrame {
         ResultSet rs = stmt.executeQuery("Select count(namejob) from job;");
         while(rs.next()){
             nombrejob=rs.getInt(1);
-            System.out.println("Hello " + nombrejob);
         }
         //int rows = stmt.executeUpdate(sqlStatement);
         conn.close();
@@ -278,9 +272,7 @@ public class Job extends javax.swing.JFrame {
         ResultSet rs = stmt.executeQuery("Select * from job;");
         while(rs.next()){
             String namejob=rs.getString(1);
-            System.out.println("Coucou " + namejob);
             listJob[i]=namejob;
-            System.out.println(listJob[i]);
             i+=1;
         }
         String sqlStatement = "";

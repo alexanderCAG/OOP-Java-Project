@@ -5,7 +5,6 @@
  */
 package Controller;
 
-import Classe.Employer;
 import static FonctionSQL.Connexion.Connexion1;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
