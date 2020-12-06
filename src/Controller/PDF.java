@@ -189,8 +189,6 @@ public class PDF implements ActionListener{
             
         } catch (FileNotFoundException ex) {
         Logger.getLogger(Employeur.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (DocumentException ex) {
-            Logger.getLogger(Employeur.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
             Logger.getLogger(Employeur.class.getName()).log(Level.SEVERE, null, ex);
         }
