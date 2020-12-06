@@ -289,7 +289,7 @@ public class Register extends javax.swing.JFrame {
         );
 
         jPanel2.add(jPanel3);
-        jPanel3.setBounds(59, 68, 510, 481);
+        jPanel3.setBounds(59, 68, 510, 477);
 
         jButton1.setBackground(new java.awt.Color(204, 102, 0));
         jButton1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -306,9 +306,9 @@ public class Register extends javax.swing.JFrame {
         jPanel4.setBackground(new java.awt.Color(204, 102, 0));
 
         jTextField7.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jTextField7.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField7ActionPerformed(evt);
+        jTextField7.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jTextField7KeyReleased(evt);
             }
         });
 
@@ -385,13 +385,13 @@ public class Register extends javax.swing.JFrame {
             }
         });
         jPanel2.add(jButton2);
-        jButton2.setBounds(690, 440, 79, 25);
+        jButton2.setBounds(690, 440, 73, 23);
         jPanel2.add(jProgressBar1);
         jProgressBar1.setBounds(840, 400, 288, 14);
 
         jTextField1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jPanel2.add(jTextField1);
-        jTextField1.setBounds(950, 420, 83, 22);
+        jTextField1.setBounds(950, 420, 83, 20);
 
         jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/oop/java/project/GUI/Image/inscription.jpg"))); // NOI18N
         jPanel2.add(jLabel11);
@@ -463,7 +463,7 @@ public class Register extends javax.swing.JFrame {
         }*/
         //&&  firstname!="" && jPasswordField1.getText()==jPasswordField2.getText() && && lastname!="" && email!="" && phone!="" && motdepasse!="" && email.contains("@") && num==true && first==true && last==true && taillemdp!="Insuffisant"
         //
-        if(motdepasse == null ? pass2 == null : motdepasse.equals(pass2) && taillemdp!="Insuffisant" && pass2!="" && email.contains("@") && num==true && first==true && last==true && !"Insuffisant".equals(taillemdp) && firstname!="" &&lastname!="" && email!="" && phone!="" && motdepasse!=""){
+        if(motdepasse == null ? pass2 == null : motdepasse.equals(pass2) && taillemdp!="Insuffisant" && pass2!="" && mail==true && num==true && first==true && last==true && !"Insuffisant".equals(taillemdp) && firstname!="" &&lastname!="" && email!="" && phone!="" && motdepasse!=""){
 
         if("Demandeur d'emploie".equals(jComboBox1.getSelectedItem().toString())){
             try {
@@ -566,6 +566,7 @@ public class Register extends javax.swing.JFrame {
         Matcher m3 = p3.matcher(mdp);
         
         jProgressBar1.setVisible(true);
+        
         for(char car : mdp.toCharArray())
         {
 
@@ -612,7 +613,7 @@ public class Register extends javax.swing.JFrame {
         String carac = jTextField12.getText();
         
         jTextField12.setForeground(new Color(0,0,0));
-        
+            
         for(char car : carac.toCharArray())
         {
             if((car<'0' || car>'9') && (car != '.') && (car != (char)KeyEvent.VK_ENTER) && (car != (char)KeyEvent.VK_BACK_SPACE))
@@ -625,6 +626,8 @@ public class Register extends javax.swing.JFrame {
                 num=true;
             }
         }
+        
+        
     }//GEN-LAST:event_jTextField12KeyReleased
 
     private void jTextField11KeyReleased(java.awt.event.KeyEvent evt) {                                         
@@ -711,21 +714,6 @@ public void addcandidat() throws SQLException{
         }
     }   */                                     
 
-    private void jTextField7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField7ActionPerformed
-        // TODO add your handling code here:
-        
-        if(!(Pattern.matches("[a-zA-Z0-9]+[@]{1}+[a-zA-Z0-9]+[.]{1}+[a-zA-Z0-9]+$", jTextField7.getText())))
-        {
-            jTextField1.setText("Invalide");
-            mail=false;
-        }
-        else
-        {
-            jTextField1.setText("Valide");
-            mail=false;
-        }
-    }//GEN-LAST:event_jTextField7ActionPerformed
-
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
         // TODO add your handling code here:
         
@@ -746,6 +734,22 @@ public void addcandidat() throws SQLException{
             Logger.getLogger(Register.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jTextField7KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField7KeyReleased
+        // TODO add your handling code here:
+        
+        if(!(Pattern.matches("[a-zA-Z0-9]+[@]{1}+[a-zA-Z0-9]+[.]{1}+[a-zA-Z0-9]+$", jTextField7.getText())))
+        {
+            //jTextField1.setText("Invalide");
+            mail=false;
+        }
+        else
+        {
+            //jTextField1.setText("Valide");
+            mail=true;
+        }
+        
+    }//GEN-LAST:event_jTextField7KeyReleased
     public int Nombrejob() throws SQLException{
         //Cette methode permet de compter le nombre de job dans la base de donnee company
         Connection conn=Connexion1();
