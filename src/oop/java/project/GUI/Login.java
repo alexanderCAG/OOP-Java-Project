@@ -8,6 +8,7 @@ package oop.java.project.GUI;
 import Controller.SeConnecter;
 import static FonctionSQL.Connexion.Connexion1;
 import java.awt.Color;
+import java.awt.event.KeyEvent;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStream;
@@ -305,6 +306,19 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1MouseClicked
 
     private void jPasswordField1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jPasswordField1KeyPressed
+//        try {
+//        if(evt.getKeyCode() == KeyEvent.VK_ENTER)
+//        {
+//            new SeConnecter(this);
+//        }
+//        }catch (SQLException ex) {
+//            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+        
+        
+        
+        
+        
         /*try {
             // TODO add your handling code here:
             Verificationcandidat();

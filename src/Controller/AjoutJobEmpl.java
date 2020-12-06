@@ -15,21 +15,23 @@ import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-import oop.java.project.GUI.*;
+import oop.java.project.GUI.Employeur;
+import oop.java.project.GUI.Recruteur;
 
 /**
  *
- * @author Geoffroy
+ * @author alexa
  */
-public class AjoutJob implements ActionListener {
-    private Recruteur r;
+public class AjoutJobEmpl implements ActionListener {
+    
+   private Employeur e;
     private String namejob;
-    public AjoutJob(Recruteur r){
-        this.r=r;
+    public AjoutJobEmpl(Employeur e){
+        this.e=e;
     }
     
     public void actionPerformed(ActionEvent ae){
-        this.namejob=this.r.jTextField1.getText();
+        this.namejob=this.e.jTextField1.getText();
         try {
             Ajouterjob();
         } catch (SQLException ex) {
@@ -67,8 +69,8 @@ public class AjoutJob implements ActionListener {
             i+=1;
         }
         String sqlStatement = "";
-        r.listJob=listJob;
-        r.jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(listJob));
+        e.listJob=listJob;
+        e.jComboBox2.setModel(new javax.swing.DefaultComboBoxModel(listJob));
 
         //int rows = stmt.executeUpdate(sqlStatement);
         conn.close();
@@ -95,4 +97,5 @@ public class AjoutJob implements ActionListener {
         }
         return nombrejob;
     }
+    
 }
