@@ -16,7 +16,6 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import oop.java.project.GUI.Employeur;
-import oop.java.project.GUI.Recruteur;
 
 /**
  *
@@ -29,6 +28,7 @@ public class AjoutJobEmpl implements ActionListener {
     public AjoutJobEmpl(Employeur e){
         this.e=e;
     }
+    
     
     public void actionPerformed(ActionEvent ae){
         this.namejob=this.e.jTextField1.getText();
