@@ -335,12 +335,6 @@ public class Employeur extends javax.swing.JFrame {
         jLabel12.setForeground(new java.awt.Color(255, 255, 255));
         jLabel12.setText("Combien voulez-vous mettre pour voir votre job en tête de liste ?");
 
-        jTextField2.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                jTextField2KeyReleased(evt);
-            }
-        });
-
         jLabel13.setForeground(new java.awt.Color(255, 255, 255));
         jLabel13.setText("Grâce à vos remises le total est de :");
 
@@ -432,19 +426,6 @@ public class Employeur extends javax.swing.JFrame {
         jPanel7.setVisible(true);
         
     }//GEN-LAST:event_jButton5ActionPerformed
-
-    private void jTextField2KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField2KeyReleased
-        // TODO add your handling code here:
-        
-            double prix = 0;
-            double prixT = 0;
-
-            prix = Double.parseDouble(jTextField2.getText());
-            prixT = prix - prix*discount;
-
-            jTextField3.setText(Double.toString(prixT) + " euros");
-        
-    }//GEN-LAST:event_jTextField2KeyReleased
  
     public void Affichagejob() throws SQLException{
         int nombrejob=Nombrejob();
@@ -591,8 +572,8 @@ public class Employeur extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator1;
     public javax.swing.JTable jTable1;
     public javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
+    public javax.swing.JTextField jTextField2;
+    public javax.swing.JTextField jTextField3;
     public javax.swing.JTextField jTextField4;
     // End of variables declaration//GEN-END:variables
 }

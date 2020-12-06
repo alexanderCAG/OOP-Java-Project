@@ -46,14 +46,17 @@ public class AjoutJobEmpl implements ActionListener {
     }
     public void discount(){
         //si une seule ligne du tableau est selectionne alors le calcul s'effectue
-        double valeurcandidat = 5;
-        valeurcandidat = valeurcandidat-valeurcandidat*e.discount ;
-
         e.jPanel5.setVisible(true);
         e.jPanel6.setVisible(false);
         e.jPanel7.setVisible(true);
+        double prix = 0;
+            double prixT = 0;
 
-        e.jTextField4.setText(Double.toString(valeurcandidat) + " euros");
+            prix = Double.parseDouble(e.jTextField2.getText());
+            prixT = prix - prix*e.discount;
+
+            e.jTextField3.setText(Double.toString(prixT) + " euros");
+        
             
     }
     
