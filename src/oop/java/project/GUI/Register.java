@@ -444,7 +444,7 @@ public class Register extends javax.swing.JFrame {
                 Logger.getLogger(Register.class.getName()).log(Level.SEVERE, null, ex);
             }*/
         }
-        if("Employeur micro entreprise".equals(jComboBox1.getSelectedItem().toString())){
+        if("Employeur".equals(jComboBox1.getSelectedItem().toString())){
             /*try {
                 addjobseeker();
             } catch (SQLException ex) {
@@ -586,6 +586,17 @@ public class Register extends javax.swing.JFrame {
         ///ACCEPTER QUE TEXTE
         
         String carac = jTextField11.getText();
+        
+        jTextField11.setForeground(new Color(0,0,0));
+        
+        for(char car : carac.toCharArray())
+        {
+            if((car<'a' || car>'z') && (car<'A' || car>'Z') && (car != (char)KeyEvent.VK_ENTER) && (car != (char)KeyEvent.VK_BACK_SPACE) && (car != 65535))
+            {
+                evt.consume();
+                jTextField11.setForeground(new Color(255,0,50));
+            }
+        }
         
     }                                       
 
