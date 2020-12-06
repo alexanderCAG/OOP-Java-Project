@@ -249,8 +249,8 @@ public class Job extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel5MouseClicked
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        try{                                         
-            // TODO add your handling code here:
+        
+        try{
             
             int ligne = jTable2.getSelectedRow();
             if(ligne<0)
@@ -277,6 +277,7 @@ public class Job extends javax.swing.JFrame {
            }catch (SQLException ex) {
             Logger.getLogger(Job.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
           
     }//GEN-LAST:event_jButton1ActionPerformed
     
@@ -298,6 +299,7 @@ public class Job extends javax.swing.JFrame {
         }
         return nombrejob;
     }
+    
     public void Affichagejob() throws SQLException{
         int nombrejob=Nombrejob();
         String[] listJob=new String[nombrejob];
@@ -323,6 +325,7 @@ public class Job extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Mot de passe INCORECT", "Login Error", JOptionPane.ERROR_MESSAGE);
         }
     }
+    
     public void LireBasededonneeDemandeEmploi() throws SQLException{
         Connection conn=Connexion1();
         DefaultTableModel tab = (DefaultTableModel) jTable2.getModel();

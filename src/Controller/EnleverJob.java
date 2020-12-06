@@ -33,6 +33,8 @@ public class EnleverJob implements ActionListener{
             Logger.getLogger(EnleverJob.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    
+    
     public void Supprimerjob() throws SQLException{
         Connection conn=Connexion1();
         try{
@@ -46,6 +48,8 @@ public class EnleverJob implements ActionListener{
         }
         Affichagejob();
     }
+    
+    
     public void Affichagejob() throws SQLException{
         int nombrejob=Nombrejob();
         String[] listJob=new String[nombrejob];
@@ -71,6 +75,8 @@ public class EnleverJob implements ActionListener{
             JOptionPane.showMessageDialog(null, "Mot de passe INCORECT", "Login Error", JOptionPane.ERROR_MESSAGE);
         }
     }
+    
+    
     public int Nombrejob() throws SQLException{
         
         Connection conn=Connexion1();
@@ -89,4 +95,6 @@ public class EnleverJob implements ActionListener{
         }
         return nombrejob;
     }
+    
 }
+
