@@ -37,6 +37,7 @@ public class Register extends javax.swing.JFrame {
         jPanel3.setBackground(new Color(204,102,0,120));
         jPanel4.setBackground(new Color(204,102,0,120));
         jProgressBar1.setVisible(false);
+        jPanel5.setVisible(false);
     }
 
     /*Register() {
@@ -165,7 +166,12 @@ public class Register extends javax.swing.JFrame {
         jPanel3.setBackground(new java.awt.Color(204, 102, 0));
 
         jComboBox1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Demandeur d'emploie", "Employeur micro entreprise", "Employeur grosse entreprise", "Recruteur" }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Demandeur d'emploie", "Employeur", "Recruteur" }));
+        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox1ActionPerformed(evt);
+            }
+        });
 
         jTextField10.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jTextField10.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -582,7 +588,8 @@ public class Register extends javax.swing.JFrame {
         String carac = jTextField11.getText();
         
     }                                       
-public void addrecruiter() throws SQLException{
+
+    public void addrecruiter() throws SQLException{
         Connection conn = Connexion1();
         lastname=jTextField10.getText();
         firstname=jTextField11.getText();
@@ -617,7 +624,8 @@ public void addcandidat() throws SQLException{
             System.out.println(ex.getMessage());
         }
     }
-public void addemployer() throws SQLException{
+
+    public void addemployer() throws SQLException{
         Connection conn = Connexion1();
         lastname=jTextField10.getText();
         firstname=jTextField11.getText();
@@ -660,6 +668,19 @@ public void addemployer() throws SQLException{
             jTextField1.setText("Valide");
         }
     }//GEN-LAST:event_jTextField7ActionPerformed
+
+    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+        // TODO add your handling code here:
+        
+        if("Employeur".equals(jComboBox1.getSelectedItem().toString()))
+        {
+            jPanel5.setBackground(new Color(204,102,0,0));
+            jPanel5.setVisible(true);
+        }else{
+            jPanel5.setVisible(false);
+        }
+        
+    }//GEN-LAST:event_jComboBox1ActionPerformed
 
     /**
      * @param args the command line arguments
