@@ -255,6 +255,11 @@ public class Job extends javax.swing.JFrame {
             
             //DefaultTableModel table = (DefaultTableModel) jTable2.getModel();
             int ligne = jTable2.getSelectedRow();
+            if(ligne<0)
+            {
+                JOptionPane.showMessageDialog(this, "Selectionne une ligne à supprimer");
+                return;
+            }
             String Metier = jTable2.getModel().getValueAt(ligne, 0).toString();
             String statut = jTable2.getModel().getValueAt(ligne, 1).toString();
             String Date = jTable2.getModel().getValueAt(ligne, 2).toString();
@@ -271,7 +276,9 @@ public class Job extends javax.swing.JFrame {
             }
             ((DefaultTableModel)jTable2.getModel()).removeRow(ligne);
             
-            
+           }catch (SQLException ex) {
+            Logger.getLogger(Job.class.getName()).log(Level.SEVERE, null, ex);
+        }
             
             
 //        if(jTable2.getSelectedRow() == 1)
@@ -289,9 +296,7 @@ public class Job extends javax.swing.JFrame {
 //            }
 //        }
             
-        }catch (SQLException ex) {
-            Logger.getLogger(Job.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        
         
        
         
