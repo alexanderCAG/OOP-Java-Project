@@ -36,11 +36,13 @@ public class Login extends javax.swing.JFrame {
      */
     public Login() {
         initComponents();
+        
         this.setLocationRelativeTo(null); // center of the screen
         clock();
-        //playMusic("Music\\\\mwb95free_wake.wav");
-        jButton2.addActionListener(new SeConnecter(this));
+        playMusic("Music\\\\mwb95free_wake.wav");//musique d'ouverture de l'application
+        jButton2.addActionListener(new SeConnecter(this));// si l'utilisateur appuie sur ce bouton le programme rentre dans l'action Performed defini dans la classe SeConnecter
         setVisible(true);
+        
         jPanel4.setBackground(new Color(0,0,0,0));
     }
 
@@ -278,23 +280,23 @@ public class Login extends javax.swing.JFrame {
     private void jLabel9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel9MouseClicked
         // TODO add your handling code here:
         
-        Register reg = new Register();
-        reg.setVisible(true);
+        Register reg = new Register();//Creation d'une jframe register
+        reg.setVisible(true);//affichage de la jframe register
         reg.pack();
         reg.setLocationRelativeTo(null);
         reg.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.dispose();
+        this.dispose();//La jframe login se ferme
         
     }//GEN-LAST:event_jLabel9MouseClicked
 
     private void jLabel6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseClicked
         // TODO add your handling code here:
-        System.exit(0);
+        System.exit(0);//Sort du programme
     }//GEN-LAST:event_jLabel6MouseClicked
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
         // TODO add your handling code here:
-        UserName.setText(null);
+        UserName.setText(null);//reinitialise username et jpasswordField a nul
         jPasswordField1.setText(null);
     }//GEN-LAST:event_jButton1MouseClicked
 
@@ -373,8 +375,8 @@ public class Login extends javax.swing.JFrame {
 
     private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked
         
-        Forget forget = new Forget();
-        forget.setVisible(true);
+        Forget forget = new Forget();//Creation de la jframe forget
+        forget.setVisible(true);//afficher la jframe forget
         forget.pack();
         forget.setLocationRelativeTo(null);
         
@@ -386,8 +388,8 @@ public class Login extends javax.swing.JFrame {
             public void run(){
                 try{
                     for(;;){
-                    Calendar cal=new GregorianCalendar();
-                    int day=cal.get(Calendar.DAY_OF_MONTH);
+                    Calendar cal=new GregorianCalendar();//Cette methode permet d'afficher en temps reel l'heure et la date
+                    int day=cal.get(Calendar.DAY_OF_MONTH);//Pour que cette methode fonctionne nous avons placer un for infini
                     int month=cal.get(Calendar.MONTH);
                     int year=cal.get(Calendar.YEAR);
                     int second=cal.get(Calendar.SECOND);
@@ -409,7 +411,7 @@ public class Login extends javax.swing.JFrame {
                             lblClock.setText("Hour: " + hour + ":" + minute + ":" + second + "  " + "Date: " + day + "/" + (month+1) + "/" + year);
                         }
                     }
-                    sleep(1000);
+                    sleep(1000);//Chaque le programme s'arrete une seconde
                     }
                 }
                 catch(InterruptedException e){
@@ -420,14 +422,14 @@ public class Login extends javax.swing.JFrame {
         clock.start();
     }
     public static void playMusic(String filepatch){
-        InputStream music;
+        InputStream music;//Cette méthode permet de lire un fichier .wav
         try{
             music=new FileInputStream(new File(filepatch));
             AudioStream audios=new AudioStream(music);
             AudioPlayer.player.start(audios);
         }
         catch(Exception e){
-            JOptionPane.showMessageDialog(null, "Error");
+            JOptionPane.showMessageDialog(null, "La musique ne fonctionne pas");
         }
     }
     /**

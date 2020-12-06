@@ -49,15 +49,15 @@ public class Employeur extends javax.swing.JFrame {
         jButton4.setBackground(new Color(150,102,0,120));
     }
     public Employeur(Employer e) throws SQLException {
-        this.e=e;
+        this.e=e;//Permet de connaitre la personne qui s'est connecte
         initComponents();
-        if(e.getCompteur()==5){
+        if(e.getCompteur()==5){//Nous avons defini qu'a partir de 5 connexions l'employer est defini comme membre.
             jLabel9.setText("Vous etes desormais un nouveau membre.");
             if(e.getSizecompany()=="micro"){
-                jLabel10.setText("1000 euros de discount");
+                jLabel10.setText("1000 euros de discount");//Si le compteur est egale à 5 et que l'utilisateur fait parti d'une micro entreprise alors sa remise est de 1000 euros
             }
             else{
-                jLabel10.setText("2000 euros de discount");
+                jLabel10.setText("2000 euros de discount");//Si le compteur est egale à 5 et que l'utilisateur fait parti d'une grande entreprise alors sa remise est de 2000 euros
             }
         }
         if(e.getCompteur()<5){
@@ -66,14 +66,14 @@ public class Employeur extends javax.swing.JFrame {
         if(e.getCompteur()>5){
             jLabel9.setText("Vous etes un membre.");
             if(e.getSizecompany()=="micro"){
-                jLabel10.setText("1000 euros de discount");
+                jLabel10.setText("1000 euros de discount");//Si le compteur est supérieur à 5 et que l'utilisateur fait parti d'une micro entreprise alors sa remise est de 1000 euros
             }
             else{
-                jLabel10.setText("2000 euros de discount");
+                jLabel10.setText("2000 euros de discount");//Si le compteur est supérieur à 5 et que l'utilisateur fait parti d'une grande entreprise alors sa remise est de 2000 euros
             }
         }
-        Affichagejob();
-        allcandidatjob();
+        Affichagejob();//Cette methode permet d'afficher la liste des job dans le jcombobox
+        allcandidatjob();//Cette methode affiche toutes les demandes emplois effectuées par les candidats
         this.setLocationRelativeTo(null); // center of the screen 
         jPanel4.setBackground(new Color(204,102,0,120));
         jComboBox1.setBackground(new Color(150,102,0,120));
@@ -281,12 +281,12 @@ public class Employeur extends javax.swing.JFrame {
     private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked
         // TODO add your handling code here:
 
-        Login log = new Login();
-        log.setVisible(true);
+        Login log = new Login();//Creation d'une jframe login
+        log.setVisible(true);//affichage de la jframe login
         log.pack();
         log.setLocationRelativeTo(null);
         log.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.dispose();
+        this.dispose();//la jframe employeur se ferme
 
     }//GEN-LAST:event_jLabel5MouseClicked
 
@@ -458,7 +458,7 @@ public class Employeur extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3ActionPerformed
  
     public int Nombrejob() throws SQLException{
-        
+        //Cette methode permet de compter le nombre de job dans la base de donnee company
         Connection conn=Connexion1();
         int nombrejob = 0;
         try{
@@ -473,13 +473,13 @@ public class Employeur extends javax.swing.JFrame {
         }catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Mot de passe INCORECT", "Login Error", JOptionPane.ERROR_MESSAGE);
         }
-        return nombrejob;
+        return nombrejob;//Ce nombre est envoye a la methode affichagejob qui va cree un tableau 
     }
     
     
     public void Affichagejob() throws SQLException{
         int nombrejob=Nombrejob();
-        String[] listJob=new String[nombrejob];
+        String[] listJob=new String[nombrejob];//le tableau aura le nombre de colonnes necessaires
         Connection conn=Connexion1();
         try{
         Statement stmt = conn.createStatement();
@@ -493,8 +493,8 @@ public class Employeur extends javax.swing.JFrame {
             i+=1;
         }
         String sqlStatement = "";
-        this.listJob=listJob;
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel(listJob));
+        this.listJob=listJob;//on obtient la liste de job final
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel(listJob));//Cette liste de job est envoye au jcombobox qui affiche tous les jobs
 
         //int rows = stmt.executeUpdate(sqlStatement);
         conn.close();
@@ -526,7 +526,7 @@ public class Employeur extends javax.swing.JFrame {
     
     public void allcandidatjob() throws SQLException{
         Connection conn=Connexion1();
-        
+        //Cette methode affiche tous les candidats qui ont fait une demande emploi
         try{
         Statement stmt = conn.createStatement();
         ResultSet rs = stmt.executeQuery("select lastnamecan, firstnamecan, datedebut from demandeemploi natural join candidat;");

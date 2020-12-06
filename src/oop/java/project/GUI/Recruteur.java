@@ -240,12 +240,12 @@ public class Recruteur extends javax.swing.JFrame {
     private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked
         // TODO add your handling code here:
 
-        Login log = new Login();
-        log.setVisible(true);
+        Login log = new Login();//Creation d'une jframe login
+        log.setVisible(true);//affichage de la jframe login
         log.pack();
         log.setLocationRelativeTo(null);
         log.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.dispose();
+        this.dispose();//la jframe recruteur se ferme
     }//GEN-LAST:event_jLabel5MouseClicked
     /*public int Nombredejob(){
         Connection conn=Connexion1();

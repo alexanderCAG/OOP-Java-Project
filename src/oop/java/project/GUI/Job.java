@@ -253,7 +253,7 @@ public class Job extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel5MouseClicked
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        
+        //Cette methode permet a l'utilisateu de supprimer une demande en la selectionnant et en appuyant sur le bouton supprimer
         try{
             
             int ligne = jTable2.getSelectedRow();
@@ -286,7 +286,7 @@ public class Job extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
     
     public int Nombrejob() throws SQLException{
-        
+        //Cette methode permet de compter le nombre de job dans la base de donnee company
         Connection conn=Connexion1();
         int nombrejob = 0;
         try{
@@ -301,12 +301,12 @@ public class Job extends javax.swing.JFrame {
         }catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Mot de passe INCORECT", "Login Error", JOptionPane.ERROR_MESSAGE);
         }
-        return nombrejob;
+        return nombrejob;//Ce nombre est envoye a la methode affichagejob qui va cree un tableau
     }
     
     public void Affichagejob() throws SQLException{
         int nombrejob=Nombrejob();
-        String[] listJob=new String[nombrejob];
+        String[] listJob=new String[nombrejob];//le tableau aura le nombre de colonnes necessaires
         Connection conn=Connexion1();
         try{
         Statement stmt = conn.createStatement();
@@ -320,7 +320,7 @@ public class Job extends javax.swing.JFrame {
             i+=1;
         }
         String sqlStatement = "";
-        this.listJob=listJob;
+        this.listJob=listJob;//on obtient la liste de job final
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(listJob));
 
         //int rows = stmt.executeUpdate(sqlStatement);
@@ -331,7 +331,7 @@ public class Job extends javax.swing.JFrame {
     }
     
     public void LireBasededonneeDemandeEmploi() throws SQLException{
-        Connection conn=Connexion1();
+        Connection conn=Connexion1();//Cette methode permet d'afficher sur un jComboBox la liste de toutes les demandes qu'a fait l' utilisateur connecte(le candidat)
         DefaultTableModel tab = (DefaultTableModel) jTable2.getModel();
         try{
         Statement stmt = conn.createStatement();
@@ -347,7 +347,7 @@ public class Job extends javax.swing.JFrame {
         }
         String sqlStatement = "";
         this.listJob=listJob;
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(listJob));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(listJob));//affichage de la liste dans le jcomboBox
 
         //int rows = stmt.executeUpdate(sqlStatement);
         conn.close();
