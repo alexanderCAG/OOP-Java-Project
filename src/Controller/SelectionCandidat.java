@@ -61,7 +61,7 @@ public class SelectionCandidat implements ActionListener{
             try{
                 //la ligne est supprime dans la base de donnee
                 Statement stmt = conn.createStatement();
-                stmt.executeUpdate("UPDATE `Company`.employer SET `selection`=" + false + " WHERE `firstname`='" + firstname + "'and lastname='" + lastname + "';");
+                stmt.executeUpdate("UPDATE `Company`.candidat SET `selection`=" + false + " WHERE `firstnamecan`='" + firstname + "'and lastnamecan='" + lastname + "';");
                 
                 //int rows = stmt.executeUpdate(sqlStatement);
                 conn.close();
