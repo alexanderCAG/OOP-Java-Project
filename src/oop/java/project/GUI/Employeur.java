@@ -36,9 +36,9 @@ public class Employeur extends javax.swing.JFrame {
     /**
      * Creates new form Employeur
      */
-    private Employer e;
+    public Employer e;
     private PdfPTable table;
-    private String[] listJob;
+    public String[] listJob;
     private String text;
     private String[] data;
     private int tour = 0;
@@ -46,9 +46,7 @@ public class Employeur extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null); // center of the screen 
         jPanel4.setBackground(new Color(204,102,0,120));
-//        jPanel5.setVisible(true);
-//        jPanel6.setVisible(false);
-//        jPanel7.setVisible(true);
+        jPanel5.setVisible(false);
         jTextField1.setBackground(new Color(204,102,0,120));
         jComboBox2.setBackground(new Color(150,102,0,120));
         jButton3.setBackground(new Color(150,102,0,120));
@@ -89,9 +87,7 @@ public class Employeur extends javax.swing.JFrame {
         allcandidatjob();//Cette methode affiche toutes les demandes emplois effectuées par les candidats
         this.setLocationRelativeTo(null); // center of the screen 
         jPanel4.setBackground(new Color(204,102,0,120));
-//        jPanel5.setVisible(true);
-//        jPanel6.setVisible(false);
-//        jPanel7.setVisible(true);
+        jPanel5.setVisible(false);
         jTextField1.setBackground(new Color(204,102,0,120));
         jComboBox2.setBackground(new Color(150,102,0,120));
         jButton3.setBackground(new Color(150,102,0,120));
@@ -300,6 +296,11 @@ public class Employeur extends javax.swing.JFrame {
 
         jButton5.setBackground(new java.awt.Color(150, 102, 0));
         jButton5.setText("VALIDER");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
         jPanel1.add(jButton5);
         jButton5.setBounds(80, 340, 190, 50);
 
@@ -383,6 +384,7 @@ public class Employeur extends javax.swing.JFrame {
 
         jTextField1.setBackground(new java.awt.Color(153, 102, 0));
         jTextField1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jTextField1.setForeground(new java.awt.Color(255, 255, 255));
         jPanel1.add(jTextField1);
         jTextField1.setBounds(60, 210, 230, 70);
 
@@ -588,9 +590,58 @@ public class Employeur extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        // TODO add your handling code here:
+        // TODO add your handling code here
+        
+        if(jTable1.getSelectedRowCount() == 1)
+        {
+            jPanel5.setVisible(true);
+            jPanel6.setVisible(true);
+            jPanel7.setVisible(false);
+            
+            jTextField4.setText("hello");
+        }else if(jTable1.getSelectedRowCount() == 0)
+        {
+            JOptionPane.showMessageDialog(null, "Table vide");
+        }else{
+            JOptionPane.showMessageDialog(null, "Ne selectionner qu'un seul candidat");
+        }
+        
     }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        // TODO add your handling code here:
+        
+        jPanel5.setVisible(true);
+        jPanel6.setVisible(false);
+        jPanel7.setVisible(true);
+        
+    }//GEN-LAST:event_jButton5ActionPerformed
  
+    public void Affichagejob() throws SQLException{
+        int nombrejob=Nombrejob();
+        String[] listJob=new String[nombrejob];//le tableau aura le nombre de colonnes necessaires
+        Connection conn=Connexion1();
+        try{
+        Statement stmt = conn.createStatement();
+        int i=0;
+        ResultSet rs = stmt.executeQuery("Select * from job;");
+        while(rs.next()){
+            String namejob=rs.getString(1);
+            System.out.println("Coucou " + namejob);
+            listJob[i]=namejob;
+            System.out.println(listJob[i]);//on obtient la liste de job final
+            i+=1;
+        }
+        String sqlStatement = "";
+        listJob=listJob;
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel(listJob));
+
+        //int rows = stmt.executeUpdate(sqlStatement);
+        conn.close();
+        }catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Mot de passe INCORECT", "Login Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }
     public int Nombrejob() throws SQLException{
         //Cette methode permet de compter le nombre de job dans la base de donnee company
         Connection conn=Connexion1();
@@ -607,35 +658,54 @@ public class Employeur extends javax.swing.JFrame {
         }catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Mot de passe INCORECT", "Login Error", JOptionPane.ERROR_MESSAGE);
         }
-        return nombrejob;//Ce nombre est envoye a la methode affichagejob qui va cree un tableau 
+        return nombrejob;//Ce nombre est envoye a la methode affichagejob qui va cree un tableau
     }
     
-    
-    public void Affichagejob() throws SQLException{
-        int nombrejob=Nombrejob();
-        String[] listJob=new String[nombrejob];//le tableau aura le nombre de colonnes necessaires
-        Connection conn=Connexion1();
-        try{
-        Statement stmt = conn.createStatement();
-        int i=0;
-        ResultSet rs = stmt.executeQuery("Select * from job;");
-        while(rs.next()){
-            String namejob=rs.getString(1);
-            System.out.println("Coucou " + namejob);
-            listJob[i]=namejob;
-            System.out.println(listJob[i]);
-            i+=1;
-        }
-        String sqlStatement = "";
-        this.listJob=listJob;//on obtient la liste de job final
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel(listJob));//Cette liste de job est envoye au jcombobox qui affiche tous les jobs
-
-        //int rows = stmt.executeUpdate(sqlStatement);
-        conn.close();
-        }catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Mot de passe INCORECT", "Login Error", JOptionPane.ERROR_MESSAGE);
-        }
-    }
+//    public int Nombrejob() throws SQLException{
+//        //Cette methode permet de compter le nombre de job dans la base de donnee company
+//        Connection conn=Connexion1();
+//        int nombrejob = 0;
+//        try{
+//        Statement stmt = conn.createStatement();
+//        ResultSet rs = stmt.executeQuery("Select count(namejob) from job;");
+//        while(rs.next()){
+//            nombrejob=rs.getInt(1);
+//            System.out.println("Hello " + nombrejob);
+//        }
+//        //int rows = stmt.executeUpdate(sqlStatement);
+//        conn.close();
+//        }catch (SQLException ex) {
+//            JOptionPane.showMessageDialog(null, "Mot de passe INCORECT", "Login Error", JOptionPane.ERROR_MESSAGE);
+//        }
+//        return nombrejob;//Ce nombre est envoye a la methode affichagejob qui va cree un tableau 
+//    }
+//    
+//    
+//    public void Affichagejob() throws SQLException{
+//        int nombrejob=Nombrejob();
+//        String[] listJob=new String[nombrejob];//le tableau aura le nombre de colonnes necessaires
+//        Connection conn=Connexion1();
+//        try{
+//        Statement stmt = conn.createStatement();
+//        int i=0;
+//        ResultSet rs = stmt.executeQuery("Select * from job;");
+//        while(rs.next()){
+//            String namejob=rs.getString(1);
+//            System.out.println("Coucou " + namejob);
+//            listJob[i]=namejob;
+//            System.out.println(listJob[i]);
+//            i+=1;
+//        }
+//        String sqlStatement = "";
+//        listJob=listJob;//on obtient la liste de job final
+//        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel(listJob));//Cette liste de job est envoye au jcombobox qui affiche tous les jobs
+//
+//        //int rows = stmt.executeUpdate(sqlStatement);
+//        conn.close();
+//        }catch (SQLException ex) {
+//            JOptionPane.showMessageDialog(null, "Mot de passe INCORECT", "Login Error", JOptionPane.ERROR_MESSAGE);
+//        }
+//    }
     /*
     public void candidatjob() throws SQLException{
         Connection conn=Connexion1();
@@ -665,6 +735,9 @@ public class Employeur extends javax.swing.JFrame {
         Statement stmt = conn.createStatement();
         ResultSet rs = stmt.executeQuery("select lastnamecan, firstnamecan, datedebut from demandeemploi natural join candidat;");
         DefaultTableModel tab = (DefaultTableModel) jTable1.getModel();
+//        int rows = jTable1.getRowCount();
+//        for(int i=0;i<rows;i++)
+//            ((DefaultTableModel)jTable1.getModel()).removeRow(i);
         tab.getDataVector().removeAllElements();
         String text= "Lastname Firstname Start Date";
         while(rs.next())
@@ -681,9 +754,7 @@ public class Employeur extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Mot de passe INCORECT", "Login Error", JOptionPane.ERROR_MESSAGE);
         }
     }
-    public void Remise(){
-        
-    }
+    
     /**
      * @param args the command line arguments
      */
@@ -722,7 +793,7 @@ public class Employeur extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
+    public javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     public javax.swing.JComboBox jComboBox2;
     private javax.swing.JLabel jLabel1;
@@ -749,13 +820,9 @@ public class Employeur extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
     public javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField1;
+    public javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
     // End of variables declaration//GEN-END:variables
-
-    private void Affichage() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 }
