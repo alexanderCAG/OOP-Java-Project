@@ -82,6 +82,7 @@ public class Register extends javax.swing.JFrame {
         jPasswordField1 = new javax.swing.JPasswordField();
         jPasswordField2 = new javax.swing.JPasswordField();
         jLabel8 = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
         jProgressBar1 = new javax.swing.JProgressBar();
         jTextField1 = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
@@ -281,7 +282,7 @@ public class Register extends javax.swing.JFrame {
         );
 
         jPanel2.add(jPanel3);
-        jPanel3.setBounds(59, 68, 510, 477);
+        jPanel3.setBounds(59, 68, 510, 481);
 
         jButton1.setBackground(new java.awt.Color(204, 102, 0));
         jButton1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -369,12 +370,21 @@ public class Register extends javax.swing.JFrame {
         jPanel4.setBounds(670, 70, 460, 310);
         jPanel2.add(jLabel8);
         jLabel8.setBounds(630, 470, 100, 40);
+
+        jButton2.setText("jButton2");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jButton2);
+        jButton2.setBounds(690, 440, 79, 25);
         jPanel2.add(jProgressBar1);
         jProgressBar1.setBounds(840, 400, 288, 14);
 
         jTextField1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jPanel2.add(jTextField1);
-        jTextField1.setBounds(950, 420, 83, 20);
+        jTextField1.setBounds(950, 420, 83, 22);
 
         jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/oop/java/project/GUI/Image/inscription.jpg"))); // NOI18N
         jPanel2.add(jLabel11);
@@ -439,25 +449,25 @@ public class Register extends javax.swing.JFrame {
         }
         else{
         if("Demandeur d'emploie".equals(jComboBox1.getSelectedItem().toString())){
-            /*try {
-                addrecruiter);
+            try {
+                addcandidat();
             } catch (SQLException ex) {
                 Logger.getLogger(Register.class.getName()).log(Level.SEVERE, null, ex);
-            }*/
+            }
         }
-        if("Employeur".equals(jComboBox1.getSelectedItem().toString())){
-            /*try {
-                addjobseeker();
+        else if("Employeur".equals(jComboBox1.getSelectedItem().toString())){
+            try {
+                addemployer();
             } catch (SQLException ex) {
                 Logger.getLogger(Register.class.getName()).log(Level.SEVERE, null, ex);
-            }*/
+            }
         }
-        if("Recruteur".equals(jComboBox1.getSelectedItem().toString())){
-            /*try {
-                addjobseeker();
+        else if("Recruteur".equals(jComboBox1.getSelectedItem().toString())){
+            try {
+                addrecruiter();
             } catch (SQLException ex) {
                 Logger.getLogger(Register.class.getName()).log(Level.SEVERE, null, ex);
-            }*/
+            }
         }
         Login log = new Login();
         log.setVisible(true);
@@ -611,16 +621,11 @@ public class Register extends javax.swing.JFrame {
 
     public void addrecruiter() throws SQLException{
         Connection conn = Connexion1();
-        lastname=jTextField10.getText();
-        firstname=jTextField11.getText();
-        email=jTextField7.getText();
-        phone=jTextField12.getText();
-        motdepasse=jPasswordField1.getText();
         job="";
         try{
         Statement stmt = conn.createStatement();
-        stmt.executeUpdate("INSERT INTO `Company`.Recruiter ( lastnamerec, firstnamerec, email, motdepasse, phone, job ) VALUES ('" + lastname + "', '" + firstname + "', '" + email + "', '" + phone + "', '" + motdepasse + "', '" + job +"');");
-        
+        stmt.executeUpdate("INSERT INTO `Company`.Recruiter ( lastnamerec, firstnamerec, email, motdepasse, phone, job ) VALUES ('Granier', 'Geoffroy', 'geo@gmail.com', '0789101068', 'dyjs', 'D');");
+        //"INSERT INTO `Company`.Employer ( lastnameemp, firstnameemp, email, motdepasse, phone, job, sizecompany, compteur ) VALUES ('" + lastname + "', '" + firstname + "', '" + email + "', '" + phone + "', '" + motdepasse + "', '" + job + "', '" + sizecompany + "', 0);"
         //int rows = stmt.executeUpdate(sqlStatement);
         conn.close();
         }catch (SQLException ex) {
@@ -629,15 +634,10 @@ public class Register extends javax.swing.JFrame {
     }
 public void addcandidat() throws SQLException{
         Connection conn = Connexion1();
-        lastname=jTextField10.getText();
-        firstname=jTextField11.getText();
-        email=jTextField7.getText();
-        phone=jTextField12.getText();
-        motdepasse=jPasswordField1.getText();
         try{
         Statement stmt = conn.createStatement();
-        stmt.executeUpdate("INSERT INTO `Company`.Candidat ( lastnamecan, firstnamecan, email, motdepasse, phone, selection ) VALUES ('" + lastname + "', '" + firstname + "', '" + email + "', '" + phone + "', '" + motdepasse + "', " + true + ";");
-        
+        stmt.executeUpdate("INSERT INTO `Company`.Candidat ( lastnamecan, firstnamecan, email, motdepasse, phone, selection ) VALUES ('" + lastname + "', '" + firstname + "', '" + email + "', '" + phone + "', '" + motdepasse + "', " + true + ");");
+        //"INSERT INTO `Company`.Candidat ( lastnamecan, firstnamecan, email, motdepasse, phone, selection ) VALUES ('" + lastname + "', '" + firstname + "', '" + email + "', '" + phone + "', '" + motdepasse + "', " + true + ";"
         //int rows = stmt.executeUpdate(sqlStatement);
         conn.close();
         }catch (SQLException ex) {
@@ -647,17 +647,12 @@ public void addcandidat() throws SQLException{
 
     public void addemployer() throws SQLException{
         Connection conn = Connexion1();
-        lastname=jTextField10.getText();
-        firstname=jTextField11.getText();
-        email=jTextField7.getText();
-        phone=jTextField12.getText();
-        motdepasse=jPasswordField1.getText();
-        job="Menage";
-        String sizecompany="micro";
+        job=jComboBox1.getSelectedItem().toString();
+        String sizecompany=jComboBox3.getSelectedItem().toString();
         try{
         Statement stmt = conn.createStatement();
-        stmt.executeUpdate("INSERT INTO `Company`.Employer ( lastnameemp, firstnameemp, email, motdepasse, phone, job, sizecompany, compteur ) VALUES ('" + lastname + "', '" + firstname + "', '" + email + "', '" + phone + "', '" + motdepasse + "', '" + job + "', '" + "micro" + "', 0);");
-        
+        stmt.executeUpdate("INSERT INTO `Company`.Employer ( lastnameemp, firstnameemp, email, motdepasse, phone, job, sizecompany, compteur ) VALUES ('" + lastname + "', '" + firstname + "', '" + email + "', '" + phone + "', '" + motdepasse + "', '" + job + "', '" + sizecompany + "', 0);");
+        //"INSERT INTO `Company`.Job ( namejob, discount ) VALUES ('" + namejob +"', '" + 0 + "');"
         //int rows = stmt.executeUpdate(sqlStatement);
         conn.close();
         }catch (SQLException ex) {
@@ -702,6 +697,14 @@ public void addcandidat() throws SQLException{
         
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        try {
+            addcandidat();        // TODO add your handling code here:
+        } catch (SQLException ex) {
+            Logger.getLogger(Register.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jButton2ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -740,6 +743,7 @@ public void addcandidat() throws SQLException{
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JComboBox jComboBox1;
     private javax.swing.JComboBox jComboBox2;
     private javax.swing.JComboBox jComboBox3;
