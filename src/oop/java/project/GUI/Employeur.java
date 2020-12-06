@@ -41,7 +41,7 @@ public class Employeur extends javax.swing.JFrame {
     public String[] listJob;
     private String text;
     private String[] data;
-    private int tour = 0;
+    public int tour = 0;
     public Employeur() {
         initComponents();
         this.setLocationRelativeTo(null); // center of the screen 
