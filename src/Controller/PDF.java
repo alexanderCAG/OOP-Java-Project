@@ -38,9 +38,13 @@ public class PDF implements ActionListener{
         this.e = e;
     }
     public void actionPerformed(ActionEvent ae){
-        creationpdf();
+        try {
+            creationpdf();
+        } catch (DocumentException ex) {
+            Logger.getLogger(PDF.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
-    public void creationpdf(){
+    public void creationpdf() throws DocumentException{
         String value = JOptionPane.showInputDialog(e , " 'choisir' : choisir l'emplacement du fichier PDF\n 'automatique' : fichier PDF enregistré dans le dossier Projet");
         
         if("choisir".equals(value))
