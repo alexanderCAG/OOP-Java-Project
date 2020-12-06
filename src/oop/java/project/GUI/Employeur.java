@@ -44,6 +44,8 @@ public class Employeur extends javax.swing.JFrame {
     public String[] listJob;
     private String text;
     private String[] data;
+    private double discount;
+    
     public int tour = 0;
     public Employeur() {
         initComponents();
@@ -69,21 +71,26 @@ public class Employeur extends javax.swing.JFrame {
             jLabel9.setText("Vous etes desormais un nouveau membre.");
             if(e.getSizecompany()=="micro"){
                 jLabel10.setText("-15% de discount");//Si le compteur est egale à 5 et que l'utilisateur fait parti d'une micro entreprise alors sa remise est de 1000 euros
+                discount = 0.15;
             }
             else{
                 jLabel10.setText("-10% de discount");//Si le compteur est egale à 5 et que l'utilisateur fait parti d'une grande entreprise alors sa remise est de 2000 euros
+                discount = 0.10;
             }
         }
         if(e.getCompteur()<5){
             jLabel9.setText("Vous etes un nouvelle employer.");
+            discount = 0;
         }
         if(e.getCompteur()>5){
             jLabel9.setText("Vous etes un membre.");
             if(e.getSizecompany()=="micro"){
                 jLabel10.setText("-15% de discount");//Si le compteur est supérieur à 5 et que l'utilisateur fait parti d'une micro entreprise alors sa remise est de 1000 euros
+                discount = 0.15;
             }
             else{
                 jLabel10.setText("-10% de discount");//Si le compteur est supérieur à 5 et que l'utilisateur fait parti d'une grande entreprise alors sa remise est de 2000 euros
+                discount = 0.10;
             }
         }
         Affichagejob();//Cette methode permet d'afficher la liste des job dans le jcombobox
@@ -192,7 +199,7 @@ public class Employeur extends javax.swing.JFrame {
         jLabel9.setForeground(new java.awt.Color(255, 255, 0));
         jLabel9.setText("jLabel9");
         jPanel2.add(jLabel9);
-        jLabel9.setBounds(330, 20, 440, 16);
+        jLabel9.setBounds(330, 20, 440, 14);
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
         jPanel3.setLayout(null);
@@ -341,6 +348,12 @@ public class Employeur extends javax.swing.JFrame {
         jLabel12.setForeground(new java.awt.Color(255, 255, 255));
         jLabel12.setText("Combien voulez-vous mettre pour voir votre job en tête de liste ?");
 
+        jTextField2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jTextField2KeyReleased(evt);
+            }
+        });
+
         jLabel13.setForeground(new java.awt.Color(255, 255, 255));
         jLabel13.setText("Grâce à vos remises le total est de :");
 
@@ -427,17 +440,22 @@ public class Employeur extends javax.swing.JFrame {
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         // TODO add your handling code here
         
+        
         if(jTable1.getSelectedRowCount() == 1)
         {
+            double valeurcandidat = 5;
+            valeurcandidat = valeurcandidat-valeurcandidat*discount ;
+            
             jPanel5.setVisible(true);
             jPanel6.setVisible(true);
             jPanel7.setVisible(false);
             
-            jTextField4.setText("hello");
-        }else if(jTable1.getSelectedRowCount() == 0)
+            jTextField4.setText(Double.toString(valeurcandidat) + " euros");
+            
+        }else if(jTable1.getRowCount() == 0)
         {
-            JOptionPane.showMessageDialog(null, "Table vide");
-        }else{
+            JOptionPane.showMessageDialog(null, "Tableau vide");
+        }else {
             JOptionPane.showMessageDialog(null, "Ne selectionner qu'un seul candidat");
         }
         
@@ -451,6 +469,19 @@ public class Employeur extends javax.swing.JFrame {
         jPanel7.setVisible(true);
         
     }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jTextField2KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField2KeyReleased
+        // TODO add your handling code here:
+        
+            double prix = 0;
+            double prixT = 0;
+
+            prix = Double.parseDouble(jTextField2.getText());
+            prixT = prix - prix*discount;
+
+            jTextField3.setText(Double.toString(prixT) + " euros");
+        
+    }//GEN-LAST:event_jTextField2KeyReleased
  
     public void Affichagejob() throws SQLException{
         int nombrejob=Nombrejob();
@@ -496,73 +527,6 @@ public class Employeur extends javax.swing.JFrame {
         return nombrejob;//Ce nombre est envoye a la methode affichagejob qui va cree un tableau
     }
     
-//    public int Nombrejob() throws SQLException{
-//        //Cette methode permet de compter le nombre de job dans la base de donnee company
-//        Connection conn=Connexion1();
-//        int nombrejob = 0;
-//        try{
-//        Statement stmt = conn.createStatement();
-//        ResultSet rs = stmt.executeQuery("Select count(namejob) from job;");
-//        while(rs.next()){
-//            nombrejob=rs.getInt(1);
-//            System.out.println("Hello " + nombrejob);
-//        }
-//        //int rows = stmt.executeUpdate(sqlStatement);
-//        conn.close();
-//        }catch (SQLException ex) {
-//            JOptionPane.showMessageDialog(null, "Mot de passe INCORECT", "Login Error", JOptionPane.ERROR_MESSAGE);
-//        }
-//        return nombrejob;//Ce nombre est envoye a la methode affichagejob qui va cree un tableau 
-//    }
-//    
-//    
-//    public void Affichagejob() throws SQLException{
-//        int nombrejob=Nombrejob();
-//        String[] listJob=new String[nombrejob];//le tableau aura le nombre de colonnes necessaires
-//        Connection conn=Connexion1();
-//        try{
-//        Statement stmt = conn.createStatement();
-//        int i=0;
-//        ResultSet rs = stmt.executeQuery("Select * from job;");
-//        while(rs.next()){
-//            String namejob=rs.getString(1);
-//            System.out.println("Coucou " + namejob);
-//            listJob[i]=namejob;
-//            System.out.println(listJob[i]);
-//            i+=1;
-//        }
-//        String sqlStatement = "";
-//        listJob=listJob;//on obtient la liste de job final
-//        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel(listJob));//Cette liste de job est envoye au jcombobox qui affiche tous les jobs
-//
-//        //int rows = stmt.executeUpdate(sqlStatement);
-//        conn.close();
-//        }catch (SQLException ex) {
-//            JOptionPane.showMessageDialog(null, "Mot de passe INCORECT", "Login Error", JOptionPane.ERROR_MESSAGE);
-//        }
-//    }
-    
-    /*
-    public void candidatjob() throws SQLException{
-        Connection conn=Connexion1();
-        
-        try{
-        Statement stmt = conn.createStatement();
-        ResultSet rs = stmt.executeQuery("Select * from candidat where job='" + jComboBox2.getSelectedItem().toString() + "';");
-
-        while(rs.next())
-        {
-            String user= rs.getString(2);
-            String pass= rs.getString(3);
-            
-            String data[] = {user,pass};
-        }
-        this.data=data;
-        conn.close();
-        }catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Mot de passe INCORECT", "Login Error", JOptionPane.ERROR_MESSAGE);
-        }
-    }*/
     
     public void allcandidatjob() throws SQLException{
         Connection conn=Connexion1();
@@ -570,11 +534,20 @@ public class Employeur extends javax.swing.JFrame {
         try{
         Statement stmt = conn.createStatement();
         ResultSet rs = stmt.executeQuery("select lastnamecan, firstnamecan, datedebut from demandeemploi natural join candidat;");
+        //DefaultTableModel tab = new DefaultTableModel(data, 0);
         DefaultTableModel tab = (DefaultTableModel) jTable1.getModel();
+        
+        
+//        tab.setRowCount(0);
+//        jTable1.setModel(tab);
+//        jTable1.repaint();
+        
 //        int rows = jTable1.getRowCount();
 //        for(int i=0;i<rows;i++)
 //            ((DefaultTableModel)jTable1.getModel()).removeRow(i);
+        
         tab.getDataVector().removeAllElements();
+        
         String text= "Lastname Firstname Start Date";
         while(rs.next())
         {
@@ -590,168 +563,7 @@ public class Employeur extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Mot de passe INCORECT", "Login Error", JOptionPane.ERROR_MESSAGE);
         }
     }
-    public void tableau(){
-         String value = JOptionPane.showInputDialog(this , " 'choisir' : choisir l'emplacement du fichier PDF\n 'automatique' : fichier PDF enregistré dans le dossier Projet");
-        
-        if("choisir".equals(value))
-        {
-            String path = "";
-        JFileChooser file = new JFileChooser();
-        file.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
-        int x = file.showSaveDialog(this);
-        
-        if(x==JFileChooser.APPROVE_OPTION)
-        {
-            path = file.getSelectedFile().getPath();
-        }
-        
-        Document doc = new Document(PageSize.A4.rotate());
-        
-        try {
-            PdfWriter.getInstance(doc, new FileOutputStream(path + "Table.pdf"));
-            //PdfWriter.getInstance(doc, new FileOutputStream("Table.pdf"));
-            doc.open();
-            
-            
-            /*Mettre le camembert mais avant il faut "l'imprimer"*/
-//            com.itextpdf.text.Image image1 = com.itextpdf.text.Image.getInstance("chart.png");
-//            image1.scaleAbsolute(480, 300);
-//            doc.add(image1);
-            
-            Paragraph titredoc = new Paragraph("CONFIDENTIEL",FontFactory.getFont(FontFactory.TIMES_BOLD,30, BaseColor.RED));
-            titredoc.setAlignment(Element.ALIGN_CENTER);
-            doc.add(titredoc);
-            
-            com.itextpdf.text.Image image = com.itextpdf.text.Image.getInstance("src/oop/java/project/GUI/Image/playmobil.png");
-            //doc.add(new Paragraph("Image"));
-            image.scaleToFit(200,200);      /*definir la taille de l'image*/
-            image.setAlignment(Element.ALIGN_LEFT);
-            doc.add(image);
-            
-            Paragraph date = new Paragraph(new Date().toString());
-            date.setAlignment(Element.ALIGN_RIGHT);
-            doc.add(date);
-            
-            //doc.add(new Paragraph("CONFIDENTIEL",FontFactory.getFont(FontFactory.TIMES_BOLD,18, BaseColor.RED)));
-            //doc.add(new Paragraph(new Date().toString()));
-            doc.add(new Paragraph("---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
-            doc.add(new Paragraph("\n"));
-            
-            PdfPTable table = new PdfPTable(3);
-            PdfPCell cell = new PdfPCell(new Paragraph("Liste des candidtas"));
-            
-            cell.setColspan(3); //mettre nombre colonne
-            cell.setHorizontalAlignment(Element.ALIGN_CENTER);
-            cell.setBackgroundColor(BaseColor.ORANGE);
-            table.addCell(cell);
-            
-            table.addCell("Nom");
-            table.addCell("Prenom");
-            table.addCell("Age");
-            
-            for(int i=0; i<jTable1.getRowCount();i++)
-            {
-                String Nom = jTable1.getValueAt(i, 0).toString();
-                String Prenom = jTable1.getValueAt(i, 1).toString();
-                String Age = jTable1.getValueAt(i, 2).toString();
-                
-                table.addCell(Nom);
-                table.addCell(Prenom);
-                table.addCell(Age);
-                
-            }
-            
-            doc.add(table);
-            
-            
-        } catch (FileNotFoundException ex) {
-        Logger.getLogger(Employeur.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (DocumentException ex) {
-            Logger.getLogger(Employeur.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IOException ex) {
-            Logger.getLogger(Employeur.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
-        doc.close();
-        }else if("automatique".equals(value))
-                {
-                    tour++;
-        
-        Document docu = new Document(PageSize.A4.rotate());
-        
-        try {
-            PdfWriter.getInstance(docu, new FileOutputStream("Table" + tour + ".pdf"));
-            docu.open();
-            
-            
-            /*Mettre le camembert mais avant il faut "l'imprimer"*/
-//            com.itextpdf.text.Image image1 = com.itextpdf.text.Image.getInstance("chart.png");
-//            image1.scaleAbsolute(480, 300);
-//            doc.add(image1);
-            
-            Paragraph titredoc = new Paragraph("CONFIDENTIEL",FontFactory.getFont(FontFactory.TIMES_BOLD,30, BaseColor.RED));
-            titredoc.setAlignment(Element.ALIGN_CENTER);
-            docu.add(titredoc);
-            
-            com.itextpdf.text.Image image = com.itextpdf.text.Image.getInstance("src/oop/java/project/GUI/Image/playmobil.png");
-            //doc.add(new Paragraph("Image"));
-            image.scaleToFit(200,200);      /*definir la taille de l'image*/
-            image.setAlignment(Element.ALIGN_LEFT);
-            docu.add(image);
-            
-            Paragraph date = new Paragraph(new Date().toString());
-            date.setAlignment(Element.ALIGN_RIGHT);
-            docu.add(date);
-            
-            //doc.add(new Paragraph("CONFIDENTIEL",FontFactory.getFont(FontFactory.TIMES_BOLD,18, BaseColor.RED)));
-            //doc.add(new Paragraph(new Date().toString()));
-            docu.add(new Paragraph("---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
-            docu.add(new Paragraph("\n"));
-            
-            PdfPTable table = new PdfPTable(3);
-            PdfPCell cell = new PdfPCell(new Paragraph("Liste des candidtas"));
-            
-            cell.setColspan(3); //mettre nombre colonne
-            cell.setHorizontalAlignment(Element.ALIGN_CENTER);
-            cell.setBackgroundColor(BaseColor.ORANGE);
-            table.addCell(cell);
-            
-            table.addCell("Nom");
-            table.addCell("Prenom");
-            table.addCell("Age");
-            
-            for(int i=0; i<jTable1.getRowCount();i++)
-            {
-                String Nom = jTable1.getValueAt(i, 0).toString();
-                String Prenom = jTable1.getValueAt(i, 1).toString();
-                String Age = jTable1.getValueAt(i, 2).toString();
-                
-                table.addCell(Nom);
-                table.addCell(Prenom);
-                table.addCell(Age);
-                
-            }
-            
-            docu.add(table);
-            
-            JOptionPane.showMessageDialog(null, "Votre liste a été enregistré au format PDF dans vos documents");
-            
-            
-        } catch (FileNotFoundException ex) {
-        Logger.getLogger(Employeur.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (DocumentException ex) {
-            Logger.getLogger(Employeur.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IOException ex) {
-            Logger.getLogger(Employeur.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
-        docu.close();
-                }
-        else
-        {
-            JOptionPane.showMessageDialog(null, "Fait un choix");
-        }
-    }
+    
     /**
      * @param args the command line arguments
      */
