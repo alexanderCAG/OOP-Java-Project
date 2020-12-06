@@ -8,6 +8,7 @@ package oop.java.project.GUI;
 import Controller.SeConnecter;
 import static FonctionSQL.Connexion.Connexion1;
 import java.awt.Color;
+import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.io.File;
 import java.io.FileInputStream;
@@ -43,6 +44,17 @@ public class Login extends javax.swing.JFrame {
         playMusic("Music\\\\mwb95free_wake.wav");//musique d'ouverture de l'application
         jButton2.addActionListener(new SeConnecter(this));// si l'utilisateur appuie sur ce bouton le programme rentre dans l'action Performed defini dans la classe SeConnecter
         setVisible(true);
+        
+        jPasswordField1.addKeyListener(new KeyAdapter(){
+            @Override
+            public void keyPressed(KeyEvent hidden)
+            {
+                if(hidden.getKeyCode() == KeyEvent.VK_ENTER)
+                {
+                    
+                }
+            }
+        });
         
         jPanel4.setBackground(new Color(0,0,0,0));
     }

@@ -23,7 +23,7 @@ public class Connexion {
     public static Connection Connexion1() throws SQLException{
         String url="jdbc:mysql://localhost:3306/Company?autoReconnect=true&useSSL=false";
         String user="root";
-        String pass="Vhpsq47y78&";
+        String pass="root";
         Connection conn=DriverManager.getConnection(url, user, pass);
         return conn;
     }
