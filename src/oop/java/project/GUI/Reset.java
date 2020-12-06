@@ -5,6 +5,7 @@
  */
 package oop.java.project.GUI;
 
+import static FonctionSQL.Connexion.Connexion1;
 import java.sql.*;
 import javax.swing.*;
 
@@ -14,8 +15,6 @@ import javax.swing.*;
  */
 public class Reset extends javax.swing.JFrame {
 
-    Connection con = null;
-    ResultSet rs = null;
     PreparedStatement pst = null;
     
     public String user;
@@ -132,10 +131,9 @@ public class Reset extends javax.swing.JFrame {
         if(jTextField1.getText().equals(jTextField2.getText()))
         {
             try{
-                
+                Connection conn = Connexion1();
                 String updateQuery = "UPDATE `employer` SET `motdepasse`=? WHERE email=?";
-                con = DriverManager.getConnection("jdbc:mysql://localhost:3306/company?autoReconnect=true&useSSL=false", "root", "root");
-                pst = con.prepareStatement(updateQuery);
+                pst = conn.prepareStatement(updateQuery);
                 pst.setString(1, jTextField2.getText());
                 pst.setString(2, user);
                 pst.executeUpdate();
