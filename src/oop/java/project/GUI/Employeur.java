@@ -292,67 +292,7 @@ public class Employeur extends javax.swing.JFrame {
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
         
-//        String path = "";
-//        JFileChooser file = new JFileChooser();
-//        file.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
-//        int x = file.showSaveDialog(this);
-//        
-//        if(x==JFileChooser.APPROVE_OPTION)
-//        {
-//            path = file.getSelectedFile().getPath();
-//        }
         
-        Document doc = new Document();
-        
-        try {
-            //PdfWriter.getInstance(doc, new FileOutputStream(path + "Table.pdf"));
-            PdfWriter.getInstance(doc, new FileOutputStream("Table.pdf"));
-            doc.open();
-            
-            PdfPTable table = new PdfPTable(3);
-            
-            table.addCell("Nom");
-            table.addCell("Prenom");
-            table.addCell("Age");
-            
-            for(int i=0; i<jTable1.getRowCount();i++)
-            {
-                String Nom = jTable1.getValueAt(i, 0).toString();
-                String Prenom = jTable1.getValueAt(i, 1).toString();
-                String Age = jTable1.getValueAt(i, 2).toString();
-                
-                table.addCell(Nom);
-                table.addCell(Prenom);
-                table.addCell(Age);
-                
-            }
-            
-            doc.add(table);
-            
-            
-        } catch (FileNotFoundException ex) {
-        Logger.getLogger(Employeur.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (DocumentException ex) {
-            Logger.getLogger(Employeur.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
-        doc.close();
-            
-//        Document doc = new Document();
-//        
-//        try {
-//            PdfWriter.getInstance(doc, new FileOutputStream("hello.pdf"));
-//            doc.open();
-//            doc.add(new Paragraph("Hello la team comment ca va ?" + " Moi ca va bien"));
-//
-//            
-//        } catch (DocumentException ex) {
-//            Logger.getLogger(Employeur.class.getName()).log(Level.SEVERE, null, ex);
-//        } catch (FileNotFoundException ex) {
-//            Logger.getLogger(Employeur.class.getName()).log(Level.SEVERE, null, ex);
-//        }
-//        
-//        doc.close();
         
     }//GEN-LAST:event_jButton3ActionPerformed
     
