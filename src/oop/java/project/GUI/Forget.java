@@ -141,63 +141,10 @@ public class Forget extends javax.swing.JFrame {
 //      String password = "EceParis";
     
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-//        try{
-//        Random rand = new Random();
-//        randomCode = rand.nextInt(999999);
-//        String host = "smtp.gmail.com";
-//        String user = "svpagencying3@gmail.com";
-//        String pass = "EceParis";
-////        String user = "razafiemilie@hotmail.fr";
-////        String pass = "@ryme-mada-601!!hotmail";
-////        String user = "tsnemailsndr@gmail.com";
-////        String pass = "vQ#Tgez@=KRFM2E4";
-//        String to = jTextField1.getText();
-//        String subject = "Reseting Code";
-//        String message = "Your reset code is "+ randomCode;
-//        boolean sessionDebug = false;
-//        Properties pros = System.getProperties();
-//        pros.put("mail.smtp.starttls.enable", "true");
-//        pros.put("mail.smtp.host", "host");
-//        pros.put("mail.smtp.port", "587");
-//        pros.put("mail.smtp.auth", "true");
-//        pros.put("mail.smtp.starttls.required", "true");
-//        
-//        java.security.Security.addProvider(new com.sun.net.ssl.internal.ssl.Provider());
-//        Session mailSession = Session.getDefaultInstance(pros, null);
-//        mailSession.setDebug(sessionDebug);
-//        System.out.println("1");
-//        Message msg = new MimeMessage(mailSession);
-//        System.out.println("2");
-//        msg.setFrom(new InternetAddress(user));
-//        System.out.println("3");
-//        InternetAddress [] address = { new InternetAddress(to) };
-//        System.out.println("4");
-//        msg.setRecipients(Message.RecipientType.TO, address);
-//        System.out.println("5");
-//        msg.setSubject(subject);
-//        System.out.println("6");
-//        msg.setText(message);
-//        System.out.println("7");
-//        //Transport.send(msg);
-//        Transport transport = mailSession.getTransport("smtp");
-//        System.out.println("8");
-//        transport.connect(host, user, pass);
-//        System.out.println("9");
-//        transport.sendMessage(msg, msg.getAllRecipients());
-//        System.out.println("10");
-//        transport.close();
-//        System.out.println("11");
-//        JOptionPane.showMessageDialog(null, "code was been send to the email");
-//        System.out.println("12");
-//        }catch(Exception ex){
-//            JOptionPane.showMessageDialog(rootPane, ex);
-//        }
+      
         
         Random rand = new Random();
         randomCode = rand.nextInt(999999);
-        //String host = "smtp.gmail.com";
-
         
 
         String to = jTextField1.getText();
@@ -205,39 +152,12 @@ public class Forget extends javax.swing.JFrame {
         String msg = "Your reset code is "+ randomCode;
         
         Properties pros = new Properties();
-//        pros.put("mail.smtp.starttls.enable", "true");
-//        pros.put("mail.smtp.host", "smtp.gmail.com");
-//        pros.put("mail.smtp.port", "587");
-//        pros.put("mail.smtp.auth", "true");
         
         pros.put("mail.smtp.starttls.enable", "true");
         pros.put("mail.smtp.host", "smtp.gmail.com");
         pros.put("mail.smtp.port", "587");
         pros.put("mail.smtp.auth", "true");
         pros.put("mail.smtp.starttls.required", "true");
-        
-//        String sslfactory = "javax.net.ssl.SSLSocketFactory";
-//        String smtpServ = "2a00:1450:400c:c00::6c";
-        
-//        pros.setProperty("mail.smtp.host", "smtp.gmail.com");
-//        pros.setProperty("mail.smtp.socketFactory.class", sslfactory);
-//        pros.setProperty("mail.smtp.socketFactory.fallback", "false");
-//        pros.setProperty("mail.smtp.port", "465");
-//        pros.setProperty("mail.smtp.socketFactory.port", "465");
-//        pros.put("mail.smtp.auth", "true");
-//        pros.put("mail.debug", "true");
-//        pros.put("mail.store.protocol", "pop3");
-//        pros.put("mail.transport.protocol", "smtp");
-//        pros.put("outlook.com", smtpServ);
-        
-//        java.security.Security.addProvider(new com.sun.net.ssl.internal.ssl.Provider());
-//        Session session = Session.getDefaultInstance(pros, null);
-        
-//        Session session = Session.getInstance(pros, new javax.mail.Authenticator() {
-//            protected PasswordAuthentication getPasswordAuthentification(){
-//                return new PasswordAuthentication(username,password);
-//            }
-//        });
         
         Session session = Session.getDefaultInstance(pros, 
                 new javax.mail.Authenticator(){
