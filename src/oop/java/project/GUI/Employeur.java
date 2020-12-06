@@ -9,6 +9,8 @@ import Classe.AJob;
 import Classe.AgencyDAG;
 import Classe.Employer;
 import Controller.AffichageDemandeEmploiJob;
+import Controller.AjoutJob;
+import Controller.AjoutJobEmpl;
 import static FonctionSQL.Connexion.Connexion1;
 import com.itextpdf.text.*;
 import com.itextpdf.text.pdf.*;
@@ -93,6 +95,7 @@ public class Employeur extends javax.swing.JFrame {
         jButton3.setBackground(new Color(150,102,0,120));
         jButton4.setBackground(new Color(150,102,0,120));
         jButton4.addActionListener(new AffichageDemandeEmploiJob(this));
+        jButton5.addActionListener(new AjoutJobEmpl(this));
         jTextField1.addKeyListener(new KeyAdapter(){
             @Override
             public void keyReleased(KeyEvent hidden)
@@ -706,6 +709,7 @@ public class Employeur extends javax.swing.JFrame {
 //            JOptionPane.showMessageDialog(null, "Mot de passe INCORECT", "Login Error", JOptionPane.ERROR_MESSAGE);
 //        }
 //    }
+    
     /*
     public void candidatjob() throws SQLException{
         Connection conn=Connexion1();
