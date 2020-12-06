@@ -20,8 +20,10 @@ public class Discount implements ActionListener{
         this.e = e;
     }
     public void actionPerformed(ActionEvent ae){
+        //Cette methode permet de calculer la remise d'un candidat
         if(e.jTable1.getSelectedRowCount() == 1)
         {
+            //si une seule ligne du tableau est selectionne alors le calcul s'effectue
             double valeurcandidat = 5;
             valeurcandidat = valeurcandidat-valeurcandidat*e.discount ;
             
@@ -33,8 +35,10 @@ public class Discount implements ActionListener{
             
         }else if(e.jTable1.getRowCount() == 0)
         {
+            //Le calcul ne s'effectue pas car l'utilisateur n'a pas fait de selection
             JOptionPane.showMessageDialog(null, "Tableau vide");
         }else {
+            //Le calcul ne s'effectue pas car l'utilisateur a fait plus d'une selection
             JOptionPane.showMessageDialog(null, "Ne selectionner qu'un seul candidat");
         }
         

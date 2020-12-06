@@ -24,6 +24,7 @@ public class OptionEmployeur implements ActionListener{
         optionemployeur();
     }
     public void optionemployeur(){
+        //Cette methode affiche la jcombobox (liste de job) et la jcombobox liste des statuts si l'employer est selectionne
         if("Employeur".equals(r.jComboBox1.getSelectedItem().toString()))
         {
             r.jPanel5.setBackground(new Color(204,102,0,0));

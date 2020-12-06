@@ -48,12 +48,14 @@ public class ListedemandeEmploi implements ActionListener{
         }
     }
     public void AffichageDemandeEmploi() throws SQLException{
+        //cette methode rajoute la demande d'emploi effectue par le candidat sur son tableau
         String data[] = {Metier,Statut,Date};
         DefaultTableModel tab = (DefaultTableModel) j.jTable2.getModel();
         //tab.getDataVector().removeAllElements();
         tab.addRow(data);
     }
     public void BasededonneeDemandeEmploi() throws SQLException{
+        //Cette methode rajoute dans la base de donne sa demande d'emploi
         Connection conn = Connexion1();
         System.out.println("Base donnee");
         try{

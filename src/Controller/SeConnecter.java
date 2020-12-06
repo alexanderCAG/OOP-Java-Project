@@ -33,7 +33,7 @@ public class SeConnecter implements ActionListener{
     private String pass;
     private Login l;
     public void actionPerformed(ActionEvent ae) {
-        this.user=this.l.UserName.getText();
+        this.user=this.l.UserName.getText();//Cet actionPerformed permet de separer les candidats, les employers et les recruteurs et de les envoyer sur leur page d'accueil
         this.pass=this.l.jPasswordField1.getText();
         try {
                 Verificationcandidat();
@@ -55,7 +55,7 @@ public class SeConnecter implements ActionListener{
         this.l=l;
     }
     public void Verificationcandidat() throws SQLException{
-        Connection conn = Connexion1();
+        Connection conn = Connexion1();//Cette methode verifie si c'est un candidat
         try{
         Statement stmt = conn.createStatement();
 
@@ -85,6 +85,7 @@ public class SeConnecter implements ActionListener{
         }
     }
     public void Verificationemployer() throws SQLException{
+        //Cette methode verifie si c'est un employer
         Connection conn = Connexion1();
         try{
         Statement stmt = conn.createStatement();
