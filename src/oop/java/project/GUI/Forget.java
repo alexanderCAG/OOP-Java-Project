@@ -131,14 +131,8 @@ public class Forget extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     
-//    String username = "razafiemilie@hotmail.fr";
-//    String password = "@ryme-mada-601!!hotmail";
-    
-      String username = "alexanderabbey98@gmail.com";
-      String password = "mamamazazaza";
-      
-//      String username = "svpagencying3@gmail.com";
-//      String password = "EceParis";
+      String username = "javaprojectece@gmail.com";
+      String password = "EceParis";
     
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
       

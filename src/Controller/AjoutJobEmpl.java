@@ -32,11 +32,15 @@ public class AjoutJobEmpl implements ActionListener {
     
     public void actionPerformed(ActionEvent ae){
         this.namejob=this.e.jTextField1.getText();
-        try {
+        if(!"".equals(namejob))
+        {
+            try {
             Ajouterjob();
-        } catch (SQLException ex) {
-            Logger.getLogger(AjoutJob.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (SQLException ex) {
+                Logger.getLogger(AjoutJob.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
+        
     }
     
     public void Ajouterjob() throws SQLException{

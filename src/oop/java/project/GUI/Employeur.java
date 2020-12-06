@@ -199,7 +199,7 @@ public class Employeur extends javax.swing.JFrame {
         jLabel9.setForeground(new java.awt.Color(255, 255, 0));
         jLabel9.setText("jLabel9");
         jPanel2.add(jLabel9);
-        jLabel9.setBounds(330, 20, 440, 16);
+        jLabel9.setBounds(330, 20, 440, 14);
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
         jPanel3.setLayout(null);
@@ -348,6 +348,12 @@ public class Employeur extends javax.swing.JFrame {
         jLabel12.setForeground(new java.awt.Color(255, 255, 255));
         jLabel12.setText("Combien voulez-vous mettre pour voir votre job en tête de liste ?");
 
+        jTextField2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jTextField2KeyReleased(evt);
+            }
+        });
+
         jLabel13.setForeground(new java.awt.Color(255, 255, 255));
         jLabel13.setText("Grâce à vos remises le total est de :");
 
@@ -434,21 +440,22 @@ public class Employeur extends javax.swing.JFrame {
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         // TODO add your handling code here
         
-        double valeurcandidat = 5;
-        valeurcandidat = valeurcandidat-valeurcandidat*discount ;
         
         if(jTable1.getSelectedRowCount() == 1)
         {
+            double valeurcandidat = 5;
+            valeurcandidat = valeurcandidat-valeurcandidat*discount ;
+            
             jPanel5.setVisible(true);
             jPanel6.setVisible(true);
             jPanel7.setVisible(false);
             
             jTextField4.setText(Double.toString(valeurcandidat) + " euros");
             
-        }else if(jTable1.getSelectedRowCount() == 0)
+        }else if(jTable1.getRowCount() == 0)
         {
-            JOptionPane.showMessageDialog(null, "Table vide");
-        }else{
+            JOptionPane.showMessageDialog(null, "Tableau vide");
+        }else {
             JOptionPane.showMessageDialog(null, "Ne selectionner qu'un seul candidat");
         }
         
@@ -462,6 +469,19 @@ public class Employeur extends javax.swing.JFrame {
         jPanel7.setVisible(true);
         
     }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jTextField2KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField2KeyReleased
+        // TODO add your handling code here:
+        
+            double prix = 0;
+            double prixT = 0;
+
+            prix = Double.parseDouble(jTextField2.getText());
+            prixT = prix - prix*discount;
+
+            jTextField3.setText(Double.toString(prixT) + " euros");
+        
+    }//GEN-LAST:event_jTextField2KeyReleased
  
     public void Affichagejob() throws SQLException{
         int nombrejob=Nombrejob();
@@ -514,11 +534,20 @@ public class Employeur extends javax.swing.JFrame {
         try{
         Statement stmt = conn.createStatement();
         ResultSet rs = stmt.executeQuery("select lastnamecan, firstnamecan, datedebut from demandeemploi natural join candidat;");
+        //DefaultTableModel tab = new DefaultTableModel(data, 0);
         DefaultTableModel tab = (DefaultTableModel) jTable1.getModel();
+        
+        
+//        tab.setRowCount(0);
+//        jTable1.setModel(tab);
+//        jTable1.repaint();
+        
 //        int rows = jTable1.getRowCount();
 //        for(int i=0;i<rows;i++)
 //            ((DefaultTableModel)jTable1.getModel()).removeRow(i);
+        
         tab.getDataVector().removeAllElements();
+        
         String text= "Lastname Firstname Start Date";
         while(rs.next())
         {
