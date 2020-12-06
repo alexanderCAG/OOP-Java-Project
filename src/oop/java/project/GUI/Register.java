@@ -638,7 +638,7 @@ public void addcandidat() throws SQLException{
 
     public void addemployer() throws SQLException{
         Connection conn = Connexion1();
-        job=jComboBox1.getSelectedItem().toString();
+        job=jComboBox2.getSelectedItem().toString();
         String sizecompany=jComboBox3.getSelectedItem().toString();
         try{
         Statement stmt = conn.createStatement();
