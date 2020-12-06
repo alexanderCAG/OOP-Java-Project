@@ -88,10 +88,8 @@ public class Register extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jPasswordField1 = new javax.swing.JPasswordField();
         jPasswordField2 = new javax.swing.JPasswordField();
-        jLabel8 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
         jProgressBar1 = new javax.swing.JProgressBar();
-        jTextField1 = new javax.swing.JTextField();
+        jLabel14 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -375,23 +373,12 @@ public class Register extends javax.swing.JFrame {
 
         jPanel2.add(jPanel4);
         jPanel4.setBounds(670, 70, 460, 310);
-        jPanel2.add(jLabel8);
-        jLabel8.setBounds(630, 470, 100, 40);
-
-        jButton2.setText("jButton2");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-        jPanel2.add(jButton2);
-        jButton2.setBounds(690, 440, 73, 23);
         jPanel2.add(jProgressBar1);
-        jProgressBar1.setBounds(840, 400, 288, 14);
+        jProgressBar1.setBounds(770, 390, 288, 14);
 
-        jTextField1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jPanel2.add(jTextField1);
-        jTextField1.setBounds(950, 420, 83, 20);
+        jLabel14.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jPanel2.add(jLabel14);
+        jLabel14.setBounds(890, 410, 110, 30);
 
         jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/oop/java/project/GUI/Image/inscription.jpg"))); // NOI18N
         jPanel2.add(jLabel11);
@@ -574,35 +561,34 @@ public class Register extends javax.swing.JFrame {
             {
                 jProgressBar1.setValue(100);
                 taillemdp = "Fort";
-                jTextField1.setText(taillemdp);
+                jLabel14.setText(taillemdp);
 
             }
             else if(m2.matches())
             {
                 jProgressBar1.setValue(50);
                 taillemdp = "Moyen";
-                jTextField1.setText(taillemdp);
+                jLabel14.setText(taillemdp);
 
             }
             else if(m3.matches())
             {
                 jProgressBar1.setValue(25);
                 taillemdp = "Faible";
-                jTextField1.setText(taillemdp);
+                jLabel14.setText(taillemdp);
 
             }
-            else
+            else 
             {
                 jProgressBar1.setValue(15);
                 taillemdp = "Insuffisant";
-                jTextField1.setText(taillemdp);
+                jLabel14.setText(taillemdp);
 
             }
+            
         }
+        
 
-        jLabel8.setText(mdp);
-        
-        
     }//GEN-LAST:event_jPasswordField1KeyReleased
 
     private void jTextField12KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField12KeyReleased
@@ -727,14 +713,6 @@ public void addcandidat() throws SQLException{
         
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        try {
-            addcandidat();        // TODO add your handling code here:
-        } catch (SQLException ex) {
-            Logger.getLogger(Register.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }//GEN-LAST:event_jButton2ActionPerformed
-
     private void jTextField7KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField7KeyReleased
         // TODO add your handling code here:
         
@@ -836,7 +814,6 @@ public void addcandidat() throws SQLException{
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JComboBox jComboBox1;
     private javax.swing.JComboBox jComboBox2;
     private javax.swing.JComboBox jComboBox3;
@@ -845,13 +822,13 @@ public void addcandidat() throws SQLException{
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
@@ -861,7 +838,6 @@ public void addcandidat() throws SQLException{
     private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JPasswordField jPasswordField2;
     private javax.swing.JProgressBar jProgressBar1;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField10;
     private javax.swing.JTextField jTextField11;
     private javax.swing.JTextField jTextField12;
