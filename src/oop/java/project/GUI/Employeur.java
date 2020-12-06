@@ -44,6 +44,8 @@ public class Employeur extends javax.swing.JFrame {
     public String[] listJob;
     private String text;
     private String[] data;
+    private double discount;
+    
     public int tour = 0;
     public Employeur() {
         initComponents();
@@ -69,21 +71,26 @@ public class Employeur extends javax.swing.JFrame {
             jLabel9.setText("Vous etes desormais un nouveau membre.");
             if(e.getSizecompany()=="micro"){
                 jLabel10.setText("-15% de discount");//Si le compteur est egale à 5 et que l'utilisateur fait parti d'une micro entreprise alors sa remise est de 1000 euros
+                discount = 0.15;
             }
             else{
                 jLabel10.setText("-10% de discount");//Si le compteur est egale à 5 et que l'utilisateur fait parti d'une grande entreprise alors sa remise est de 2000 euros
+                discount = 0.10;
             }
         }
         if(e.getCompteur()<5){
             jLabel9.setText("Vous etes un nouvelle employer.");
+            discount = 0;
         }
         if(e.getCompteur()>5){
             jLabel9.setText("Vous etes un membre.");
             if(e.getSizecompany()=="micro"){
                 jLabel10.setText("-15% de discount");//Si le compteur est supérieur à 5 et que l'utilisateur fait parti d'une micro entreprise alors sa remise est de 1000 euros
+                discount = 0.15;
             }
             else{
                 jLabel10.setText("-10% de discount");//Si le compteur est supérieur à 5 et que l'utilisateur fait parti d'une grande entreprise alors sa remise est de 2000 euros
+                discount = 0.10;
             }
         }
         Affichagejob();//Cette methode permet d'afficher la liste des job dans le jcombobox
@@ -427,13 +434,17 @@ public class Employeur extends javax.swing.JFrame {
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         // TODO add your handling code here
         
+        double valeurcandidat = 5;
+        valeurcandidat = valeurcandidat-valeurcandidat*discount ;
+        
         if(jTable1.getSelectedRowCount() == 1)
         {
             jPanel5.setVisible(true);
             jPanel6.setVisible(true);
             jPanel7.setVisible(false);
             
-            jTextField4.setText("hello");
+            jTextField4.setText(Double.toString(valeurcandidat) + " euros");
+            
         }else if(jTable1.getSelectedRowCount() == 0)
         {
             JOptionPane.showMessageDialog(null, "Table vide");
@@ -496,27 +507,6 @@ public class Employeur extends javax.swing.JFrame {
         return nombrejob;//Ce nombre est envoye a la methode affichagejob qui va cree un tableau
     }
     
-    /*
-    public void candidatjob() throws SQLException{
-        Connection conn=Connexion1();
-        
-        try{
-        Statement stmt = conn.createStatement();
-        ResultSet rs = stmt.executeQuery("Select * from candidat where job='" + jComboBox2.getSelectedItem().toString() + "';");
-
-        while(rs.next())
-        {
-            String user= rs.getString(2);
-            String pass= rs.getString(3);
-            
-            String data[] = {user,pass};
-        }
-        this.data=data;
-        conn.close();
-        }catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Mot de passe INCORECT", "Login Error", JOptionPane.ERROR_MESSAGE);
-        }
-    }*/
     
     public void allcandidatjob() throws SQLException{
         Connection conn=Connexion1();
