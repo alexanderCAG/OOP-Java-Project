@@ -522,7 +522,7 @@ public class Employeur extends javax.swing.JFrame {
         Statement stmt = conn.createStatement();
         ResultSet rs = stmt.executeQuery("select lastnamecan, firstnamecan, datedebut from demandeemploi natural join candidat;");
         //DefaultTableModel tab = new DefaultTableModel(data, 0);
-        jTable1.setModel(new DefaultTableModel(null, new String[]{"Nom", "Prenom", "Date de début"}));
+        //jTable1.setModel(new DefaultTableModel(null, new String[]{"Nom", "Prenom", "Date de début"}));
         DefaultTableModel tab = (DefaultTableModel) jTable1.getModel();
         
         
