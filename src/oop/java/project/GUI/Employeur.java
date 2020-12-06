@@ -290,14 +290,18 @@ public class Employeur extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jLabel5MouseClicked
 
+    int tour = 0;
+    
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
         
+        
+        tour++;
         Document doc = new Document(PageSize.A4.rotate());
         
         try {
             //PdfWriter.getInstance(doc, new FileOutputStream(path + "Table.pdf"));
-            PdfWriter.getInstance(doc, new FileOutputStream("Table.pdf"));
+            PdfWriter.getInstance(doc, new FileOutputStream("Table" + tour + ".pdf"));
             doc.open();
             
             
