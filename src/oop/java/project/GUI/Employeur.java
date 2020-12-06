@@ -295,8 +295,18 @@ public class Employeur extends javax.swing.JFrame {
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
         
+//        String path = "";
+//        JFileChooser file = new JFileChooser();
+//        file.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+//        int x = file.showSaveDialog(this);
+//        
+//        if(x==JFileChooser.APPROVE_OPTION)
+//        {
+//            path = file.getSelectedFile().getPath();
+//        }
         
         tour++;
+        
         Document doc = new Document(PageSize.A4.rotate());
         
         try {
