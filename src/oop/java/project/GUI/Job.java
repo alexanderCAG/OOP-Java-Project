@@ -268,7 +268,8 @@ public class Job extends javax.swing.JFrame {
                 conn.close();
             }catch (SQLException ex) {
                 System.out.println(ex.getMessage());
-            }((DefaultTableModel)jTable2.getModel()).removeRow(ligne);
+            }
+            ((DefaultTableModel)jTable2.getModel()).removeRow(ligne);
             
             
             
