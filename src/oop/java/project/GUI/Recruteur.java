@@ -212,7 +212,7 @@ public class Recruteur extends javax.swing.JFrame {
         jButton3.setBackground(new java.awt.Color(0, 102, 51));
         jButton3.setText("ANALYSER");
         jPanel2.add(jButton3);
-        jButton3.setBounds(710, 250, 190, 60);
+        jButton3.setBounds(690, 250, 190, 60);
 
         jPanel4.setBackground(new java.awt.Color(0, 102, 51));
         jPanel4.setLayout(new java.awt.BorderLayout());

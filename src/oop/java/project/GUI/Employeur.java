@@ -39,6 +39,7 @@ public class Employeur extends javax.swing.JFrame {
     private String[] listJob;
     private String text;
     private String[] data;
+    private int tour = 0;
     public Employeur() {
         initComponents();
         this.setLocationRelativeTo(null); // center of the screen 
@@ -54,10 +55,10 @@ public class Employeur extends javax.swing.JFrame {
         if(e.getCompteur()==5){//Nous avons defini qu'a partir de 5 connexions l'employer est defini comme membre.
             jLabel9.setText("Vous etes desormais un nouveau membre.");
             if(e.getSizecompany()=="micro"){
-                jLabel10.setText("1000 euros de discount");//Si le compteur est egale à 5 et que l'utilisateur fait parti d'une micro entreprise alors sa remise est de 1000 euros
+                jLabel10.setText("-15% de discount");//Si le compteur est egale à 5 et que l'utilisateur fait parti d'une micro entreprise alors sa remise est de 1000 euros
             }
             else{
-                jLabel10.setText("2000 euros de discount");//Si le compteur est egale à 5 et que l'utilisateur fait parti d'une grande entreprise alors sa remise est de 2000 euros
+                jLabel10.setText("-10% de discount");//Si le compteur est egale à 5 et que l'utilisateur fait parti d'une grande entreprise alors sa remise est de 2000 euros
             }
         }
         if(e.getCompteur()<5){
@@ -66,10 +67,10 @@ public class Employeur extends javax.swing.JFrame {
         if(e.getCompteur()>5){
             jLabel9.setText("Vous etes un membre.");
             if(e.getSizecompany()=="micro"){
-                jLabel10.setText("1000 euros de discount");//Si le compteur est supérieur à 5 et que l'utilisateur fait parti d'une micro entreprise alors sa remise est de 1000 euros
+                jLabel10.setText("-15% de discount");//Si le compteur est supérieur à 5 et que l'utilisateur fait parti d'une micro entreprise alors sa remise est de 1000 euros
             }
             else{
-                jLabel10.setText("2000 euros de discount");//Si le compteur est supérieur à 5 et que l'utilisateur fait parti d'une grande entreprise alors sa remise est de 2000 euros
+                jLabel10.setText("-10% de discount");//Si le compteur est supérieur à 5 et que l'utilisateur fait parti d'une grande entreprise alors sa remise est de 2000 euros
             }
         }
         Affichagejob();//Cette methode permet d'afficher la liste des job dans le jcombobox
@@ -290,8 +291,6 @@ public class Employeur extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jLabel5MouseClicked
 
-    int tour = 0;
-    
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
         

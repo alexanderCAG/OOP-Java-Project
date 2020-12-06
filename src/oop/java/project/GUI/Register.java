@@ -31,6 +31,7 @@ public class Register extends javax.swing.JFrame {
     private String motdepasse;
     private String phone;
     private String job;
+    private String taillemdp;
     public Register() {
         initComponents();
         this.setLocationRelativeTo(null); // center of the screen
@@ -508,7 +509,7 @@ public class Register extends javax.swing.JFrame {
         // TODO add your handling code here:
         
         String mdp = jPasswordField1.getText();
-
+        
         String check1 = "^(?=.*[a-z])(?=."
                        + "*[A-Z])(?=.*\\d)"
                        + "(?=.*[-+_!@#$%^&*., ?]).+$";
@@ -537,22 +538,30 @@ public class Register extends javax.swing.JFrame {
                 if(m1.matches())
                 {
                     jProgressBar1.setValue(100);
-                    jTextField1.setText("Fort");
+                    taillemdp = "Fort";
+                    jTextField1.setText(taillemdp);
+                    
                 }
                 else if(m2.matches())
                 {
                     jProgressBar1.setValue(50);
-                    jTextField1.setText("Moyen");
+                    taillemdp = "Moyen";
+                    jTextField1.setText(taillemdp);
+                    
                 }
                 else if(m3.matches())
                 {
                     jProgressBar1.setValue(25);
-                    jTextField1.setText("Faible");
+                    taillemdp = "Faible";
+                    jTextField1.setText(taillemdp);
+                    
                 }
                 else
                 {
                     jProgressBar1.setValue(15);
-                    jTextField1.setText("Insuffisant");
+                    taillemdp = "Insuffisant";
+                    jTextField1.setText(taillemdp);
+                    
                 }
             }
             
