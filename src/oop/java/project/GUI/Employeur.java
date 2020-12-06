@@ -34,7 +34,7 @@ public class Employeur extends javax.swing.JFrame {
     public String[] listJob;
     private String text;
     private String[] data;
-    private double discount;
+    public double discount;
     
     public int tour = 0;
     public Employeur() {
@@ -95,6 +95,7 @@ public class Employeur extends javax.swing.JFrame {
         jButton4.addActionListener(new AffichageDemandeEmploiJob(this));
         jButton5.addActionListener(new AjoutJobEmpl(this));
         jButton3.addActionListener(new PDF(this));
+        jButton5.addActionListener(new Discount(this));
         jTextField1.addKeyListener(new KeyAdapter(){
             @Override
             public void keyReleased(KeyEvent hidden)
@@ -189,7 +190,7 @@ public class Employeur extends javax.swing.JFrame {
         jLabel9.setForeground(new java.awt.Color(255, 255, 0));
         jLabel9.setText("jLabel9");
         jPanel2.add(jLabel9);
-        jLabel9.setBounds(330, 20, 440, 14);
+        jLabel9.setBounds(330, 20, 440, 16);
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
         jPanel3.setLayout(null);
@@ -609,16 +610,16 @@ public class Employeur extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel5;
-    private javax.swing.JPanel jPanel6;
-    private javax.swing.JPanel jPanel7;
+    public javax.swing.JPanel jPanel4;
+    public javax.swing.JPanel jPanel5;
+    public javax.swing.JPanel jPanel6;
+    public javax.swing.JPanel jPanel7;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
     public javax.swing.JTable jTable1;
     public javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
+    public javax.swing.JTextField jTextField4;
     // End of variables declaration//GEN-END:variables
 }
