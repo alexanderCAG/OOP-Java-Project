@@ -66,7 +66,7 @@ public class SeConnecter implements ActionListener{
             email=rs.getString(4);
             motdepasse=rs.getString(5);
             if(user.equals(email) && pass.equals(motdepasse)){
-                System.out.println("Correct new candidat");
+                //si oui le candidat sera redirige vers la page Candidat
                 Candidat c= new Candidat(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6), rs.getBoolean(7));
                 Job job = new Job(c);
                 job.setVisible(true);
@@ -97,8 +97,8 @@ public class SeConnecter implements ActionListener{
             email=rs.getString(4);
             motdepasse=rs.getString(5);
             if(user.equals(email) && pass.equals(motdepasse)){
-                System.out.println("Correct employer");
-                IncrementationCompteur(rs.getInt(1),rs.getInt(9)+1);
+                //si oui l'employer sera redirige vers la page employeur
+                IncrementationCompteur(rs.getInt(1),rs.getInt(9)+1);//Une incrementation aura lieu pour redefinir son nombre de connexion
                 Employer e= new Employer(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6), rs.getString(7), rs.getString(8), rs.getInt(9)+1);
                 //int id, String lastname, String firstname, String email, String motdepasse, int phone, String job, String sizecompany, int compteur
                 Employeur employeur = new Employeur(e);
@@ -118,6 +118,7 @@ public class SeConnecter implements ActionListener{
         }
     }
     public void Verificationrecruiter() throws SQLException{
+        //Cette methode verifie si c'est un recruiter
         Connection conn = Connexion1();
         try{
         Statement stmt = conn.createStatement();
@@ -129,7 +130,7 @@ public class SeConnecter implements ActionListener{
             email=rs.getString(4);
             motdepasse=rs.getString(5);
             if(user.equals(email) && pass.equals(motdepasse)){
-                System.out.println("Correct recruteur");
+                //si oui le recruteur sera redirige vers la page recruiter
                 Recruiter r= new Recruiter(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6), rs.getString(7));
                 //int id, String lastname, String firstname, String email, String motdepasse, int phone, String job
                 System.out.println("Correct recruteur");
@@ -150,7 +151,7 @@ public class SeConnecter implements ActionListener{
         }
     }
     public void IncrementationCompteur(int idemp, int compteur) throws SQLException{
-        Connection conn = Connexion1();
+        Connection conn = Connexion1();//Cette methode permet d'incrementer le nombre de connexion de l'employer
         try{
         Statement stmt = conn.createStatement();
         stmt.executeUpdate("UPDATE `Company`.employer SET `compteur`=" + compteur + " WHERE `idemp`=" + idemp + ";");
