@@ -51,6 +51,7 @@ public class EnleverJob implements ActionListener{
     
     
     public void Affichagejob() throws SQLException{
+        //Cette methode permet d'afficher la liste des jobs dans un jcomboBox
         int nombrejob=Nombrejob();
         String[] listJob=new String[nombrejob];
         Connection conn=Connexion1();
@@ -77,7 +78,7 @@ public class EnleverJob implements ActionListener{
     
     public int Nombrejob() throws SQLException{
         
-        Connection conn=Connexion1();
+        Connection conn=Connexion1();//Cette methode compte le nombre de job et renvoie cette information a Affichagejob
         int nombrejob = 0;
         try{
         Statement stmt = conn.createStatement();

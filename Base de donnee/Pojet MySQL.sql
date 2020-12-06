@@ -6,7 +6,6 @@ CREATE TABLE `Company`.Agency (
 );
 CREATE TABLE `Company`.Job (
 	`namejob` VARCHAR(30) NOT NULL,
-    `discount` INT NOT NULL,
     PRIMARY KEY (`namejob`)
 );
 CREATE TABLE `Company`.Candidat (
@@ -52,11 +51,11 @@ CREATE TABLE `Company`.DemandeEmploi (
 -- , 1965, '75006 Paris'
 INSERT INTO `Company`.Agency ( nameag ) VALUES ('Agence DAG');
 
-INSERT INTO `Company`.Job ( namejob, discount ) VALUES ('Ingénieur en robotique', 1000);
-INSERT INTO `Company`.Job ( namejob, discount ) VALUES ('Ingénieur en domotique', 2000);
-INSERT INTO `Company`.Job ( namejob, discount ) VALUES ('Ingénieur en drone', 0);
-INSERT INTO `Company`.Job ( namejob, discount ) VALUES ('Ingénieur en electromagnetisme', 200);
-INSERT INTO `Company`.Job ( namejob, discount ) VALUES ('Ingénieur', 0);
+INSERT INTO `Company`.Job ( namejob ) VALUES ('Ingénieur en robotique');
+INSERT INTO `Company`.Job ( namejob ) VALUES ('Ingénieur en domotique');
+INSERT INTO `Company`.Job ( namejob ) VALUES ('Ingénieur en drone');
+INSERT INTO `Company`.Job ( namejob ) VALUES ('Ingénieur en electromagnetisme');
+INSERT INTO `Company`.Job ( namejob ) VALUES ('Ingénieur');
 
 INSERT INTO `Company`.Candidat ( lastnamecan, firstnamecan, email, motdepasse, phone, selection ) VALUES ('Granier', 'Geoffroy', 'geoffroy.granier@edu.ece.fr', 'dyjs', '0721564966', true);
 INSERT INTO `Company`.Candidat ( lastnamecan, firstnamecan, email, motdepasse, phone, selection ) VALUES ('Boucher', 'Thomas', 'geoffroy.granier@edu.ece.fr', 'dyjs', '0615468557', false);

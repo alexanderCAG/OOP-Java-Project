@@ -35,10 +35,10 @@ public class AffichageDemandeEmploiJob implements ActionListener{
         this.e=e;
     }
     public void candidatjob() throws SQLException{
-        Connection conn=Connexion1();
+        Connection conn=Connexion1();//Cette methode permet d'afficher toutes les demandes d'emploies
         try{
         Statement stmt = conn.createStatement();
-        ResultSet rs = stmt.executeQuery("select lastnamecan, firstnamecan, datedebut from demandeemploi natural join candidat where metier='" + e.jComboBox2.getSelectedItem().toString() + "';");
+        ResultSet rs = stmt.executeQuery("select lastnamecan, firstnamecan, datedebut from demandeemploi natural join candidat where selection=false and metier='" + e.jComboBox2.getSelectedItem().toString() + "';");
         DefaultTableModel tab = (DefaultTableModel) e.jTable1.getModel();
         tab.getDataVector().removeAllElements();
         

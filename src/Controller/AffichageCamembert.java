@@ -49,7 +49,7 @@ public class AffichageCamembert implements ActionListener{
         }
     }
     public void Graphique() throws SQLException{
-        DefaultPieDataset graphe = new DefaultPieDataset();
+        DefaultPieDataset graphe = new DefaultPieDataset();//Cette methode permet de visualiser sous forme de graphique le nombre de candidat 
         Cammenbert();
         for(int i=0; i<listJob.length;i++){
             graphe.setValue(listJob[i], new Integer(nombrepersonnejob[i]));
@@ -64,7 +64,7 @@ public class AffichageCamembert implements ActionListener{
     }
     public void Cammenbert() throws SQLException{
         
-        int[] nombrepersonnejob=new int[listJob.length];
+        int[] nombrepersonnejob=new int[listJob.length];// Cette methode permet de connaitre le nombre de candidat qui a postule pour chaque job
         for(int i=0; i<listJob.length; i++){
             Connection conn=Connexion1();
         try{
@@ -83,7 +83,7 @@ public class AffichageCamembert implements ActionListener{
         
     }
     public void Affichagejob() throws SQLException{
-        int nombrejob=Nombrejob();
+        int nombrejob=Nombrejob();//Cette methode permet d'afficher la liste des jobs dans un jcomboBox
         String[] listJob=new String[nombrejob];
         Connection conn=Connexion1();
         try{
@@ -103,12 +103,11 @@ public class AffichageCamembert implements ActionListener{
         //int rows = stmt.executeUpdate(sqlStatement);
         conn.close();
         }catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Mot de passe INCORECT", "Login Error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "La liste des jobs ne fonctionne pas", "Login Error", JOptionPane.ERROR_MESSAGE);
         }
     }
     public int Nombrejob() throws SQLException{
-        
-        Connection conn=Connexion1();
+        Connection conn=Connexion1();//Cette methode compte le nombre de job et renvoie cette information a Affichagejob
         int nombrejob = 0;
         try{
         Statement stmt = conn.createStatement();

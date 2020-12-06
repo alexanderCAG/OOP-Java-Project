@@ -28,7 +28,7 @@ public class SupprimerLigneTableau implements ActionListener{
         this.j = j;
     }
     public void actionPerformed(ActionEvent ae){
-        supprimerligne();
+        supprimerligne();//la methode supprimerligne est appele
     }
     public void supprimerligne(){
         try{
@@ -39,12 +39,12 @@ public class SupprimerLigneTableau implements ActionListener{
                 JOptionPane.showMessageDialog(j, "Selectionne une ligne à supprimer");
                 return;
             }
-            String Metier = j.jTable2.getModel().getValueAt(ligne, 0).toString();
-            String statut = j.jTable2.getModel().getValueAt(ligne, 1).toString();
-            String Date = j.jTable2.getModel().getValueAt(ligne, 2).toString();
+            String Metier = j.jTable2.getModel().getValueAt(ligne, 0).toString();//cela permet de connaitre le metier de la ligne selectionne
+            String statut = j.jTable2.getModel().getValueAt(ligne, 1).toString();//cela permet de connaitre le statut de la ligne selectionne
+            String Date = j.jTable2.getModel().getValueAt(ligne, 2).toString();//cela permet de connaitre la date de la ligne selectionne
             Connection conn=Connexion1();
             try{
-                
+                //la ligne est supprime dans la base de donnee
                 Statement stmt = conn.createStatement();
                 stmt.executeUpdate("Delete from demandeemploi where idcan=" + j.c.getId() + " and metier='" + Metier + "' and statut='" + statut + "' and datedebut='" + Date + "';");
                 
@@ -53,7 +53,7 @@ public class SupprimerLigneTableau implements ActionListener{
             }catch (SQLException ex) {
                 System.out.println(ex.getMessage());
             }
-            ((DefaultTableModel)j.jTable2.getModel()).removeRow(ligne);
+            ((DefaultTableModel)j.jTable2.getModel()).removeRow(ligne);//la ligne est supprime dans le tableau
             
            }catch (SQLException ex) {
             Logger.getLogger(Job.class.getName()).log(Level.SEVERE, null, ex);
