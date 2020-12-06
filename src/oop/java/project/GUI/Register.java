@@ -406,47 +406,12 @@ public class Register extends javax.swing.JFrame {
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
         // TODO add your handling code here:
-        //"Demandeur d'emploie", "Employeur micro entreprise", "Employeur grosse entreprise", "Recruteur"
         lastname=jTextField10.getText();
         firstname=jTextField11.getText();
         email=jTextField7.getText();
         phone=jTextField12.getText();
         motdepasse=jPasswordField1.getText();
         pass2=jPasswordField2.getText();
-        /*jTextField10.setBackground(new java.awt.Color(255, 255, 255));
-        jTextField11.setBackground(new java.awt.Color(255, 255, 255));
-        jTextField7.setBackground(new java.awt.Color(255, 255, 255));
-        jPasswordField2.setBackground(new java.awt.Color(255, 255, 255));
-        jTextField12.setBackground(new java.awt.Color(255, 255, 255));
-        jPasswordField1.setBackground(new java.awt.Color(255, 255, 255));*/
-        //if("".equals(firstname) ||"".equals(lastname) || "".equals(email)  || "".equals(motdepasse) ){
-            
-            /*if("".equals(lastname)){
-                jTextField10.setBackground(new java.awt.Color(255, 0, 0));
-            }
-            if("".equals(firstname)){
-                jTextField11.setBackground(new java.awt.Color(255, 0, 0));
-            }
-            if("".equals(email)){
-                jTextField7.setBackground(new java.awt.Color(255, 0, 0));
-            }
-            if("".equals(motdepasse)){
-                jPasswordField1.setBackground(new java.awt.Color(255, 0, 0));
-            }
-            if("".equals(jTextField12.getText())){
-                jTextField12.setBackground(new java.awt.Color(255, 0, 0));
-            }
-            if("".equals(jPasswordField2.getText())){
-                jPasswordField2.setBackground(new java.awt.Color(255, 0, 0));
-            }*/
-            /*
-            jTextField10.setText(null);
-            jTextField11.setText(null);
-            jTextField7.setText(null);
-            jPasswordField1.setText(null);
-        }*/
-        //&&  firstname!="" && jPasswordField1.getText()==jPasswordField2.getText() && && lastname!="" && email!="" && phone!="" && motdepasse!="" && email.contains("@") && num==true && first==true && last==true && taillemdp!="Insuffisant"
-        //
         if(motdepasse == null ? pass2 == null : motdepasse.equals(pass2) && taillemdp!="Insuffisant" && pass2!="" && mail==true && num==true && first==true && last==true && !"Insuffisant".equals(taillemdp) && firstname!="" &&lastname!="" && email!="" && phone!="" && motdepasse!=""){
 
         if("Demandeur d'emploie".equals(jComboBox1.getSelectedItem().toString())){
@@ -721,7 +686,6 @@ public void addcandidat() throws SQLException{
         ResultSet rs = stmt.executeQuery("Select count(namejob) from job;");
         while(rs.next()){
             nombrejob=rs.getInt(1);
-            System.out.println("Hello " + nombrejob);
         }
         //int rows = stmt.executeUpdate(sqlStatement);
         conn.close();
@@ -741,9 +705,7 @@ public void addcandidat() throws SQLException{
         ResultSet rs = stmt.executeQuery("Select namejob from job;");
         while(rs.next()){
             String namejob=rs.getString(1);
-            System.out.println("Coucou " + namejob);
             listJob[i]=namejob;
-            System.out.println(listJob[i]);
             i+=1;
         }
         String sqlStatement = "";

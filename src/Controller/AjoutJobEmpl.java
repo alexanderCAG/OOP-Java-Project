@@ -67,9 +67,7 @@ public class AjoutJobEmpl implements ActionListener {
         ResultSet rs = stmt.executeQuery("Select namejob from job;");
         while(rs.next()){
             String namejob=rs.getString(1);
-            System.out.println("Coucou " + namejob);
             listJob[i]=namejob;
-            System.out.println(listJob[i]);
             i+=1;
         }
         String sqlStatement = "";
@@ -92,7 +90,6 @@ public class AjoutJobEmpl implements ActionListener {
         ResultSet rs = stmt.executeQuery("Select count(namejob) from job;");
         while(rs.next()){
             nombrejob=rs.getInt(1);
-            System.out.println("Hello " + nombrejob);
         }
         //int rows = stmt.executeUpdate(sqlStatement);
         conn.close();

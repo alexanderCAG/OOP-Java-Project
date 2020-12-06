@@ -7,24 +7,16 @@ package oop.java.project.GUI;
 
 import Classe.Employer;
 import Controller.AffichageDemandeEmploiJob;
-import Controller.AjoutJob;
-import Controller.AjoutJobEmpl;
-import Controller.PDF;
+import Controller.*;
 import static FonctionSQL.Connexion.Connexion1;
-import com.itextpdf.text.*;
 import com.itextpdf.text.pdf.*;
 import java.awt.*;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
-import java.io.*;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.*;
 import javax.swing.table.*;
 
@@ -491,9 +483,7 @@ public class Employeur extends javax.swing.JFrame {
         ResultSet rs = stmt.executeQuery("Select * from job;");
         while(rs.next()){
             String namejob=rs.getString(1);
-            System.out.println("Coucou " + namejob);
-            listJob[i]=namejob;
-            System.out.println(listJob[i]);//on obtient la liste de job final
+            listJob[i]=namejob;//on obtient la liste de job final
             i+=1;
         }
         String sqlStatement = "";
@@ -515,7 +505,6 @@ public class Employeur extends javax.swing.JFrame {
         ResultSet rs = stmt.executeQuery("Select count(namejob) from job;");
         while(rs.next()){
             nombrejob=rs.getInt(1);
-            System.out.println("Hello " + nombrejob);
         }
         //int rows = stmt.executeUpdate(sqlStatement);
         conn.close();
