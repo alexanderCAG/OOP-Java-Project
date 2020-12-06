@@ -32,8 +32,15 @@ public class Register extends javax.swing.JFrame {
     private String phone;
     private String job;
     private String taillemdp;
-    public Register() {
+    private String[] listJob;
+    private boolean num;
+    private boolean first;
+    private boolean last;
+    private boolean mail;
+    private String pass2;
+    public Register() throws SQLException {
         initComponents();
+        Affichagejob();
         this.setLocationRelativeTo(null); // center of the screen
         jPanel3.setBackground(new Color(204,102,0,120));
         jPanel4.setBackground(new Color(204,102,0,120));
@@ -421,9 +428,16 @@ public class Register extends javax.swing.JFrame {
         email=jTextField7.getText();
         phone=jTextField12.getText();
         motdepasse=jPasswordField1.getText();
-        if("".equals(firstname) ||"".equals(lastname) || "".equals(email)  || "".equals(motdepasse) ){
+        pass2=jPasswordField2.getText();
+        /*jTextField10.setBackground(new java.awt.Color(255, 255, 255));
+        jTextField11.setBackground(new java.awt.Color(255, 255, 255));
+        jTextField7.setBackground(new java.awt.Color(255, 255, 255));
+        jPasswordField2.setBackground(new java.awt.Color(255, 255, 255));
+        jTextField12.setBackground(new java.awt.Color(255, 255, 255));
+        jPasswordField1.setBackground(new java.awt.Color(255, 255, 255));*/
+        //if("".equals(firstname) ||"".equals(lastname) || "".equals(email)  || "".equals(motdepasse) ){
             
-            if("".equals(lastname)){
+            /*if("".equals(lastname)){
                 jTextField10.setBackground(new java.awt.Color(255, 0, 0));
             }
             if("".equals(firstname)){
@@ -440,14 +454,17 @@ public class Register extends javax.swing.JFrame {
             }
             if("".equals(jPasswordField2.getText())){
                 jPasswordField2.setBackground(new java.awt.Color(255, 0, 0));
-            }
+            }*/
             /*
             jTextField10.setText(null);
             jTextField11.setText(null);
             jTextField7.setText(null);
-            jPasswordField1.setText(null);*/
-        }
-        else{
+            jPasswordField1.setText(null);
+        }*/
+        //&&  firstname!="" && jPasswordField1.getText()==jPasswordField2.getText() && && lastname!="" && email!="" && phone!="" && motdepasse!="" && email.contains("@") && num==true && first==true && last==true && taillemdp!="Insuffisant"
+        //
+        if(motdepasse == null ? pass2 == null : motdepasse.equals(pass2) && taillemdp!="Insuffisant" && pass2!=""  && num==true && first==true && last==true && !"Insuffisant".equals(taillemdp) && firstname!="" &&lastname!="" && email!="" && phone!="" && motdepasse!=""){
+
         if("Demandeur d'emploie".equals(jComboBox1.getSelectedItem().toString())){
             try {
                 addcandidat();
@@ -511,6 +528,10 @@ public class Register extends javax.swing.JFrame {
             {
                 evt.consume();
                 jTextField10.setForeground(new Color(255,0,50));
+                last=false;
+            }
+            else{
+                last=true;
             }
         }
     }//GEN-LAST:event_jTextField10KeyReleased
@@ -595,6 +616,10 @@ public class Register extends javax.swing.JFrame {
             {
                 evt.consume();
                 jTextField12.setForeground(new Color(255,0,50));
+                num=false;
+            }
+            else{
+                num=true;
             }
         }
     }//GEN-LAST:event_jTextField12KeyReleased
@@ -614,6 +639,10 @@ public class Register extends javax.swing.JFrame {
             {
                 evt.consume();
                 jTextField11.setForeground(new Color(255,0,50));
+                first=false;
+            }
+            else{
+                first=true;
             }
         }
         
@@ -622,9 +651,17 @@ public class Register extends javax.swing.JFrame {
     public void addrecruiter() throws SQLException{
         Connection conn = Connexion1();
         job="";
+        //"Micro entreprise", "Grosse entreprise"
+        String sizecompany;
+        if("Micro entreprise".equals(jComboBox3.getSelectedItem().toString())){
+            sizecompany="micro";
+        }
+        else {
+            sizecompany="grande";
+        }
         try{
         Statement stmt = conn.createStatement();
-        stmt.executeUpdate("INSERT INTO `Company`.Recruiter ( lastnamerec, firstnamerec, email, motdepasse, phone, job ) VALUES ('Granier', 'Geoffroy', 'geo@gmail.com', '0789101068', 'dyjs', 'D');");
+        stmt.executeUpdate("INSERT INTO `Company`.Recruiter ( lastnamerec, firstnamerec, email, motdepasse, phone, job ) VALUES ('" + lastname + "', '" + firstname + "', '" + email + "', '" + phone + "', '" + motdepasse + "', '" + job + "');");
         //"INSERT INTO `Company`.Employer ( lastnameemp, firstnameemp, email, motdepasse, phone, job, sizecompany, compteur ) VALUES ('" + lastname + "', '" + firstname + "', '" + email + "', '" + phone + "', '" + motdepasse + "', '" + job + "', '" + sizecompany + "', 0);"
         //int rows = stmt.executeUpdate(sqlStatement);
         conn.close();
@@ -677,10 +714,12 @@ public void addcandidat() throws SQLException{
         if(!(Pattern.matches("[a-zA-Z0-9]+[@]{1}+[a-zA-Z0-9]+[.]{1}+[a-zA-Z0-9]+$", jTextField7.getText())))
         {
             jTextField1.setText("Invalide");
+            mail=false;
         }
         else
         {
             jTextField1.setText("Valide");
+            mail=false;
         }
     }//GEN-LAST:event_jTextField7ActionPerformed
 
@@ -704,7 +743,50 @@ public void addcandidat() throws SQLException{
             Logger.getLogger(Register.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_jButton2ActionPerformed
+    public int Nombrejob() throws SQLException{
+        //Cette methode permet de compter le nombre de job dans la base de donnee company
+        Connection conn=Connexion1();
+        int nombrejob = 0;
+        try{
+        Statement stmt = conn.createStatement();
+        ResultSet rs = stmt.executeQuery("Select count(namejob) from job;");
+        while(rs.next()){
+            nombrejob=rs.getInt(1);
+            System.out.println("Hello " + nombrejob);
+        }
+        //int rows = stmt.executeUpdate(sqlStatement);
+        conn.close();
+        }catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Mot de passe INCORECT", "Login Error", JOptionPane.ERROR_MESSAGE);
+        }
+        return nombrejob;//Ce nombre est envoye a la methode affichagejob qui va cree un tableau
+    }
+    
+    public void Affichagejob() throws SQLException{
+        int nombrejob=Nombrejob();
+        String[] listJob=new String[nombrejob];//le tableau aura le nombre de colonnes necessaires
+        Connection conn=Connexion1();
+        try{
+        Statement stmt = conn.createStatement();
+        int i=0;
+        ResultSet rs = stmt.executeQuery("Select namejob from job;");
+        while(rs.next()){
+            String namejob=rs.getString(1);
+            System.out.println("Coucou " + namejob);
+            listJob[i]=namejob;
+            System.out.println(listJob[i]);
+            i+=1;
+        }
+        String sqlStatement = "";
+        this.listJob=listJob;//on obtient la liste de job final
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel(listJob));
 
+        //int rows = stmt.executeUpdate(sqlStatement);
+        conn.close();
+        }catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Mot de passe INCORECT", "Login Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }
     /**
      * @param args the command line arguments
      */
@@ -736,7 +818,11 @@ public void addcandidat() throws SQLException{
         java.awt.EventQueue.invokeLater(new Runnable() {
             @Override
             public void run() {
-                new Register().setVisible(true);
+                try {
+                    new Register().setVisible(true);
+                } catch (SQLException ex) {
+                    Logger.getLogger(Register.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }

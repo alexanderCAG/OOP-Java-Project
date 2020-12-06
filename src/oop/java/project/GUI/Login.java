@@ -278,14 +278,18 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel4MouseClicked
     
     private void jLabel9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel9MouseClicked
-        // TODO add your handling code here:
-        
-        Register reg = new Register();//Creation d'une jframe register
-        reg.setVisible(true);//affichage de la jframe register
-        reg.pack();
-        reg.setLocationRelativeTo(null);
-        reg.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.dispose();//La jframe login se ferme
+        try {
+            // TODO add your handling code here:
+            
+            Register reg = new Register();//Creation d'une jframe register
+            reg.setVisible(true);//affichage de la jframe register
+            reg.pack();
+            reg.setLocationRelativeTo(null);
+            reg.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            this.dispose();//La jframe login se ferme
+        } catch (SQLException ex) {
+            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
     }//GEN-LAST:event_jLabel9MouseClicked
 
