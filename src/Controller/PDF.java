@@ -38,7 +38,7 @@ public class PDF implements ActionListener{
         this.e = e;
     }
     public void actionPerformed(ActionEvent ae){
-        
+        creationpdf();
     }
     public void creationpdf(){
         String value = JOptionPane.showInputDialog(e , " 'choisir' : choisir l'emplacement du fichier PDF\n 'automatique' : fichier PDF enregistré dans le dossier Projet");

@@ -11,6 +11,7 @@ import Classe.Employer;
 import Controller.AffichageDemandeEmploiJob;
 import Controller.AjoutJob;
 import Controller.AjoutJobEmpl;
+import Controller.PDF;
 import static FonctionSQL.Connexion.Connexion1;
 import com.itextpdf.text.*;
 import com.itextpdf.text.pdf.*;
@@ -96,6 +97,7 @@ public class Employeur extends javax.swing.JFrame {
         jButton4.setBackground(new Color(150,102,0,120));
         jButton4.addActionListener(new AffichageDemandeEmploiJob(this));
         jButton5.addActionListener(new AjoutJobEmpl(this));
+        jButton3.addActionListener(new PDF(this));
         jTextField1.addKeyListener(new KeyAdapter(){
             @Override
             public void keyReleased(KeyEvent hidden)
@@ -190,7 +192,7 @@ public class Employeur extends javax.swing.JFrame {
         jLabel9.setForeground(new java.awt.Color(255, 255, 0));
         jLabel9.setText("jLabel9");
         jPanel2.add(jLabel9);
-        jLabel9.setBounds(330, 20, 440, 14);
+        jLabel9.setBounds(330, 20, 440, 16);
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
         jPanel3.setLayout(null);
@@ -241,11 +243,6 @@ public class Employeur extends javax.swing.JFrame {
 
         jButton3.setBackground(new java.awt.Color(150, 102, 0));
         jButton3.setText("Enregistrer la liste");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
-            }
-        });
 
         jButton6.setBackground(new java.awt.Color(150, 102, 0));
         jButton6.setText("Choix du candidat");
@@ -282,7 +279,7 @@ public class Employeur extends javax.swing.JFrame {
                 .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 341, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton3)
                     .addComponent(jButton6))
@@ -361,7 +358,7 @@ public class Employeur extends javax.swing.JFrame {
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel7Layout.createSequentialGroup()
                         .addComponent(jLabel12)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(30, 30, 30))))
         );
@@ -426,171 +423,6 @@ public class Employeur extends javax.swing.JFrame {
         this.dispose();//la jframe employeur se ferme
 
     }//GEN-LAST:event_jLabel5MouseClicked
-
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
-        
-        String value = JOptionPane.showInputDialog(this , " 'choisir' : choisir l'emplacement du fichier PDF\n 'automatique' : fichier PDF enregistré dans le dossier Projet");
-        
-        if("choisir".equals(value))
-        {
-            String path = "";
-        JFileChooser file = new JFileChooser();
-        file.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
-        int x = file.showSaveDialog(this);
-        
-        if(x==JFileChooser.APPROVE_OPTION)
-        {
-            path = file.getSelectedFile().getPath();
-        }
-        
-        Document doc = new Document(PageSize.A4.rotate());
-        
-        try {
-            PdfWriter.getInstance(doc, new FileOutputStream(path + "Table.pdf"));
-            //PdfWriter.getInstance(doc, new FileOutputStream("Table.pdf"));
-            doc.open();
-            
-            
-            /*Mettre le camembert mais avant il faut "l'imprimer"*/
-//            com.itextpdf.text.Image image1 = com.itextpdf.text.Image.getInstance("chart.png");
-//            image1.scaleAbsolute(480, 300);
-//            doc.add(image1);
-            
-            Paragraph titredoc = new Paragraph("CONFIDENTIEL",FontFactory.getFont(FontFactory.TIMES_BOLD,30, BaseColor.RED));
-            titredoc.setAlignment(Element.ALIGN_CENTER);
-            doc.add(titredoc);
-            
-            com.itextpdf.text.Image image = com.itextpdf.text.Image.getInstance("src/oop/java/project/GUI/Image/playmobil.png");
-            //doc.add(new Paragraph("Image"));
-            image.scaleToFit(200,200);      /*definir la taille de l'image*/
-            image.setAlignment(Element.ALIGN_LEFT);
-            doc.add(image);
-            
-            Paragraph date = new Paragraph(new Date().toString());
-            date.setAlignment(Element.ALIGN_RIGHT);
-            doc.add(date);
-            
-            //doc.add(new Paragraph("CONFIDENTIEL",FontFactory.getFont(FontFactory.TIMES_BOLD,18, BaseColor.RED)));
-            //doc.add(new Paragraph(new Date().toString()));
-            doc.add(new Paragraph("---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
-            doc.add(new Paragraph("\n"));
-            
-            PdfPTable table = new PdfPTable(3);
-            PdfPCell cell = new PdfPCell(new Paragraph("Liste des candidtas"));
-            
-            cell.setColspan(3); //mettre nombre colonne
-            cell.setHorizontalAlignment(Element.ALIGN_CENTER);
-            cell.setBackgroundColor(BaseColor.ORANGE);
-            table.addCell(cell);
-            
-            table.addCell("Nom");
-            table.addCell("Prenom");
-            table.addCell("Age");
-            
-            for(int i=0; i<jTable1.getRowCount();i++)
-            {
-                String Nom = jTable1.getValueAt(i, 0).toString();
-                String Prenom = jTable1.getValueAt(i, 1).toString();
-                String Age = jTable1.getValueAt(i, 2).toString();
-                
-                table.addCell(Nom);
-                table.addCell(Prenom);
-                table.addCell(Age);
-                
-            }
-            
-            doc.add(table);
-            
-            
-        } catch (FileNotFoundException ex) {
-        Logger.getLogger(Employeur.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (DocumentException ex) {
-            Logger.getLogger(Employeur.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IOException ex) {
-            Logger.getLogger(Employeur.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
-        doc.close();
-        }else if("automatique".equals(value))
-                {
-                    tour++;
-        
-        Document docu = new Document(PageSize.A4.rotate());
-        
-        try {
-            PdfWriter.getInstance(docu, new FileOutputStream("Table" + tour + ".pdf"));
-            docu.open();
-            
-            
-            /*Mettre le camembert mais avant il faut "l'imprimer"*/
-//            com.itextpdf.text.Image image1 = com.itextpdf.text.Image.getInstance("chart.png");
-//            image1.scaleAbsolute(480, 300);
-//            doc.add(image1);
-            
-            Paragraph titredoc = new Paragraph("CONFIDENTIEL",FontFactory.getFont(FontFactory.TIMES_BOLD,30, BaseColor.RED));
-            titredoc.setAlignment(Element.ALIGN_CENTER);
-            docu.add(titredoc);
-            
-            com.itextpdf.text.Image image = com.itextpdf.text.Image.getInstance("src/oop/java/project/GUI/Image/playmobil.png");
-            //doc.add(new Paragraph("Image"));
-            image.scaleToFit(200,200);      /*definir la taille de l'image*/
-            image.setAlignment(Element.ALIGN_LEFT);
-            docu.add(image);
-            
-            Paragraph date = new Paragraph(new Date().toString());
-            date.setAlignment(Element.ALIGN_RIGHT);
-            docu.add(date);
-            
-            //doc.add(new Paragraph("CONFIDENTIEL",FontFactory.getFont(FontFactory.TIMES_BOLD,18, BaseColor.RED)));
-            //doc.add(new Paragraph(new Date().toString()));
-            docu.add(new Paragraph("---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
-            docu.add(new Paragraph("\n"));
-            
-            PdfPTable table = new PdfPTable(3);
-            PdfPCell cell = new PdfPCell(new Paragraph("Liste des candidtas"));
-            
-            cell.setColspan(3); //mettre nombre colonne
-            cell.setHorizontalAlignment(Element.ALIGN_CENTER);
-            cell.setBackgroundColor(BaseColor.ORANGE);
-            table.addCell(cell);
-            
-            table.addCell("Nom");
-            table.addCell("Prenom");
-            table.addCell("Age");
-            
-            for(int i=0; i<jTable1.getRowCount();i++)
-            {
-                String Nom = jTable1.getValueAt(i, 0).toString();
-                String Prenom = jTable1.getValueAt(i, 1).toString();
-                String Age = jTable1.getValueAt(i, 2).toString();
-                
-                table.addCell(Nom);
-                table.addCell(Prenom);
-                table.addCell(Age);
-                
-            }
-            
-            docu.add(table);
-            
-            JOptionPane.showMessageDialog(null, "Votre liste a été enregistré au format PDF dans vos documents");
-            
-            
-        } catch (FileNotFoundException ex) {
-        Logger.getLogger(Employeur.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (DocumentException ex) {
-            Logger.getLogger(Employeur.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IOException ex) {
-            Logger.getLogger(Employeur.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
-        docu.close();
-                }
-        else
-        {
-            JOptionPane.showMessageDialog(null, "Fait un choix");
-        }
-    }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         // TODO add your handling code here
@@ -758,7 +590,168 @@ public class Employeur extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Mot de passe INCORECT", "Login Error", JOptionPane.ERROR_MESSAGE);
         }
     }
-    
+    public void tableau(){
+         String value = JOptionPane.showInputDialog(this , " 'choisir' : choisir l'emplacement du fichier PDF\n 'automatique' : fichier PDF enregistré dans le dossier Projet");
+        
+        if("choisir".equals(value))
+        {
+            String path = "";
+        JFileChooser file = new JFileChooser();
+        file.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+        int x = file.showSaveDialog(this);
+        
+        if(x==JFileChooser.APPROVE_OPTION)
+        {
+            path = file.getSelectedFile().getPath();
+        }
+        
+        Document doc = new Document(PageSize.A4.rotate());
+        
+        try {
+            PdfWriter.getInstance(doc, new FileOutputStream(path + "Table.pdf"));
+            //PdfWriter.getInstance(doc, new FileOutputStream("Table.pdf"));
+            doc.open();
+            
+            
+            /*Mettre le camembert mais avant il faut "l'imprimer"*/
+//            com.itextpdf.text.Image image1 = com.itextpdf.text.Image.getInstance("chart.png");
+//            image1.scaleAbsolute(480, 300);
+//            doc.add(image1);
+            
+            Paragraph titredoc = new Paragraph("CONFIDENTIEL",FontFactory.getFont(FontFactory.TIMES_BOLD,30, BaseColor.RED));
+            titredoc.setAlignment(Element.ALIGN_CENTER);
+            doc.add(titredoc);
+            
+            com.itextpdf.text.Image image = com.itextpdf.text.Image.getInstance("src/oop/java/project/GUI/Image/playmobil.png");
+            //doc.add(new Paragraph("Image"));
+            image.scaleToFit(200,200);      /*definir la taille de l'image*/
+            image.setAlignment(Element.ALIGN_LEFT);
+            doc.add(image);
+            
+            Paragraph date = new Paragraph(new Date().toString());
+            date.setAlignment(Element.ALIGN_RIGHT);
+            doc.add(date);
+            
+            //doc.add(new Paragraph("CONFIDENTIEL",FontFactory.getFont(FontFactory.TIMES_BOLD,18, BaseColor.RED)));
+            //doc.add(new Paragraph(new Date().toString()));
+            doc.add(new Paragraph("---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
+            doc.add(new Paragraph("\n"));
+            
+            PdfPTable table = new PdfPTable(3);
+            PdfPCell cell = new PdfPCell(new Paragraph("Liste des candidtas"));
+            
+            cell.setColspan(3); //mettre nombre colonne
+            cell.setHorizontalAlignment(Element.ALIGN_CENTER);
+            cell.setBackgroundColor(BaseColor.ORANGE);
+            table.addCell(cell);
+            
+            table.addCell("Nom");
+            table.addCell("Prenom");
+            table.addCell("Age");
+            
+            for(int i=0; i<jTable1.getRowCount();i++)
+            {
+                String Nom = jTable1.getValueAt(i, 0).toString();
+                String Prenom = jTable1.getValueAt(i, 1).toString();
+                String Age = jTable1.getValueAt(i, 2).toString();
+                
+                table.addCell(Nom);
+                table.addCell(Prenom);
+                table.addCell(Age);
+                
+            }
+            
+            doc.add(table);
+            
+            
+        } catch (FileNotFoundException ex) {
+        Logger.getLogger(Employeur.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (DocumentException ex) {
+            Logger.getLogger(Employeur.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(Employeur.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        doc.close();
+        }else if("automatique".equals(value))
+                {
+                    tour++;
+        
+        Document docu = new Document(PageSize.A4.rotate());
+        
+        try {
+            PdfWriter.getInstance(docu, new FileOutputStream("Table" + tour + ".pdf"));
+            docu.open();
+            
+            
+            /*Mettre le camembert mais avant il faut "l'imprimer"*/
+//            com.itextpdf.text.Image image1 = com.itextpdf.text.Image.getInstance("chart.png");
+//            image1.scaleAbsolute(480, 300);
+//            doc.add(image1);
+            
+            Paragraph titredoc = new Paragraph("CONFIDENTIEL",FontFactory.getFont(FontFactory.TIMES_BOLD,30, BaseColor.RED));
+            titredoc.setAlignment(Element.ALIGN_CENTER);
+            docu.add(titredoc);
+            
+            com.itextpdf.text.Image image = com.itextpdf.text.Image.getInstance("src/oop/java/project/GUI/Image/playmobil.png");
+            //doc.add(new Paragraph("Image"));
+            image.scaleToFit(200,200);      /*definir la taille de l'image*/
+            image.setAlignment(Element.ALIGN_LEFT);
+            docu.add(image);
+            
+            Paragraph date = new Paragraph(new Date().toString());
+            date.setAlignment(Element.ALIGN_RIGHT);
+            docu.add(date);
+            
+            //doc.add(new Paragraph("CONFIDENTIEL",FontFactory.getFont(FontFactory.TIMES_BOLD,18, BaseColor.RED)));
+            //doc.add(new Paragraph(new Date().toString()));
+            docu.add(new Paragraph("---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
+            docu.add(new Paragraph("\n"));
+            
+            PdfPTable table = new PdfPTable(3);
+            PdfPCell cell = new PdfPCell(new Paragraph("Liste des candidtas"));
+            
+            cell.setColspan(3); //mettre nombre colonne
+            cell.setHorizontalAlignment(Element.ALIGN_CENTER);
+            cell.setBackgroundColor(BaseColor.ORANGE);
+            table.addCell(cell);
+            
+            table.addCell("Nom");
+            table.addCell("Prenom");
+            table.addCell("Age");
+            
+            for(int i=0; i<jTable1.getRowCount();i++)
+            {
+                String Nom = jTable1.getValueAt(i, 0).toString();
+                String Prenom = jTable1.getValueAt(i, 1).toString();
+                String Age = jTable1.getValueAt(i, 2).toString();
+                
+                table.addCell(Nom);
+                table.addCell(Prenom);
+                table.addCell(Age);
+                
+            }
+            
+            docu.add(table);
+            
+            JOptionPane.showMessageDialog(null, "Votre liste a été enregistré au format PDF dans vos documents");
+            
+            
+        } catch (FileNotFoundException ex) {
+        Logger.getLogger(Employeur.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (DocumentException ex) {
+            Logger.getLogger(Employeur.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(Employeur.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        docu.close();
+                }
+        else
+        {
+            JOptionPane.showMessageDialog(null, "Fait un choix");
+        }
+    }
     /**
      * @param args the command line arguments
      */
