@@ -665,7 +665,7 @@ public void addcandidat() throws SQLException{
     private void jTextField7KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField7KeyReleased
         // TODO add your handling code here:
         
-        if(!(Pattern.matches("[a-zA-Z0-9]+[@]{1}+[a-zA-Z0-9]+[.]{1}+[a-zA-Z0-9]+$", jTextField7.getText())))
+        if(!(Pattern.matches("[a-zA-Z0-9]+[@]{1}+[a-z]+[.]{1}+[a-z]+$", jTextField7.getText())))
         {
             //jTextField1.setText("Invalide");
             mail=false;
