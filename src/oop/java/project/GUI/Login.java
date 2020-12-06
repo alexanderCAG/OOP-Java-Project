@@ -372,36 +372,11 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_jPasswordField1KeyPressed
 
     private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked
-        try {                                     
-            // TODO add your handling code here:
-            
-            Forget forget = new Forget();
-            forget.setVisible(true);
-            forget.pack();
-            forget.setLocationRelativeTo(null);
-            
-            Connection con=Connexion1();
-            String query = "select * from employer where email=? and mdp=?";
-            
-            try {
-                Statement stmt = con.prepareStatement(query);
-                stmt.setString(1, UserName.getText());
-                stmt.setString(2, jPasswordField1.getText());
-                ResultSet rs = stmt.executeQuery(query);
-                
-                if(rs.next()){
-                    JOptionPane.showMessageDialog(null, "Login successfully");
-                }else{
-                    JOptionPane.showMessageDialog(null, "User or Password do not match");
-                }
-                
-            } catch (SQLException ex) {
-                java.util.logging.Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            
-        } catch (SQLException ex) {
-            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        
+        Forget forget = new Forget();
+        forget.setVisible(true);
+        forget.pack();
+        forget.setLocationRelativeTo(null);
         
     }//GEN-LAST:event_jLabel5MouseClicked
     
