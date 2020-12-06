@@ -251,9 +251,7 @@ public class Job extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         try{                                         
             // TODO add your handling code here:
-            //SupprimerLigne();
             
-            //DefaultTableModel table = (DefaultTableModel) jTable2.getModel();
             int ligne = jTable2.getSelectedRow();
             if(ligne<0)
             {
@@ -279,45 +277,7 @@ public class Job extends javax.swing.JFrame {
            }catch (SQLException ex) {
             Logger.getLogger(Job.class.getName()).log(Level.SEVERE, null, ex);
         }
-            
-            
-//        if(jTable2.getSelectedRow() == 1)
-//        {
-//            table.removeRow(jTable2.getSelectedRow());
-//        }else
-//        {
-//            if(jTable2.getRowCount() == 0)
-//            {
-//                JOptionPane.showMessageDialog(this, "La Table est vide");
-//            }
-//            else
-//            {
-//                JOptionPane.showMessageDialog(this, "Selectionne une ligne à supprimer");
-//            }
-//        }
-            
-        
-        
-       
-        
-        
-       
-        
-//        if(jTable2.getSelectedRow() == 1)
-//        {
-//            table.removeRow(jTable2.getSelectedRow());
-//        }else
-//        {
-//            if(jTable2.getRowCount() == 0)
-//            {
-//                JOptionPane.showMessageDialog(this, "La Table est vide");
-//            }
-//            else
-//            {
-//                JOptionPane.showMessageDialog(this, "Selectionne une ligne à supprimer");
-//            }
-//        }
-        
+          
     }//GEN-LAST:event_jButton1ActionPerformed
     
     public int Nombrejob() throws SQLException{
