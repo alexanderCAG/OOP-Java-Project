@@ -5,7 +5,6 @@
  */
 package oop.java.project.GUI;
 
-import Classe.AJob;
 import Classe.Recruiter;
 import Controller.AffichageCamembert;
 import Controller.AjoutJob;

@@ -6,7 +6,6 @@
 package oop.java.project.GUI;
 
 import Classe.Candidat;
-import Classe.DemandeEmploi;
 import Controller.ListedemandeEmploi;
 import Controller.SupprimerLigneTableau;
 import static FonctionSQL.Connexion.Connexion1;

@@ -5,8 +5,6 @@
  */
 package oop.java.project.GUI;
 
-import Classe.AJob;
-import Classe.AgencyDAG;
 import Classe.Employer;
 import Controller.AffichageDemandeEmploiJob;
 import Controller.AjoutJob;
