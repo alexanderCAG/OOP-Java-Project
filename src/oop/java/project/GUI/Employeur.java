@@ -42,7 +42,6 @@ public class Employeur extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null); // center of the screen 
         jPanel4.setBackground(new Color(204,102,0,120));
-        jTextArea2.setBackground(new Color(204,102,0,120));
         jComboBox1.setBackground(new Color(150,102,0,120));
         jComboBox2.setBackground(new Color(150,102,0,120));
         jButton3.setBackground(new Color(150,102,0,120));
@@ -76,7 +75,6 @@ public class Employeur extends javax.swing.JFrame {
         allcandidatjob();
         this.setLocationRelativeTo(null); // center of the screen 
         jPanel4.setBackground(new Color(204,102,0,120));
-        jTextArea2.setBackground(new Color(204,102,0,120));
         jComboBox1.setBackground(new Color(150,102,0,120));
         jComboBox2.setBackground(new Color(150,102,0,120));
         jButton3.setBackground(new Color(150,102,0,120));
@@ -108,13 +106,15 @@ public class Employeur extends javax.swing.JFrame {
         jComboBox1 = new javax.swing.JComboBox();
         jComboBox2 = new javax.swing.JComboBox();
         jPanel4 = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable(){
+            public boolean isCellEditable(int d, int c){
+                return false;
+            }
+        };
         jLabel7 = new javax.swing.JLabel();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jTextArea2 = new javax.swing.JTextArea();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
         jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -155,7 +155,7 @@ public class Employeur extends javax.swing.JFrame {
         jLabel9.setForeground(new java.awt.Color(255, 255, 0));
         jLabel9.setText("jLabel9");
         jPanel2.add(jLabel9);
-        jLabel9.setBounds(330, 20, 440, 16);
+        jLabel9.setBounds(330, 20, 440, 14);
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
         jPanel3.setLayout(null);
@@ -194,37 +194,40 @@ public class Employeur extends javax.swing.JFrame {
 
         jPanel4.setBackground(new java.awt.Color(153, 102, 0));
 
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Nom", "Prenom", "Date de début"
+            }
+        ));
+        jScrollPane1.setViewportView(jTable1);
+
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(153, 102, 0));
         jLabel7.setText("Candidats");
-
-        jTextArea2.setColumns(20);
-        jTextArea2.setFont(new java.awt.Font("Monospaced", 0, 14)); // NOI18N
-        jTextArea2.setRows(5);
-        jTextArea2.setText("fezf\nfez\nfez\n\n\n\nfez\nez\n\n\nfze\n\nfezf\n\n\n\n\n\n\n\n\n\n\nfeézfz\"f\nezfze\nf\nzef\ne\nfzefzfe\n");
-        jScrollPane2.setViewportView(jTextArea2);
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(76, 76, 76)
-                        .addComponent(jLabel7))
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(26, 26, 26)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(24, Short.MAX_VALUE))
+                .addGap(33, 33, 33)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 274, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(33, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel7)
+                .addGap(78, 78, 78))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(13, 13, 13)
                 .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 330, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 344, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -245,19 +248,6 @@ public class Employeur extends javax.swing.JFrame {
         jButton4.setText("VALIDER");
         jPanel1.add(jButton4);
         jButton4.setBounds(90, 340, 190, 50);
-
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "Nom", "Prenom", "Date de début"
-            }
-        ));
-        jScrollPane1.setViewportView(jTable1);
-
-        jPanel1.add(jScrollPane1);
-        jScrollPane1.setBounds(130, 460, 460, 120);
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/oop/java/project/GUI/Image/employeur.jpg"))); // NOI18N
         jPanel1.add(jLabel3);
@@ -442,7 +432,6 @@ public class Employeur extends javax.swing.JFrame {
             
             tab.addRow(data);
         }
-        jTextArea2.setText(text);
         conn.close();
         }catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Mot de passe INCORECT", "Login Error", JOptionPane.ERROR_MESSAGE);
@@ -506,10 +495,8 @@ public class Employeur extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator1;
     public javax.swing.JTable jTable1;
-    private javax.swing.JTextArea jTextArea2;
     // End of variables declaration//GEN-END:variables
 
     private void Affichage() {

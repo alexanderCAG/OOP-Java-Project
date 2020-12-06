@@ -97,7 +97,11 @@ public class Job extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         jDateChooser1 = new com.toedter.calendar.JDateChooser();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
+        jTable2 = new javax.swing.JTable(){
+            public boolean isCellEditable(int d, int c){
+                return false;
+            }
+        };
         jLabel7 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
 

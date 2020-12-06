@@ -140,6 +140,7 @@ public class Reset extends javax.swing.JFrame {
                 pst.setString(2, user);
                 pst.executeUpdate();
                 JOptionPane.showMessageDialog(null, "Reset Sucessfully");
+                this.dispose();
                 
             }catch (Exception ex){
                 JOptionPane.showMessageDialog(null, ex);
