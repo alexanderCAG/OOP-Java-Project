@@ -39,7 +39,7 @@ public class Login extends javax.swing.JFrame {
             }
         });
         
-        
+        //Definir transparence
         jPanel4.setBackground(new Color(0,0,0,0));
     }
 

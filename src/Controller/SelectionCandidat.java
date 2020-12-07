@@ -72,8 +72,9 @@ public class SelectionCandidat implements ActionListener{
         }
     }
     
-    
-    public void calcul(){e.jPanel5.setVisible(true);
+    /*Calcul avec remise de son choix de candidat*/
+    public void calcul(){
+        e.jPanel5.setVisible(true);
         e.jPanel6.setVisible(true);
         e.jPanel7.setVisible(false);
         double valeurcandidat = 5;
