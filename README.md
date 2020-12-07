@@ -24,13 +24,13 @@ Pour commencer voilà un petit tuto pour bien utiliser cette nouvelle applicatio
 
 
 
-			Login :
+			##Login 
 
 - Entrer votre mail et mot de passe pour vous connecter SINON vous pouvez vous inscrire avec "click here to create a new account"
 - Si jamais vous avez oubliez votre mot de passe appuyez sur "Forgot ?"
 
 
-			Inscription :
+			##Inscription 
 
 - Selectionner votre Statut (Demandeur d'emploie, Employeur, Recruteur) --> pour le bien du projet *"Recruteur"* est disponible mais sur la version commerciale
 	elle ne sera pas disponible. Seulement un recruteur peu inviter un autre à ce poste.
@@ -38,13 +38,13 @@ Pour commencer voilà un petit tuto pour bien utiliser cette nouvelle applicatio
 	Pour le bien du projet rentrer votre vrai adresse mail (vous comprendrez plus tard) et de toute manière c'est blindé (caractere@caractere.caractere)
 
 
-			Candidat :
+			##Candidat 
 			
 - Choisi le poste auquel tu voudrais postuler, ton statut et la date à laquelle tu peux commencer
 - Si jamais tu as fais une erreur ou alors tu ne souhaite plus postuler dans un certain job tu peux toute fois te desister
 
 
-			Employeur :
+			##Employeur 
 
 - Vous pouvez deposer une recherche sur les job que vous souhaitez. Par la suite vous pourrez payer pour un meilleur referencement de ce dernier
 	Les plus fidèles auront des remises 😁
@@ -53,14 +53,14 @@ Pour commencer voilà un petit tuto pour bien utiliser cette nouvelle applicatio
 - Si votre choix est indécie vous avez le choix d'enregistrer la liste au format pdf (_suivre les indications_)
 
 
-			Recruteur :
+			##Recruteur 
 
 - Félicitation, vous avez presque tous les droits, vous pouvez consulter toute la listes des jobs, vous pouvez même décider d'en supprimer sans demander 
 	l'avis des employeurs 😕
 - Vous pouvez aussi visualiser les jobs les plus populaires grâce aux nombres de candidtat qui s'y trouve.
 			
 			
-			Forget / Reset :
+			##Forget / Reset 
 
 Vous vous rappelez quand je vous ai demandé de mettre votre vrai mot de passe ? Eh ben nous voici !
 - Entrer votre adresse mail, et regarder le code de confiramation que vous recevrez selon votre connection internet (si c'est long c'est pas de notre faute 😅)
