@@ -31,9 +31,9 @@ public class SelectionCandidat implements ActionListener{
                 Logger.getLogger(SelectionCandidat.class.getName()).log(Level.SEVERE, null, ex);
             }
             
-        }else if(e.jTable1.getRowCount() == 0){
+        }else if(e.jTable1.getSelectedRowCount() == 0){
             //Le calcul ne s'effectue pas car l'utilisateur n'a pas fait de selection
-            JOptionPane.showMessageDialog(null, "Tableau vide");
+            JOptionPane.showMessageDialog(null, "Il faut d'abord selectionner un candidat");
         }else {
             //Le calcul ne s'effectue pas car l'utilisateur a fait plus d'une selection
             JOptionPane.showMessageDialog(null, "Ne selectionner qu'un seul candidat");
