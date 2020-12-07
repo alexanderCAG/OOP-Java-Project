@@ -30,7 +30,7 @@ public class Login extends javax.swing.JFrame {
         
         this.setLocationRelativeTo(null); // center of the screen
         clock();
-        playMusic("Music\\\\mwb95free_wake.wav");//musique d'ouverture de l'application
+        playMusic("Music\\\\audio.wav");//musique d'ouverture de l'application
         jButton2.addActionListener(new SeConnecter(this));// si l'utilisateur appuie sur ce bouton le programme rentre dans l'action Performed defini dans la classe SeConnecter
         setVisible(true);
         
