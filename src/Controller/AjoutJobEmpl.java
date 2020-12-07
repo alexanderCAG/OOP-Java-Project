@@ -36,7 +36,9 @@ public class AjoutJobEmpl implements ActionListener {
         {
             try {
             Ajouterjob();
-            discount();
+            e.jPanel5.setVisible(true);
+            e.jPanel6.setVisible(false);
+            e.jPanel7.setVisible(true);
             } catch (SQLException ex) {
                 Logger.getLogger(AjoutJob.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -44,22 +46,6 @@ public class AjoutJobEmpl implements ActionListener {
         }
         
     }
-    public void discount(){
-        //si une seule ligne du tableau est selectionne alors le calcul s'effectue
-        e.jPanel5.setVisible(true);
-        e.jPanel6.setVisible(false);
-        e.jPanel7.setVisible(true);
-        double prix = 0;
-        double prixT = 0;
-
-        prix = Double.parseDouble(e.jTextField2.getText());
-        prixT = prix - prix*0.45;//e.discount;
-
-        e.jTextField3.setText(Double.toString(prixT) + " euros");
-        
-            
-    }
-    
     public void Ajouterjob() throws SQLException{
         Connection conn=Connexion1();
         try{
