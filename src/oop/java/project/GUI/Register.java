@@ -282,7 +282,7 @@ public class Register extends javax.swing.JFrame {
         );
 
         jPanel2.add(jPanel3);
-        jPanel3.setBounds(59, 68, 510, 481);
+        jPanel3.setBounds(59, 68, 510, 477);
 
         jButton1.setBackground(new java.awt.Color(204, 102, 0));
         jButton1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -372,6 +372,7 @@ public class Register extends javax.swing.JFrame {
         jProgressBar1.setBounds(770, 390, 288, 14);
 
         jLabel14.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel14.setForeground(new java.awt.Color(255, 255, 255));
         jPanel2.add(jLabel14);
         jLabel14.setBounds(890, 410, 110, 30);
 
