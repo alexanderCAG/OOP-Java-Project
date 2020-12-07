@@ -2,9 +2,9 @@
 package Controller;
 
 /*Nos imports*/
+import Vue.Register;
 import java.awt.*;
 import java.awt.event.*;
-import oop.java.project.GUI.*;
 
 
 public class OptionEmployeur implements ActionListener{

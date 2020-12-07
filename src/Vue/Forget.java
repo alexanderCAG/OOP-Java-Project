@@ -1,5 +1,5 @@
 
-package oop.java.project.GUI;
+package Vue;
 
 
 /*Nos imports*/
@@ -185,6 +185,9 @@ public class Forget extends javax.swing.JFrame {
             reset.setVisible(true);
             reset.pack();
             reset.setLocationRelativeTo(null);
+            reset.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            this.dispose();//La jframe login se ferme
+            
         }else{
             JOptionPane.showMessageDialog(null, "Code do not match");
         }

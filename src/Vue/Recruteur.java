@@ -1,10 +1,10 @@
 
-package oop.java.project.GUI;
+package Vue;
 
 /*Nos imports*/
-import Classe.*;
+import Model.Recruiter;
 import Controller.*;
-import static FonctionSQL.Connexion.*;
+import static DAO.Connexion.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.sql.*;
@@ -101,7 +101,7 @@ public class Recruteur extends javax.swing.JFrame {
         jPanel3.setBackground(new java.awt.Color(0, 102, 51));
         jPanel3.setLayout(null);
 
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/oop/java/project/GUI/Image/deconnection.png"))); // NOI18N
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/deconnection.png"))); // NOI18N
         jLabel5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLabel5.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -131,13 +131,13 @@ public class Recruteur extends javax.swing.JFrame {
         jPanel3.add(jLabel4);
         jLabel4.setBounds(80, 30, 240, 70);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/oop/java/project/GUI/Image/cercle2.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/cercle2.png"))); // NOI18N
         jPanel3.add(jLabel1);
         jLabel1.setBounds(60, 0, 250, 150);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/oop/java/project/GUI/Image/recruteur.jpg"))); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/recruteur.jpg"))); // NOI18N
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -203,7 +203,7 @@ public class Recruteur extends javax.swing.JFrame {
         jPanel2.add(jPanel4);
         jPanel4.setBounds(530, 330, 500, 300);
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/oop/java/project/GUI/Image/recruteur.jpg"))); // NOI18N
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/recruteur.jpg"))); // NOI18N
         jPanel2.add(jLabel3);
         jLabel3.setBounds(0, 146, 1100, 510);
 

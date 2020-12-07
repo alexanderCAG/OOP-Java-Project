@@ -2,12 +2,12 @@
 package Controller;
 
 /*Nos imports*/
-import static FonctionSQL.Connexion.*;
+import Vue.Recruteur;
+import static DAO.Connexion.*;
 import java.awt.event.*;
 import java.sql.*;
 import java.util.logging.*;
 import javax.swing.*;
-import oop.java.project.GUI.*;
 
 
 public class AjoutJob implements ActionListener {
@@ -25,6 +25,7 @@ public class AjoutJob implements ActionListener {
         if(!"".equals(namejob)){
              try {
             Ajouterjob();
+            r.jTextField1.setText(null);
             } catch (SQLException ex) {
                 Logger.getLogger(AjoutJob.class.getName()).log(Level.SEVERE, null, ex);
             }

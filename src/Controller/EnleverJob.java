@@ -2,12 +2,12 @@
 package Controller;
 
 /*Nos imports*/
-import static FonctionSQL.Connexion.*;
+import Vue.Recruteur;
+import static DAO.Connexion.*;
 import java.awt.event.*;
 import java.sql.*;
 import java.util.logging.*;
 import javax.swing.*;
-import oop.java.project.GUI.*;
 
 
 public class EnleverJob implements ActionListener{

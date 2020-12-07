@@ -2,13 +2,13 @@
 package Controller;
 
 /*Nos imports*/
-import static FonctionSQL.Connexion.*;
+import Vue.Recruteur;
+import static DAO.Connexion.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.sql.*;
 import java.util.logging.*;
 import javax.swing.*;
-import oop.java.project.GUI.*;
 import org.jfree.chart.*;
 import org.jfree.chart.plot.*;
 import org.jfree.data.general.*;

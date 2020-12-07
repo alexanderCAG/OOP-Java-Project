@@ -1,5 +1,5 @@
 
-package FonctionSQL;
+package DAO;
 
 /*Nos imports*/
 import java.sql.*;

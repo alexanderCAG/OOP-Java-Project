@@ -2,13 +2,18 @@
 package Controller;
 
 /*Nos imports*/
-import Classe.*;
-import static FonctionSQL.Connexion.Connexion1;
+import Vue.Job;
+import Vue.Recruteur;
+import Vue.Employeur;
+import Vue.Login;
+import Model.Employer;
+import Model.Candidat;
+import Model.Recruiter;
+import static DAO.Connexion.Connexion1;
 import java.awt.event.*;
 import java.sql.*;
 import java.util.logging.*;
 import javax.swing.*;
-import oop.java.project.GUI.*;
 
 
 public class SeConnecter implements ActionListener{

@@ -1,11 +1,11 @@
 
-package oop.java.project.GUI;
+package Vue;
 
 
 /*Nos imports*/
-import Classe.*;
+import Model.Candidat;
 import Controller.*;
-import static FonctionSQL.Connexion.*;
+import static DAO.Connexion.*;
 import java.sql.*;
 import java.util.*;
 import javax.swing.*;
@@ -69,7 +69,6 @@ public class Job extends javax.swing.JFrame {
             }
         };
         jLabel7 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -97,7 +96,7 @@ public class Job extends javax.swing.JFrame {
         jPanel1.add(jLabel4);
         jLabel4.setBounds(360, 30, 490, 90);
 
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/oop/java/project/GUI/Image/deconnection.png"))); // NOI18N
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/deconnection.png"))); // NOI18N
         jLabel5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLabel5.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -115,14 +114,14 @@ public class Job extends javax.swing.JFrame {
         jPanel1.add(jLabel6);
         jLabel6.setBounds(870, 50, 140, 40);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/oop/java/project/GUI/Image/cercle2.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/cercle2.png"))); // NOI18N
         jPanel1.add(jLabel1);
         jLabel1.setBounds(60, 0, 250, 150);
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setLayout(null);
 
-        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/oop/java/project/GUI/Image/job.jpg"))); // NOI18N
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/job.jpg"))); // NOI18N
         jPanel2.add(jLabel8);
         jLabel8.setBounds(0, 0, 1100, 500);
 
@@ -167,11 +166,9 @@ public class Job extends javax.swing.JFrame {
         jPanel3.add(jScrollPane2);
         jScrollPane2.setBounds(60, 380, 670, 250);
 
-        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/oop/java/project/GUI/Image/job.jpg"))); // NOI18N
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/job.jpg"))); // NOI18N
         jPanel3.add(jLabel7);
         jLabel7.setBounds(0, 150, 1100, 500);
-        jPanel3.add(jScrollPane1);
-        jScrollPane1.setBounds(630, 350, 2, 2);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -319,7 +316,6 @@ public class Job extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator1;
     public javax.swing.JTable jTable2;

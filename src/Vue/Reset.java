@@ -1,8 +1,8 @@
 
-package oop.java.project.GUI;
+package Vue;
 
 /*Nos imports*/
-import static FonctionSQL.Connexion.*;
+import static DAO.Connexion.*;
 import java.sql.*;
 import javax.swing.*;
 

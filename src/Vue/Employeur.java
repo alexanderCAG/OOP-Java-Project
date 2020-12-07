@@ -1,10 +1,10 @@
 
-package oop.java.project.GUI;
+package Vue;
 
 /*nos imports*/
-import Classe.*;
+import Model.Employer;
 import Controller.*;
-import static FonctionSQL.Connexion.*;
+import static DAO.Connexion.*;
 import com.itextpdf.text.pdf.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -163,7 +163,7 @@ public class Employeur extends javax.swing.JFrame {
         jPanel2.add(jLabel8);
         jLabel8.setBounds(330, 30, 530, 90);
 
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/oop/java/project/GUI/Image/deconnection.png"))); // NOI18N
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/deconnection.png"))); // NOI18N
         jLabel5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLabel5.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -179,7 +179,7 @@ public class Employeur extends javax.swing.JFrame {
         jPanel2.add(jLabel4);
         jLabel4.setBounds(80, 30, 240, 70);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/oop/java/project/GUI/Image/cercle2.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/cercle2.png"))); // NOI18N
         jPanel2.add(jLabel1);
         jLabel1.setBounds(60, 0, 250, 150);
 
@@ -187,12 +187,12 @@ public class Employeur extends javax.swing.JFrame {
         jLabel9.setForeground(new java.awt.Color(255, 255, 0));
         jLabel9.setText("jLabel9");
         jPanel2.add(jLabel9);
-        jLabel9.setBounds(330, 20, 440, 16);
+        jLabel9.setBounds(330, 20, 440, 14);
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
         jPanel3.setLayout(null);
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/oop/java/project/GUI/Image/employeur.jpg"))); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/employeur.jpg"))); // NOI18N
         jPanel3.add(jLabel2);
         jLabel2.setBounds(0, 0, 1100, 500);
 
@@ -385,7 +385,7 @@ public class Employeur extends javax.swing.JFrame {
         jPanel1.add(jLabel11);
         jLabel11.setBounds(80, 230, 190, 30);
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/oop/java/project/GUI/Image/employeur.jpg"))); // NOI18N
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/employeur.jpg"))); // NOI18N
         jPanel1.add(jLabel3);
         jLabel3.setBounds(0, 146, 1100, 510);
 

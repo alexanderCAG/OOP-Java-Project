@@ -1,5 +1,5 @@
 
-package Classe;
+package Model;
 
 /*Cette classe nous permet de récupérer toutes les données de l'employeur qui sont dans notre SQL*/
 public class Employer extends Person{

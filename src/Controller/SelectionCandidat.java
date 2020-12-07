@@ -2,13 +2,14 @@
 package Controller;
 
 /*Nos imports*/
-import static FonctionSQL.Connexion.Connexion1;
+import Vue.Job;
+import Vue.Employeur;
+import static DAO.Connexion.Connexion1;
 import java.awt.event.*;
 import java.sql.*;
 import java.util.logging.*;
 import javax.swing.*;
 import javax.swing.table.*;
-import oop.java.project.GUI.*;
 
 /**
  *

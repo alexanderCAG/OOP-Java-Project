@@ -1,21 +1,17 @@
 
-package Classe;
+package Model;
 
 /*Cette classe nous permet de récupérer toutes les données du candidat qui sont dans notre SQL*/
-public class Recruiter extends Person {
-    private String job;
+public class Candidat extends Person {
+    private boolean selection;
     
     /*Constructeur*/
-    public Recruiter(int id, String lastname, String firstname, String email, String motdepasse, String phone, String job) {
+    public Candidat(int id, String lastname, String firstname, String email, String motdepasse, String phone, boolean selection){
         super(id, lastname, firstname, email, motdepasse, phone);
-        this.job=job;
+        this.selection=selection;
     }
-
+    
     /*Getter afin de nous permettre de mieux manipuler l'ensemble des variables*/
-    public String getJob() {
-        return job;
-    }
-
     public int getId() {
         return id;
     }
@@ -38,6 +34,10 @@ public class Recruiter extends Person {
 
     public String getPhone() {
         return phone;
+    }
+
+    public boolean isSelection() {
+        return selection;
     }
     
     

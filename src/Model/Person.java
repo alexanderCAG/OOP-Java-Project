@@ -1,5 +1,5 @@
 
-package Classe;
+package Model;
 
 /*Cette classe est utilisé pour la création d'un nouveau compte*/
 public class Person {

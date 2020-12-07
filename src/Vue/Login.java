@@ -1,5 +1,5 @@
 
-package oop.java.project.GUI;
+package Vue;
 
 /*Nos imports*/
 import Controller.*;
@@ -86,7 +86,7 @@ public class Login extends javax.swing.JFrame {
             }
         });
 
-        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/oop/java/project/GUI/Image/alimentation.png"))); // NOI18N
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/alimentation.png"))); // NOI18N
         jLabel6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLabel6.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -101,7 +101,7 @@ public class Login extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(42, 42, 42)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 332, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 268, Short.MAX_VALUE)
                 .addComponent(jLabel4)
                 .addGap(26, 26, 26)
                 .addComponent(jLabel6)
@@ -141,14 +141,14 @@ public class Login extends javax.swing.JFrame {
         jPanel2.add(jButton1);
         jButton1.setBounds(620, 320, 178, 48);
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/oop/java/project/GUI/Image/user.png"))); // NOI18N
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/user.png"))); // NOI18N
         jPanel2.add(jLabel3);
-        jLabel3.setBounds(460, 130, 24, 20);
+        jLabel3.setBounds(460, 130, 30, 20);
 
         jLabel2.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/oop/java/project/GUI/Image/lock.png"))); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/lock.png"))); // NOI18N
         jPanel2.add(jLabel2);
-        jLabel2.setBounds(460, 230, 30, 32);
+        jLabel2.setBounds(460, 230, 30, 30);
 
         UserName.setBackground(new java.awt.Color(108, 122, 137));
         UserName.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -237,8 +237,7 @@ public class Login extends javax.swing.JFrame {
         jPanel2.add(jPanel4);
         jPanel4.setBounds(910, 370, 100, 40);
 
-        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/oop/java/project/GUI/Image/login.jpg"))); // NOI18N
-        jLabel10.setText("Hello");
+        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/login.jpg"))); // NOI18N
         jPanel2.add(jLabel10);
         jLabel10.setBounds(0, 0, 1100, 540);
 

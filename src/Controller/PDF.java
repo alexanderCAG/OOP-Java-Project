@@ -2,6 +2,7 @@
 package Controller;
 
 /*Nos imports*/
+import Vue.Employeur;
 import com.itextpdf.text.*;
 import com.itextpdf.text.pdf.*;
 import java.awt.event.*;
@@ -9,7 +10,6 @@ import java.io.*;
 import java.util.*;
 import java.util.logging.*;
 import javax.swing.*;
-import oop.java.project.GUI.*;
 
 
 public class PDF implements ActionListener{

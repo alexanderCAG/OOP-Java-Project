@@ -2,13 +2,13 @@
 package Controller;
 
 /*Nos imports*/
-import static FonctionSQL.Connexion.*;
+import Vue.Employeur;
+import static DAO.Connexion.*;
 import java.awt.event.*;
 import java.sql.*;
 import java.util.logging.*;
 import javax.swing.*;
 import javax.swing.table.*;
-import oop.java.project.GUI.*;
 
 
 public class AffichageDemandeEmploiJob implements ActionListener{

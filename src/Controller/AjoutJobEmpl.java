@@ -2,12 +2,12 @@
 package Controller;
 
 /*Nos imports*/
-import static FonctionSQL.Connexion.*;
+import Vue.Employeur;
+import static DAO.Connexion.*;
 import java.awt.event.*;
 import java.sql.*;
 import java.util.logging.*;
 import javax.swing.*;
-import oop.java.project.GUI.*;
 
 
 public class AjoutJobEmpl implements ActionListener {
@@ -27,6 +27,7 @@ public class AjoutJobEmpl implements ActionListener {
         {
             try {
             Ajouterjob();
+            e.jTextField1.setText(null);
             e.jPanel5.setVisible(true);
             e.jPanel6.setVisible(false);
             e.jPanel7.setVisible(true);
