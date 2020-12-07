@@ -27,7 +27,7 @@ public class SelectionCandidat implements ActionListener{
         if(e.jTable1.getSelectedRowCount() == 1){
             try {
                 selection();
-                //calcul();
+                calcul();
             } catch (SQLException ex) {
                 Logger.getLogger(SelectionCandidat.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -72,7 +72,7 @@ public class SelectionCandidat implements ActionListener{
         }
     }
     
-    /*
+    
     public void calcul(){e.jPanel5.setVisible(true);
         e.jPanel6.setVisible(true);
         e.jPanel7.setVisible(false);
@@ -80,5 +80,5 @@ public class SelectionCandidat implements ActionListener{
         valeurcandidat = valeurcandidat-valeurcandidat*e.discount ;
         e.jTextField4.setText(Double.toString(valeurcandidat) + " euros");
     }
-    */
+    
 }
