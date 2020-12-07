@@ -5,14 +5,12 @@
  */
 package oop.java.project.GUI;
 
-import Controller.OptionEmployeur;
-import static FonctionSQL.Connexion.Connexion1;
+import Controller.*;
+import static FonctionSQL.Connexion.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.sql.*;
-import java.util.*;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.util.logging.*;
 import java.util.regex.*;
 import javax.swing.*;
 

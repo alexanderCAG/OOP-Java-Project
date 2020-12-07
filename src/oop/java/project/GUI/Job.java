@@ -5,17 +5,13 @@
  */
 package oop.java.project.GUI;
 
-import Classe.Candidat;
-import Controller.ListedemandeEmploi;
-import Controller.SupprimerLigneTableau;
-import static FonctionSQL.Connexion.Connexion1;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.ArrayList;
+import Classe.*;
+import Controller.*;
+import static FonctionSQL.Connexion.*;
+import java.sql.*;
+import java.util.*;
 import javax.swing.*;
-import javax.swing.table.DefaultTableModel;
+import javax.swing.table.*;
 
 
 /**

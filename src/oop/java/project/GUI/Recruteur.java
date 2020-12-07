@@ -5,19 +5,13 @@
  */
 package oop.java.project.GUI;
 
-import Classe.Recruiter;
-import Controller.AffichageCamembert;
-import Controller.AjoutJob;
-import Controller.EnleverJob;
-import static FonctionSQL.Connexion.Connexion1;
+import Classe.*;
+import Controller.*;
+import static FonctionSQL.Connexion.*;
 import java.awt.*;
 import java.awt.event.*;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-import javax.swing.JFrame;
-import javax.swing.JOptionPane;
+import java.sql.*;
+import javax.swing.*;
 
 /**
  *

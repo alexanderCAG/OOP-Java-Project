@@ -4,17 +4,8 @@
  * and open the template in the editor.
  */
 package FonctionSQL;
-import Classe.Candidat;
-import Classe.Employer;
-import Classe.Recruiter;
+
 import java.sql.*;
-import java.util.ArrayList;
-import java.util.Scanner;
-import javax.swing.JFrame;
-import javax.swing.JOptionPane;
-import oop.java.project.GUI.Employeur;
-import oop.java.project.GUI.Job;
-import oop.java.project.GUI.Recruteur;
 /**
  *
  * @author Geoffroy

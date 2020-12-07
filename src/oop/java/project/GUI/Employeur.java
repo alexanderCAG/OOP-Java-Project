@@ -5,18 +5,13 @@
  */
 package oop.java.project.GUI;
 
-import Classe.Employer;
-import Controller.AffichageDemandeEmploiJob;
+import Classe.*;
 import Controller.*;
-import static FonctionSQL.Connexion.Connexion1;
+import static FonctionSQL.Connexion.*;
 import com.itextpdf.text.pdf.*;
 import java.awt.*;
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.awt.event.*;
+import java.sql.*;
 import javax.swing.*;
 import javax.swing.table.*;
 

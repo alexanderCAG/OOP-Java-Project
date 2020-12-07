@@ -5,18 +5,14 @@
  */
 package Controller;
 
-import Classe.Candidat;
+import Classe.*;
 import static FonctionSQL.Connexion.Connexion1;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.sql.Connection;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.swing.JTextField;
-import javax.swing.table.DefaultTableModel;
-import oop.java.project.GUI.Job;
+import java.awt.event.*;
+import java.sql.*;
+import java.util.logging.*;
+import javax.swing.*;
+import javax.swing.table.*;
+import oop.java.project.GUI.*;
 
 /**
  *

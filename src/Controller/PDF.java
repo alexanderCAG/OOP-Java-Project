@@ -5,27 +5,14 @@
  */
 package Controller;
 
-import com.itextpdf.text.BaseColor;
-import com.itextpdf.text.Document;
-import com.itextpdf.text.DocumentException;
-import com.itextpdf.text.Element;
-import com.itextpdf.text.FontFactory;
-import com.itextpdf.text.PageSize;
-import com.itextpdf.text.Paragraph;
-import com.itextpdf.text.pdf.PdfPCell;
-import com.itextpdf.text.pdf.PdfPTable;
-import com.itextpdf.text.pdf.PdfWriter;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.util.Date;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.swing.JFileChooser;
-import javax.swing.JOptionPane;
-import oop.java.project.GUI.Employeur;
+import com.itextpdf.text.*;
+import com.itextpdf.text.pdf.*;
+import java.awt.event.*;
+import java.io.*;
+import java.util.*;
+import java.util.logging.*;
+import javax.swing.*;
+import oop.java.project.GUI.*;
 
 /**
  *

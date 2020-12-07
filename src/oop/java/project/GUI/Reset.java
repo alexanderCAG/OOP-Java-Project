@@ -5,7 +5,7 @@
  */
 package oop.java.project.GUI;
 
-import static FonctionSQL.Connexion.Connexion1;
+import static FonctionSQL.Connexion.*;
 import java.sql.*;
 import javax.swing.*;
 

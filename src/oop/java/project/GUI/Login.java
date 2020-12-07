@@ -5,26 +5,15 @@
  */
 package oop.java.project.GUI;
 
-import Controller.SeConnecter;
-import static FonctionSQL.Connexion.Connexion1;
-import java.awt.Color;
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.InputStream;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.Calendar;
-import java.util.GregorianCalendar;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import Controller.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.io.*;
+import java.sql.*;
+import java.util.*;
+import java.util.logging.*;
 import javax.swing.*;
-import sun.audio.AudioPlayer;
-import sun.audio.AudioStream;
+import sun.audio.*;
 
 
 /**
