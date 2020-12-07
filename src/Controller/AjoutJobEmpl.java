@@ -1,10 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Controller;
 
+/*Nos imports*/
 import static FonctionSQL.Connexion.*;
 import java.awt.event.*;
 import java.sql.*;
@@ -12,19 +9,18 @@ import java.util.logging.*;
 import javax.swing.*;
 import oop.java.project.GUI.*;
 
-/**
- *
- * @author alexa
- */
+
 public class AjoutJobEmpl implements ActionListener {
     
    private Employeur e;
     private String namejob;
+    
+    /*Constructeur*/
     public AjoutJobEmpl(Employeur e){
         this.e=e;
     }
     
-    
+    /*Defini l'action que nous voulons*/
     public void actionPerformed(ActionEvent ae){
         this.namejob=this.e.jTextField1.getText();
         if(!"".equals(namejob))
@@ -41,13 +37,14 @@ public class AjoutJobEmpl implements ActionListener {
         }
         
     }
+    
+    /*Permet d'ajouter un job dans la base de donnée*/
     public void Ajouterjob() throws SQLException{
         Connection conn=Connexion1();
         try{
         Statement stmt = conn.createStatement();
         stmt.executeUpdate("INSERT INTO `Company`.Job ( namejob ) VALUES ('" + namejob + "');");
         
-        //int rows = stmt.executeUpdate(sqlStatement);
         conn.close();
         }catch (SQLException ex) {
             System.out.println(ex.getMessage());
@@ -55,8 +52,9 @@ public class AjoutJobEmpl implements ActionListener {
         Affichagejob();
     }
     
+    /*Cette methode permet d'afficher la liste des jobs dans un jcomboBox*/
     public void Affichagejob() throws SQLException{
-        //Cette methode permet d'afficher la liste des jobs dans un jcomboBox
+        
         int nombrejob=Nombrejob();
         String[] listJob=new String[nombrejob];
         Connection conn=Connexion1();
@@ -73,16 +71,16 @@ public class AjoutJobEmpl implements ActionListener {
         e.listJob=listJob;
         e.jComboBox2.setModel(new javax.swing.DefaultComboBoxModel(listJob));
 
-        //int rows = stmt.executeUpdate(sqlStatement);
         conn.close();
         }catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Mot de passe INCORECT", "Login Error", JOptionPane.ERROR_MESSAGE);
         }
     }
     
+    /*Cette methode compte le nombre de job et renvoie cette information a Affichagejob*/
     public int Nombrejob() throws SQLException{
         
-        Connection conn=Connexion1();//Cette methode compte le nombre de job et renvoie cette information a Affichagejob
+        Connection conn=Connexion1();
         int nombrejob = 0;
         try{
         Statement stmt = conn.createStatement();
@@ -90,7 +88,6 @@ public class AjoutJobEmpl implements ActionListener {
         while(rs.next()){
             nombrejob=rs.getInt(1);
         }
-        //int rows = stmt.executeUpdate(sqlStatement);
         conn.close();
         }catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Mot de passe INCORECT", "Login Error", JOptionPane.ERROR_MESSAGE);

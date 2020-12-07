@@ -1,10 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Controller;
 
+/*Nos imports*/
 import static FonctionSQL.Connexion.*;
 import java.awt.event.*;
 import java.sql.*;
@@ -13,12 +10,16 @@ import javax.swing.*;
 import javax.swing.table.*;
 import oop.java.project.GUI.*;
 
-/**
- *
- * @author Geoffroy
- */
+
 public class AffichageDemandeEmploiJob implements ActionListener{
     private Employeur e;
+    
+    /*Constructeur*/
+    public AffichageDemandeEmploiJob(Employeur e){
+        this.e=e;
+    }
+    
+    /*Defini l'action que nous voulons*/
     public void actionPerformed(ActionEvent ae){
         try {
             candidatjob();        // TODO add your handling code here:
@@ -26,11 +27,10 @@ public class AffichageDemandeEmploiJob implements ActionListener{
             Logger.getLogger(Employeur.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    public AffichageDemandeEmploiJob(Employeur e){
-        this.e=e;
-    }
+    
+    /*Cette methode permet d'afficher toutes les demandes d'emploies*/
     public void candidatjob() throws SQLException{
-        Connection conn=Connexion1();//Cette methode permet d'afficher toutes les demandes d'emploies
+        Connection conn=Connexion1();
         try{
         Statement stmt = conn.createStatement();
         ResultSet rs = stmt.executeQuery("select lastnamecan, firstnamecan, datedebut from demandeemploi natural join candidat where selection=true and metier='" + e.jComboBox2.getSelectedItem().toString() + "';");

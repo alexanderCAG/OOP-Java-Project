@@ -1,10 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Controller;
 
+/*Nos imports*/
 import static FonctionSQL.Connexion.Connexion1;
 import java.awt.event.*;
 import java.sql.*;
@@ -19,9 +16,13 @@ import oop.java.project.GUI.*;
  */
 public class SelectionCandidat implements ActionListener{
     private Employeur e;
+    
+    /*Constructeur*/
     public SelectionCandidat(Employeur e) {
         this.e = e;
     }
+    
+    /*Defini l'action que nous voulons effectuer*/
     public void actionPerformed(ActionEvent ae){
         if(e.jTable1.getSelectedRowCount() == 1){
             try {
@@ -40,6 +41,8 @@ public class SelectionCandidat implements ActionListener{
         }
         
     }
+    
+    /*Permet de faire la selection d'un candidat selon le job choisi*/
     public void selection() throws SQLException{
         try{
             
@@ -58,7 +61,6 @@ public class SelectionCandidat implements ActionListener{
                 Statement stmt = conn.createStatement();
                 stmt.executeUpdate("UPDATE `Company`.candidat SET `selection`=" + false + " WHERE `firstnamecan`='" + firstname + "'and lastnamecan='" + lastname + "';");
                 
-                //int rows = stmt.executeUpdate(sqlStatement);
                 conn.close();
             }catch (SQLException ex) {
                 System.out.println(ex.getMessage());
@@ -69,6 +71,8 @@ public class SelectionCandidat implements ActionListener{
             Logger.getLogger(Job.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    
+    /*
     public void calcul(){e.jPanel5.setVisible(true);
         e.jPanel6.setVisible(true);
         e.jPanel7.setVisible(false);
@@ -76,4 +80,5 @@ public class SelectionCandidat implements ActionListener{
         valeurcandidat = valeurcandidat-valeurcandidat*e.discount ;
         e.jTextField4.setText(Double.toString(valeurcandidat) + " euros");
     }
+    */
 }

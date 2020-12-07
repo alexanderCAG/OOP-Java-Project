@@ -1,10 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Controller;
 
+/*Nos imports*/
 import static FonctionSQL.Connexion.Connexion1;
 import java.awt.event.*;
 import java.sql.*;
@@ -13,19 +10,21 @@ import javax.swing.*;
 import javax.swing.table.*;
 import oop.java.project.GUI.*;
 
-/**
- *
- * @author Geoffroy
- */
+
 public class SupprimerLigneTableau implements ActionListener{
     private Job j;
-
+    
+    /*Constructeur*/
     public SupprimerLigneTableau(Job j) {
         this.j = j;
     }
+    
+    /*Defini l'action que nous voulons faire*/
     public void actionPerformed(ActionEvent ae){
         supprimerligne();//la methode supprimerligne est appele
     }
+    
+    /*Cette methode permet de supprimet une ligne du tableau*/
     public void supprimerligne(){
         try{
             
@@ -44,7 +43,6 @@ public class SupprimerLigneTableau implements ActionListener{
                 Statement stmt = conn.createStatement();
                 stmt.executeUpdate("Delete from demandeemploi where idcan=" + j.c.getId() + " and metier='" + Metier + "' and statut='" + statut + "' and datedebut='" + Date + "';");
                 
-                //int rows = stmt.executeUpdate(sqlStatement);
                 conn.close();
             }catch (SQLException ex) {
                 System.out.println(ex.getMessage());

@@ -1,10 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Controller;
 
+/*Nos imports*/
 import Classe.*;
 import static FonctionSQL.Connexion.Connexion1;
 import java.awt.event.*;
@@ -13,14 +10,18 @@ import java.util.logging.*;
 import javax.swing.*;
 import oop.java.project.GUI.*;
 
-/**
- *
- * @author Geoffroy
- */
+
 public class SeConnecter implements ActionListener{
     private String user;
     private String pass;
     private Login l;
+    
+    /*Constructeur*/
+    public SeConnecter(Login l) {
+        this.l=l;
+    }
+    
+    /*Defini l'action que nous voulons*/
     public void actionPerformed(ActionEvent ae) {
         this.user=this.l.UserName.getText();//Cet actionPerformed permet de separer les candidats, les employers et les recruteurs et de les envoyer sur leur page d'accueil
         this.pass=this.l.jPasswordField1.getText();
@@ -43,11 +44,10 @@ public class SeConnecter implements ActionListener{
                 JOptionPane.showMessageDialog(null, "Mot de passe INCORECT", "Login Error", JOptionPane.ERROR_MESSAGE);
             }
     }
-    public SeConnecter(Login l) {
-        this.l=l;
-    }
+    
+    /*Cette methode verifie si c'est un candidat*/
     public void Verificationcandidat() throws SQLException{
-        Connection conn = Connexion1();//Cette methode verifie si c'est un candidat
+        Connection conn = Connexion1();
         try{
         Statement stmt = conn.createStatement();
 
@@ -70,14 +70,14 @@ public class SeConnecter implements ActionListener{
         }
         String sqlStatement = "";
 
-        //int rows = stmt.executeUpdate(sqlStatement);
         conn.close();
         }catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Mot de passe INCORECT", "Login Error", JOptionPane.ERROR_MESSAGE);
         }
     }
+    
+    /*Cette methode verifie si c'est un employer*/
     public void Verificationemployer() throws SQLException{
-        //Cette methode verifie si c'est un employer
         Connection conn = Connexion1();
         try{
         Statement stmt = conn.createStatement();
@@ -90,9 +90,8 @@ public class SeConnecter implements ActionListener{
             motdepasse=rs.getString(5);
             if(user.equals(email) && pass.equals(motdepasse)){
                 //si oui l'employer sera redirige vers la page employeur
-                IncrementationCompteur(rs.getInt(1),rs.getInt(9)+1);//Une incrementation aura lieu pour redefinir son nombre de connexion
+                IncrementationCompteur(rs.getInt(1),rs.getInt(9)+1);    //Une incrementation aura lieu pour redefinir son nombre de connexion
                 Employer e= new Employer(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6), rs.getString(7), rs.getString(8), rs.getInt(9)+1);
-                //int id, String lastname, String firstname, String email, String motdepasse, int phone, String job, String sizecompany, int compteur
                 Employeur employeur = new Employeur(e);
                 employeur.setVisible(true);
                 employeur.pack();
@@ -103,14 +102,14 @@ public class SeConnecter implements ActionListener{
         }
         String sqlStatement = "";
 
-        //int rows = stmt.executeUpdate(sqlStatement);
         conn.close();
         }catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Mot de passe INCORECT", "Login Error", JOptionPane.ERROR_MESSAGE);
         }
     }
+    
+    /*Cette methode verifie si c'est un recruiter*/
     public void Verificationrecruiter() throws SQLException{
-        //Cette methode verifie si c'est un recruiter
         Connection conn = Connexion1();
         try{
         Statement stmt = conn.createStatement();
@@ -124,7 +123,6 @@ public class SeConnecter implements ActionListener{
             if(user.equals(email) && pass.equals(motdepasse)){
                 //si oui le recruteur sera redirige vers la page recruiter
                 Recruiter r= new Recruiter(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6), rs.getString(7));
-                //int id, String lastname, String firstname, String email, String motdepasse, int phone, String job
                 System.out.println("Correct recruteur");
                 Recruteur recruteur = new Recruteur(r);
                 recruteur.setVisible(true);
@@ -136,19 +134,19 @@ public class SeConnecter implements ActionListener{
         }
         String sqlStatement = "";
 
-        //int rows = stmt.executeUpdate(sqlStatement);
         conn.close();
         }catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Mot de passe INCORECT", "Login Error", JOptionPane.ERROR_MESSAGE);
         }
     }
+    
+    /*Cette methode permet d'incrementer le nombre de connexion de l'employer afin de définir s'il est membre ou non*/
     public void IncrementationCompteur(int idemp, int compteur) throws SQLException{
-        Connection conn = Connexion1();//Cette methode permet d'incrementer le nombre de connexion de l'employer
+        Connection conn = Connexion1();
         try{
         Statement stmt = conn.createStatement();
         stmt.executeUpdate("UPDATE `Company`.employer SET `compteur`=" + compteur + " WHERE `idemp`=" + idemp + ";");
         
-        //int rows = stmt.executeUpdate(sqlStatement);
         conn.close();
         }catch (SQLException ex) {
             System.out.println(ex.getMessage());

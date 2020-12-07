@@ -1,21 +1,17 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Classe;
 
-/**
- *
- * @author Geoffroy
- */
+/*Cette classe nous permet de récupérer toutes les données du candidat qui sont dans notre SQL*/
 public class Recruiter extends Person {
     private String job;
+    
+    /*Constructeur*/
     public Recruiter(int id, String lastname, String firstname, String email, String motdepasse, String phone, String job) {
         super(id, lastname, firstname, email, motdepasse, phone);
         this.job=job;
     }
 
+    /*Getter afin de nous permettre de mieux manipuler l'ensemble des variables*/
     public String getJob() {
         return job;
     }

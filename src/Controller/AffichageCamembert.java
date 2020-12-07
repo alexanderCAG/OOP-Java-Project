@@ -1,10 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Controller;
 
+/*Nos imports*/
 import static FonctionSQL.Connexion.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -16,18 +13,19 @@ import org.jfree.chart.*;
 import org.jfree.chart.plot.*;
 import org.jfree.data.general.*;
 
-/**
- *
- * @author Geoffroy
- */
+
 public class AffichageCamembert implements ActionListener{
     private Recruteur r;
     private String[] listJob;
     private int[] nombrepersonnejob;
     private JPanel jPanel4;
+    
+    /*Constructeur*/
     public AffichageCamembert(Recruteur r){
         this.r=r;
     }
+    
+    /*Défini l'action que nous voulons faire*/
     public void actionPerformed(ActionEvent ae){
         try {
             Affichagejob();
@@ -40,32 +38,36 @@ public class AffichageCamembert implements ActionListener{
             Logger.getLogger(AffichageCamembert.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    
+    /*Cette methode permet de visualiser sous forme de camembert le nombre de candidat*/
     public void Graphique() throws SQLException{
-        DefaultPieDataset graphe = new DefaultPieDataset();//Cette methode permet de visualiser sous forme de graphique le nombre de candidat 
-        Cammenbert();
+        DefaultPieDataset graphe = new DefaultPieDataset();
+        Cammenbert();   //Appel de la fonction
         for(int i=0; i<listJob.length;i++){
-            graphe.setValue(listJob[i], new Integer(nombrepersonnejob[i]));
+            graphe.setValue(listJob[i], new Integer(nombrepersonnejob[i]));     //Defini la taille de chaque part du camembert
         }
         
-        JFreeChart chart = ChartFactory.createPieChart("Nombre d'employé par Metier", graphe, true, true, true);
+        JFreeChart chart = ChartFactory.createPieChart("Nombre d'employé par Metier", graphe, true, true, true);    //Création du camembert 
         PiePlot plot = (PiePlot)chart.getPlot();
-        ChartPanel barPanel = new ChartPanel(chart);
+        ChartPanel barPanel = new ChartPanel(chart);        //Affichage
         r.jPanel4.removeAll();
-        r.jPanel4.add(barPanel, BorderLayout.CENTER);
+        r.jPanel4.add(barPanel, BorderLayout.CENTER);       //Prend la taille du Panel
         r.jPanel4.validate();
     }
+    
+    /*Cette methode permet de connaitre le nombre de candidat qui a postule pour chaque job*/
     public void Cammenbert() throws SQLException{
         
-        int[] nombrepersonnejob=new int[listJob.length];// Cette methode permet de connaitre le nombre de candidat qui a postule pour chaque job
+        int[] nombrepersonnejob=new int[listJob.length];
         for(int i=0; i<listJob.length; i++){
             Connection conn=Connexion1();
         try{
             Statement stmt = conn.createStatement();
-            ResultSet rs = stmt.executeQuery("Select count(lastnameemp) from employer where job='" + listJob[i] + "';");
+            ResultSet rs = stmt.executeQuery("Select count(lastnameemp) from employer where job='" + listJob[i] + "';");    //Compte le nombre de personne par job
             while(rs.next()){
             nombrepersonnejob[i]=rs.getInt(1);
         }
-        //int rows = stmt.executeUpdate(sqlStatement);
+        
         conn.close();
         }catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Le camembert ne marche pas", "Login Error", JOptionPane.ERROR_MESSAGE);
@@ -74,8 +76,10 @@ public class AffichageCamembert implements ActionListener{
         this.nombrepersonnejob=nombrepersonnejob;
         
     }
+    
+    /*Cette methode permet d'afficher la liste des jobs dans un jComboBox*/
     public void Affichagejob() throws SQLException{
-        int nombrejob=Nombrejob();//Cette methode permet d'afficher la liste des jobs dans un jcomboBox
+        int nombrejob=Nombrejob();
         String[] listJob=new String[nombrejob];
         Connection conn=Connexion1();
         try{
@@ -92,14 +96,15 @@ public class AffichageCamembert implements ActionListener{
         this.listJob=listJob;
         r.jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(listJob));
 
-        //int rows = stmt.executeUpdate(sqlStatement);
         conn.close();
         }catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "La liste des jobs ne fonctionne pas", "Login Error", JOptionPane.ERROR_MESSAGE);
         }
     }
+    
+    /*Cette methode compte le nombre de job et renvoie cette information a Affichagejob*/
     public int Nombrejob() throws SQLException{
-        Connection conn=Connexion1();//Cette methode compte le nombre de job et renvoie cette information a Affichagejob
+        Connection conn=Connexion1();
         int nombrejob = 0;
         try{
         Statement stmt = conn.createStatement();
@@ -107,7 +112,7 @@ public class AffichageCamembert implements ActionListener{
         while(rs.next()){
             nombrejob=rs.getInt(1);
         }
-        //int rows = stmt.executeUpdate(sqlStatement);
+        
         conn.close();
         }catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Mot de passe INCORECT", "Login Error", JOptionPane.ERROR_MESSAGE);

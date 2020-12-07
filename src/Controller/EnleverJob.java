@@ -1,10 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Controller;
 
+/*Nos imports*/
 import static FonctionSQL.Connexion.*;
 import java.awt.event.*;
 import java.sql.*;
@@ -12,15 +9,16 @@ import java.util.logging.*;
 import javax.swing.*;
 import oop.java.project.GUI.*;
 
-/**
- *
- * @author Geoffroy
- */
+
 public class EnleverJob implements ActionListener{
     private Recruteur r;
+    
+    /*Constructeur*/
     public EnleverJob(Recruteur r) {
         this.r = r;
     }
+    
+    /*Defini l'action que nous voulons*/
     public void actionPerformed(ActionEvent ae){
         try {
             Supprimerjob();
@@ -29,14 +27,13 @@ public class EnleverJob implements ActionListener{
         }
     }
     
-    
+    /*Cette methode permet de supprimer un job dans la base de donnee*/
     public void Supprimerjob() throws SQLException{
         Connection conn=Connexion1();
         try{
         Statement stmt = conn.createStatement();
         stmt.executeUpdate("Delete from job where namejob='" + r.jTextField1.getText() + "';");
         
-        //int rows = stmt.executeUpdate(sqlStatement);
         conn.close();
         }catch (SQLException ex) {
             System.out.println(ex.getMessage());
@@ -44,9 +41,9 @@ public class EnleverJob implements ActionListener{
         Affichagejob();
     }
     
-    
+    /*Cette methode permet d'afficher la liste des jobs dans un jcomboBox*/
     public void Affichagejob() throws SQLException{
-        //Cette methode permet d'afficher la liste des jobs dans un jcomboBox
+        
         int nombrejob=Nombrejob();
         String[] listJob=new String[nombrejob];
         Connection conn=Connexion1();
@@ -63,17 +60,16 @@ public class EnleverJob implements ActionListener{
         r.listJob=listJob;
         r.jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(listJob));
 
-        //int rows = stmt.executeUpdate(sqlStatement);
         conn.close();
         }catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Mot de passe INCORECT", "Login Error", JOptionPane.ERROR_MESSAGE);
         }
     }
     
-    
+    /*Cette methode compte le nombre de job et renvoie cette information a Affichagejob*/
     public int Nombrejob() throws SQLException{
         
-        Connection conn=Connexion1();//Cette methode compte le nombre de job et renvoie cette information a Affichagejob
+        Connection conn=Connexion1();
         int nombrejob = 0;
         try{
         Statement stmt = conn.createStatement();
@@ -81,7 +77,6 @@ public class EnleverJob implements ActionListener{
         while(rs.next()){
             nombrejob=rs.getInt(1);
         }
-        //int rows = stmt.executeUpdate(sqlStatement);
         conn.close();
         }catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Mot de passe INCORECT", "Login Error", JOptionPane.ERROR_MESSAGE);

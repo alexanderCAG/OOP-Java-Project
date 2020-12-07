@@ -1,14 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Classe;
 
-/**
- *
- * @author Geoffroy
- */
+/*Cette classe est utilisé pour la création d'un nouveau compte*/
 public class Person {
     protected int id;
     protected String lastname;
@@ -16,6 +9,8 @@ public class Person {
     protected String email;
     protected String motdepasse;
     protected String phone;
+    
+    /*Constructeur*/
     public Person(int id, String lastname, String firstname, String email, String motdepasse, String phone){
         this.id=id;
         this.lastname=lastname;
