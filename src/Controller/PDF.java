@@ -175,7 +175,7 @@ public class PDF implements ActionListener{
             
             docu.add(table);
             
-            JOptionPane.showMessageDialog(null, "Votre liste a été enregistré au format PDF dans vos documents");
+            JOptionPane.showMessageDialog(null, "Votre liste a été enregistré au format PDF dans le dossier du projet");
             
             
         } catch (FileNotFoundException ex) {
