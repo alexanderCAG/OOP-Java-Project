@@ -18,9 +18,9 @@ Pour commencer voilà un petit tuto pour bien utiliser cette nouvelle applicatio
 - Commencez par telecharger la Base De Donnee **_*Company*_** qui se trouve dans le dossier **_*Base de donnee*_** sous le nom de **_*Projet MySQL*_**.
 - Ajouter les librairies, pour cela selection l'ensemble des fichiers **_*.jar*_** du dossier **_*Librairie*_** (en tout 8 librairies)
 - Ensuite il faut aussi insérer votre _mot de passe dans netbeans:_ 
-	Pour cela, il faut ouvrir le projet **_*OOP-Java-Project*_** dans netbeans et allez dans **_*Connexion*_** qui se trouve dans le package **_*FonctionSQL*_** 
+	Pour cela, il faut ouvrir le projet **_*OOP-Java-Project*_** dans netbeans et allez dans **_*Connexion*_** qui se trouve dans le package **_*DAO*_** 
 	Completez le **_*"string pass="* par votre mot de passe netbeans_**. 
-	Juste après avoir effectué ces deux étapes vous pourrez lancé notre code en faisant un clic droit sur **_*Login*_** dans le package **_*opp.java.project.GUI*_**.
+	Juste après avoir effectué ces deux étapes vous pourrez lancé notre code en faisant un clic droit sur **_*Login*_** dans le package **_*Vue*_**.
 
 
 
@@ -48,7 +48,7 @@ Pour commencer voilà un petit tuto pour bien utiliser cette nouvelle applicatio
 
 - Vous pouvez deposer une recherche sur les job que vous souhaitez. Par la suite vous pourrez payer pour un meilleur referencement de ce dernier
 	Les plus fidèles auront des remises 😁
-- Vous pouvez rehercher les chandidats qui ont postulé aux jobs auquelles vous cherchez et vous vous verez verser une commition à la magnifique Agence
+- Vous pouvez rehercher les chandidats qui ont postulé à tous les jobs et vous vous verrez verser une commition à la magnifique Agence
 	qui vous permet de dégoté ce petit bijou de candidat.
 - Si votre choix est indécie vous avez le choix d'enregistrer la liste au format pdf (_suivre les indications_)
 
