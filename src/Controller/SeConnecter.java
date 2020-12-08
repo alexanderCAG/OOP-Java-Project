@@ -128,7 +128,6 @@ public class SeConnecter implements ActionListener{
             if(user.equals(email) && pass.equals(motdepasse)){
                 //si oui le recruteur sera redirige vers la page recruiter
                 Recruiter r= new Recruiter(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6), rs.getString(7));
-                System.out.println("Correct recruteur");
                 Recruteur recruteur = new Recruteur(r);
                 recruteur.setVisible(true);
                 recruteur.pack();
