@@ -18,7 +18,6 @@ public class Employeur extends javax.swing.JFrame {
     public Employer e;
     private PdfPTable table;
     public String[] listJob;
-    private String text;
     private String[] data;
     public double discount;
     
@@ -449,7 +448,7 @@ public class Employeur extends javax.swing.JFrame {
 
         conn.close();
         }catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Mot de passe INCORECT", "Login Error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "L'affichage des jobs ne fonctionne pas", "Login Error", JOptionPane.ERROR_MESSAGE);
         }
     }
     
@@ -466,7 +465,7 @@ public class Employeur extends javax.swing.JFrame {
         }
         conn.close();
         }catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Mot de passe INCORECT", "Login Error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "La liste des nombres de jobs ne fonctionne pas", "Login Error", JOptionPane.ERROR_MESSAGE);
         }
         return nombrejob;//Ce nombre est envoye a la methode affichagejob qui va cree un tableau
     }
@@ -505,7 +504,7 @@ public class Employeur extends javax.swing.JFrame {
         }
         conn.close();
         }catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Mot de passe INCORECT", "Login Error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "L'affichage de la liste des candidats ne fonctionne pas", "Login Error", JOptionPane.ERROR_MESSAGE);
         }
     }
     

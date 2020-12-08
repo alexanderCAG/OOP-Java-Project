@@ -22,7 +22,7 @@ public class AffichageDemandeEmploiJob implements ActionListener{
     /*Defini l'action que nous voulons*/
     public void actionPerformed(ActionEvent ae){
         try {
-            candidatjob();        // TODO add your handling code here:
+            candidatjob();
         } catch (SQLException ex) {
             Logger.getLogger(Employeur.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -50,7 +50,7 @@ public class AffichageDemandeEmploiJob implements ActionListener{
         
         conn.close();
         }catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Mot de passe INCORECT", "Login Error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "La liste des candidats ne fonctionne pas", "Login Error", JOptionPane.ERROR_MESSAGE);
         }
     }
 }
