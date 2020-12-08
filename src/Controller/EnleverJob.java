@@ -20,6 +20,7 @@ public class EnleverJob implements ActionListener{
     
     /*Defini l'action que nous voulons*/
     public void actionPerformed(ActionEvent ae){
+        
         try {
             Supprimerjob();
         } catch (SQLException ex) {
@@ -32,7 +33,7 @@ public class EnleverJob implements ActionListener{
         Connection conn=Connexion1();
         try{
         Statement stmt = conn.createStatement();
-        stmt.executeUpdate("Delete from job where namejob='" + r.jTextField1.getText() + "';");
+        stmt.executeUpdate("Delete from job where namejob='" + r.jComboBox1.getSelectedItem().toString() + "';");
         
         conn.close();
         }catch (SQLException ex) {
