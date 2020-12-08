@@ -47,7 +47,7 @@ public class AffichageCamembert implements ActionListener{
             graphe.setValue(listJob[i], new Integer(nombrepersonnejob[i]));     //Defini la taille de chaque part du camembert
         }
         
-        JFreeChart chart = ChartFactory.createPieChart("Nombre d'employé par Metier", graphe, true, true, true);    //Création du camembert 
+        JFreeChart chart = ChartFactory.createPieChart("Nombres de candidats par emploie", graphe, true, true, true);    //Création du camembert 
         PiePlot plot = (PiePlot)chart.getPlot();
         ChartPanel barPanel = new ChartPanel(chart);        //Affichage
         r.jPanel4.removeAll();
@@ -63,7 +63,7 @@ public class AffichageCamembert implements ActionListener{
             Connection conn=Connexion1();
         try{
             Statement stmt = conn.createStatement();
-            ResultSet rs = stmt.executeQuery("Select count(id) from demandeemploi where metier='" + listJob[i] + "';");    //Compte le nombre de personne par job
+            ResultSet rs = stmt.executeQuery("Select count(id) from demandeemploi where metier='" + listJob[i] + "';");    //Compte le nombre de candidat par job
             while(rs.next()){
             nombrepersonnejob[i]=rs.getInt(1);
         }
