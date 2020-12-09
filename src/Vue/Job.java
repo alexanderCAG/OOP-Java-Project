@@ -6,6 +6,7 @@ package Vue;
 import Model.Candidat;
 import Controller.*;
 import static DAO.Connexion.*;
+import java.awt.*;
 import java.sql.*;
 import java.util.*;
 import javax.swing.*;
@@ -24,6 +25,9 @@ public class Job extends javax.swing.JFrame {
     public Job() {
         initComponents();
         this.setLocationRelativeTo(null); // center of the screen
+        
+        //Cache un Panel
+        jPanel4.setVisible(false);
     }
     
     /*Deuxieme Constructeur*/
@@ -34,6 +38,9 @@ public class Job extends javax.swing.JFrame {
         Affichagejob();
         LireBasededonneeDemandeEmploi();
         this.setLocationRelativeTo(null); // center of the screen
+        
+        //Cache un Panel
+        jPanel4.setVisible(false);
         
         //Defini les ActionListenner
         jButton2.addActionListener(new ListedemandeEmploi(this, c));
@@ -68,6 +75,11 @@ public class Job extends javax.swing.JFrame {
                 return false;
             }
         };
+        jLabel10 = new javax.swing.JLabel();
+        jPanel4 = new javax.swing.JPanel();
+        jTextField2 = new javax.swing.JTextField();
+        jButton3 = new javax.swing.JButton();
+        jTextField3 = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -133,11 +145,11 @@ public class Job extends javax.swing.JFrame {
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Secrétaire", "Informaticien", "Medecin" }));
         jPanel3.add(jComboBox1);
-        jComboBox1.setBounds(60, 210, 180, 60);
+        jComboBox1.setBounds(60, 220, 180, 60);
 
         jComboBox3.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Etudiant", "BAC +3", "BAC +5" }));
         jPanel3.add(jComboBox3);
-        jComboBox3.setBounds(290, 210, 190, 60);
+        jComboBox3.setBounds(290, 220, 190, 60);
 
         jButton1.setText("Supprimer");
         jPanel3.add(jButton1);
@@ -152,7 +164,7 @@ public class Job extends javax.swing.JFrame {
         jPanel3.add(jLabel9);
         jLabel9.setBounds(800, 410, 240, 30);
         jPanel3.add(jDateChooser1);
-        jDateChooser1.setBounds(520, 210, 210, 60);
+        jDateChooser1.setBounds(520, 220, 210, 60);
 
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -165,6 +177,54 @@ public class Job extends javax.swing.JFrame {
 
         jPanel3.add(jScrollPane2);
         jScrollPane2.setBounds(60, 380, 670, 250);
+
+        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/modif.png"))); // NOI18N
+        jLabel10.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel10.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel10MouseClicked(evt);
+            }
+        });
+        jPanel3.add(jLabel10);
+        jLabel10.setBounds(10, 170, 32, 40);
+
+        jTextField2.setForeground(new java.awt.Color(0, 102, 153));
+
+        jButton3.setText("ok");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+
+        jTextField3.setForeground(new java.awt.Color(0, 102, 153));
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
+                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButton3)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton3)
+                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
+        );
+
+        jPanel3.add(jPanel4);
+        jPanel4.setBounds(50, 170, 250, 40);
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/job.jpg"))); // NOI18N
         jPanel3.add(jLabel7);
@@ -196,6 +256,17 @@ public class Job extends javax.swing.JFrame {
         this.dispose();
         
     }//GEN-LAST:event_jLabel5MouseClicked
+
+    private void jLabel10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel10MouseClicked
+        jPanel4.setBackground(new Color(0,0,0,0));
+        jPanel4.setVisible(true);
+        
+    }//GEN-LAST:event_jLabel10MouseClicked
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        
+        jPanel4.setVisible(false);
+    }//GEN-LAST:event_jButton3ActionPerformed
     
     /*Cette methode permet de compter le nombre de job dans la base de donnee company*/
     public int Nombrejob() throws SQLException{
@@ -301,10 +372,12 @@ public class Job extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     public javax.swing.JComboBox jComboBox1;
     public javax.swing.JComboBox jComboBox3;
     public com.toedter.calendar.JDateChooser jDateChooser1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -316,8 +389,11 @@ public class Job extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator1;
     public javax.swing.JTable jTable2;
+    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField jTextField3;
     // End of variables declaration//GEN-END:variables
 }

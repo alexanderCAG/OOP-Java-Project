@@ -29,6 +29,7 @@ public class Employeur extends javax.swing.JFrame {
         this.setLocationRelativeTo(null); // center of the screen 
         //Cache un Panel
         jPanel5.setVisible(false);
+        jPanel8.setVisible(false);
         
         //Definir la transparence
         jPanel4.setBackground(new Color(204,102,0,120));
@@ -83,6 +84,7 @@ public class Employeur extends javax.swing.JFrame {
         
         //Cache un Panel
         jPanel5.setVisible(false);
+        jPanel8.setVisible(false);
         
         //Definir la transparence
         jPanel4.setBackground(new Color(204,102,0,120));
@@ -146,6 +148,11 @@ public class Employeur extends javax.swing.JFrame {
         jTextField3 = new javax.swing.JTextField();
         jTextField1 = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
+        jPanel8 = new javax.swing.JPanel();
+        jTextField6 = new javax.swing.JTextField();
+        jButton7 = new javax.swing.JButton();
+        jTextField7 = new javax.swing.JTextField();
+        jLabel15 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -217,7 +224,7 @@ public class Employeur extends javax.swing.JFrame {
         jComboBox2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jComboBox2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jPanel1.add(jComboBox2);
-        jComboBox2.setBounds(380, 210, 247, 70);
+        jComboBox2.setBounds(380, 240, 247, 70);
 
         jPanel4.setBackground(new java.awt.Color(153, 102, 0));
 
@@ -376,13 +383,61 @@ public class Employeur extends javax.swing.JFrame {
         jTextField1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jTextField1.setForeground(new java.awt.Color(255, 255, 255));
         jPanel1.add(jTextField1);
-        jTextField1.setBounds(60, 210, 230, 70);
+        jTextField1.setBounds(60, 240, 230, 70);
 
         jLabel11.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(230, 160, 0));
         jLabel11.setText("Ajouter un emplois");
         jPanel1.add(jLabel11);
-        jLabel11.setBounds(80, 230, 190, 30);
+        jLabel11.setBounds(80, 260, 190, 30);
+
+        jTextField6.setForeground(new java.awt.Color(153, 102, 0));
+
+        jButton7.setText("ok");
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton7ActionPerformed(evt);
+            }
+        });
+
+        jTextField7.setForeground(new java.awt.Color(153, 102, 0));
+
+        javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
+        jPanel8.setLayout(jPanel8Layout);
+        jPanel8Layout.setHorizontalGroup(
+            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel8Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
+                .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButton7)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel8Layout.setVerticalGroup(
+            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton7)
+                    .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
+        );
+
+        jPanel1.add(jPanel8);
+        jPanel8.setBounds(60, 180, 250, 40);
+
+        jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/modif.png"))); // NOI18N
+        jLabel15.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel15.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel15MouseClicked(evt);
+            }
+        });
+        jPanel1.add(jLabel15);
+        jLabel15.setBounds(10, 180, 30, 40);
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/employeur.jpg"))); // NOI18N
         jPanel1.add(jLabel3);
@@ -432,6 +487,15 @@ public class Employeur extends javax.swing.JFrame {
                     jTextField3.setText(null);
                 }
     }//GEN-LAST:event_jTextField2KeyReleased
+
+    private void jLabel15MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel15MouseClicked
+        jPanel8.setBackground(new Color(0,0,0,0));
+        jPanel8.setVisible(true);
+    }//GEN-LAST:event_jLabel15MouseClicked
+
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+        jPanel8.setVisible(false);
+    }//GEN-LAST:event_jButton7ActionPerformed
  
     /*Cette methode permet d'obtenir la liste des job*/
     public void Affichagejob() throws SQLException{
@@ -551,6 +615,7 @@ public class Employeur extends javax.swing.JFrame {
     private javax.swing.JButton jButton4;
     public javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
+    private javax.swing.JButton jButton7;
     public javax.swing.JComboBox jComboBox2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -558,6 +623,7 @@ public class Employeur extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -573,6 +639,7 @@ public class Employeur extends javax.swing.JFrame {
     public javax.swing.JPanel jPanel5;
     public javax.swing.JPanel jPanel6;
     public javax.swing.JPanel jPanel7;
+    private javax.swing.JPanel jPanel8;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
     public javax.swing.JTable jTable1;
@@ -580,5 +647,7 @@ public class Employeur extends javax.swing.JFrame {
     public javax.swing.JTextField jTextField2;
     public javax.swing.JTextField jTextField3;
     public javax.swing.JTextField jTextField4;
+    private javax.swing.JTextField jTextField6;
+    private javax.swing.JTextField jTextField7;
     // End of variables declaration//GEN-END:variables
 }
