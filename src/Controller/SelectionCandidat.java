@@ -54,14 +54,17 @@ public class SelectionCandidat implements ActionListener{
                 JOptionPane.showMessageDialog(e, "Selectionne une ligne à supprimer");
                 return;
             }
-            String lastname = e.jTable1.getModel().getValueAt(ligne, 0).toString();//cela permet de connaitre le metier de la ligne selectionne
-            String firstname = e.jTable1.getModel().getValueAt(ligne, 1).toString();//cela permet de connaitre le statut de la ligne selectionne
-            String Date = e.jTable1.getModel().getValueAt(ligne, 2).toString();//cela permet de connaitre la date de la ligne selectionne
+            String id = e.jTable1.getModel().getValueAt(ligne, 0).toString();
+            String idcan = e.jTable1.getModel().getValueAt(ligne, 1).toString();
+            String lastname = e.jTable1.getModel().getValueAt(ligne, 2).toString();//cela permet de connaitre le metier de la ligne selectionne
+            String firstname = e.jTable1.getModel().getValueAt(ligne, 3).toString();//cela permet de connaitre le statut de la ligne selectionne
+            String Date = e.jTable1.getModel().getValueAt(ligne, 4).toString();//cela permet de connaitre la date de la ligne selectionne
             Connection conn=Connexion1();
             try{
                 //la ligne est supprime dans la base de donnee
                 Statement stmt = conn.createStatement();
-                stmt.executeUpdate("UPDATE `Company`.candidat SET `selection`=" + false + " WHERE `firstnamecan`='" + firstname + "'and lastnamecan='" + lastname + "';");
+                stmt.executeUpdate("DELETE `Company`.demandeemploi where `idcan`='" + idcan + "'and `id`!='" + id + "';");
+                //stmt.executeUpdate("UPDATE `Company`.candidat SET `selection`=" + false + " WHERE `firstnamecan`='" + firstname + "'and lastnamecan='" + lastname + "';");
                 
                 conn.close();
             }catch (SQLException ex) {
