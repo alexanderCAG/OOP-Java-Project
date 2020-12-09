@@ -30,6 +30,7 @@ public class Job extends javax.swing.JFrame {
         
         //Cache un Panel
         jPanel4.setVisible(false);
+        jPanel6.setVisible(false);
     }
     
     /*Deuxieme Constructeur*/
@@ -43,6 +44,10 @@ public class Job extends javax.swing.JFrame {
         
         //Cache un Panel
         jPanel4.setVisible(false);
+        jPanel6.setVisible(false);
+        
+        //Definir la transparence
+        jPanel5.setBackground(new Color(0,0,0,0));
         
         //Defini les ActionListenner
         jButton2.addActionListener(new ListedemandeEmploi(this, c));
@@ -65,23 +70,25 @@ public class Job extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jPanel4 = new javax.swing.JPanel();
+        jTextField2 = new javax.swing.JTextField();
+        jButton3 = new javax.swing.JButton();
+        jTextField3 = new javax.swing.JTextField();
+        jPanel5 = new javax.swing.JPanel();
+        jLabel9 = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox();
         jComboBox3 = new javax.swing.JComboBox();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jLabel9 = new javax.swing.JLabel();
         jDateChooser1 = new com.toedter.calendar.JDateChooser();
+        jButton2 = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable(){
             public boolean isCellEditable(int d, int c){
                 return false;
             }
         };
-        jLabel10 = new javax.swing.JLabel();
-        jPanel4 = new javax.swing.JPanel();
-        jTextField2 = new javax.swing.JTextField();
-        jButton3 = new javax.swing.JButton();
-        jTextField3 = new javax.swing.JTextField();
+        jPanel6 = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
 
@@ -146,41 +153,6 @@ public class Job extends javax.swing.JFrame {
         jPanel3.add(jPanel1);
         jPanel1.setBounds(0, 0, 1100, 169);
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Secrétaire", "Informaticien", "Medecin" }));
-        jPanel3.add(jComboBox1);
-        jComboBox1.setBounds(60, 220, 180, 60);
-
-        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Etudiant", "BAC +3", "BAC +5" }));
-        jPanel3.add(jComboBox3);
-        jComboBox3.setBounds(290, 220, 190, 60);
-
-        jButton1.setText("Supprimer");
-        jPanel3.add(jButton1);
-        jButton1.setBounds(840, 460, 170, 50);
-
-        jButton2.setText("VALIDER");
-        jPanel3.add(jButton2);
-        jButton2.setBounds(290, 310, 190, 50);
-
-        jLabel9.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel9.setText("Sélectionnez une ligne pour supprimer");
-        jPanel3.add(jLabel9);
-        jLabel9.setBounds(800, 410, 240, 30);
-        jPanel3.add(jDateChooser1);
-        jDateChooser1.setBounds(520, 220, 210, 60);
-
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-            },
-            new String [] {
-                "Métier", "Statut", "Date de début"
-            }
-        ));
-        jScrollPane2.setViewportView(jTable2);
-
-        jPanel3.add(jScrollPane2);
-        jScrollPane2.setBounds(60, 380, 670, 250);
-
         jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/modif.png"))); // NOI18N
         jLabel10.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLabel10.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -228,8 +200,62 @@ public class Job extends javax.swing.JFrame {
 
         jPanel3.add(jPanel4);
         jPanel4.setBounds(50, 170, 250, 40);
-        jPanel3.add(jLabel11);
-        jLabel11.setBounds(630, 310, 460, 30);
+
+        jPanel5.setLayout(null);
+
+        jLabel9.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel9.setText("Sélectionnez une ligne pour supprimer");
+        jPanel5.add(jLabel9);
+        jLabel9.setBounds(790, 210, 240, 30);
+
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Secrétaire", "Informaticien", "Medecin" }));
+        jPanel5.add(jComboBox1);
+        jComboBox1.setBounds(60, 10, 180, 60);
+
+        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Etudiant", "BAC +3", "BAC +5" }));
+        jPanel5.add(jComboBox3);
+        jComboBox3.setBounds(290, 10, 190, 60);
+        jPanel5.add(jDateChooser1);
+        jDateChooser1.setBounds(510, 10, 210, 60);
+
+        jButton2.setText("VALIDER");
+        jPanel5.add(jButton2);
+        jButton2.setBounds(290, 90, 190, 50);
+
+        jButton1.setText("Supprimer");
+        jPanel5.add(jButton1);
+        jButton1.setBounds(830, 270, 170, 50);
+
+        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+            },
+            new String [] {
+                "Métier", "Statut", "Date de début"
+            }
+        ));
+        jScrollPane2.setViewportView(jTable2);
+
+        jPanel5.add(jScrollPane2);
+        jScrollPane2.setBounds(60, 160, 670, 250);
+
+        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
+        jPanel6.setLayout(jPanel6Layout);
+        jPanel6Layout.setHorizontalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1060, Short.MAX_VALUE)
+        );
+        jPanel6Layout.setVerticalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 420, Short.MAX_VALUE)
+        );
+
+        jPanel5.add(jPanel6);
+        jPanel6.setBounds(0, 0, 1060, 420);
+        jPanel5.add(jLabel11);
+        jLabel11.setBounds(260, 180, 460, 30);
+
+        jPanel3.add(jPanel5);
+        jPanel5.setBounds(20, 220, 1060, 420);
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/job.jpg"))); // NOI18N
         jPanel3.add(jLabel7);
@@ -438,6 +464,8 @@ public class Job extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator1;
     public javax.swing.JTable jTable2;
