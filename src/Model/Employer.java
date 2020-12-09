@@ -13,6 +13,39 @@ public class Employer extends Person{
         this.compteur=compteur;
     }
 
+    /*Setter afin de nous permettre de mieux manipuler l'ensemble des variables*/
+    public void setSizecompany(String sizecompany) {
+        this.sizecompany = sizecompany;
+    }
+
+    public void setCompteur(int compteur) {
+        this.compteur = compteur;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setLastname(String lastname) {
+        this.lastname = lastname;
+    }
+
+    public void setFirstname(String firstname) {
+        this.firstname = firstname;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setMotdepasse(String motdepasse) {
+        this.motdepasse = motdepasse;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
     /*Getter afin de nous permettre de mieux manipuler l'ensemble des variables*/
     public int getCompteur() {
         return compteur;

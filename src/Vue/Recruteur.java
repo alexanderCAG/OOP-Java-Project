@@ -8,6 +8,8 @@ import static DAO.Connexion.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.sql.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.*;
 
 
@@ -281,10 +283,33 @@ public class Recruteur extends javax.swing.JFrame {
     private void jLabel10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel10MouseClicked
         jPanel8.setBackground(new Color(0,0,0,0));
         jPanel8.setVisible(true);
+        
+        jTextField6.setText(r.getLastname());
+        jTextField7.setText(r.getFirstname());
     }//GEN-LAST:event_jLabel10MouseClicked
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-        jPanel8.setVisible(false);
+        
+        try{                                         
+            
+            Connection conn = Connexion1();
+            try{
+                Statement stmt = conn.createStatement();
+                stmt.executeUpdate("UPDATE `Company`.candidat SET `lastnamecan`='" + jTextField6.getText() + "' , `firstnamecan`='" + jTextField7.getText() + "' WHERE `idcan`=" + r.getId() + ";");
+                
+                conn.close();
+            }catch (SQLException ex) {
+                System.out.println(ex.getMessage());
+            }
+            
+            r.setLastname(jTextField6.getText());
+            r.setFirstname(jTextField7.getText());
+            
+            jPanel8.setVisible(false);
+            
+        }catch (SQLException ex) {
+            Logger.getLogger(Job.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_jButton7ActionPerformed
    
     /*Cette methode permet d'afficher tous les job*/

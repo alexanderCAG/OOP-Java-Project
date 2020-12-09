@@ -9,6 +9,8 @@ import com.itextpdf.text.pdf.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.sql.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.*;
 import javax.swing.table.*;
 
@@ -491,10 +493,34 @@ public class Employeur extends javax.swing.JFrame {
     private void jLabel15MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel15MouseClicked
         jPanel8.setBackground(new Color(0,0,0,0));
         jPanel8.setVisible(true);
+        
+        jTextField6.setText(e.getLastname());
+        jTextField7.setText(e.getFirstname());
     }//GEN-LAST:event_jLabel15MouseClicked
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-        jPanel8.setVisible(false);
+        
+        try{                                         
+            
+            Connection conn = Connexion1();
+            try{
+                Statement stmt = conn.createStatement();
+                stmt.executeUpdate("UPDATE `Company`.candidat SET `lastnamecan`='" + jTextField6.getText() + "' , `firstnamecan`='" + jTextField7.getText() + "' WHERE `idcan`=" + e.getId() + ";");
+                
+                conn.close();
+            }catch (SQLException ex) {
+                System.out.println(ex.getMessage());
+            }
+            
+            e.setLastname(jTextField6.getText());
+            e.setFirstname(jTextField7.getText());
+            
+            jPanel8.setVisible(false);
+            
+        }catch (SQLException ex) {
+            Logger.getLogger(Job.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
     }//GEN-LAST:event_jButton7ActionPerformed
  
     /*Cette methode permet d'obtenir la liste des job*/

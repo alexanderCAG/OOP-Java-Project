@@ -9,6 +9,8 @@ import static DAO.Connexion.*;
 import java.awt.*;
 import java.sql.*;
 import java.util.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.*;
 import javax.swing.table.*;
 
@@ -261,11 +263,32 @@ public class Job extends javax.swing.JFrame {
         jPanel4.setBackground(new Color(0,0,0,0));
         jPanel4.setVisible(true);
         
+        jTextField3.setText(c.getLastname());
+        jTextField2.setText(c.getFirstname());
     }//GEN-LAST:event_jLabel10MouseClicked
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         
-        jPanel4.setVisible(false);
+        try{                                         
+            
+            Connection conn = Connexion1();
+            try{
+                Statement stmt = conn.createStatement();
+                stmt.executeUpdate("UPDATE `Company`.candidat SET `lastnamecan`='" + jTextField3.getText() + "' , `firstnamecan`='" + jTextField2.getText() + "' WHERE `idcan`=" + c.getId() + ";");
+                
+                conn.close();
+            }catch (SQLException ex) {
+                System.out.println(ex.getMessage());
+            }
+            
+            c.setLastname(jTextField3.getText());
+            c.setFirstname(jTextField2.getText());
+            
+            jPanel4.setVisible(false);
+            
+        }catch (SQLException ex) {
+            Logger.getLogger(Job.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_jButton3ActionPerformed
     
     /*Cette methode permet de compter le nombre de job dans la base de donnee company*/
@@ -331,7 +354,7 @@ public class Job extends javax.swing.JFrame {
 
         conn.close();
         }catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "La lexture des demandes d'emploie ne fonctionne pas", "Login Error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "La lecture des demandes d'emploie ne fonctionne pas", "Login Error", JOptionPane.ERROR_MESSAGE);
         }
     }
     

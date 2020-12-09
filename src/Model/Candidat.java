@@ -10,6 +10,35 @@ public class Candidat extends Person {
         super(id, lastname, firstname, email, motdepasse, phone);
         this.selection=selection;
     }
+
+    /*Setter afin de nous permettre de mieux manipuler l'ensemble des variables*/
+    public void setSelection(boolean selection) {
+        this.selection = selection;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setLastname(String lastname) {
+        this.lastname = lastname;
+    }
+
+    public void setFirstname(String firstname) {
+        this.firstname = firstname;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setMotdepasse(String motdepasse) {
+        this.motdepasse = motdepasse;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
     
     /*Getter afin de nous permettre de mieux manipuler l'ensemble des variables*/
     public int getId() {
