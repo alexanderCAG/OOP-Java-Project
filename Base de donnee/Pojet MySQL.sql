@@ -12,7 +12,6 @@ CREATE TABLE `Company`.Candidat (
 	`email` VARCHAR(40) NOT NULL,
     `motdepasse` VARCHAR(20) NOT NULL,
 	`phone` VARCHAR(20) NOT NULL ,
-	`selection` BOOLEAN NOT NULL DEFAULT FALSE,
     PRIMARY KEY (`idcan`)
 );
 CREATE TABLE `Company`.Employer (
@@ -53,11 +52,11 @@ INSERT INTO `Company`.Job ( namejob ) VALUES ('Ingénieur en drone');
 INSERT INTO `Company`.Job ( namejob ) VALUES ('Ingénieur en electromagnetisme');
 INSERT INTO `Company`.Job ( namejob ) VALUES ('Ingénieur');
 
-INSERT INTO `Company`.Candidat ( lastnamecan, firstnamecan, email, motdepasse, phone, selection ) VALUES ('Granier', 'Geoffroy', 'geoffroy.granier@edu.ece.fr', 'dyjs', '0721564966', false);
-INSERT INTO `Company`.Candidat ( lastnamecan, firstnamecan, email, motdepasse, phone, selection ) VALUES ('Boucher', 'Thomas', 'thomas.boucher@edu.ece.fr', 'dyjs', '0615468557', true);
-INSERT INTO `Company`.Candidat ( lastnamecan, firstnamecan, email, motdepasse, phone, selection ) VALUES ('Pelletier', 'Geo', 'geo.granier@edu.ece.fr', 'dyjs', '0679545685', true);
-INSERT INTO `Company`.Candidat ( lastnamecan, firstnamecan, email, motdepasse, phone, selection ) VALUES ('Bidaud', 'Duncan', 'duncan.bidaud@edu.ece.fr', 'dyjs', '0678659655', false);
-INSERT INTO `Company`.Candidat ( lastnamecan, firstnamecan, email, motdepasse, phone, selection ) VALUES ('Colle-Abbey', 'Alexander', 'alexanderCAG@edu.ece.fr', 'dyjs', '0678619856', false);
+INSERT INTO `Company`.Candidat ( lastnamecan, firstnamecan, email, motdepasse, phone ) VALUES ('Granier', 'Geoffroy', 'geoffroy.granier@edu.ece.fr', 'dyjs', '0721564966');
+INSERT INTO `Company`.Candidat ( lastnamecan, firstnamecan, email, motdepasse, phone ) VALUES ('Boucher', 'Thomas', 'thomas.boucher@edu.ece.fr', 'dyjs', '0615468557');
+INSERT INTO `Company`.Candidat ( lastnamecan, firstnamecan, email, motdepasse, phone ) VALUES ('Pelletier', 'Geo', 'geo.granier@edu.ece.fr', 'dyjs', '0679545685');
+INSERT INTO `Company`.Candidat ( lastnamecan, firstnamecan, email, motdepasse, phone ) VALUES ('Bidaud', 'Duncan', 'duncan.bidaud@edu.ece.fr', 'dyjs', '0678659655');
+INSERT INTO `Company`.Candidat ( lastnamecan, firstnamecan, email, motdepasse, phone ) VALUES ('Colle-Abbey', 'Alexander', 'alexanderCAG@edu.ece.fr', 'dyjs', '0678619856');
 
 INSERT INTO `Company`.Employer ( lastnameemp, firstnameemp, email, motdepasse, phone, job, sizecompany, compteur ) VALUES ('Gagnon', 'Benoit', 'benoit@edu.ece.fr', 'dyjs', '0645326848', 'Ingénieur en robotique', 'micro', 1);
 INSERT INTO `Company`.Employer ( lastnameemp, firstnameemp, email, motdepasse, phone, job, sizecompany, compteur ) VALUES ('Duval', 'Henry', 'henry@edu.ece.fr', 'dyjs', '0645186248', 'Ingénieur en domotique', 'micro', 3);

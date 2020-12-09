@@ -3,18 +3,13 @@ package Model;
 
 /*Cette classe nous permet de récupérer toutes les données du candidat qui sont dans notre SQL*/
 public class Candidat extends Person {
-    private boolean selection;
     
     /*Constructeur*/
-    public Candidat(int id, String lastname, String firstname, String email, String motdepasse, String phone, boolean selection){
+    public Candidat(int id, String lastname, String firstname, String email, String motdepasse, String phone){
         super(id, lastname, firstname, email, motdepasse, phone);
-        this.selection=selection;
     }
 
     /*Setter afin de nous permettre de mieux manipuler l'ensemble des variables*/
-    public void setSelection(boolean selection) {
-        this.selection = selection;
-    }
 
     public void setId(int id) {
         this.id = id;
@@ -63,10 +58,6 @@ public class Candidat extends Person {
 
     public String getPhone() {
         return phone;
-    }
-
-    public boolean isSelection() {
-        return selection;
     }
     
     

@@ -64,7 +64,7 @@ public class SeConnecter implements ActionListener{
             motdepasse=rs.getString(5);
             if(user.equals(email) && pass.equals(motdepasse)){
                 //si oui le candidat sera redirige vers la page Candidat
-                Candidat c= new Candidat(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6), rs.getBoolean(7));
+                Candidat c= new Candidat(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6));
                 Job job = new Job(c);
                 job.setVisible(true);
                 job.pack();
