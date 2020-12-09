@@ -82,6 +82,7 @@ public class Job extends javax.swing.JFrame {
         jTextField2 = new javax.swing.JTextField();
         jButton3 = new javax.swing.JButton();
         jTextField3 = new javax.swing.JTextField();
+        jLabel11 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -227,6 +228,8 @@ public class Job extends javax.swing.JFrame {
 
         jPanel3.add(jPanel4);
         jPanel4.setBounds(50, 170, 250, 40);
+        jPanel3.add(jLabel11);
+        jLabel11.setBounds(630, 310, 460, 30);
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/job.jpg"))); // NOI18N
         jPanel3.add(jLabel7);
@@ -401,6 +404,7 @@ public class Job extends javax.swing.JFrame {
     public com.toedter.calendar.JDateChooser jDateChooser1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
