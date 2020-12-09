@@ -33,7 +33,7 @@ public class AffichageDemandeEmploiJob implements ActionListener{
         Connection conn=Connexion1();
         try{
         Statement stmt = conn.createStatement();
-        ResultSet rs = stmt.executeQuery("select id, idcan, lastnamecan, firstnamecan, datedebut from demandeemploi natural join candidat where selection=true and metier='" + e.jComboBox2.getSelectedItem().toString() + "';");
+        ResultSet rs = stmt.executeQuery("select id, idcan, lastnamecan, firstnamecan, datedebut from demandeemploi natural join candidat where selectionne='' and metier='" + e.jComboBox2.getSelectedItem().toString() + "';");
         DefaultTableModel tab = (DefaultTableModel) e.jTable1.getModel();
         tab.getDataVector().removeAllElements();
         

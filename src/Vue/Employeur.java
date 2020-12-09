@@ -505,7 +505,7 @@ public class Employeur extends javax.swing.JFrame {
             Connection conn = Connexion1();
             try{
                 Statement stmt = conn.createStatement();
-                stmt.executeUpdate("UPDATE `Company`.candidat SET `lastnamecan`='" + jTextField6.getText() + "' , `firstnamecan`='" + jTextField7.getText() + "' WHERE `idcan`=" + e.getId() + ";");
+                stmt.executeUpdate("UPDATE `Company`.candidat SET `lastnamecan`='" + jTextField6.getText() + "' , `firstnamecan`='" + jTextField7.getText() + "' WHERE selectionne='' and `idcan`=" + e.getId() + ";");
                 
                 conn.close();
             }catch (SQLException ex) {

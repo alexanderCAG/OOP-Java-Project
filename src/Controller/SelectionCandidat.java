@@ -35,7 +35,7 @@ public class SelectionCandidat implements ActionListener{
             
         }else if(e.jTable1.getSelectedRowCount() != 1){
             //Le calcul ne s'effectue pas car l'utilisateur n'a pas fait de selection
-            JOptionPane.showMessageDialog(null, "Selctionnez un candidat");
+            JOptionPane.showMessageDialog(null, "Selectionnez un candidat");
         }
         /*else {
             //Le calcul ne s'effectue pas car l'utilisateur a fait plus d'une selection
@@ -63,9 +63,9 @@ public class SelectionCandidat implements ActionListener{
             try{
                 //la ligne est supprime dans la base de donnee
                 Statement stmt = conn.createStatement();
-                stmt.executeUpdate("DELETE `Company`.demandeemploi where `idcan`='" + idcan + "'and `id`!='" + id + "';");
+                stmt.executeUpdate("DELETE from demandeemploi where `idcan`=" + idcan + " and `id`!=" + id + ";");
                 //stmt.executeUpdate("UPDATE `Company`.candidat SET `selection`=" + false + " WHERE `firstnamecan`='" + firstname + "'and lastnamecan='" + lastname + "';");
-                
+                confirmationdemandeemploi();
                 conn.close();
             }catch (SQLException ex) {
                 System.out.println(ex.getMessage());
@@ -75,6 +75,22 @@ public class SelectionCandidat implements ActionListener{
            }catch (SQLException ex) {
             Logger.getLogger(Job.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+    public void confirmationdemandeemploi() throws SQLException{
+        int ligne = e.jTable1.getSelectedRow();
+        String id = e.jTable1.getModel().getValueAt(ligne, 0).toString();
+        String idcan = e.jTable1.getModel().getValueAt(ligne, 1).toString();
+        Connection conn=Connexion1();
+            try{
+                //la ligne est supprime dans la base de donnee
+                Statement stmt = conn.createStatement();
+                stmt.executeUpdate("UPDATE `Company`.demandeemploi SET `selectionne`=" + "2" + " WHERE `id`=" + id + ";");
+                //stmt.executeUpdate("UPDATE `Company`.candidat SET `selection`=" + false + " WHERE `firstnamecan`='" + firstname + "'and lastnamecan='" + lastname + "';");
+                
+                conn.close();
+            }catch (SQLException ex) {
+                System.out.println(ex.getMessage());
+            }
     }
     
     /*Calcul avec remise de son choix de candidat*/
