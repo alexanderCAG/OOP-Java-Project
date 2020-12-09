@@ -101,7 +101,7 @@ public class Login extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(42, 42, 42)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 268, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 291, Short.MAX_VALUE)
                 .addComponent(jLabel4)
                 .addGap(26, 26, 26)
                 .addComponent(jLabel6)
@@ -173,7 +173,7 @@ public class Login extends javax.swing.JFrame {
         lblClock.setFont(new java.awt.Font("Verdana Pro Cond Black", 1, 13)); // NOI18N
         lblClock.setText("Hello");
         jPanel2.add(lblClock);
-        lblClock.setBounds(830, 30, 250, 50);
+        lblClock.setBounds(740, 20, 250, 50);
 
         jPanel3.setBackground(new java.awt.Color(102, 153, 255));
 

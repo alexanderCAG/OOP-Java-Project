@@ -426,6 +426,11 @@ public class Employeur extends javax.swing.JFrame {
         prixT = prix - prix*discount;
 
         jTextField3.setText(Double.toString(prixT) + " euros");
+        if(evt.getKeyCode() == KeyEvent.VK_ENTER)
+                {
+                    jTextField2.setText(null);
+                    jTextField3.setText(null);
+                }
     }//GEN-LAST:event_jTextField2KeyReleased
  
     /*Cette methode permet d'obtenir la liste des job*/

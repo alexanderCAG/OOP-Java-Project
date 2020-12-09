@@ -45,8 +45,6 @@ CREATE TABLE `Company`.DemandeEmploi (
 	`datedebut` VARCHAR(40) NOT NULL,
     PRIMARY KEY (`id`)
 );
--- , 1965, '75006 Paris'
-INSERT INTO `Company`.Agency ( nameag ) VALUES ('Agence DAG');
 
 INSERT INTO `Company`.Job ( namejob ) VALUES ('Ingénieur en robotique');
 INSERT INTO `Company`.Job ( namejob ) VALUES ('Ingénieur en domotique');
@@ -55,8 +53,8 @@ INSERT INTO `Company`.Job ( namejob ) VALUES ('Ingénieur en electromagnetisme')
 INSERT INTO `Company`.Job ( namejob ) VALUES ('Ingénieur');
 
 INSERT INTO `Company`.Candidat ( lastnamecan, firstnamecan, email, motdepasse, phone, selection ) VALUES ('Granier', 'Geoffroy', 'geoffroy.granier@edu.ece.fr', 'dyjs', '0721564966', true);
-INSERT INTO `Company`.Candidat ( lastnamecan, firstnamecan, email, motdepasse, phone, selection ) VALUES ('Boucher', 'Thomas', 'thomas.boucher@edu.ece.fr', 'dyjs', '0615468557', false);
-INSERT INTO `Company`.Candidat ( lastnamecan, firstnamecan, email, motdepasse, phone, selection ) VALUES ('Pelletier', 'Geo', 'geo.granier@edu.ece.fr', 'dyjs', '0679545685', false);
+INSERT INTO `Company`.Candidat ( lastnamecan, firstnamecan, email, motdepasse, phone, selection ) VALUES ('Boucher', 'Thomas', 'thomas.boucher@edu.ece.fr', 'dyjs', '0615468557', true);
+INSERT INTO `Company`.Candidat ( lastnamecan, firstnamecan, email, motdepasse, phone, selection ) VALUES ('Pelletier', 'Geo', 'geo.granier@edu.ece.fr', 'dyjs', '0679545685', true);
 INSERT INTO `Company`.Candidat ( lastnamecan, firstnamecan, email, motdepasse, phone, selection ) VALUES ('Bidaud', 'Duncan', 'duncan.bidaud@edu.ece.fr', 'dyjs', '0678659655', false);
 INSERT INTO `Company`.Candidat ( lastnamecan, firstnamecan, email, motdepasse, phone, selection ) VALUES ('Colle-Abbey', 'Alexander', 'alexanderCAG@edu.ece.fr', 'dyjs', '0678619856', false);
 
@@ -73,8 +71,10 @@ INSERT INTO `Company`.Recruiter ( lastnamerec, firstnamerec, email, motdepasse, 
 INSERT INTO `Company`.Recruiter ( lastnamerec, firstnamerec, email, motdepasse, phone, job ) VALUES ('Gauthier', 'Jacques', 'jacques@edu.ece.fr', 'dyjs', '0648475265', 'Recruteur');
 
 INSERT INTO `Company`.DemandeEmploi ( idcan, metier, statut, datedebut ) VALUES (1, 'Ingenieur', 'Etudiant', '13 déc. 2020');
+INSERT INTO `Company`.DemandeEmploi ( idcan, metier, statut, datedebut ) VALUES (1, 'Ingénieur en domotique', 'Etudiant', '20 aout. 2020');
 INSERT INTO `Company`.DemandeEmploi ( idcan, metier, statut, datedebut ) VALUES (1, 'Ingénieur en robotique', 'Etudiant', '1 févr. 2020');
 INSERT INTO `Company`.DemandeEmploi ( idcan, metier, statut, datedebut ) VALUES (2, 'Ingenieur', 'Etudiant', '12 janv. 2020');
 INSERT INTO `Company`.DemandeEmploi ( idcan, metier, statut, datedebut ) VALUES (2, 'Ingenieur', 'Etudiant', '13 déc. 2020');
 INSERT INTO `Company`.DemandeEmploi ( idcan, metier, statut, datedebut ) VALUES (3, 'Ingenieur en domotique', 'Etudiant', '14 déc. 2020');
 INSERT INTO `Company`.DemandeEmploi ( idcan, metier, statut, datedebut ) VALUES (4, 'Ingenieur en electromagnetisme', 'Etudiant', '14 déc. 2020');
+INSERT INTO `Company`.DemandeEmploi ( idcan, metier, statut, datedebut ) VALUES (5, 'Ingénieur en drone', 'Etudiant', '16 déc. 2020');
