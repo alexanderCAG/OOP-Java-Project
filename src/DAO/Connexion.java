@@ -8,7 +8,7 @@ public class Connexion {
     public static Connection Connexion1() throws SQLException{
         String url="jdbc:mysql://localhost:3306/Company?autoReconnect=true&useSSL=false";
         String user="root";     /*C'est ici que vous devez rentrer votre nom d'utilisateur*/
-        String pass="Vhpsq47y78&";     /*C'est ici que vous devez rentrez votre mot de passe*/
+        String pass="root";     /*C'est ici que vous devez rentrez votre mot de passe*/
         Connection conn=DriverManager.getConnection(url, user, pass);
         return conn;
     }
