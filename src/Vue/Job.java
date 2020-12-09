@@ -29,6 +29,8 @@ public class Job extends javax.swing.JFrame {
         this.setLocationRelativeTo(null); // center of the screen
         //Cache un Panel
         jPanel4.setVisible(false);
+        jPanel5.setVisible(true);
+        jPanel7.setVisible(true);
         jPanel6.setVisible(false);
     }
     
@@ -39,15 +41,19 @@ public class Job extends javax.swing.JFrame {
         initComponents();
         Affichagejob();
         LireBasededonneeDemandeEmploi();
-        Acceptation();
+        
         this.setLocationRelativeTo(null); // center of the screen
         
         //Cache un Panel
         jPanel4.setVisible(false);
-        jPanel6.setVisible(false);
+        jPanel5.setVisible(true);
+        jPanel7.setVisible(false);
+        jPanel6.setVisible(true);
+        Acceptation();
         
         //Definir la transparence
         jPanel5.setBackground(new Color(0,0,0,0));
+        jPanel6.setBackground(new Color(0,0,0,0));
         
         //Defini les ActionListenner
         jButton2.addActionListener(new ListedemandeEmploi(this, c));
@@ -80,6 +86,8 @@ public class Job extends javax.swing.JFrame {
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
         jPanel6 = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox();
@@ -206,9 +214,15 @@ public class Job extends javax.swing.JFrame {
 
         jPanel5.setLayout(null);
 
+        jLabel11.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+
         jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/ballonparty2.png"))); // NOI18N
 
         jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/ballonparty2.png"))); // NOI18N
+
+        jLabel14.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+
+        jLabel15.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
 
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
@@ -217,24 +231,30 @@ public class Job extends javax.swing.JFrame {
             .addGroup(jPanel7Layout.createSequentialGroup()
                 .addGap(105, 105, 105)
                 .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(55, 55, 55)
-                .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 460, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(61, 61, 61)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 721, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 721, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 721, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(147, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel7Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanel7Layout.createSequentialGroup()
+                .addGap(87, 87, 87)
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel7Layout.createSequentialGroup()
-                        .addGap(170, 170, 170)
-                        .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel7Layout.createSequentialGroup()
-                        .addGap(87, 87, 87)
-                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(151, Short.MAX_VALUE))
         );
 
@@ -272,9 +292,7 @@ public class Job extends javax.swing.JFrame {
                         .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(46, 46, 46)
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel6Layout.createSequentialGroup()
-                                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel6Layout.createSequentialGroup()
                                 .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -452,22 +470,30 @@ public class Job extends javax.swing.JFrame {
         try{
         Statement stmt = conn.createStatement();
         int i=0;
-        ResultSet rs = stmt.executeQuery("Select firstname, lastname, metier, datedebut from demandeemploi natural join employeur where selectionne=idrec, selectionne!='', idcan='" + c.getId() + "';");
+        ResultSet rs = stmt.executeQuery("Select firstnameemp, lastnameemp, metier, datedebut from demandeemploi natural join employer where selectionne!='' and idemp=selectionne and idcan='" + c.getId() + "';");
         while(rs.next()){
-            String firstname=rs.getString(0);
-            String lastname=rs.getString(1);
-            String metier=rs.getString(2);
-            String datedebut=rs.getString(3);
-            jPanel6.setVisible(true);
-            jLabel11.setText("Vous avez été sélectionné(e) en tant que " + metier + " par le recruteur : " + firstname + " " + lastname + ".\n" + "La date de début de votre emploi commence le " + datedebut + ".\n" + "Bravo");
+            String firstname=rs.getString(1);
+            String lastname=rs.getString(2);
+            String metier=rs.getString(3);
+            String datedebut=rs.getString(4);
+            if(firstname!=""){
+                jPanel5.setBackground(new Color(0,0,0,0));
+                jPanel7.setBackground(new Color(0,0,0,0));
+                jPanel5.setVisible(true);
+                jPanel6.setVisible(false);
+                jPanel7.setVisible(true);
+                jLabel11.setText("Vous avez été sélectionné(e) en tant que " + metier);
+                jLabel14.setText(" par le recruteur : " + firstname + " " + lastname + ".");
+                jLabel15.setText("La date de début de votre emploi commence le " + datedebut + " " + "Bravo");
+            }
+            
         }
         String sqlStatement = "";
-        this.listJob=listJob;//on obtient la liste de job final
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(listJob));
 
         conn.close();
         }catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "L'affichage des jobs ne fonctionne pas", "Login Error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "L'affichage de la selection ne fonctionne pas", "Login Error", JOptionPane.ERROR_MESSAGE);
         }
     }
     
@@ -516,6 +542,8 @@ public class Job extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

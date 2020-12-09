@@ -53,7 +53,7 @@ INSERT INTO `Company`.Job ( namejob ) VALUES ('Ingénieur en drone');
 INSERT INTO `Company`.Job ( namejob ) VALUES ('Ingénieur en electromagnetisme');
 INSERT INTO `Company`.Job ( namejob ) VALUES ('Ingénieur');
 
-INSERT INTO `Company`.Candidat ( lastnamecan, firstnamecan, email, motdepasse, phone, selection ) VALUES ('Granier', 'Geoffroy', 'geoffroy.granier@edu.ece.fr', 'dyjs', '0721564966', true);
+INSERT INTO `Company`.Candidat ( lastnamecan, firstnamecan, email, motdepasse, phone, selection ) VALUES ('Granier', 'Geoffroy', 'geoffroy.granier@edu.ece.fr', 'dyjs', '0721564966', false);
 INSERT INTO `Company`.Candidat ( lastnamecan, firstnamecan, email, motdepasse, phone, selection ) VALUES ('Boucher', 'Thomas', 'thomas.boucher@edu.ece.fr', 'dyjs', '0615468557', true);
 INSERT INTO `Company`.Candidat ( lastnamecan, firstnamecan, email, motdepasse, phone, selection ) VALUES ('Pelletier', 'Geo', 'geo.granier@edu.ece.fr', 'dyjs', '0679545685', true);
 INSERT INTO `Company`.Candidat ( lastnamecan, firstnamecan, email, motdepasse, phone, selection ) VALUES ('Bidaud', 'Duncan', 'duncan.bidaud@edu.ece.fr', 'dyjs', '0678659655', false);
@@ -62,7 +62,7 @@ INSERT INTO `Company`.Candidat ( lastnamecan, firstnamecan, email, motdepasse, p
 INSERT INTO `Company`.Employer ( lastnameemp, firstnameemp, email, motdepasse, phone, job, sizecompany, compteur ) VALUES ('Gagnon', 'Benoit', 'benoit@edu.ece.fr', 'dyjs', '0645326848', 'Ingénieur en robotique', 'micro', 1);
 INSERT INTO `Company`.Employer ( lastnameemp, firstnameemp, email, motdepasse, phone, job, sizecompany, compteur ) VALUES ('Duval', 'Henry', 'henry@edu.ece.fr', 'dyjs', '0645186248', 'Ingénieur en domotique', 'micro', 3);
 INSERT INTO `Company`.Employer ( lastnameemp, firstnameemp, email, motdepasse, phone, job, sizecompany, compteur ) VALUES ('Martin', 'Thomas', 'thomas@edu.ece.fr', 'dyjs', '074522252', 'Ingénieur en robotique', 'grande', 4);
-INSERT INTO `Company`.Employer ( lastnameemp, firstnameemp, email, motdepasse, phone, job, sizecompany, compteur ) VALUES ('Archambault', 'Alexandre', 'alexandre@edu.ece.fr', 'dyjs', '0642226155', 'Ingénieur en robotique', 'micro', 8);
+INSERT INTO `Company`.Employer ( lastnameemp, firstnameemp, email, motdepasse, phone, job, sizecompany, compteur ) VALUES ('Archambault', 'Alexandre', 'alexanderabbey98@gmail.com', 'dyjs', '0642226155', 'Ingénieur en robotique', 'micro', 8);
 INSERT INTO `Company`.Employer ( lastnameemp, firstnameemp, email, motdepasse, phone, job, sizecompany, compteur ) VALUES ('Tuby', 'Aurélien', 'aurelien@edu.ece.fr', 'dyjs', '067621661', 'Ingénieur en drone', 'grande', 5);
 
 INSERT INTO `Company`.Recruiter ( lastnamerec, firstnamerec, email, motdepasse, phone, job ) VALUES ('Nivet', 'Benjamin', 'benjamin@edu.ece.fr', 'dyjs', '0648475265', 'Recruteur');

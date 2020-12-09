@@ -33,13 +33,14 @@ public class SelectionCandidat implements ActionListener{
                 Logger.getLogger(SelectionCandidat.class.getName()).log(Level.SEVERE, null, ex);
             }
             
-        }else if(e.jTable1.getRowCount() == 0){
+        }else if(e.jTable1.getSelectedRowCount() != 1){
             //Le calcul ne s'effectue pas car l'utilisateur n'a pas fait de selection
-            JOptionPane.showMessageDialog(null, "Le Tableau est vide");
-        }else {
+            JOptionPane.showMessageDialog(null, "Selctionnez un candidat");
+        }
+        /*else {
             //Le calcul ne s'effectue pas car l'utilisateur a fait plus d'une selection
             JOptionPane.showMessageDialog(null, "Ne selectionner qu'un seul candidat");
-        }
+        }*/
         
     }
     
@@ -82,5 +83,21 @@ public class SelectionCandidat implements ActionListener{
         valeurcandidat = valeurcandidat-valeurcandidat*e.discount ;
         e.jTextField4.setText(Double.toString(valeurcandidat) + " euros");
     }
+    /*public void Selectionne() throws SQLException{
+        Connection conn=Connexion1();
+        int ligne = e.jTable1.getSelectedRow();
+            String lastname = e.jTable1.getModel().getValueAt(ligne, 0).toString();//cela permet de connaitre le metier de la ligne selectionne
+            String firstname = e.jTable1.getModel().getValueAt(ligne, 1).toString();//cela permet de connaitre le statut de la ligne selectionne
+            String Date = e.jTable1.getModel().getValueAt(ligne, 2).toString();//cela permet de connaitre la date de la ligne selectionne
+            try{
+                //la ligne est supprime dans la base de donnee
+                Statement stmt = conn.createStatement();
+                stmt.executeUpdate("UPDATE `Company`.demandeemploi SET `selectionne`=" + e. + " WHERE `firstnamecan`='" + firstname + "'and lastnamecan='" + lastname + "';");
+                
+                conn.close();
+            }catch (SQLException ex) {
+                System.out.println(ex.getMessage());
+            }
+    }*/
     
 }
