@@ -127,7 +127,12 @@ public class Reset extends javax.swing.JFrame {
                 pst.setString(2, user);
                 pst.executeUpdate();
                 JOptionPane.showMessageDialog(null, "Reset Sucessfully");
-                this.dispose();
+                Login log = new Login();//Creation d'une jframe login
+                log.setVisible(true);//affichage de la jframe login
+                log.pack();
+                log.setLocationRelativeTo(null);
+                log.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                this.dispose();//la jframe recruteur se ferme
                 
             }catch (Exception ex){
                 JOptionPane.showMessageDialog(null, ex);

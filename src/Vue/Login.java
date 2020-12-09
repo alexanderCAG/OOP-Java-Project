@@ -298,6 +298,8 @@ public class Login extends javax.swing.JFrame {
         forget.setVisible(true);//afficher la jframe forget
         forget.pack();
         forget.setLocationRelativeTo(null);
+        forget.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.dispose();//La jframe login se ferme
         
     }//GEN-LAST:event_jLabel5MouseClicked
     
