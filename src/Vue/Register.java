@@ -589,7 +589,7 @@ public class Register extends javax.swing.JFrame {
     /*Cette methode crée un nouveau membre recruteur*/
     public void addrecruiter() throws SQLException{
         Connection conn = Connexion1();
-        job="";
+        job="Recruteur";
         String sizecompany;
         if("Micro entreprise".equals(jComboBox3.getSelectedItem().toString())){     //Permet de definir si l'employeur représente une micro ou une grosse entreprise
             sizecompany="micro";
