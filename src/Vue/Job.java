@@ -360,7 +360,28 @@ public class Job extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "La lecture des demandes d'emploie ne fonctionne pas", "Login Error", JOptionPane.ERROR_MESSAGE);
         }
     }
-    
+    public void Acceptation(){
+        Connection conn=Connexion1();
+        try{
+        Statement stmt = conn.createStatement();
+        int i=0;
+        ResultSet rs = stmt.executeQuery("Select firstname, lastname, metier, datedebut from demandeemploi natural join employeur where selectionne!='' and idcan='" + c.getId() + "';");
+        while(rs.next()){
+            String firstname=rs.getString(0);
+            String lastname=rs.getString(1);
+            String metier=rs.getString(2);
+            String datedebut=rs.getString(3);
+            
+        }
+        String sqlStatement = "";
+        this.listJob=listJob;//on obtient la liste de job final
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(listJob));
+
+        conn.close();
+        }catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "L'affichage des jobs ne fonctionne pas", "Login Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }
     
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
