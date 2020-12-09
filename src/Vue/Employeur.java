@@ -81,7 +81,7 @@ public class Employeur extends javax.swing.JFrame {
             }
         }
         Affichagejob();//Cette methode permet d'afficher la liste des job dans le jcombobox
-        allcandidatjob();//Cette methode affiche toutes les demandes emplois effectuées par les candidats
+        
         this.setLocationRelativeTo(null); // center of the screen 
         
         //Cache un Panel
@@ -565,43 +565,6 @@ public class Employeur extends javax.swing.JFrame {
         return nombrejob;//Ce nombre est envoye a la methode affichagejob qui va cree un tableau
     }
     
-    /*Cette methode affiche tous les candidats qui ont fait une demande emploi qui n'ont jamais ete selectionne par les employer*/
-    public void allcandidatjob() throws SQLException{
-        Connection conn=Connexion1();
-        
-        try{
-        Statement stmt = conn.createStatement();
-        ResultSet rs = stmt.executeQuery("select lastnamecan, firstnamecan, datedebut from demandeemploi natural join candidat where selection=true;");
-        //DefaultTableModel tab = new DefaultTableModel(data, 0);
-        //jTable1.setModel(new DefaultTableModel(null, new String[]{"Nom", "Prenom", "Date de début"}));
-        DefaultTableModel tab = (DefaultTableModel) jTable1.getModel();
-        
-        
-//        tab.setRowCount(0);
-//        jTable1.setModel(tab);
-//        jTable1.repaint();
-        
-//        int rows = jTable1.getRowCount();
-//        for(int i=0;i<rows;i++)
-//            ((DefaultTableModel)jTable1.getModel()).removeRow(i);
-        
-        //tab.getDataVector().removeAllElements();
-        
-        String text= "Lastname Firstname Start Date";
-        while(rs.next())
-        {
-            String lastname= rs.getString(1);
-            String firstname= rs.getString(2);
-            String date= rs.getString(3);
-            text=text + "\n" + lastname + " " + firstname + " " + date;
-            
-            tab.addRow(data);
-        }
-        conn.close();
-        }catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "L'affichage de la liste des candidats ne fonctionne pas", "Login Error", JOptionPane.ERROR_MESSAGE);
-        }
-    }
     
    
     public static void main(String args[]) {

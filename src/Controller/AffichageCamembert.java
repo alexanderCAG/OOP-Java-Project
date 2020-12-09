@@ -46,7 +46,7 @@ public class AffichageCamembert implements ActionListener{
             graphe.setValue(listJob[i], new Integer(nombrepersonnejob[i]));     //Defini la taille de chaque part du camembert
         }
         
-        JFreeChart chart = ChartFactory.createPieChart("Nombres de candidats par emploie", graphe, true, true, true);    //Création du camembert 
+        JFreeChart chart = ChartFactory.createPieChart("Les emplois les plus recherchés:", graphe, true, true, true);    //Création du camembert 
         PiePlot plot = (PiePlot)chart.getPlot();
         ChartPanel barPanel = new ChartPanel(chart);        //Affichage
         r.jPanel4.removeAll();
