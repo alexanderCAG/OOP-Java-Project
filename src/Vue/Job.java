@@ -283,7 +283,7 @@ public class Job extends javax.swing.JFrame {
             
             c.setLastname(jTextField3.getText());
             c.setFirstname(jTextField2.getText());
-            
+            jLabel4.setText(c.getLastname() + " " + c.getFirstname());
             jPanel4.setVisible(false);
             
         }catch (SQLException ex) {

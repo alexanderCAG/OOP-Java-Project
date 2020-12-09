@@ -18,6 +18,7 @@ public class ListedemandeEmploi implements ActionListener{
     private String Metier;
     private String Statut;
     private String Date;
+    private String Nom;
     
     /*Constructeur*/
     public ListedemandeEmploi(Job j, Candidat c){
