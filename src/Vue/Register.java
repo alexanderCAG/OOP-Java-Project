@@ -590,13 +590,7 @@ public class Register extends javax.swing.JFrame {
     public void addrecruiter() throws SQLException{
         Connection conn = Connexion1();
         job="Recruteur";
-        String sizecompany;
-        if("Micro entreprise".equals(jComboBox3.getSelectedItem().toString())){     //Permet de definir si l'employeur représente une micro ou une grosse entreprise
-            sizecompany="micro";
-        }
-        else {
-            sizecompany="grande";
-        }
+        
         try{
         Statement stmt = conn.createStatement();
         stmt.executeUpdate("INSERT INTO `Company`.Recruiter ( lastnamerec, firstnamerec, email, motdepasse, phone, job ) VALUES ('" + lastname + "', '" + firstname + "', '" + email + "', '" + motdepasse + "', '" + phone + "', '" + job + "');");
@@ -623,8 +617,14 @@ public class Register extends javax.swing.JFrame {
     /*Cette methode crée un nouveau membre employeur*/
     public void addemployer() throws SQLException{
         Connection conn = Connexion1();
+        String sizecompany;
+        if("Micro entreprise".equals(jComboBox3.getSelectedItem().toString())){     //Permet de definir si l'employeur représente une micro ou une grosse entreprise
+            sizecompany="micro";
+        }
+        else {
+            sizecompany="grande";
+        }
         job=jComboBox2.getSelectedItem().toString();
-        String sizecompany=jComboBox3.getSelectedItem().toString();
         try{
         Statement stmt = conn.createStatement();
         stmt.executeUpdate("INSERT INTO `Company`.Employer ( lastnameemp, firstnameemp, email, motdepasse, phone, job, sizecompany, compteur ) VALUES ('" + lastname + "', '" + firstname + "', '" + email + "', '" + motdepasse + "', '" + phone + "', '" + job + "', '" + sizecompany + "', 0);");
