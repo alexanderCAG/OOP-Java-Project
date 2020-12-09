@@ -19,7 +19,7 @@ Pour commencer voilà un petit tuto pour bien utiliser cette nouvelle applicatio
 - Ajouter les librairies, pour cela selection l'ensemble des fichiers **_*.jar*_** du dossier **_*Librairie*_** (en tout 8 librairies)
 - Ensuite il faut aussi insérer votre _mot de passe dans netbeans:_ 
 	Pour cela, il faut ouvrir le projet **_*OOP-Java-Project*_** dans netbeans et allez dans **_*Connexion*_** qui se trouve dans le package **_*DAO*_** 
-	Completez le **_*"string pass="* par votre mot de passe netbeans_**. 
+	Completez le **_*"string pass="* par votre mot de passe sur netbeans_**. 
 	Juste après avoir effectué ces deux étapes vous pourrez lancé notre code en faisant un clic droit sur **_*Login*_** dans le package **_*Vue*_**.
 
 
