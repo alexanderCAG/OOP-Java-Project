@@ -71,7 +71,7 @@ INSERT INTO `Company`.Recruiter ( lastnamerec, firstnamerec, email, motdepasse, 
 INSERT INTO `Company`.Recruiter ( lastnamerec, firstnamerec, email, motdepasse, phone, job ) VALUES ('Duval', 'Stanislas', 'stanislas@edu.ece.fr', 'dyjs', '0648475265', 'Recruteur');
 INSERT INTO `Company`.Recruiter ( lastnamerec, firstnamerec, email, motdepasse, phone, job ) VALUES ('Gauthier', 'Jacques', 'jacques@edu.ece.fr', 'dyjs', '0648475265', 'Recruteur');
 
-INSERT INTO `Company`.DemandeEmploi ( idcan, metier, statut, datedebut, selectionne ) VALUES (1, 'Ingenieur', 'Etudiant', '13 déc. 2020', '');
+INSERT INTO `Company`.DemandeEmploi ( idcan, metier, statut, datedebut, selectionne ) VALUES (1, 'Ingenieur', 'Etudiant', '13 déc. 2020', 2);
 INSERT INTO `Company`.DemandeEmploi ( idcan, metier, statut, datedebut, selectionne ) VALUES (1, 'Ingénieur en domotique', 'Etudiant', '20 aout. 2020', '');
 INSERT INTO `Company`.DemandeEmploi ( idcan, metier, statut, datedebut, selectionne ) VALUES (1, 'Ingénieur en robotique', 'Etudiant', '1 févr. 2020', '');
 INSERT INTO `Company`.DemandeEmploi ( idcan, metier, statut, datedebut, selectionne ) VALUES (2, 'Ingenieur', 'Etudiant', '12 janv. 2020', '');

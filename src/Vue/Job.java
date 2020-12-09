@@ -27,7 +27,6 @@ public class Job extends javax.swing.JFrame {
     public Job() {
         initComponents();
         this.setLocationRelativeTo(null); // center of the screen
-        
         //Cache un Panel
         jPanel4.setVisible(false);
         jPanel6.setVisible(false);
@@ -40,6 +39,7 @@ public class Job extends javax.swing.JFrame {
         initComponents();
         Affichagejob();
         LireBasededonneeDemandeEmploi();
+        Acceptation();
         this.setLocationRelativeTo(null); // center of the screen
         
         //Cache un Panel
@@ -386,18 +386,19 @@ public class Job extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "La lecture des demandes d'emploie ne fonctionne pas", "Login Error", JOptionPane.ERROR_MESSAGE);
         }
     }
-    public void Acceptation(){
+    public void Acceptation() throws SQLException{
         Connection conn=Connexion1();
         try{
         Statement stmt = conn.createStatement();
         int i=0;
-        ResultSet rs = stmt.executeQuery("Select firstname, lastname, metier, datedebut from demandeemploi natural join employeur where selectionne!='' and idcan='" + c.getId() + "';");
+        ResultSet rs = stmt.executeQuery("Select firstname, lastname, metier, datedebut from demandeemploi natural join employeur where selectionne=idrec, selectionne!='', idcan='" + c.getId() + "';");
         while(rs.next()){
             String firstname=rs.getString(0);
             String lastname=rs.getString(1);
             String metier=rs.getString(2);
             String datedebut=rs.getString(3);
-            
+            jPanel6.setVisible(true);
+            jLabel11.setText("Vous avez été sélectionné(e) en tant que " + metier + " par le recruteur : " + firstname + " " + lastname + ".\n" + "La date de début de votre emploi commence le " + datedebut + ".\n" + "Bravo");
         }
         String sqlStatement = "";
         this.listJob=listJob;//on obtient la liste de job final
