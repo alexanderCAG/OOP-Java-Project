@@ -62,7 +62,7 @@ public class AffichageCamembert implements ActionListener{
             Connection conn=Connexion1();
         try{
             Statement stmt = conn.createStatement();
-            ResultSet rs = stmt.executeQuery("Select count(id) from demandeemploi where selectionne!='' and metier='" + listJob[i] + "';");    //Compte le nombre de candidat par job
+            ResultSet rs = stmt.executeQuery("Select count(id) from demandeemploi where selectionne='' and metier='" + listJob[i] + "';");    //Compte le nombre de candidat par job
             while(rs.next()){
             nombrepersonnejob[i]=rs.getInt(1);
         }
