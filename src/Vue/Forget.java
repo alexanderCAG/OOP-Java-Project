@@ -177,7 +177,6 @@ public class Forget extends javax.swing.JFrame {
     
     /*Verification mail envoyé*/
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
         
         if(Integer.valueOf(jTextField2.getText()) == randomCode)   //Verification entre chiffre entrer par l'utilisateur et chiffre ramdom
         {

@@ -210,7 +210,7 @@ public class Job extends javax.swing.JFrame {
         }
         conn.close();
         }catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Mot de passe INCORECT", "Login Error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "La liste des nombres de jobs ne fonctionne pas", "Login Error", JOptionPane.ERROR_MESSAGE);
         }
         return nombrejob;//Ce nombre est envoye a la methode affichagejob qui va cree un tableau
     }
@@ -235,7 +235,7 @@ public class Job extends javax.swing.JFrame {
 
         conn.close();
         }catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Mot de passe INCORECT", "Login Error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "L'affichage des jobs ne fonctionne pas", "Login Error", JOptionPane.ERROR_MESSAGE);
         }
     }
     
@@ -260,7 +260,7 @@ public class Job extends javax.swing.JFrame {
 
         conn.close();
         }catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Mot de passe INCORECT", "Login Error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "La lexture des demandes d'emploie ne fonctionne pas", "Login Error", JOptionPane.ERROR_MESSAGE);
         }
     }
     

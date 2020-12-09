@@ -68,13 +68,12 @@ public class AjoutJobEmpl implements ActionListener {
             listJob[i]=namejob;
             i+=1;
         }
-        String sqlStatement = "";
         e.listJob=listJob;
         e.jComboBox2.setModel(new javax.swing.DefaultComboBoxModel(listJob));
 
         conn.close();
         }catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Mot de passe INCORECT", "Login Error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "L'affichage des jobs ne fonctionne pas", "Login Error", JOptionPane.ERROR_MESSAGE);
         }
     }
     
@@ -91,7 +90,7 @@ public class AjoutJobEmpl implements ActionListener {
         }
         conn.close();
         }catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Mot de passe INCORECT", "Login Error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "La liste des nombres de jobs ne fonctionne pas", "Login Error", JOptionPane.ERROR_MESSAGE);
         }
         return nombrejob;
     }
