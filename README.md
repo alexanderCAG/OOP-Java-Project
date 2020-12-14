@@ -72,6 +72,3 @@ Vous vous rappelez quand je vous ai demandé de mettre votre vrai mot de passe ?
 De toute manière vous verrez c'est très intuitif 😎**
 
 PS : Vous pouvez lancer directement notre application avec le fichier **_*OOPJavaProject.jar*_**
-
-
-
