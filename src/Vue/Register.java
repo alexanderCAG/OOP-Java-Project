@@ -476,7 +476,7 @@ public class Register extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jTextField10KeyReleased
 
-    /*Cette methode permet de verifier si le mot de passe est assez sophistiqué*/
+    /*Cette methode permet de verifier si le mot de passe est assez sophistiqué */
     private void jPasswordField1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jPasswordField1KeyReleased
         
         String mdp = jPasswordField1.getText();
