@@ -68,7 +68,7 @@ Vous vous rappelez quand je vous ai demandé de mettre votre vrai mot de passe ?
 
 
 
-**Voilà vous pouvez maintenant bénéficier de notre application simple, épuré et facile d'usage !
+**Voilà vous pouvez maintenant bénéficier de notre application simple, épurée et facile d'usage !
 De toute manière vous verrez c'est très intuitif 😎**
 
 PS : Vous pouvez lancer directement notre application avec le fichier **_*OOPJavaProject.jar*_**
