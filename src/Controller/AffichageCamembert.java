@@ -12,7 +12,7 @@ import javax.swing.*;
 import org.jfree.chart.*;
 import org.jfree.chart.plot.*;
 import org.jfree.data.general.*;
-/* Cette classe implemente un action listener. Elle se lance quand le bouton ANALYSER de la jframe RECRUTEUR est selectionne. Elle permet d'afficher un graphe qui indique le nombre de demande d'emploi de 
+/* Cette classe implemente un action listener. Elle se lance quand le bouton ANALYSER de la jframe RECRUTEUR est selectionne. Elle permet d'afficher un graphe qui indique le nombre de demande d'emploi pas accepetée de 
 chaque job*/
 
 public class AffichageCamembert implements ActionListener{

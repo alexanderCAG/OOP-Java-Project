@@ -1,4 +1,4 @@
-# Agence DAG
+# Agence DAG 
 
 Voici la toute nouvelle Application **AgencyDAG** une application de *"nouvelle génération"* !
 
@@ -16,25 +16,25 @@ Pour commencer voilà un petit tuto pour bien utiliser cette nouvelle applicatio
 
 
 - Commencez par telecharger la Base De Donnee **_*Company*_** qui se trouve dans le dossier **_*Base de donnee*_** sous le nom de **_*Projet MySQL*_**.
-- Ajouter les librairies, pour cela selection l'ensemble des fichiers **_*.jar*_** du dossier **_*Librairie*_** (en tout 8 librairies)
+- Ajouter les librairies, pour cela selectionner l'ensemble des fichiers **_*.jar*_** du dossier **_*Librairie*_** (en tout 8 librairies)
 - Ensuite il faut aussi insérer votre _mot de passe dans netbeans:_ 
 	Pour cela, il faut ouvrir le projet **_*OOP-Java-Project*_** dans netbeans et allez dans **_*Connexion*_** qui se trouve dans le package **_*DAO*_** 
 	Completez le **_*"string pass="* par votre mot de passe sur netbeans_**. 
-	Juste après avoir effectué ces deux étapes vous pourrez lancé notre code en faisant un clic droit sur **_*Login*_** dans le package **_*Vue*_**.
+	Juste après avoir effectué ces deux étapes vous pourrez lancer notre code en faisant un clic droit sur **_*Login*_** dans le package **_*Vue*_**.
 
 
 
 			Login 
 
 - Entrer votre mail et mot de passe pour vous connecter SINON vous pouvez vous inscrire avec "click here to create a new account"
-- Si jamais vous avez oubliez votre mot de passe appuyez sur "Forgot ?"
+- Si jamais vous avez oublié votre mot de passe appuyez sur "Forgot ?" 
 
 
 			Inscription 
 
 - Selectionner votre Statut (Demandeur d'emploie, Employeur, Recruteur) --> pour le bien du projet *"Recruteur"* est disponible mais sur la version commerciale
 	elle ne sera pas disponible. Seulement un recruteur peu inviter un autre à ce poste.
-- Entrer vos information personnelles (attention aux erreurs 😆) et on ne cesse de le dire mais un bon mot de passe comporte des caractères spéciaux.
+- Entrer vos informations personnelles (attention aux erreurs 😆) et on ne cesse de le dire mais un bon mot de passe comporte des caractères spéciaux.
 	Pour le bien du projet rentrer votre vrai adresse mail (vous comprendrez plus tard) et de toute manière c'est blindé (caractere@caractere.caractere)
 
 
@@ -46,7 +46,7 @@ Pour commencer voilà un petit tuto pour bien utiliser cette nouvelle applicatio
 
 			Employeur 
 
-- Vous pouvez deposer une recherche sur les job que vous souhaitez. Par la suite vous pourrez payer pour un meilleur referencement de ce dernier
+- Vous pouvez deposer une recherche sur les jobs que vous souhaitez. Par la suite vous pourrez payer pour un meilleur referencement de ce dernier
 	Les plus fidèles auront des remises 😁
 - Vous pouvez rehercher les chandidats qui ont postulé à tous les jobs et vous vous verrez verser une commition à la magnifique Agence
 	qui vous permet de dégoté ce petit bijou de candidat.
@@ -55,9 +55,9 @@ Pour commencer voilà un petit tuto pour bien utiliser cette nouvelle applicatio
 
 			Recruteur 
 
-- Félicitation, vous avez presque tous les droits, vous pouvez consulter toute la listes des jobs, vous pouvez même décider d'en supprimer sans demander 
+- Félicitation, vous avez presque tous les droits, vous pouvez consulter toute la liste des jobs, vous pouvez même décider d'en supprimer sans demander 
 	l'avis des employeurs 😕
-- Vous pouvez aussi visualiser les jobs les plus populaires grâce aux nombres de candidtat qui s'y trouve.
+- Vous pouvez aussi visualiser les jobs les plus populaires grâce aux nombres de candidtat qui s'y trouvent.
 			
 			
 			Forget / Reset 
@@ -68,8 +68,7 @@ Vous vous rappelez quand je vous ai demandé de mettre votre vrai mot de passe ?
 
 
 
-**Voilà vous pouvez maintenant bénéficier de notre application simple, épuré et facile d'usage !
+**Voilà vous pouvez maintenant bénéficier de notre application simple, épurée et facile d'usage !
 De toute manière vous verrez c'est très intuitif 😎**
 
-
-
+PS : Vous pouvez lancer directement notre application avec le fichier **_*OOPJavaProject.jar*_**
