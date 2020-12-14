@@ -27,7 +27,7 @@ Pour commencer voilà un petit tuto pour bien utiliser cette nouvelle applicatio
 			Login 
 
 - Entrer votre mail et mot de passe pour vous connecter SINON vous pouvez vous inscrire avec "click here to create a new account"
-- Si jamais vous avez oublié votre mot de passe appuyez sur "Forgot ?"
+- Si jamais vous avez oublié votre mot de passe appuyez sur "Forgot ?" 
 
 
 			Inscription 
