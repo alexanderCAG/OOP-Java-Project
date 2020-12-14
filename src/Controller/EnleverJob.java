@@ -8,7 +8,7 @@ import java.awt.event.*;
 import java.sql.*;
 import java.util.logging.*;
 import javax.swing.*;
-
+/* Cette classe implemente un action listener. Elle se lance quand le bouton SUPPRIMER de la jframe RECRUTEUR est selectionne. Elle permet de supprimer un job*/
 
 public class EnleverJob implements ActionListener{
     private Recruteur r;

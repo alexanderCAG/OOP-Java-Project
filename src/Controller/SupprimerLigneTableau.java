@@ -9,7 +9,7 @@ import java.sql.*;
 import java.util.logging.*;
 import javax.swing.*;
 import javax.swing.table.*;
-
+/* Cette classe implemente un action listener. Elle se lance quand le bouton SUPPRIMER de la jframe JOB est selectionne. Elle permet aux candidats de supprimer l'une de ces demandes d'emploi en selectionnant au pralable une ligne du tableau. */
 
 public class SupprimerLigneTableau implements ActionListener{
     private Job j;

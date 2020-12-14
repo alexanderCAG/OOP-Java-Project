@@ -10,7 +10,7 @@ import java.io.*;
 import java.util.*;
 import java.util.logging.*;
 import javax.swing.*;
-
+/* Cette classe implemente un action listener. Elle se lance quand le bouton AJOUTER de la jframe EMPLOYEUR est selectionne. Elle permet d'ajouter un job*/
 
 public class PDF implements ActionListener{
     private Employeur e;

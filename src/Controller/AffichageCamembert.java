@@ -12,7 +12,8 @@ import javax.swing.*;
 import org.jfree.chart.*;
 import org.jfree.chart.plot.*;
 import org.jfree.data.general.*;
-
+/* Cette classe implemente un action listener. Elle se lance quand le bouton ANALYSER de la jframe RECRUTEUR est selectionne. Elle permet d'afficher un graphe qui indique le nombre de demande d'emploi de 
+chaque job*/
 
 public class AffichageCamembert implements ActionListener{
     private Recruteur r;
@@ -62,7 +63,7 @@ public class AffichageCamembert implements ActionListener{
             Connection conn=Connexion1();
         try{
             Statement stmt = conn.createStatement();
-            ResultSet rs = stmt.executeQuery("Select count(id) from demandeemploi where selectionne='' and metier='" + listJob[i] + "';");    //Compte le nombre de candidat par job
+            ResultSet rs = stmt.executeQuery("Select count(id) from demandeemploi where selectionne='' and metier='" + listJob[i] + "';");    //Compte le nombre de demande d'emploi par job qui n'ont pas ete selectionnes
             while(rs.next()){
             nombrepersonnejob[i]=rs.getInt(1);
         }

@@ -14,7 +14,7 @@ import java.awt.event.*;
 import java.sql.*;
 import java.util.logging.*;
 import javax.swing.*;
-
+/* Cette classe implemente un action listener. Elle se lance quand le bouton SECONNECTER de la jframe LOGIN est selectionne. Elle permet à l'utilisateur de se connecter sur sa page d'accueil*/
 
 public class SeConnecter implements ActionListener{
     private String user;

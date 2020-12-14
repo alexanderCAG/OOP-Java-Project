@@ -10,7 +10,7 @@ import java.sql.*;
 import java.util.logging.*;
 import javax.swing.*;
 import javax.swing.table.*;
-
+/* Cette classe implemente un action listener. Elle se lance quand le bouton VALIDE de la jframe JOB est selectionne. Elle permet de reactualiser le tableau qui affiche toutes les demandes d'emploi du candidat*/
 
 public class ListedemandeEmploi implements ActionListener{
     private Job j;

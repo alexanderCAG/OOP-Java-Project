@@ -5,7 +5,7 @@ package Controller;
 import Vue.Register;
 import java.awt.*;
 import java.awt.event.*;
-
+/* Cette classe implemente un action listener. Elle se lance quand le EMPLOYER de la jframe REGISTER est selectionne. Elle permet de changer l'affichage*/
 
 public class OptionEmployeur implements ActionListener{
     private Register r;

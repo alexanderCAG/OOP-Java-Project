@@ -8,6 +8,7 @@ import java.awt.event.*;
 import java.sql.*;
 import java.util.logging.*;
 import javax.swing.*;
+/* Cette classe implemente un action listener. Elle se lance quand le bouton AJOUTER de la jframe employeur est selectionne. Elle permet d'ajouter un job*/
 
 
 public class AjoutJobEmpl implements ActionListener {

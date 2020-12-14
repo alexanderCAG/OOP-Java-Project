@@ -15,6 +15,7 @@ import javax.swing.table.*;
  *
  * @author Geoffroy
  */
+/* Cette classe implemente un action listener. Elle se lance quand le bouton CHOIXDUCANDIDAT de la jframe EMPLOYEUR est selectionne. Cette acttion performed permet à l'employeur d'accepter une demande emploi en selectionnant au prealable une ligne du tableau*/
 public class SelectionCandidat implements ActionListener{
     private Employeur e;
     
@@ -44,7 +45,7 @@ public class SelectionCandidat implements ActionListener{
         
     }
     
-    /*Permet de faire la selection d'un candidat selon le job choisi*/
+    /*Permet de supprimer toutes les autres demandes d'emploi qu'a fait un candidat*/
     public void selection() throws SQLException{
         try{
             
@@ -64,7 +65,6 @@ public class SelectionCandidat implements ActionListener{
                 //la ligne est supprime dans la base de donnee
                 Statement stmt = conn.createStatement();
                 stmt.executeUpdate("DELETE from demandeemploi where `idcan`=" + idcan + " and `id`!=" + id + ";");
-                //stmt.executeUpdate("UPDATE `Company`.candidat SET `selection`=" + false + " WHERE `firstnamecan`='" + firstname + "'and lastnamecan='" + lastname + "';");
                 confirmationdemandeemploi();
                 conn.close();
             }catch (SQLException ex) {
@@ -76,6 +76,7 @@ public class SelectionCandidat implements ActionListener{
             Logger.getLogger(Job.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    /*Cette methode permet d'inserer à la demande d'emploi selectionne l'id de l'employeur qui l'a selectionné*/
     public void confirmationdemandeemploi() throws SQLException{
         int ligne = e.jTable1.getSelectedRow();
         String id = e.jTable1.getModel().getValueAt(ligne, 0).toString();
@@ -84,8 +85,7 @@ public class SelectionCandidat implements ActionListener{
             try{
                 //la ligne est supprime dans la base de donnee
                 Statement stmt = conn.createStatement();
-                stmt.executeUpdate("UPDATE `Company`.demandeemploi SET `selectionne`=" + e.e.getId() + " WHERE `id`=" + id + ";");
-                //stmt.executeUpdate("UPDATE `Company`.candidat SET `selection`=" + false + " WHERE `firstnamecan`='" + firstname + "'and lastnamecan='" + lastname + "';");
+                stmt.executeUpdate("UPDATE `Company`.demandeemploi SET `selectionne`=" + e.e.getId() + " WHERE `id`=" + id + ";");//
                 
                 conn.close();
             }catch (SQLException ex) {

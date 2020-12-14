@@ -9,7 +9,8 @@ import java.sql.*;
 import java.util.logging.*;
 import javax.swing.*;
 import javax.swing.table.*;
-
+/* Cette classe implemente un action listener. Elle se lance quand le bouton jButton3 de la jframe EMPLOYER est selectionne. Elle permet d'afficher les demandes d'emploi d'un 
+job*/
 
 public class AffichageDemandeEmploiJob implements ActionListener{
     private Employeur e;
