@@ -61,7 +61,7 @@ public class PDF implements ActionListener{
             titredoc.setAlignment(Element.ALIGN_CENTER);
             doc.add(titredoc);
             
-            com.itextpdf.text.Image image = com.itextpdf.text.Image.getInstance("src/oop/java/project/GUI/Image/playmobil.png");
+            com.itextpdf.text.Image image = com.itextpdf.text.Image.getInstance("src/Image/playmobil.png");
             image.scaleToFit(200,200);      //definir la taille de l'image
             image.setAlignment(Element.ALIGN_LEFT);
             doc.add(image);
@@ -76,26 +76,26 @@ public class PDF implements ActionListener{
             PdfPTable table = new PdfPTable(3);
             PdfPCell cell = new PdfPCell(new Paragraph("Liste des candidtas"));
             
-            cell.setColspan(3); //mettre nombre colonne
+            cell.setColspan(5); //mettre nombre colonne
             cell.setHorizontalAlignment(Element.ALIGN_CENTER);
             cell.setBackgroundColor(BaseColor.ORANGE);
             table.addCell(cell);
             
             table.addCell("Nom");
             table.addCell("Prenom");
-            table.addCell("Age");
+            table.addCell("Date de début");
             
             for(int i=0; i<e.jTable1.getRowCount();i++)     
             {
                 //recupere les valeurs du tableau
-                String Nom = e.jTable1.getValueAt(i, 0).toString();
-                String Prenom = e.jTable1.getValueAt(i, 1).toString();
-                String Age = e.jTable1.getValueAt(i, 2).toString();
+                String Nom = e.jTable1.getValueAt(i, 2).toString();
+                String Prenom = e.jTable1.getValueAt(i, 3).toString();
+                String Date = e.jTable1.getValueAt(i, 4).toString();
                 
                 //Les met dans le PDF
                 table.addCell(Nom);
                 table.addCell(Prenom);
-                table.addCell(Age);
+                table.addCell(Date);
                 
             }
             
@@ -132,7 +132,7 @@ public class PDF implements ActionListener{
             titredoc.setAlignment(Element.ALIGN_CENTER);
             docu.add(titredoc);
             
-            com.itextpdf.text.Image image = com.itextpdf.text.Image.getInstance("src/oop/java/project/GUI/Image/playmobil.png");
+            com.itextpdf.text.Image image = com.itextpdf.text.Image.getInstance("src/Image/playmobil.png");
             image.scaleToFit(200,200);      //definir la taille de l'image
             image.setAlignment(Element.ALIGN_LEFT);
             docu.add(image);
@@ -154,19 +154,19 @@ public class PDF implements ActionListener{
             
             table.addCell("Nom");
             table.addCell("Prenom");
-            table.addCell("Age");
+            table.addCell("Date de début");
             
             for(int i=0; i<e.jTable1.getRowCount();i++)
             {
                 //recupere les donnees du tableau
-                String Nom = e.jTable1.getValueAt(i, 0).toString();
-                String Prenom = e.jTable1.getValueAt(i, 1).toString();
-                String Age = e.jTable1.getValueAt(i, 2).toString();
+                String Nom = e.jTable1.getValueAt(i, 2).toString();
+                String Prenom = e.jTable1.getValueAt(i, 3).toString();
+                String Date = e.jTable1.getValueAt(i, 4).toString();
                 
                 //les met dans le PDF
                 table.addCell(Nom);
                 table.addCell(Prenom);
-                table.addCell(Age);
+                table.addCell(Date);
                 
             }
             

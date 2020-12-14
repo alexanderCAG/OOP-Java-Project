@@ -606,7 +606,7 @@ public class Register extends javax.swing.JFrame {
         Connection conn = Connexion1();
         try{
         Statement stmt = conn.createStatement();
-        stmt.executeUpdate("INSERT INTO `Company`.Candidat ( lastnamecan, firstnamecan, email, motdepasse, phone, selection ) VALUES ('" + lastname + "', '" + firstname + "', '" + email + "', '" + motdepasse + "', '" + phone + "', " + true + ");");
+        stmt.executeUpdate("INSERT INTO `Company`.Candidat ( lastnamecan, firstnamecan, email, motdepasse, phone ) VALUES ('" + lastname + "', '" + firstname + "', '" + email + "', '" + motdepasse + "', '" + phone + "');");
         
         conn.close();
         }catch (SQLException ex) {

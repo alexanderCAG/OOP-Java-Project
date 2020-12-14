@@ -55,10 +55,9 @@ public class ListedemandeEmploi implements ActionListener{
     public void BasededonneeDemandeEmploi() throws SQLException{
         
         Connection conn = Connexion1();
-        System.out.println("Base donnee");
         try{
         Statement stmt = conn.createStatement();
-        stmt.executeUpdate("INSERT INTO `Company`.DemandeEmploi ( idcan, metier, statut, datedebut ) VALUES ('" + c.getId() + "', '" + Metier + "', '" + Statut + "', '" + Date +"');");
+        stmt.executeUpdate("INSERT INTO `Company`.DemandeEmploi ( idcan, metier, statut, datedebut, selectionne) VALUES ('" + c.getId() + "', '" + Metier + "', '" + Statut + "', '" + Date + "', '');");
         
         conn.close();
         }catch (SQLException ex) {
