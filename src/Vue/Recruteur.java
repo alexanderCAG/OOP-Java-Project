@@ -304,7 +304,7 @@ public class Recruteur extends javax.swing.JFrame {
             
             r.setLastname(jTextField6.getText());
             r.setFirstname(jTextField7.getText());
-            
+            jLabel8.setText(r.getLastname() + " " + r.getFirstname());
             jPanel8.setVisible(false);
             
         }catch (SQLException ex) {

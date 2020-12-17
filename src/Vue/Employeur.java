@@ -514,7 +514,7 @@ public class Employeur extends javax.swing.JFrame {
             
             e.setLastname(jTextField6.getText());
             e.setFirstname(jTextField7.getText());
-            
+            jLabel8.setText(e.getLastname() + " " + e.getFirstname());
             jPanel8.setVisible(false);
             
         }catch (SQLException ex) {
